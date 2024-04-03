@@ -1,45 +1,50 @@
 'use client';
 
-// import clsx from 'clsx';
-import { useParams } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { ChangeEvent, ReactNode, useTransition } from 'react';
+
+import { SelectProps } from '@radix-ui/react-select';
+import { Select } from '@/components/ui/select';
 import { useRouter, usePathname } from '@/navigation';
 
 type Props = {
     children: ReactNode;
-    defaultValue: string;
-    label: string;
-};
+} & SelectProps;
 
-export default function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
-    const router = useRouter();
+export default function LocaleSwitcherSelect({ children, ...props }: Props) {
     const [isPending, startTransition] = useTransition();
+    const locale = useLocale();
+    const router = useRouter();
     const pathname = usePathname();
-    const params = useParams();
 
-    function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-        const nextLocale = event.target.value;
+    // function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
+    //     const nextLocale = event.target.value;
+    //     startTransition(() => {
+    //         router.replace(
+    //             // @ts-expect-error -- TypeScript will validate that only known `params`
+    //             // are used in combination with a given `pathname`. Since the two will
+    //             // always match for the current route, we can skip runtime checks.
+    //             pathname,
+    //             { locale: nextLocale }
+    //         );
+    //     });
+    // }
+
+    const onValueChange = (value: string) => {
         startTransition(() => {
             router.replace(
                 // @ts-expect-error -- TypeScript will validate that only known `params`
                 // are used in combination with a given `pathname`. Since the two will
                 // always match for the current route, we can skip runtime checks.
-                { pathname, params },
-                { locale: nextLocale }
+                pathname,
+                { locale: value }
             );
         });
-    }
+    };
 
     return (
-        <label>
-            <select
-                className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-                defaultValue={defaultValue}
-                disabled={isPending}
-                onChange={onSelectChange}
-            >
-                {children}
-            </select>
-        </label>
+        <Select value={locale} onValueChange={onValueChange} {...props}>
+            {children}
+        </Select>
     );
 }
