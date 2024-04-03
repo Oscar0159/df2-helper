@@ -22,117 +22,31 @@ import LocaleSwitcher from '@/components/locale-switcher';
 import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
 
-type NavItemProps = {
-    name: string;
-    slug: string;
-    description: string;
-};
-
-const navItems: { name: string; slug: string; icon?: JSX.Element; items: NavItemProps[] }[] = [
+const navItems: { key: string; slug: string; icon?: JSX.Element; }[] = [
     {
-        name: 'Information',
+        key: 'information',
         slug: '/information',
-        icon: <BookIcon size={20} />,
-        items: [
-            {
-                name: 'Basic Information',
-                slug: '/information/basic-information',
-                description: 'Home page',
-            },
-            {
-                name: 'Resource Links',
-                slug: '/information/resource-links',
-                description: 'Some useful links',
-            },
-        ],
+        icon: <BookIcon size={22} />,
     },
     {
-        name: 'Map & Mission',
+        key: 'map_and_mission',
         slug: '/map-mission',
-        icon: <MapIcon size={20} />,
-        items: [
-            {
-                name: 'DF2 Profiler (Map Drawer)',
-                slug: '/map-mission/df2-profiler',
-                description: 'Home page',
-            },
-            {
-                name: 'Side Missions',
-                slug: '/map-mission/side-missions',
-                description: 'About page',
-            },
-        ],
+        icon: <MapIcon size={22} />,
     },
     {
-        name: 'Puzzle',
+        key: 'puzzle',
         slug: '/puzzle',
-        icon: <PuzzleIcon size={20} />,
-        items: [
-            {
-                name: 'Letters | Digital | Morse',
-                slug: '/puzzle/letters',
-                description: 'About page',
-            },
-            {
-                name: 'Light Out',
-                slug: '/puzzle/light-out',
-                description: 'Home page',
-            },
-            {
-                name: 'Geometric Figures',
-                slug: '/puzzle/geometric-figures',
-                description: 'Contact page',
-            },
-        ],
+        icon: <PuzzleIcon size={22} />,
     },
     {
-        name: 'Blueprint',
+        key: 'blueprint',
         slug: '/blueprint',
-        icon: <DraftingCompassIcon size={20} />,
-        items: [
-            {
-                name: 'Stairway to Hell',
-                slug: '/blueprint/stairway-to-hell',
-                description: 'Home page',
-            },
-            {
-                name: "Ronin's Blade",
-                slug: '/blueprint/ronins-blade',
-                description: 'About page',
-            },
-            {
-                name: 'Gore Trimmer',
-                slug: '/blueprint/gore-trimmer',
-                description: 'Contact page',
-            },
-            {
-                name: 'Vicious Hoarder Backpack',
-                slug: '/blueprint/vicious-hoarder-backpack',
-                description: 'Contact page',
-            },
-            {
-                name: 'Call Of The Accursed',
-                slug: '/blueprint/call-of-the-accursed',
-                description: 'Contact page',
-            },
-            {
-                name: 'All Blueprint List',
-                slug: '/blueprint/all-blueprint-list',
-                description: 'Contact page',
-            },
-        ],
+        icon: <DraftingCompassIcon size={22} />,
     },
     {
-        name: 'Tool',
+        key: 'tool',
         slug: '/tool',
         icon: <WrenchIcon size={22} />,
-        items: [
-            {
-                name: 'Crosshair',
-                slug: '/tool/crosshair',
-                description: 'Home page',
-            },
-        ],
     },
 ];
 
@@ -145,7 +59,7 @@ export default function Navigation() {
         <>
             {/* desktop navigation */}
             <nav
-                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 border-b border-secondary p-5 pr-6 shadow-sm sm:flex xl:bottom-0 xl:z-auto xl:w-56 xl:flex-col xl:items-start xl:border-b-0 xl:border-r"
+                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
                 id="desktop-nav"
             >
                 <div className="flex w-full flex-col items-center gap-3">
@@ -161,19 +75,19 @@ export default function Navigation() {
                     {navItems.map((navItem) => (
                         <Button
                             asChild
-                            variant={pathname === navItem.slug ? 'secondary' : 'ghost'}
+                            variant={pathname.includes(navItem.slug) ? 'secondary' : 'ghost'}
                             key={navItem.slug}
                             className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4"
                         >
                             <Link href={navItem.slug}>
                                 {navItem.icon && navItem.icon}
-                                <span className="hidden xl:ml-3 xl:flex">{navItem.name}</span>
+                                <span className="hidden xl:ml-3 xl:flex">{t(navItem.key)}</span>
                             </Link>
                         </Button>
                     ))}
                 </div>
-                <div className="flex w-full justify-center">
-                    {/* <LocaleSwitcher /> */}
+                <div className="flex w-full flex-col justify-center gap-3">
+                    <LocaleSwitcher />
                     <ModeToggle className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4" />
                 </div>
             </nav>
@@ -193,7 +107,7 @@ export default function Navigation() {
                             {navItems.map((navItem) => (
                                 <Link href={navItem.slug} key={navItem.slug} className="flex items-center gap-2">
                                     {navItem.icon}
-                                    <span>{navItem.name}</span>
+                                    <span>{navItem.key}</span>
                                 </Link>
                             ))}
                         </div>
