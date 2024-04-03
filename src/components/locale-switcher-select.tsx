@@ -17,25 +17,9 @@ export default function LocaleSwitcherSelect({ children, ...props }: Props) {
     const router = useRouter();
     const pathname = usePathname();
 
-    // function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
-    //     const nextLocale = event.target.value;
-    //     startTransition(() => {
-    //         router.replace(
-    //             // @ts-expect-error -- TypeScript will validate that only known `params`
-    //             // are used in combination with a given `pathname`. Since the two will
-    //             // always match for the current route, we can skip runtime checks.
-    //             pathname,
-    //             { locale: nextLocale }
-    //         );
-    //     });
-    // }
-
     const onValueChange = (value: string) => {
         startTransition(() => {
             router.replace(
-                // @ts-expect-error -- TypeScript will validate that only known `params`
-                // are used in combination with a given `pathname`. Since the two will
-                // always match for the current route, we can skip runtime checks.
                 pathname,
                 { locale: value }
             );
