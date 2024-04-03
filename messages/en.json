@@ -5,7 +5,16 @@
     },
     "Navigation": {
         "title": "DF2 Helper",
-        "title_short": "DH"
+        "title_short": "DH",
+        "information": "Information",
+        "map_and_mission": "Map & Mission",
+        "puzzle": "Puzzle",
+        "blueprint": "Blueprint",
+        "tool": "Tool"
+    },
+    "ModeToggle": {
+        "light": "Light Mode",
+        "dark": "Dark Mode"
     },
     "HomePage": {
         "title": "Hello world!"

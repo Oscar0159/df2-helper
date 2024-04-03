@@ -5,7 +5,16 @@
     },
     "Navigation": {
         "title": "死亡邊境2 工具",
-        "title_short": "DH"
+        "title_short": "DH",
+        "information": "基礎資訊",
+        "map_and_mission": "地圖和任務",
+        "puzzle": "寶箱謎題",
+        "blueprint": "藍圖(製作圖)",
+        "tool": "實用工具"
+    },
+    "ModeToggle": {
+        "light": "明亮主題",
+        "dark": "暗黑主題"
     },
     "HomePage": {
         "title": "哈囉"
