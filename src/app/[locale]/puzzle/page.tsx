@@ -2,10 +2,15 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/navigation';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+type Props = {
+    params: { locale: string };
+};
 
 type PuzzleItem = {
     title: string;
@@ -23,7 +28,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function Puzzle() {
+export default function Puzzle({ params: { locale } }: Props) {
+    // Enable static rendering
+    unstable_setRequestLocale(locale);
+    
     const t = useTranslations('PuzzlePage');
 
     const puzzleItems: PuzzleItem[] = [
