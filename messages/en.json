@@ -23,6 +23,14 @@
         "title": "Home",
         "description": "Welcome to Dead Frontier 2 Helper. This website provides some useful tools to help you with the problems you encounter in the game."
     },
+    "InformationPage": {
+        "title": "Information",
+        "description": "The information page provides some useful information about the game Dead Frontier 2. You can use it to learn more about the game."
+    },
+    "MapMissionPage": {
+        "title": "Map & Mission",
+        "description": "The map & mission page provides some useful information about the map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+    },
     "PuzzlePage": {
         "title": "Puzzle",
         "description": "The puzzle page provides some puzzle games solvers. You can use them to solve the puzzles in the game.",
@@ -46,5 +54,13 @@
             "title": "Sliding",
             "description": "Solve the puzzle by sliding the figures."
         }
+    },
+    "BlueprintPage": {
+        "title": "Blueprint",
+        "description": "The blueprint page provides some useful information about the blueprint in the game Dead Frontier 2. You can use it to find the blueprint you need to craft the item."
+    },
+    "ToolPage": {
+        "title": "Tool",
+        "description": "The tool page provides some useful tools to help you with the problems you encounter in the game Dead Frontier 2. You can use them to make your game easier."
     }
 }

@@ -23,6 +23,14 @@
         "title": "首頁",
         "description": "歡迎來到死亡邊境2工具。這個網站提供了一些有用的工具，幫助你在遊戲中遇到的問題。"
     },
+    "InformationPage": {
+        "title": "基礎資訊",
+        "description": "基礎資訊頁面提供了一些有用的信息，幫助你更好地了解遊戲。"
+    },
+    "MapMissionPage": {
+        "title": "地圖和任務",
+        "description": "地圖和任務頁面提供了一些有用的地圖和任務訊息。"
+    },
     "PuzzlePage": {
         "title": "寶箱謎題",
         "description": "寶箱謎題頁面提供了一些謎題遊戲解答器。你可以使用它們來解決遊戲中的謎題。",
@@ -46,5 +54,13 @@
             "title": "滑塊拼圖",
             "description": "通過移動滑塊來解決滑塊拼圖。"
         }
+    },
+    "BlueprintPage": {
+        "title": "藍圖(製作圖)",
+        "description": "藍圖(製作圖)頁面提供了一些有用的藍圖訊息。"
+    },
+    "ToolPage": {
+        "title": "實用工具",
+        "description": "實用工具頁面提供了一些有用的工具，幫助你在遊戲中更好地管理你的角色。"
     }
 }
