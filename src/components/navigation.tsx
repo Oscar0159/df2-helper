@@ -1,71 +1,65 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { MenuIcon } from 'lucide-react';
-import { BookIcon, MapIcon, PuzzleIcon, DraftingCompassIcon, WrenchIcon } from 'lucide-react';
+import { BookIcon, MapIcon, PuzzleIcon, DraftingCompassIcon, WrenchIcon, XIcon } from 'lucide-react';
 
 import { usePathname } from '@/navigation';
 import { Button } from '@/components/ui/button';
-import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from '@/components/ui/sheet';
 
 const ModeToggle = dynamic(() => import('@/components/mode-toggle'));
 import LocaleSwitcher from '@/components/locale-switcher';
 import { Link } from '@/navigation';
-import { useTranslations } from 'next-intl';
-
-const navItems: { key: string; slug: string; icon?: JSX.Element; }[] = [
-    {
-        key: 'information',
-        slug: '/information',
-        icon: <BookIcon size={22} />,
-    },
-    {
-        key: 'map_and_mission',
-        slug: '/map-mission',
-        icon: <MapIcon size={22} />,
-    },
-    {
-        key: 'puzzle',
-        slug: '/puzzle',
-        icon: <PuzzleIcon size={22} />,
-    },
-    {
-        key: 'blueprint',
-        slug: '/blueprint',
-        icon: <DraftingCompassIcon size={22} />,
-    },
-    {
-        key: 'tool',
-        slug: '/tool',
-        icon: <WrenchIcon size={22} />,
-    },
-];
+import { cn } from '@/lib/utils';
 
 export default function Navigation() {
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
+
     const pathname = usePathname();
 
     const t = useTranslations('Navigation');
+
+    const navItems: { name: string; slug: string; icon?: JSX.Element }[] = [
+        {
+            name: t('information'),
+            slug: '/information',
+            icon: <BookIcon size={22} />,
+        },
+        {
+            name: t('map_mission'),
+            slug: '/map-mission',
+            icon: <MapIcon size={22} />,
+        },
+        {
+            name: t('puzzle'),
+            slug: '/puzzle',
+            icon: <PuzzleIcon size={22} />,
+        },
+        {
+            name: t('blueprint'),
+            slug: '/blueprint',
+            icon: <DraftingCompassIcon size={22} />,
+        },
+        {
+            name: t('tool'),
+            slug: '/tool',
+            icon: <WrenchIcon size={22} />,
+        },
+    ];
 
     return (
         <>
             {/* desktop navigation */}
             <nav
-                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
+                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 overflow-y-auto p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
                 id="desktop-nav"
             >
                 <div className="flex w-full flex-col items-center gap-3">
                     <Link
                         href="/"
-                        className="hidden h-14 w-full items-center pl-3  text-lg font-medium tracking-wide xl:flex"
+                        className="hidden h-14 w-full items-center pl-3 text-lg font-medium tracking-wide xl:flex"
                     >
                         {t('title')}
                     </Link>
@@ -81,7 +75,7 @@ export default function Navigation() {
                         >
                             <Link href={navItem.slug}>
                                 {navItem.icon && navItem.icon}
-                                <span className="hidden xl:ml-3 xl:flex">{t(navItem.key)}</span>
+                                <span className="hidden xl:ml-3 xl:flex">{navItem.name}</span>
                             </Link>
                         </Button>
                     ))}
@@ -93,26 +87,60 @@ export default function Navigation() {
             </nav>
 
             {/* mobile navigation */}
-            <nav
-                className="fixed bottom-0 z-[99] flex w-full justify-center gap-4 bg-background p-5 sm:hidden"
-                id="mobile-nav"
-            >
-                <Sheet>
-                    <SheetTrigger className="flex flex-col items-center">
-                        <MenuIcon size={24} className="shrink-0" />
-                        <small>menu</small>
-                    </SheetTrigger>
-                    <SheetContent side="bottom" className="pb-24">
-                        <div className="flex flex-col gap-6">
-                            {navItems.map((navItem) => (
-                                <Link href={navItem.slug} key={navItem.slug} className="flex items-center gap-2">
-                                    {navItem.icon}
-                                    <span>{navItem.key}</span>
-                                </Link>
-                            ))}
+            <nav className="sm:hidden">
+                <div
+                    className={cn('fixed inset-0 z-10 bg-background/70', !isSheetOpen && 'hidden')}
+                    id="mobile-nav-overlay"
+                    onClick={() => setIsSheetOpen(false)}
+                ></div>
+                <div className="fixed bottom-0 z-20 flex w-full flex-col justify-end">
+                    <div
+                        className={cn(
+                            ' w-full flex-col gap-7 bg-background px-6 py-3 transition-opacity duration-300 ease-in-out',
+                            isSheetOpen ? 'flex opacity-100' : 'fixed translate-x-full opacity-50'
+                        )}
+                    >
+                        <Link href="/" className="text-lg font-medium" onClick={() => setIsSheetOpen(false)}>
+                            <span>{t('title')}</span>
+                        </Link>
+                        {navItems.map((navItem) => (
+                            <Link
+                                href={navItem.slug}
+                                key={navItem.slug}
+                                className="flex items-center gap-2"
+                                onClick={() => setIsSheetOpen(false)}
+                            >
+                                {navItem.icon}
+                                <span>{navItem.name}</span>
+                            </Link>
+                        ))}
+                    </div>
+                    <div
+                        className="flex w-full justify-between gap-4 bg-gradient-to-t from-background from-50% to-background/70 px-10 py-3"
+                        id="mobile-nav"
+                    >
+                        <div className="flex flex-col items-center" onClick={() => setIsSheetOpen((prev) => !prev)}>
+                            <Button
+                                variant="ghost"
+                                className="pointer-events-none aspect-square w-10 rounded-full p-2 font-semibold"
+                            >
+                                <XIcon className={cn('shrink-0', !isSheetOpen ? 'hidden' : 'block')} />
+                                <MenuIcon className={cn('shrink-0', isSheetOpen ? 'hidden' : 'block')} />
+                            </Button>
+                            <small>{t('menu')}</small>
                         </div>
-                    </SheetContent>
-                </Sheet>
+
+                        <div className="flex flex-col items-center">
+                            <LocaleSwitcher />
+                            <small>{t('locale')}</small>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <ModeToggle className="aspect-square w-10 rounded-full p-2" />
+                            <small>{t('theme')}</small>
+                        </div>
+                    </div>
+                </div>
             </nav>
         </>
     );
