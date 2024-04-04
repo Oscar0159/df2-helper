@@ -71,6 +71,6 @@
         @apply border-border;
     }
     body {
-        @apply min-h-screen overflow-x-hidden overflow-y-hidden bg-background text-foreground;
+        @apply min-h-screen overflow-x-hidden bg-background text-foreground;
     }
 }
