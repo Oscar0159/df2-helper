@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { Link } from '@/navigation';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
@@ -11,6 +13,15 @@ type PuzzleItem = {
     href: string;
     image?: string;
 };
+
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+    const t = await getTranslations({ locale, namespace: 'PuzzlePage' });
+
+    return {
+        title: t('title'),
+        description: t('description'),
+    };
+}
 
 export default function Puzzle() {
     const t = useTranslations('PuzzlePage');
