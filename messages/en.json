@@ -7,16 +7,44 @@
         "title": "DF2 Helper",
         "title_short": "DH",
         "information": "Information",
-        "map_and_mission": "Map & Mission",
+        "map_mission": "Map & Mission",
         "puzzle": "Puzzle",
         "blueprint": "Blueprint",
-        "tool": "Tool"
+        "tool": "Tool",
+        "menu": "Menu",
+        "locale": "Locale",
+        "theme": "Theme"
     },
     "ModeToggle": {
         "light": "Light Mode",
         "dark": "Dark Mode"
     },
     "HomePage": {
-        "title": "Hello world!"
+        "title": "Home",
+        "description": "Welcome to Dead Frontier 2 Helper. This website provides some useful tools to help you with the problems you encounter in the game."
+    },
+    "PuzzlePage": {
+        "title": "Puzzle",
+        "description": "The puzzle page provides some puzzle games solvers. You can use them to solve the puzzles in the game.",
+        "binary": {
+            "title": "Binary",
+            "description": "Convert the binary code to the correct number."
+        },
+        "letters": {
+            "title": "Letters",
+            "description": "Convert the number to the correct letter."
+        },
+        "morse": {
+            "title": "Morse Code",
+            "description": "Convert the morse code to the correct number or letter."
+        },
+        "light-out": {
+            "title": "Light Out",
+            "description": "Solve the puzzle by turning on all the lights."
+        },
+        "sliding": {
+            "title": "Sliding",
+            "description": "Solve the puzzle by sliding the figures."
+        }
     }
 }

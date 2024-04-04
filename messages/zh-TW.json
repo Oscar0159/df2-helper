@@ -7,16 +7,44 @@
         "title": "死亡邊境2 工具",
         "title_short": "DH",
         "information": "基礎資訊",
-        "map_and_mission": "地圖和任務",
+        "map_mission": "地圖和任務",
         "puzzle": "寶箱謎題",
         "blueprint": "藍圖(製作圖)",
-        "tool": "實用工具"
+        "tool": "實用工具",
+        "menu": "菜單",
+        "locale": "語言",
+        "theme": "主題"
     },
     "ModeToggle": {
         "light": "明亮主題",
         "dark": "暗黑主題"
     },
     "HomePage": {
-        "title": "哈囉"
+        "title": "首頁",
+        "description": "歡迎來到死亡邊境2工具。這個網站提供了一些有用的工具，幫助你在遊戲中遇到的問題。"
+    },
+    "PuzzlePage": {
+        "title": "寶箱謎題",
+        "description": "寶箱謎題頁面提供了一些謎題遊戲解答器。你可以使用它們來解決遊戲中的謎題。",
+        "binary": {
+            "title": "二進制",
+            "description": "將二進制數字轉換為正確的數字。"
+        },
+        "letters": {
+            "title": "字母",
+            "description": "將數字轉換為正確的字母。"
+        },
+        "morse": {
+            "title": "摩斯密碼",
+            "description": "將摩斯密碼轉換為正確的數字或字母。"
+        },
+        "light-out": {
+            "title": "熄燈遊戲",
+            "description": "通過點擊燈泡來解決熄燈遊戲。"
+        },
+        "sliding": {
+            "title": "滑塊拼圖",
+            "description": "通過移動滑塊來解決滑塊拼圖。"
+        }
     }
 }
