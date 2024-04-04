@@ -17,12 +17,9 @@ export default function ModeToggle({ className }: Props) {
     const t = useTranslations('ModeToggle');
 
     return (
-        <Button
-            variant="ghost"
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className={cn('', className)}
-        >
-            {theme === 'light' ? <SunIcon size={22} /> : <MoonIcon size={22} />}
+        <Button variant="ghost" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className={cn('font-semibold', className)}>
+            <SunIcon size={22} className="dark:hidden" />
+            <MoonIcon size={22} className="hidden dark:block" />
             <p className="ml-3 hidden xl:flex">{theme === 'light' ? t('light') : t('dark')}</p>
         </Button>
     );
