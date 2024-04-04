@@ -72,6 +72,30 @@ const config = {
             fontFamily: {
                 sans: ['var(--font-sans)', ...fontFamily.sans],
             },
+            gridColumn: {
+                'span-13': 'span 13 / span 13',
+            },
+            gridRow: {
+                'span-13': 'span 13 / span 13',
+            },
+            gridColumnStart: {
+                '13': '13',
+            },
+            gridRowStart: {
+                '13': '13',
+            },
+            gridColumnEnd: {
+                '13': '13',
+            },
+            gridRowEnd: {
+                '13': '13',
+            },
+            gridTemplateColumns: {
+                '13': 'repeat(13, minmax(0, 1fr))',
+            },
+            gridTemplateRows: {
+                '13': 'repeat(13, minmax(0, 1fr))',
+            },
         },
     },
     plugins: [animatePlugin],
