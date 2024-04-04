@@ -61,7 +61,7 @@ export default function Morse() {
     return (
         <div className="flex flex-col">
             <div className="flex flex-col items-center p-5">
-                <div className="w-full lg:px-24">
+                <div className="w-full sm:px-12 xl:px-24">
                     <Label className="text-xl">Morse Code</Label>
                     <Input
                         size={60}
@@ -72,28 +72,28 @@ export default function Morse() {
                     />
                 </div>
                 <ArrowLeftRightIcon size={40} className="mt-7 rotate-90" />
-                <div className="p-3 text-7xl lg:text-9xl">{chars.join(' ')}</div>
+                <div className="p-3 text-7xl sm:text-9xl">{chars.join(' ')}</div>
             </div>
 
             <div className="flex flex-col items-center xl:flex-row xl:justify-center">
-                <div className="grid grid-flow-col grid-rows-5 place-items-center gap-x-12 gap-y-4 p-6 pt-2 text-2xl lg:pt-10">
+                <div className="grid grid-flow-col grid-rows-5 place-items-center gap-x-12 gap-y-4 p-6 pt-2 sm:text-2xl xl:pt-10">
                     {Object.entries(numberMorsetMap).map(([char, morse]) => (
                         <div key={char} className="grid grid-cols-5 place-items-center gap-2">
                             <span>{char}</span>
                             <ArrowRightIcon size={20} className="w-10" />
-                            <span className="col-span-3 text-lg">
+                            <span className="col-span-3 text-xs sm:text-2xl">
                                 {morse.replace(/\-/g, '━').replace(/\./g, '•').split('').join(' ')}
                             </span>
                         </div>
                     ))}
                 </div>
 
-                <div className="grid-rows-13 grid grid-flow-col place-items-center gap-x-12 gap-y-4 p-6 pt-2 text-2xl lg:grid-rows-9 lg:pt-10">
+                <div className="grid-rows-13 grid grid-flow-col place-items-center gap-x-12 gap-y-4 p-6 pt-2 sm:grid-rows-9 sm:text-2xl xl:grid-rows-9 xl:pt-10">
                     {Object.entries(LetterMorseMap).map(([char, morse]) => (
                         <div key={char} className="grid grid-cols-5 place-items-center gap-2">
                             <span>{char}</span>
                             <ArrowRightIcon size={20} className="w-10" />
-                            <span className="col-span-3 text-lg">
+                            <span className="col-span-3 text-xs sm:text-2xl">
                                 {morse.replace(/\-/g, '━').replace(/\./g, '•').split('').join(' ')}
                             </span>
                         </div>
