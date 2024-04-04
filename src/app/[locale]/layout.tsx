@@ -26,8 +26,10 @@ export async function generateMetadata({ params: { locale } }: Omit<Props, 'chil
     const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
     return {
-        template: `%s | ${t('title')}`,
-        default: t('title'),
+        title: {
+            template: `%s | ${t('title')}`,
+            default: t('title'),
+        },
     };
 }
 
