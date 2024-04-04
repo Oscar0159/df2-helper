@@ -26,7 +26,8 @@ export async function generateMetadata({ params: { locale } }: Omit<Props, 'chil
     const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
     return {
-        title: t('title'),
+        template: `%s | ${t('title')}`,
+        default: t('title'),
     };
 }
 
@@ -41,7 +42,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
             <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
                 <ThemeProvider attribute="class" defaultTheme="light">
                     <NextIntlClientProvider messages={messages} locale={locale}>
-                        <div className="flex min-h-screen">
+                        <div className="flex flex-1">
                             <Navigation />
                             {children}
                         </div>
