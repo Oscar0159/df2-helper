@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { MenuIcon } from 'lucide-react';
-import { BookIcon, MapIcon, PuzzleIcon, DraftingCompassIcon, WrenchIcon, XIcon } from 'lucide-react';
+import { BookIcon, MapIcon, PuzzleIcon, DraftingCompassIcon, WrenchIcon, LinkIcon, XIcon } from 'lucide-react';
 
 import { usePathname } from '@/navigation';
 import { Button } from '@/components/ui/button';
@@ -28,7 +28,7 @@ export default function Navigation() {
             icon: <BookIcon size={22} />,
         },
         {
-            name: t('map_mission'),
+            name: t('map-mission'),
             slug: '/map-mission',
             icon: <MapIcon size={22} />,
         },
@@ -46,6 +46,11 @@ export default function Navigation() {
             name: t('tool'),
             slug: '/tool',
             icon: <WrenchIcon size={22} />,
+        },
+        {
+            name: t('resource-link'),
+            slug: '/resource-link',
+            icon: <LinkIcon size={22} />,
         },
     ];
 

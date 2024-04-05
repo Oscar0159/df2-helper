@@ -70,7 +70,7 @@ export default function LightOut() {
     };
 
     return (
-        <main className="w-full pt-10">
+        <>
             <div className="flex flex-col items-center gap-1">
                 <div className="grid w-full grid-cols-7 place-items-center p-5 lg:grid-cols-7">
                     <Button
@@ -170,6 +170,6 @@ export default function LightOut() {
                     </div>
                 </div>
             </div>
-        </main>
+        </>
     );
 }

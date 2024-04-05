@@ -13,7 +13,7 @@ import { usePathname, Link } from '@/navigation';
 
 type Props = {
     className?: string;
-}
+};
 
 export default function BreadcrumbNav({ className }: Props) {
     const pathname = usePathname();
@@ -35,7 +35,6 @@ export default function BreadcrumbNav({ className }: Props) {
                             <BreadcrumbLink asChild>
                                 <Link href={`/${paths.slice(0, index + 1).join('/')}`}>{path}</Link>
                             </BreadcrumbLink>
-                            {index < paths.length - 1 && <BreadcrumbSeparator />}
                         </BreadcrumbItem>
                     </>
                 ))}

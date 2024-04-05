@@ -49,10 +49,15 @@ export default function Home({ params: { locale } }: Props) {
             description: t('ToolPage.description'),
             href: '/tool',
         },
+        {
+            title: t('ResourceLinkPage.title'),
+            description: t('ResourceLinkPage.description'),
+            href: '/resource-link',
+        },
     ];
 
     return (
-        <main className="w-full p-5 pb-24 sm:pb-5 sm:pt-8">
+        <>
             <h1 className="text-2xl font-bold">{t('HomePage.title')}</h1>
             <BreadcrumbNav className="mt-2" />
             <p className="mt-2">{t('HomePage.description')}</p>
@@ -60,7 +65,7 @@ export default function Home({ params: { locale } }: Props) {
             <section className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {navigationItems.map(({ title, description, href, image }) => (
                     <Link key={title} href={href}>
-                        <Card>
+                        <Card className="transition-all duration-300 hover:bg-secondary">
                             <CardHeader>
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
@@ -70,6 +75,6 @@ export default function Home({ params: { locale } }: Props) {
                     </Link>
                 ))}
             </section>
-        </main>
+        </>
     );
 }

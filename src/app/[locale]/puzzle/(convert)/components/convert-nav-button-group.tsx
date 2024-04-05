@@ -9,18 +9,18 @@ import { Button } from '@/components/ui/button';
 const ConvertNavButtonGroup = ({ className }: Readonly<{ className?: string }>) => {
     const pathname = usePathname();
 
-    const t = useTranslations('PuzzlePage');
+    const t = useTranslations();
 
     return (
         <div className={cn('flex justify-center gap-5', className)}>
             <Button variant={pathname.includes('/puzzle/letters') ? 'default' : 'ghost'} asChild>
-                <Link href="/puzzle/letters">{t("letters.title")}</Link>
+                <Link href="/puzzle/letters">{t("LettersPage.title")}</Link>
             </Button>
             <Button variant={pathname.includes('/puzzle/binary') ? 'default' : 'ghost'} asChild>
-                <Link href="/puzzle/binary">{t("binary.title")}</Link>
+                <Link href="/puzzle/binary">{t("BinaryPage.title")}</Link>
             </Button>
             <Button variant={pathname.includes('/puzzle/morse') ? 'default' : 'ghost'} asChild>
-                <Link href="/puzzle/morse">{t("morse.title")}</Link>
+                <Link href="/puzzle/morse">{t("MorsePage.title")}</Link>
             </Button>
         </div>
     );
