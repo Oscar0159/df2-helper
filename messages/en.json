@@ -1,0 +1,147 @@
+{
+    "LocaleLayout": {
+        "title": "Dead Frontier 2 Helper",
+        "description": "Dead Frontier 2 Helper is a website that provides information about the game Dead Frontier 2. It is a work in progress and will be updated regularly."
+    },
+
+    "Navigation": {
+        "title": "DF2 Helper",
+        "title_short": "DH",
+        "information": "Information",
+        "map-mission": "Map & Mission",
+        "puzzle": "Puzzle",
+        "blueprint": "Blueprint",
+        "tool": "Tool",
+        "resource-link": "Resource Link",
+        "menu": "Menu",
+        "locale": "Locale",
+        "theme": "Theme"
+    },
+
+    "ModeToggle": {
+        "light": "Light Mode",
+        "dark": "Dark Mode"
+    },
+
+    "HomePage": {
+        "title": "Home",
+        "description": "Welcome to Dead Frontier 2 Helper. This website provides some useful tools to help you with the problems you encounter in the game."
+    },
+
+    "InformationPage": {
+        "title": "Information",
+        "description": "The information page provides some useful information about the game Dead Frontier 2. You can use it to learn more about the game.",
+        "when-to-reset": {
+            "title": "Reset time of the boss, loot, and mission",
+            "content": "Every day at 9:00 AM (UTC+0), but occasionally there will be slight changes due to daylight saving time, the mission needs to be reported before refreshing."
+        },
+        "what-is-red-building": {
+            "title": "What is the red building (COMER/PCA/HOSPITAL)?",
+            "content": "The red building is a special building with special BUFFs, which is relatively difficult compared to other buildings, it is recommended to team up."
+        },
+        "what-is-oa": {
+            "title": "What is OA(Outpost Attack)?",
+            "content": "Zombies will attack the safe zone at 2, 6, 10 AM/PM (UTC+0), if you help defend, you can get BUFF, you will know the location of OA when the time comes."
+        },
+        "what-is-hr-sm": {
+            "title": "What is HR(Human Remains)/SM(Seeker Mission)?",
+            "content": "Both are daily missions in the game, completing them can get extra experience, it is a good way to level up, you can use DF2Profiler to find the location of the mission, but the actual location needs to be found by the player in the building, or wait for the good-hearted people to share the location in the official DC."
+        },
+        "any-place-increase-chance": {
+            "title": "Any place to increase the chance of searching?",
+            "content": "Police Station increases the chance of ammunition and weapon, Hospital and Care Center increase the chance of medical supplies, Store increases the chance of food and drink, Factory increases the chance of car parts and gasoline, you can find the location of various types of buildings on DF2Profiler."
+        },
+        "increase-health-in-multiplayer": {
+            "title": "Increase health in multiplayer",
+            "content": "8 players increase 40% health, 16 players increase 100% health."
+        },
+        "about-speed": {
+            "title": "About speed",
+            "content": "Jogging is simply moving with WASD, sprinting is moving with Shift held down, walking includes aiming, reloading, and healing with Q, sneaking is moving with Ctrl held down, the movement speed is the same for all speeds, that is, 1% movement speed = 1% jogging speed + 1% sprinting speed + 1% walking speed + 1% sneaking speed."
+        }
+    },
+
+    "MapMissionPage": {
+        "title": "Map & Mission",
+        "description": "The map & mission page provides some useful information about the map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+    },
+    "DF2ProfilerPage": {
+        "title": "DF2 Profiler",
+        "description": "According to the data of DF2 Profiler, display and draw the information on the map."
+    },
+    "SideMissionsPage": {
+        "title": "Side Mission",
+        "description": "Side missions are optional missions that you can complete to earn extra rewards. You can use this page to find the location of the side mission you need to complete."
+    },
+
+    "PuzzlePage": {
+        "title": "Puzzle",
+        "description": "The puzzle page provides some puzzle games solvers. You can use them to solve the puzzles in the game."
+    },
+    "BinaryPage": {
+        "title": "Binary",
+        "description": "Convert the binary code to the correct number."
+    },
+    "LettersPage": {
+        "title": "Letters",
+        "description": "Convert the number to the correct letter."
+    },
+    "MorsePage": {
+        "title": "Morse Code",
+        "description": "Convert the morse code to the correct number or letter."
+    },
+    "LightOutPage": {
+        "title": "Light Out",
+        "description": "Solve the puzzle by turning on all the lights."
+    },
+    "SlidingPage": {
+        "title": "Sliding",
+        "description": "Solve the puzzle by sliding the figures."
+    },
+
+    "BlueprintPage": {
+        "title": "Blueprint",
+        "description": "The blueprint page provides some useful information about the blueprint in the game Dead Frontier 2. You can use it to find the blueprint you need to craft the item."
+    },
+    "RoninsBladePage": {
+        "title": "Ronin's Blade",
+        "description": "Pistol"
+    },
+    "StairwayToHellPage": {
+        "title": "Stairway to Hell",
+        "description": "Rifle"
+    },
+    "GoreTrimmerPage": {
+        "title": "Gore Trimmer",
+        "description": "Chainsaw"
+    },
+    "ViciousHoarderBackpackPage": {
+        "title": "Vicious Hoarder Backpack",
+        "description": "Backpack"
+    },
+    "CallOfTheAccursedPage": {
+        "title": "Call of the Accursed",
+        "description": "Melee"
+    },
+    "AllBlueprintListPage": {
+        "title": "All Blueprint List",
+        "description": "All blueprints in the game Dead Frontier 2."
+    },
+
+    "ToolPage": {
+        "title": "Tool",
+        "description": "The tool page provides some useful tools to help you have a better gaming experience."
+    },
+    "CrosshairPage": {
+        "title": "Crosshair",
+        "description": "A third-party crosshair overlay to help you aim better in the game."
+    },
+
+    "ResourceLinkPage": {
+        "title": "Resource Link",
+        "description": "The resource link page provides some useful resources about the game Dead Frontier 2. You can use them to find more information about the game.",
+        "df2profiler": {
+            "description": "DF2 Profiler is a website that provides information of map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+        }
+    }
+}
