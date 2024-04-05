@@ -13,6 +13,9 @@
         "blueprint": "Blueprint",
         "tool": "Tool",
         "resource-link": "Resource Link",
+        "issue": "Issue",
+        "github": "GitHub",
+        "collapse": "Collapse",
         "menu": "Menu",
         "locale": "Locale",
         "theme": "Theme"
@@ -71,7 +74,7 @@
     },
     "SideMissionsPage": {
         "title": "Side Mission",
-        "description": "Side missions are optional missions that you can complete to earn extra rewards. You can use this page to find the location of the side mission you need to complete."
+        "description": "Side missions are optional missions that you can complete to earn extra rewards."
     },
 
     "PuzzlePage": {
@@ -88,7 +91,7 @@
     },
     "MorsePage": {
         "title": "Morse Code",
-        "description": "Convert the morse code to the correct number or letter."
+        "description": "Convert the morse code to the correct value."
     },
     "LightOutPage": {
         "title": "Light Out",

@@ -13,6 +13,9 @@
         "blueprint": "藍圖",
         "tool": "實用工具",
         "resource-link": "資源連結",
+        "issue": "問題 | 建議",
+        "github": "GitHub",
+        "collapse": "摺疊",
         "menu": "菜單",
         "locale": "語言",
         "theme": "主題"
@@ -30,7 +33,7 @@
 
     "InformationPage": {
         "title": "基礎資訊",
-        "description": "基礎資訊頁面提供了一些有用的信息，幫助你更好地了解遊戲。",
+        "description": "基礎資訊頁面提供了一些有用的訊息，幫助你更好地了解遊戲。",
         "when-to-reset": {
             "title": "BOSS、搜索地點、任務重置時間",
             "content": "每天的下午5點(UTC+8)，但偶而會因為夏令時間而有些微變動，任務需要再刷新前回報完畢。"
