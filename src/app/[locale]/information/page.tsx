@@ -74,7 +74,7 @@ export default function Information({ params: { locale } }: Props) {
                     {informationItems.map((item, index) => (
                         <AccordionItem key={index} value={item.title}>
                             <AccordionTrigger>
-                                <h2 className="text-lg font-semibold">{item.title}</h2>
+                                <h2 className="text-lg font-semibold text-left">{item.title}</h2>
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p>{item.content}</p>
