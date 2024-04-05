@@ -1,6 +1,6 @@
 {
     "name": "df2-helper",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
@@ -10,6 +10,9 @@
         "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\""
     },
     "dependencies": {
+        "@lottiefiles/react-lottie-player": "^3.5.3",
+        "@radix-ui/react-accordion": "^1.1.2",
+        "@radix-ui/react-aspect-ratio": "^1.0.3",
         "@radix-ui/react-collapsible": "^1.0.3",
         "@radix-ui/react-dialog": "^1.0.5",
         "@radix-ui/react-label": "^2.0.2",
