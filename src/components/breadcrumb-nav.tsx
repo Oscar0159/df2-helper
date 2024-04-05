@@ -1,4 +1,5 @@
 'use client';
+import { Fragment } from 'react';
 
 import {
     Breadcrumb,
@@ -29,14 +30,14 @@ export default function BreadcrumbNav({ className }: Props) {
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 {paths.map((path, index) => (
-                    <>
+                    <Fragment key={path}>
                         <BreadcrumbSeparator />
-                        <BreadcrumbItem key={path}>
+                        <BreadcrumbItem>
                             <BreadcrumbLink asChild>
                                 <Link href={`/${paths.slice(0, index + 1).join('/')}`}>{path}</Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
-                    </>
+                    </Fragment>
                 ))}
             </BreadcrumbList>
         </Breadcrumb>
