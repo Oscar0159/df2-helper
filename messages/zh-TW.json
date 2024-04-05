@@ -3,64 +3,145 @@
         "title": "死亡邊境2 工具",
         "description": "死亡邊境2 工具是一個網站，提供了一些有用的工具，幫助你在遊戲中更好地管理你的角色。"
     },
+
     "Navigation": {
         "title": "死亡邊境2 工具",
         "title_short": "DH",
         "information": "基礎資訊",
-        "map_mission": "地圖和任務",
+        "map-mission": "地圖和任務",
         "puzzle": "寶箱謎題",
-        "blueprint": "藍圖(製作圖)",
+        "blueprint": "藍圖",
         "tool": "實用工具",
+        "resource-link": "資源連結",
         "menu": "菜單",
         "locale": "語言",
         "theme": "主題"
     },
+
     "ModeToggle": {
         "light": "明亮主題",
         "dark": "暗黑主題"
     },
+
     "HomePage": {
         "title": "首頁",
         "description": "歡迎來到死亡邊境2工具。這個網站提供了一些有用的工具，幫助你在遊戲中遇到的問題。"
     },
+
     "InformationPage": {
         "title": "基礎資訊",
-        "description": "基礎資訊頁面提供了一些有用的信息，幫助你更好地了解遊戲。"
+        "description": "基礎資訊頁面提供了一些有用的信息，幫助你更好地了解遊戲。",
+        "when-to-reset": {
+            "title": "BOSS、搜索地點、任務重置時間",
+            "content": "每天的下午5點(UTC+8)，但偶而會因為夏令時間而有些微變動，任務需要再刷新前回報完畢。"
+        },
+        "what-is-red-building": {
+            "title": "紅色建築物(通天/小通天)是什麼？",
+            "content": "紅色建築物(通天->科莫負父子公司 | 小通天->帕爾海文檔案館)是一個特殊的建築物，裡面有特殊BUFF，相對其他建築物困難，建議組隊。"
+        },
+        "what-is-oa": {
+            "title": "OA(要塞攻擊)是什麼？",
+            "content": "OA(Outpost Attack)，殭屍會在早晚2、6、10點(UTC+8)攻擊安全區，如果協助防守可以獲得BUFF，時間到才會知道OA的所在地。"
+        },
+        "what-is-hr-sm": {
+            "title": "HR(人類遺骸)/SM(追靈者任務)是什麼？",
+            "content": "HR(Human Remains)是人類遺骸，SM(Seeker Mission)是追靈者任務，都是遊戲中的每日任務，完成後可以獲得額外大量經驗，是練等的好途徑，透過DF2Profiler可以查詢任務所在建築物，但實際的位置需要玩家自行在建築物內尋找，或是待官方DC的好心人分享。"
+        },
+        "any-place-increase-chance": {
+            "title": "有什麼地方可以增加搜索機率？",
+            "content": "警局增加彈藥、武器機率，醫院、照護中心增加醫療用品機率，商店增加食物、飲料機率，工廠增加汽車零件、汽油機率，各種類建築物位置可至DF2Profiler查詢。"
+        },
+        "increase-health-in-multiplayer": {
+            "title": "多人遊玩的血量增加機制",
+            "content": "8人增加40%血量，16人增加100%血量。"
+        },
+        "about-speed": {
+            "title": "關於各種速度詞綴",
+            "content": "慢跑為單純WASD移動，衝刺為按住Shift移動，走路包括瞄準時、換彈時、按Q治療時，潛行為按住Ctrl移動，移動速度等同所有的速度，也就是1%移動速度=1%慢跑速度+1%衝刺速度+1%走路速度+1%潛行速度。"
+        }
     },
+
     "MapMissionPage": {
         "title": "地圖和任務",
         "description": "地圖和任務頁面提供了一些有用的地圖和任務訊息。"
     },
+    "DF2ProfilerPage": {
+        "title": "DF2 Profiler",
+        "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。"
+    },
+    "SideMissionsPage": {
+        "title": "支線任務",
+        "description": "支線任務是可選的任務，你可以完成它們來獲得額外的獎勵。你可以使用這個頁面來找到你需要完成的支線任務的位置。"
+    },
+
     "PuzzlePage": {
         "title": "寶箱謎題",
-        "description": "寶箱謎題頁面提供了一些謎題遊戲解答器。你可以使用它們來解決遊戲中的謎題。",
-        "binary": {
-            "title": "二進制",
-            "description": "將二進制數字轉換為正確的數字。"
-        },
-        "letters": {
-            "title": "字母",
-            "description": "將數字轉換為正確的字母。"
-        },
-        "morse": {
-            "title": "摩斯密碼",
-            "description": "將摩斯密碼轉換為正確的數字或字母。"
-        },
-        "light-out": {
-            "title": "熄燈遊戲",
-            "description": "通過點擊燈泡來解決熄燈遊戲。"
-        },
-        "sliding": {
-            "title": "滑塊拼圖",
-            "description": "通過移動滑塊來解決滑塊拼圖。"
-        }
+        "description": "寶箱謎題頁面提供了一些謎題遊戲解答器。你可以使用它們來解決遊戲中的謎題。"
     },
+    "BinaryPage": {
+        "title": "二進制",
+        "description": "將二進制數字轉換為正確的數字。"
+    },
+    "LettersPage": {
+        "title": "字母",
+        "description": "將數字轉換為正確的字母。"
+    },
+    "MorsePage": {
+        "title": "摩斯密碼",
+        "description": "將摩斯密碼轉換為正確的數字或字母。"
+    },
+    "LightOutPage": {
+        "title": "熄燈遊戲",
+        "description": "通過點擊燈泡來解決熄燈遊戲。"
+    },
+    "SlidingPage": {
+        "title": "滑塊拼圖",
+        "description": "通過移動滑塊來解決滑塊拼圖。"
+    },
+
     "BlueprintPage": {
-        "title": "藍圖(製作圖)",
-        "description": "藍圖(製作圖)頁面提供了一些有用的藍圖訊息。"
+        "title": "藍圖",
+        "description": "藍圖頁面提供了一些有用的藍圖訊息。"
     },
+    "RoninsBladePage": {
+        "title": "浪人之刃",
+        "description": "手槍"
+    },
+    "StairwayToHellPage": {
+        "title": "通往地獄的階梯",
+        "description": "步槍"
+    },
+    "GoreTrimmerPage": {
+        "title": "戈爾的修剪鋸",
+        "description": "電鋸"
+    },
+    "ViciousHoarderBackpackPage": {
+        "title": "惡毒的囤積者背包",
+        "description": "背包"
+    },
+    "CallOfTheAccursedPage": {
+        "title": "被詛咒的召喚",
+        "description": "近戰"
+    },
+    "AllBlueprintListPage": {
+        "title": "所有藍圖",
+        "description": "所有藍圖列表"
+    },
+
     "ToolPage": {
         "title": "實用工具",
-        "description": "實用工具頁面提供了一些有用的工具，幫助你在遊戲中更好地管理你的角色。"
+        "description": "實用工具頁面提供了一些有用的工具，使你有更好的遊戲體驗。"
+    },
+    "CrosshairPage": {
+        "title": "Crosshair",
+        "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
+    },
+
+    "ResourceLinkPage": {
+        "title": "資源連結",
+        "description": "資源連結頁面提供了一些有用的資源連結。",
+        "df2profiler": {
+            "description": "DF2 Profiler是一個網站，提供了遊戲死亡邊境2中地圖和任務的訊息。你可以使用它來找到你需要完成的任務的位置。"
+        }
     }
 }
