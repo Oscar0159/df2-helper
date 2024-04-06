@@ -41,7 +41,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
     const messages = useMessages();
 
     return (
-        <html className="h-full" lang={locale}>
+        <html lang={locale}>
             <body
                 className={cn(
                     'flex min-h-screen overflow-x-hidden bg-background font-sans antialiased',
