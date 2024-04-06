@@ -5,7 +5,6 @@
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { useLocalStorage } from '@uidotdev/usehooks';
 import { MenuIcon } from 'lucide-react';
 import {
     BookIcon,
@@ -23,14 +22,12 @@ import {
 
 import { usePathname } from '@/navigation';
 import { Button } from '@/components/ui/button';
-
 const ModeToggle = dynamic(() => import('@/components/mode-toggle'));
 import LocaleSwitcher from '@/components/locale-switcher';
 import { Link } from '@/navigation';
 import { cn } from '@/lib/utils';
 
 export default function Navigation() {
-    const [collapseDesktopNav, setCollapseDesktopNav] = useLocalStorage('shrinkDesktopNav', false);
     const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     const pathname = usePathname();
@@ -74,29 +71,17 @@ export default function Navigation() {
         <>
             {/* desktop navigation */}
             <nav
-                className={cn(
-                    'sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 overflow-y-auto p-5 pr-6 sm:flex',
-                    !collapseDesktopNav && ' xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start'
-                )}
+                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 overflow-y-auto p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
                 id="desktop-nav"
             >
                 <div className="flex w-full flex-col items-center gap-3">
                     <Link
                         href="/"
-                        className={cn(
-                            'hidden h-14 w-full items-center pl-3 text-lg font-medium tracking-wide',
-                            !collapseDesktopNav && 'xl:flex'
-                        )}
+                        className="hidden h-14 w-full items-center pl-3 text-lg font-medium tracking-wide xl:flex"
                     >
                         {t('title')}
                     </Link>
-                    <Link
-                        href="/"
-                        className={cn(
-                            'flex h-14 items-center text-lg font-medium tracking-wide',
-                            !collapseDesktopNav && 'xl:hidden'
-                        )}
-                    >
+                    <Link href="/" className="flex h-14 items-center text-lg font-medium tracking-wide xl:hidden">
                         {t('title_short')}
                     </Link>
                     {navItems.map((navItem) => (
@@ -104,26 +89,18 @@ export default function Navigation() {
                             asChild
                             variant={pathname.includes(navItem.slug) ? 'secondary' : 'ghost'}
                             key={navItem.slug}
-                            className={cn(
-                                'aspect-square w-10 rounded-full p-2 font-semibold',
-                                !collapseDesktopNav && 'xl:w-full xl:justify-start xl:px-4'
-                            )}
+                            className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4"
                         >
                             <Link href={navItem.slug}>
                                 {navItem.icon && navItem.icon}
-                                <span className={cn('hidden', !collapseDesktopNav && 'xl:ml-3 xl:flex')}>
-                                    {navItem.name}
-                                </span>
+                                <span className="hidden xl:ml-3 xl:flex">{navItem.name}</span>
                             </Link>
                         </Button>
                     ))}
                     <Button
                         asChild
                         variant="ghost"
-                        className={cn(
-                            'aspect-square w-10 rounded-full p-2 font-semibold',
-                            !collapseDesktopNav && 'xl:w-full xl:justify-start xl:px-4'
-                        )}
+                        className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4"
                     >
                         <a
                             href="https://github.com/Oscar0159/df2-helper/issues"
@@ -131,50 +108,23 @@ export default function Navigation() {
                             rel="noopener noreferrer"
                         >
                             <BadgeAlertIcon size={22} />
-                            <span className={cn('hidden', !collapseDesktopNav && 'xl:ml-3 xl:flex')}>{t('issue')}</span>
+                            <span className="hidden xl:ml-3 xl:flex">{t('issue')}</span>
                         </a>
                     </Button>
                     <Button
                         asChild
                         variant="ghost"
-                        className={cn(
-                            'aspect-square w-10 rounded-full p-2 font-semibold',
-                            !collapseDesktopNav && 'xl:w-full xl:justify-start xl:px-4'
-                        )}
+                        className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4"
                     >
                         <a href="https://github.com/Oscar0159/df2-helper" target="_blank" rel="noopener noreferrer">
                             <GithubIcon size={22} />
-                            <span className={cn('hidden xl:ml-3', !collapseDesktopNav && ' xl:flex')}>
-                                {t('github')}
-                            </span>
+                            <span className="hidden xl:ml-3 xl:flex">{t('github')}</span>
                         </a>
                     </Button>
                 </div>
                 <div className="flex w-full flex-col justify-center gap-3">
-                    <Button
-                        variant="ghost"
-                        className={cn(
-                            'hidden aspect-square w-10 rounded-full p-2 font-semibold xl:flex',
-                            !collapseDesktopNav && 'xl:w-full xl:justify-start xl:px-4'
-                        )}
-                        onClick={() => setCollapseDesktopNav((prev) => !prev)}
-                    >
-                        <>
-                            <ArrowRightFromLineIcon size={22} className={collapseDesktopNav ? 'flex' : 'hidden'} />
-                            <ArrowLeftFromLineIcon size={22} className={collapseDesktopNav ? 'hidden' : 'flex'} />
-                            <span className={cn('hidden xl:ml-3', !collapseDesktopNav && ' xl:flex')}>
-                                {t('collapse')}
-                            </span>
-                        </>
-                    </Button>
-                    <LocaleSwitcher showLabel={!collapseDesktopNav} />
-                    <ModeToggle
-                        showLabel={!collapseDesktopNav}
-                        className={cn(
-                            'aspect-square w-10 rounded-full p-2 font-semibold',
-                            !collapseDesktopNav && 'xl:w-full xl:justify-start xl:px-4'
-                        )}
-                    />
+                    <LocaleSwitcher />
+                    <ModeToggle className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4" />
                 </div>
             </nav>
 

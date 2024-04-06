@@ -13,25 +13,19 @@ const localeMap = {
     'zh-TW': '繁體中文',
 };
 
-type Props = {
-    showLabel?: boolean;
-};
-
-export default function LocaleSwitcher({ showLabel = true }: Props) {
+export default function LocaleSwitcher() {
     return (
         <LocaleSwitcherSelect>
             <Button
                 asChild
                 variant="ghost"
-                className={cn('aspect-square w-10 rounded-full p-2', showLabel && 'xl:w-full xl:justify-start xl:px-4')}
+                className="aspect-square w-10 rounded-full p-2 xl:w-full xl:justify-start xl:px-4"
             >
                 <SelectTrigger className="border-none border-background ring-0 ring-background focus:border-none focus:ring-0">
                     <GlobeIcon size={22} />
-                    {showLabel && (
-                        <p className="ml-3 hidden font-semibold xl:flex">
-                            <SelectValue placeholder="Select a Language" />
-                        </p>
-                    )}
+                    <p className="ml-3 hidden font-semibold xl:flex">
+                        <SelectValue placeholder="Select a Language" />
+                    </p>
                 </SelectTrigger>
             </Button>
             <SelectContent className="sm:mb:0 mb-5 -translate-x-1/3 sm:translate-x-0">

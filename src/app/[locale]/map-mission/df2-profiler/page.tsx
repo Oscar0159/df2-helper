@@ -1,7 +1,9 @@
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
+import { Skeleton } from '@/components/ui/skeleton';
 import * as df2profiler from '@/lib/df2profiler';
 import DF2Profiler from './df2-profiler';
 
@@ -41,13 +43,15 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-2 flex grow">
-                <DF2Profiler
-                    mapUrl={mapUrl}
-                    mapDataList={mapDataList}
-                    missionDataList={missionDataList}
-                    outposts={df2profiler.outposts}
-                    chunkSize={6}
-                />
+                <Suspense fallback={<Skeleton className="grow" />}>
+                    <DF2Profiler
+                        mapUrl={mapUrl}
+                        mapDataList={mapDataList}
+                        missionDataList={missionDataList}
+                        outposts={df2profiler.outposts}
+                        chunkSize={6}
+                    />
+                </Suspense>
             </div>
         </>
     );
