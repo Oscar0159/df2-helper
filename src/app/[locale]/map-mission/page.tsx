@@ -1,9 +1,10 @@
+import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
-import { Link } from '@/navigation';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
 type Props = {
@@ -20,7 +21,7 @@ type MapMissionItem = {
 export default function MapMission({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
-    
+
     const t = useTranslations();
 
     const mapMissionItems: MapMissionItem[] = [
@@ -33,14 +34,14 @@ export default function MapMission({ params: { locale } }: Props) {
             title: t('SideMissionsPage.title'),
             description: t('SideMissionsPage.description'),
             href: '/map-mission/side-missions',
-        }
+        },
     ];
 
     return (
         <>
             <div>
                 <h1 className="text-4xl font-semibold">{t('MapMissionPage.title')}</h1>
-                <BreadcrumbNav className='mt-2' />
+                <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {mapMissionItems.map(({ title, description, href, image }) => (

@@ -1,10 +1,13 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 
-import BreadcrumbNav from '@/components/breadcrumb-nav';
 import { Skeleton } from '@/components/ui/skeleton';
+
+import BreadcrumbNav from '@/components/breadcrumb-nav';
+
 import * as df2profiler from '@/lib/df2profiler';
+
 import DF2Profiler from './df2-profiler';
 
 type Props = {
@@ -46,8 +49,8 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                 <Suspense fallback={<Skeleton className="grow" />}>
                     <DF2Profiler
                         mapUrl={mapUrl}
-                        mapDataList={mapDataList}
-                        missionDataList={missionDataList}
+                        mapCellList={mapDataList}
+                        missionList={missionDataList}
                         outposts={df2profiler.outposts}
                         chunkSize={6}
                     />
