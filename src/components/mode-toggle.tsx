@@ -1,12 +1,12 @@
 'use client';
 
 // TODO: make the code more clean and readable
-
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
+
 import { cn } from '@/lib/utils';
 
 type Props = {

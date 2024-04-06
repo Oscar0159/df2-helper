@@ -1,31 +1,33 @@
 'use client';
 
 // TODO: make the code more clean and readable
-
-import dynamic from 'next/dynamic';
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { usePathname } from '@/navigation';
+import { Link } from '@/navigation';
 import { MenuIcon } from 'lucide-react';
 import {
+    ArrowLeftFromLineIcon,
+    ArrowRightFromLineIcon,
+    BadgeAlertIcon,
     BookIcon,
+    DraftingCompassIcon,
+    GithubIcon,
+    LinkIcon,
     MapIcon,
     PuzzleIcon,
-    DraftingCompassIcon,
     WrenchIcon,
-    LinkIcon,
-    BadgeAlertIcon,
-    GithubIcon,
-    ArrowRightFromLineIcon,
-    ArrowLeftFromLineIcon,
     XIcon,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
 
-import { usePathname } from '@/navigation';
 import { Button } from '@/components/ui/button';
-const ModeToggle = dynamic(() => import('@/components/mode-toggle'));
+
 import LocaleSwitcher from '@/components/locale-switcher';
-import { Link } from '@/navigation';
+
 import { cn } from '@/lib/utils';
+
+const ModeToggle = dynamic(() => import('@/components/mode-toggle'));
 
 export default function Navigation() {
     const [isSheetOpen, setIsSheetOpen] = useState(false);

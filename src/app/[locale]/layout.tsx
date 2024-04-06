@@ -1,11 +1,12 @@
-import { Inter as FontSans } from 'next/font/google';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import { ReactNode } from 'react';
-import { useMessages, NextIntlClientProvider } from 'next-intl';
-
 import { locales } from '@/config';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { Inter as FontSans } from 'next/font/google';
+import { ReactNode } from 'react';
+
 import Navigation from '@/components/navigation';
 import ThemeProvider from '@/components/theme-provider';
+
 import { cn } from '@/lib/utils';
 
 type Props = {
@@ -41,7 +42,12 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
     return (
         <html className="h-full" lang={locale}>
-            <body className={cn('flex overflow-x-hidden min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+            <body
+                className={cn(
+                    'flex min-h-screen overflow-x-hidden bg-background font-sans antialiased',
+                    fontSans.variable
+                )}
+            >
                 <ThemeProvider attribute="class" defaultTheme="light">
                     <NextIntlClientProvider messages={messages} locale={locale}>
                         <div className="flex grow">

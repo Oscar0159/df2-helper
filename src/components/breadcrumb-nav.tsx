@@ -1,4 +1,6 @@
 'use client';
+
+import { Link, usePathname } from '@/navigation';
 import { Fragment } from 'react';
 
 import {
@@ -9,8 +11,6 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-
-import { usePathname, Link } from '@/navigation';
 
 type Props = {
     className?: string;

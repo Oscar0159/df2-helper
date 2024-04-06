@@ -1,10 +1,11 @@
-import Image from 'next/image';
+import { Link } from '@/navigation';
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
-import { Link } from '@/navigation';
-import BreadcrumbNav from '@/components/breadcrumb-nav';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
+import BreadcrumbNav from '@/components/breadcrumb-nav';
 
 type Props = {
     params: { locale: string };

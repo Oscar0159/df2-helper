@@ -1,12 +1,13 @@
 // TODO: make the code more clean and readable
-
+import { locales } from '@/config';
 import { GlobeIcon } from 'lucide-react';
 
-import { locales } from '@/config';
 import { Button } from '@/components/ui/button';
 import { SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import LocaleSwitcherSelect from './locale-switcher-select';
+
 import { cn } from '@/lib/utils';
+
+import LocaleSwitcherSelect from './locale-switcher-select';
 
 const localeMap = {
     en: 'English',
