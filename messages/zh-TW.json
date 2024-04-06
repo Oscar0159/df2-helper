@@ -48,7 +48,7 @@
         },
         "what-is-hr-sm": {
             "title": "HR(人類遺骸)/SM(追靈者任務)是什麼？",
-            "content": "HR(Human Remains)是人類遺骸，SM(Seeker Mission)是追靈者任務，都是遊戲中的每日任務，完成後可以獲得額外大量經驗，是練等的好途徑，透過DF2Profiler可以查詢任務所在建築物，但實際的位置需要玩家自行在建築物內尋找，或是待官方DC的好心人分享。"
+            "content": "HR(Human Remains)是人類遺骸，SM(Stalker Mission)是追靈者任務，都是遊戲中的每日任務，完成後可以獲得額外大量經驗，是練等的好途徑，透過DF2Profiler可以查詢任務所在建築物，但實際的位置需要玩家自行在建築物內尋找，或是待官方DC的好心人分享。"
         },
         "any-place-increase-chance": {
             "title": "有什麼地方可以增加搜索機率？",
@@ -71,6 +71,14 @@
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
         "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。"
+    },
+    "DataTable": {
+        "minlvl": "最低等級",
+        "maxlvl": "最高等級",
+        "type": "類型",
+        "requirement": "需求",
+        "drawdestination": "目地",
+        "drawgiver": "接取"
     },
     "SideMissionsPage": {
         "title": "支線任務",
