@@ -1,13 +1,27 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { Suspense } from 'react';
+
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
-import ConstructionAnimation from '@/components/construction-animation';
+
+import * as df2profiler from '@/lib/df2profiler';
+
+import DF2Profiler from './df2-profiler';
 
 type Props = {
     params: { locale: string };
 };
+
+async function getDF2ProfilerData() {
+    // Fetch data from API
+    const response = await fetch('https://df2profiler.com/gamemap/', { next: { revalidate: 3600 } });
+    const html = await response.text();
+
+    return df2profiler.parse(html);
+}
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
     const t = await getTranslations({ locale, namespace: 'DF2ProfilerPage' });
@@ -18,20 +32,30 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function DF2ProfilerPage({ params: { locale } }: Props) {
+export default async function DF2ProfilerPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('DF2ProfilerPage');
+    const { mapUrl, mapDataList, missionDataList } = await getDF2ProfilerData();
+
+    const t = await getTranslations({ locale, namespace: 'DF2ProfilerPage' });
 
     return (
         <>
-            <div>
+            <div className="shrink-0">
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            <div className="flex grow items-center">
-                <ConstructionAnimation className="sm:w-1/2" />
+            <div className="mt-2 grow">
+                <Suspense fallback={<Skeleton />}>
+                    <DF2Profiler
+                        mapUrl={mapUrl}
+                        mapCellList={mapDataList}
+                        missionList={missionDataList}
+                        outposts={df2profiler.outposts}
+                        chunkSize={6}
+                    />
+                </Suspense>
             </div>
         </>
     );

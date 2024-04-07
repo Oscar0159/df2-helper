@@ -13,6 +13,9 @@
         "blueprint": "Blueprint",
         "tool": "Tool",
         "resource-link": "Resource Link",
+        "issue": "Issue",
+        "github": "GitHub",
+        "collapse": "Collapse",
         "menu": "Menu",
         "locale": "Locale",
         "theme": "Theme"
@@ -44,7 +47,7 @@
             "content": "Zombies will attack the safe zone at 2, 6, 10 AM/PM (UTC+0), if you help defend, you can get BUFF, you will know the location of OA when the time comes."
         },
         "what-is-hr-sm": {
-            "title": "What is HR(Human Remains)/SM(Seeker Mission)?",
+            "title": "What is HR(Human Remains)/SM(Stalker Mission)?",
             "content": "Both are daily missions in the game, completing them can get extra experience, it is a good way to level up, you can use DF2Profiler to find the location of the mission, but the actual location needs to be found by the player in the building, or wait for the good-hearted people to share the location in the official DC."
         },
         "any-place-increase-chance": {
@@ -69,9 +72,17 @@
         "title": "DF2 Profiler",
         "description": "According to the data of DF2 Profiler, display and draw the information on the map."
     },
+    "DataTable": {
+        "minlvl": "Min Level",
+        "maxlvl": "Max Level",
+        "type": "Type",
+        "requirement": "Requirement",
+        "drawdestination": "Dst",
+        "drawgiver": "Giv"
+    },
     "SideMissionsPage": {
         "title": "Side Mission",
-        "description": "Side missions are optional missions that you can complete to earn extra rewards. You can use this page to find the location of the side mission you need to complete."
+        "description": "Side missions are optional missions that you can complete to earn extra rewards."
     },
 
     "PuzzlePage": {
@@ -88,7 +99,7 @@
     },
     "MorsePage": {
         "title": "Morse Code",
-        "description": "Convert the morse code to the correct number or letter."
+        "description": "Convert the morse code to the correct value."
     },
     "LightOutPage": {
         "title": "Light Out",

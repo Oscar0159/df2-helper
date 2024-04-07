@@ -1,11 +1,11 @@
 'use client';
 
+import { usePathname, useRouter } from '@/navigation';
+import { SelectProps } from '@radix-ui/react-select';
 import { useLocale } from 'next-intl';
 import { ChangeEvent, ReactNode, useTransition } from 'react';
 
-import { SelectProps } from '@radix-ui/react-select';
 import { Select } from '@/components/ui/select';
-import { useRouter, usePathname } from '@/navigation';
 
 type Props = {
     children: ReactNode;
@@ -19,10 +19,7 @@ export default function LocaleSwitcherSelect({ children, ...props }: Props) {
 
     const onValueChange = (value: string) => {
         startTransition(() => {
-            router.replace(
-                pathname,
-                { locale: value }
-            );
+            router.replace(pathname, { locale: value });
         });
     };
 

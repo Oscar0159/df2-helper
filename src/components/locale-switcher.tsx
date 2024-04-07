@@ -1,9 +1,12 @@
-import { useLocale } from 'next-intl';
+// TODO: make the code more clean and readable
+import { locales } from '@/config';
 import { GlobeIcon } from 'lucide-react';
 
-import { locales } from '@/config';
 import { Button } from '@/components/ui/button';
 import { SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+import { cn } from '@/lib/utils';
+
 import LocaleSwitcherSelect from './locale-switcher-select';
 
 const localeMap = {
@@ -12,8 +15,6 @@ const localeMap = {
 };
 
 export default function LocaleSwitcher() {
-    const locale = useLocale();
-
     return (
         <LocaleSwitcherSelect>
             <Button
@@ -21,9 +22,9 @@ export default function LocaleSwitcher() {
                 variant="ghost"
                 className="aspect-square w-10 rounded-full p-2 xl:w-full xl:justify-start xl:px-4"
             >
-                <SelectTrigger className='border-none ring-0 focus:ring-0 focus:border-none ring-background border-background'>
+                <SelectTrigger className="border-none border-background ring-0 ring-background focus:border-none focus:ring-0">
                     <GlobeIcon size={22} />
-                    <p className="ml-3 hidden xl:flex font-semibold">
+                    <p className="ml-3 hidden font-semibold xl:flex">
                         <SelectValue placeholder="Select a Language" />
                     </p>
                 </SelectTrigger>

@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 import { ArrowLeftRightIcon, ArrowRightIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
-import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
 const numberMorsetMap = {

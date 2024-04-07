@@ -1,10 +1,11 @@
+import { Link } from '@/navigation';
+import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
-import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import { Link } from '@/navigation';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
 type Props = {
@@ -74,7 +75,7 @@ export default function Information({ params: { locale } }: Props) {
                     {informationItems.map((item, index) => (
                         <AccordionItem key={index} value={item.title}>
                             <AccordionTrigger>
-                                <h2 className="text-lg font-semibold">{item.title}</h2>
+                                <h2 className="text-left text-lg font-semibold">{item.title}</h2>
                             </AccordionTrigger>
                             <AccordionContent>
                                 <p>{item.content}</p>

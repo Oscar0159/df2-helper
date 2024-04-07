@@ -1,5 +1,8 @@
 'use client';
 
+import { Link, usePathname } from '@/navigation';
+import { Fragment } from 'react';
+
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -8,8 +11,6 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-
-import { usePathname, Link } from '@/navigation';
 
 type Props = {
     className?: string;
@@ -29,14 +30,14 @@ export default function BreadcrumbNav({ className }: Props) {
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 {paths.map((path, index) => (
-                    <>
+                    <Fragment key={path}>
                         <BreadcrumbSeparator />
-                        <BreadcrumbItem key={path}>
+                        <BreadcrumbItem>
                             <BreadcrumbLink asChild>
                                 <Link href={`/${paths.slice(0, index + 1).join('/')}`}>{path}</Link>
                             </BreadcrumbLink>
                         </BreadcrumbItem>
-                    </>
+                    </Fragment>
                 ))}
             </BreadcrumbList>
         </Breadcrumb>

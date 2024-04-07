@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { ReactNode } from 'react';
 
 type Props = {
     children: ReactNode;
