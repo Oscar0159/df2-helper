@@ -41,7 +41,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
     const messages = useMessages();
 
     return (
-        <html lang={locale}>
+        <html lang={locale} suppressHydrationWarning>
             <body className={cn('flex overflow-x-hidden bg-background font-sans antialiased', fontSans.variable)}>
                 <ThemeProvider attribute="class" defaultTheme="light">
                     <NextIntlClientProvider messages={messages} locale={locale}>
