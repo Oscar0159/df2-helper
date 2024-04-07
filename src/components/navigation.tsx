@@ -73,7 +73,7 @@ export default function Navigation() {
         <>
             {/* desktop navigation */}
             <nav
-                className="sticky top-0 z-10 hidden h-screen shrink-0 flex-col items-center justify-between gap-4 overflow-y-auto p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
+                className="sticky top-0 z-10 hidden h-screen bottom-0 overflow-visible ease-out shrink-0 flex-col items-center justify-between gap-4 overflow-y-auto p-5 pr-6 sm:flex xl:bottom-0 xl:z-auto xl:w-52 xl:flex-col xl:items-start"
                 id="desktop-nav"
             >
                 <div className="flex w-full flex-col items-center gap-3">

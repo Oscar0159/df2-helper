@@ -42,17 +42,14 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
     return (
         <html lang={locale}>
-            <body
-                className={cn(
-                    'flex min-h-screen overflow-x-hidden bg-background font-sans antialiased',
-                    fontSans.variable
-                )}
-            >
+            <body className={cn('flex overflow-x-hidden bg-background font-sans antialiased', fontSans.variable)}>
                 <ThemeProvider attribute="class" defaultTheme="light">
                     <NextIntlClientProvider messages={messages} locale={locale}>
                         <div className="flex grow">
                             <Navigation />
-                            <main className="flex w-full flex-col p-5 pb-24 sm:pb-5 sm:pl-0 sm:pt-8">{children}</main>
+                            <main className="flex w-full flex-col p-5 pb-24 sm:pb-5 sm:pl-0 sm:pt-8 justify-start">
+                                {children}
+                            </main>
                         </div>
                     </NextIntlClientProvider>
                 </ThemeProvider>

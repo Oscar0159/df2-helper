@@ -23,7 +23,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, chunkSize }: Props) {
                     <tr key={y}>
                         {row.map((data, x) => (
                             <TooltipProvider key={x} delayDuration={0} skipDelayDuration={0} disableHoverableContent>
-                                <Tooltip delayDuration={0}>
+                                <Tooltip delayDuration={0} disableHoverableContent>
                                     <TooltipTrigger asChild>
                                         <td
                                             className={cn(

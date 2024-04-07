@@ -12,7 +12,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
     const pageSizeOptions = ['10', '20', '30', '40', '50', 'All'];
 
     return (
-        <div className="flex items-center justify-between px-2">
+        <div className="flex items-center justify-between p-2">
             <p className="text-sm text-muted-foreground">
                 {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} selected.
             </p>

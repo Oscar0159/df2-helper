@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Skeleton } from '@/components/ui/skeleton';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
@@ -41,12 +42,12 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
 
     return (
         <>
-            <div>
+            <div className="shrink-0">
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            <div className="mt-2 flex grow">
-                <Suspense fallback={<Skeleton className="grow" />}>
+            <div className="mt-2 grow">
+                <Suspense fallback={<Skeleton />}>
                     <DF2Profiler
                         mapUrl={mapUrl}
                         mapCellList={mapDataList}

@@ -44,7 +44,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         },
         initialState: {
             pagination: {
-                pageSize: 50,
+                pageSize: 10,
             },
         },
         meta: {
@@ -77,11 +77,13 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     });
 
     return (
-        <div className="space-y-2">
+        <div className="gap-2 flex flex-col grow justify-between">
             <DataTableToolbar table={table} />
-            <div className="rounded-md border h-96 overflow-auto">
+
+            {/* Desktop */}
+            <div className="rounded-md border h-96 overflow-y-auto hidden sm:block">
                 <Table>
-                    <TableHeader className='bg-background'>
+                    <TableHeader className="bg-background">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
@@ -117,6 +119,10 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                     </TableBody>
                 </Table>
             </div>
+
+            {/* Mobile */}
+            <div className="rounded-md border h-96 overflow-auto sm:hidden"></div>
+
             <DataTablePagination table={table} />
         </div>
     );
