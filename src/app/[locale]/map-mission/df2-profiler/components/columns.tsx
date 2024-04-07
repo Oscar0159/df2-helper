@@ -21,9 +21,11 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
     // },
     {
         accessorKey: 'drawdestination',
-        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="drawdestination" />,
-        cell: ({ table, row }) =>
-            row.original.xcoord && row.original.ycoord ? (
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} translationKey="drawdestination" className="justify-center" />
+        ),
+        cell: ({ table, row }) => (
+            <div className="flex items-center justify-center">
                 <Checkbox
                     disabled={!row.original.xcoord || !row.original.ycoord}
                     checked={row.getValue('drawdestination')}
@@ -34,24 +36,32 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                             }
                         ).updateData(row.index, 'drawdestination', value);
                     }}
+                    className={(!row.original.xcoord || !row.original.ycoord) ? 'opacity-0 bg-red-500' : ''}
                 />
-            ) : null,
+            </div>
+        ),
     },
     {
         accessorKey: 'drawgiver',
-        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="drawgiver" />,
+        header: ({ column }) => (
+            <DataTableColumnHeader column={column} translationKey="drawgiver" className="justify-center" />
+        ),
         cell: ({ table, row }) =>
             row.original.giverxcoord && row.original.giverycoord ? (
-                <Checkbox
-                    checked={row.getValue('drawgiver')}
-                    onCheckedChange={(value) => {
-                        (
-                            table.options.meta as {
-                                updateData: (rowIndex: number, columnId: string, value: any) => void;
-                            }
-                        ).updateData(row.index, 'drawgiver', value);
-                    }}
-                />
+                <div className="flex items-center justify-center">
+                    <Checkbox
+                        disabled={!row.original.giverxcoord || !row.original.giverycoord}
+                        checked={row.getValue('drawgiver')}
+                        onCheckedChange={(value) => {
+                            (
+                                table.options.meta as {
+                                    updateData: (rowIndex: number, columnId: string, value: any) => void;
+                                }
+                            ).updateData(row.index, 'drawgiver', value);
+                        }}
+                        className={(!row.original.giverxcoord || !row.original.giverycoord) ? 'opacity-0 bg-red-500' : ''}
+                    />
+                </div>
             ) : null,
     },
     {

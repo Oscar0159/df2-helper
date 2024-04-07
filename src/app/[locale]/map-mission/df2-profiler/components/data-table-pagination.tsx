@@ -14,34 +14,9 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
     return (
         <div className="flex items-center justify-between p-2">
             <p className="text-sm text-muted-foreground">
-                {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} selected.
+                {table.getFilteredRowModel().rows.length}{' '}
+                {table.getFilteredRowModel().rows.length === 1 ? 'result' : 'results'}
             </p>
-            <div className="flex items-center space-x-4 xl:space-x-8">
-                <Select
-                    value={
-                        pageSizeOptions.includes(`${table.getState().pagination.pageSize}`)
-                            ? `${table.getState().pagination.pageSize}`
-                            : 'All'
-                    }
-                    onValueChange={(value) => {
-                        table.setPageSize(value === 'All' ? table.getFilteredRowModel().rows.length : parseInt(value));
-                    }}
-                >
-                    <SelectTrigger className="h-8">
-                        <SelectValue placeholder={`${table.getState().pagination.pageSize}`} />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {pageSizeOptions.map((pageSize) => (
-                            <SelectItem key={pageSize} value={pageSize}>
-                                {pageSize}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-                <p className="shrink-0 text-sm">
-                    {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
-                </p>
-            </div>
             <div className="flex items-center space-x-2">
                 <Button
                     variant="outline"
@@ -75,6 +50,32 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                 >
                     <ChevronsRightIcon className="h-4 w-4" />
                 </Button>
+            </div>
+            <div className="flex items-center space-x-4 xl:space-x-8">
+                <Select
+                    value={
+                        pageSizeOptions.includes(`${table.getState().pagination.pageSize}`)
+                            ? `${table.getState().pagination.pageSize}`
+                            : 'All'
+                    }
+                    onValueChange={(value) => {
+                        table.setPageSize(value === 'All' ? table.getFilteredRowModel().rows.length : parseInt(value));
+                    }}
+                >
+                    <SelectTrigger className="h-8">
+                        <SelectValue placeholder={`${table.getState().pagination.pageSize}`} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {pageSizeOptions.map((pageSize) => (
+                            <SelectItem key={pageSize} value={pageSize}>
+                                {pageSize}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                <p className="shrink-0 text-sm">
+                    {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}
+                </p>
             </div>
         </div>
     );
