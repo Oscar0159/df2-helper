@@ -53,6 +53,7 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                         mapCellList={mapDataList}
                         missionList={missionDataList}
                         outposts={df2profiler.outposts}
+                        redBuilding={df2profiler.redBuilding}
                         chunkSize={6}
                     />
                 </Suspense>

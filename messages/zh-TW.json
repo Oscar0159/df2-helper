@@ -77,8 +77,9 @@
         "maxlvl": "最高等級",
         "type": "類型",
         "requirement": "需求",
-        "drawdestination": "目地",
-        "drawgiver": "接取"
+        "drawdestination": "目標地",
+        "drawgiver": "接取地",
+        "building": "建築物"
     },
     "SideMissionsPage": {
         "title": "支線任務",

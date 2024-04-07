@@ -1,11 +1,14 @@
 'use client';
 
+import { usePathname, useRouter } from '@/navigation';
 import {
     ColumnDef,
     ColumnFiltersState,
+    RowData,
     SortingState,
     VisibilityState,
     flexRender,
+    functionalUpdate,
     getCoreRowModel,
     getFacetedRowModel,
     getFacetedUniqueValues,
@@ -14,12 +17,15 @@ import {
     getSortedRowModel,
     useReactTable,
 } from '@tanstack/react-table';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Slider } from '@/components/ui/slider';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
+import { DrawOption, Mission } from '../types';
 import { DataTablePagination } from './data-table-pagination';
 import { DataTableToolbar } from './data-table-toolbar';
 
@@ -29,28 +35,64 @@ interface DataTableProps<TData, TValue> {
     setData: Dispatch<SetStateAction<TData[]>>;
 }
 
+declare module '@tanstack/react-table' {
+    interface TableMeta<TData extends RowData> {
+        updateData: (rowIndex: number, columnId: string, value: unknown) => void;
+    }
+}
+
+function useSkipper() {
+    const shouldSkipRef = useRef(true);
+    const shouldSkip = shouldSkipRef.current;
+
+    // Wrap a function with this to skip a pagination reset temporarily
+    const skip = useCallback(() => {
+        shouldSkipRef.current = false;
+    }, []);
+
+    useEffect(() => {
+        shouldSkipRef.current = true;
+    });
+
+    return [shouldSkip, skip] as const;
+}
+
 export function DataTable<TData, TValue>({ columns, data, setData }: DataTableProps<TData, TValue>) {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const createQueryString = useCallback(
+        (name: string, value: string) => {
+            const params = new URLSearchParams(searchParams.toString());
+            params.set(name, value);
+
+            return params.toString();
+        },
+        [searchParams]
+    );
+
     const [sorting, setSorting] = useState<SortingState>([]);
-    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+        JSON.parse(searchParams.get('columnFilters') ?? '[]')
+    );
+    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ minlvl: false, maxlvl: false });
     const [rowSelection, setRowSelection] = useState({});
+    const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper();
 
     const table = useReactTable({
         data,
         columns,
+        autoResetPageIndex,
         state: {
             sorting,
             columnVisibility,
             rowSelection,
             columnFilters,
         },
-        initialState: {
-            pagination: {
-                pageSize: 10,
-            },
-        },
         meta: {
-            updateData: (rowIndex: number, columnId: string, value: TValue) => {
+            updateData: (rowIndex: number, columnId: string, value: unknown) => {
+                skipAutoResetPageIndex();
                 setData((old) =>
                     old.map((row, index) => {
                         if (index === rowIndex) {
@@ -68,7 +110,11 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         filterFromLeafRows: false,
         onRowSelectionChange: setRowSelection,
         onSortingChange: setSorting,
-        onColumnFiltersChange: setColumnFilters,
+        onColumnFiltersChange: (updateFunction) => {
+            const newColumnFiltersState = functionalUpdate(updateFunction, columnFilters);
+            router.replace(pathname + '?' + createQueryString('columnFilters', JSON.stringify(newColumnFiltersState)));
+            setColumnFilters(newColumnFiltersState);
+        },
         onColumnVisibilityChange: setColumnVisibility,
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
@@ -82,15 +128,28 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         <div className="gap-2 flex flex-col grow justify-between">
             <DataTableToolbar table={table} />
 
+            {/* <pre>{JSON.stringify(searchParams, null, 2)}</pre> */}
+            <Slider
+                step={1}
+                minStepsBetweenThumbs={0}
+                min={1}
+                max={50}
+                className="p-4"
+                onValueChange={(values) => {
+                    table.getColumn('minlvl')?.setFilterValue(values[1]);
+                    table.getColumn('maxlvl')?.setFilterValue(values[0]);
+                }}
+            />
+
             {/* Desktop */}
             <div className="rounded-md border h-[500px] overflow-y-auto hidden sm:block">
                 <Table>
-                    <TableHeader className="bg-background">
+                    <TableHeader className="bg-background sticky top-0 shadow">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="sticky top-0 bg-background">
+                                        <TableHead key={header.id}>
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(header.column.columnDef.header, header.getContext())}

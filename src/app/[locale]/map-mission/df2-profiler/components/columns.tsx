@@ -20,9 +20,58 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
     //     enableHiding: false,
     // },
     {
+        accessorKey: 'minlvl',
+        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="minlvl" />,
+        filterFn: (row, id, value) => {
+            return (row.getValue(id) as number) <= value;
+        },
+    },
+    {
+        accessorKey: 'maxlvl',
+        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="maxlvl" />,
+        filterFn: (row, id, value) => {
+            return (row.getValue(id) as number) >= value;
+        },
+    },
+    {
         accessorKey: 'drawdestination',
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} translationKey="drawdestination" className="justify-center" />
+        header: ({ table, column }) => (
+            <div className="flex items-center justify-center gap-2">
+                <Checkbox
+                    disabled={table
+                        .getPaginationRowModel()
+                        .rows.every((row) => !row.original.xcoord || !row.original.ycoord)}
+                    checked={
+                        !table
+                            .getPaginationRowModel()
+                            .rows.every((row) => !row.original.xcoord || !row.original.ycoord) &&
+                        (table
+                            .getPaginationRowModel()
+                            .rows.every(
+                                (row) => row.original.drawdestination || !row.original.xcoord || !row.original.ycoord
+                            ) ||
+                            (table
+                                .getPaginationRowModel()
+                                .rows.some(
+                                    (row) => row.original.drawdestination && row.original.xcoord && row.original.ycoord
+                                ) &&
+                                'indeterminate'))
+                    }
+                    className="flex items-center justify-center"
+                    onClick={() => {
+                        table
+                            .getPaginationRowModel()
+                            .rows.forEach((row) =>
+                                table.options.meta?.updateData(
+                                    row.index,
+                                    'drawdestination',
+                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawdestination)
+                                )
+                            );
+                    }}
+                />
+                <span>Dst</span>
+            </div>
         ),
         cell: ({ table, row }) => (
             <div className="flex items-center justify-center">
@@ -30,39 +79,67 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                     disabled={!row.original.xcoord || !row.original.ycoord}
                     checked={row.getValue('drawdestination')}
                     onCheckedChange={(value) => {
-                        (
-                            table.options.meta as {
-                                updateData: (rowIndex: number, columnId: string, value: any) => void;
-                            }
-                        ).updateData(row.index, 'drawdestination', value);
+                        table.options.meta?.updateData(row.index, 'drawdestination', value);
                     }}
-                    className={(!row.original.xcoord || !row.original.ycoord) ? 'opacity-0 bg-red-500' : ''}
+                    className={!row.original.xcoord || !row.original.ycoord ? 'opacity-0 bg-red-500' : ''}
                 />
             </div>
         ),
     },
     {
         accessorKey: 'drawgiver',
-        header: ({ column }) => (
-            <DataTableColumnHeader column={column} translationKey="drawgiver" className="justify-center" />
+        header: ({ table, column }) => (
+            <div className="flex items-center justify-center gap-2">
+                <Checkbox
+                    disabled={table
+                        .getPaginationRowModel()
+                        .rows.every((row) => !row.original.giverxcoord || !row.original.giverycoord)}
+                    checked={
+                        !table
+                            .getPaginationRowModel()
+                            .rows.every((row) => !row.original.giverxcoord || !row.original.giverycoord) &&
+                        (table
+                            .getPaginationRowModel()
+                            .rows.every(
+                                (row) =>
+                                    row.original.drawgiver || !row.original.giverxcoord || !row.original.giverycoord
+                            ) ||
+                            (table
+                                .getPaginationRowModel()
+                                .rows.some(
+                                    (row) =>
+                                        row.original.drawgiver && row.original.giverxcoord && row.original.giverycoord
+                                ) &&
+                                'indeterminate'))
+                    }
+                    className="flex items-center justify-center"
+                    onClick={() => {
+                        table
+                            .getPaginationRowModel()
+                            .rows.forEach((row) =>
+                                table.options.meta?.updateData(
+                                    row.index,
+                                    'drawgiver',
+                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawgiver)
+                                )
+                            );
+                    }}
+                />
+                <span>Giv</span>
+            </div>
         ),
-        cell: ({ table, row }) =>
-            row.original.giverxcoord && row.original.giverycoord ? (
-                <div className="flex items-center justify-center">
-                    <Checkbox
-                        disabled={!row.original.giverxcoord || !row.original.giverycoord}
-                        checked={row.getValue('drawgiver')}
-                        onCheckedChange={(value) => {
-                            (
-                                table.options.meta as {
-                                    updateData: (rowIndex: number, columnId: string, value: any) => void;
-                                }
-                            ).updateData(row.index, 'drawgiver', value);
-                        }}
-                        className={(!row.original.giverxcoord || !row.original.giverycoord) ? 'opacity-0 bg-red-500' : ''}
-                    />
-                </div>
-            ) : null,
+        cell: ({ table, row }) => (
+            <div className="flex items-center justify-center">
+                <Checkbox
+                    disabled={!row.original.giverxcoord || !row.original.giverycoord}
+                    checked={row.getValue('drawgiver')}
+                    onCheckedChange={(value) => {
+                        table.options.meta?.updateData(row.index, 'drawgiver', value);
+                    }}
+                    className={!row.original.giverxcoord || !row.original.giverycoord ? 'opacity-0 bg-red-500' : ''}
+                />
+            </div>
+        ),
     },
     {
         accessorKey: 'type',
@@ -74,5 +151,9 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
     {
         accessorKey: 'requirement',
         header: ({ column }) => <DataTableColumnHeader column={column} translationKey="requirement" />,
+    },
+    {
+        accessorKey: 'building',
+        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="building" />,
     },
 ];

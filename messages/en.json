@@ -78,7 +78,8 @@
         "type": "Type",
         "requirement": "Requirement",
         "drawdestination": "Dst",
-        "drawgiver": "Giv"
+        "drawgiver": "Giv",
+        "building": "Building"
     },
     "SideMissionsPage": {
         "title": "Side Mission",
