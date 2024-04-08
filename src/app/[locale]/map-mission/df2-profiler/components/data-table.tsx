@@ -22,7 +22,6 @@ import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } fr
 
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 import { DrawOption, Mission } from '../types';
@@ -128,18 +127,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         <div className="gap-2 flex flex-col grow justify-between">
             <DataTableToolbar table={table} />
 
-            {/* <pre>{JSON.stringify(searchParams, null, 2)}</pre> */}
-            <Slider
-                step={1}
-                minStepsBetweenThumbs={0}
-                min={1}
-                max={50}
-                className="p-4"
-                onValueChange={(values) => {
-                    table.getColumn('minlvl')?.setFilterValue(values[1]);
-                    table.getColumn('maxlvl')?.setFilterValue(values[0]);
-                }}
-            />
+            {/* <pre>{JSON.stringify(columnFilters, null, 2)}</pre> */}
 
             {/* Desktop */}
             <div className="rounded-md border h-[500px] overflow-y-auto hidden sm:block">

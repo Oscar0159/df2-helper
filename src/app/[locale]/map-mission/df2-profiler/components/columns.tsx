@@ -22,16 +22,10 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
     {
         accessorKey: 'minlvl',
         header: ({ column }) => <DataTableColumnHeader column={column} translationKey="minlvl" />,
-        filterFn: (row, id, value) => {
-            return (row.getValue(id) as number) <= value;
-        },
     },
     {
         accessorKey: 'maxlvl',
         header: ({ column }) => <DataTableColumnHeader column={column} translationKey="maxlvl" />,
-        filterFn: (row, id, value) => {
-            return (row.getValue(id) as number) >= value;
-        },
     },
     {
         accessorKey: 'drawdestination',
