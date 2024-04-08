@@ -111,7 +111,9 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         onSortingChange: setSorting,
         onColumnFiltersChange: (updateFunction) => {
             const newColumnFiltersState = functionalUpdate(updateFunction, columnFilters);
-            router.replace(pathname + '?' + createQueryString('columnFilters', JSON.stringify(newColumnFiltersState)));
+            router.replace(pathname + '?' + createQueryString('columnFilters', JSON.stringify(newColumnFiltersState)), {
+                scroll: false,
+            });
             setColumnFilters(newColumnFiltersState);
         },
         onColumnVisibilityChange: setColumnVisibility,
@@ -124,7 +126,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     });
 
     return (
-        <div className="gap-2 flex flex-col grow justify-between">
+        <div className="gap-4 flex flex-col grow justify-between">
             <DataTableToolbar table={table} />
 
             {/* <pre>{JSON.stringify(columnFilters, null, 2)}</pre> */}
