@@ -35,7 +35,7 @@ export default function DF2Profiler({ mapUrl, mapCellList, missionList, outposts
 
     return (
         <div className="grid grid-cols-5 gap-4">
-            <div className="col-span-5 flex flex-col gap-2 lg:col-span-3">
+            <div className="col-span-5 lg:col-span-3">
                 <MapTable
                     mapUrl={mapUrl}
                     mapCellList={mapCellList}
@@ -46,7 +46,7 @@ export default function DF2Profiler({ mapUrl, mapCellList, missionList, outposts
                 />
             </div>
 
-            <div className="col-span-5 flex flex-col gap-2 lg:col-span-2">
+            <div className="col-span-5 lg:col-span-2">
                 <DataTable columns={columns} data={data} setData={setData} />
             </div>
         </div>

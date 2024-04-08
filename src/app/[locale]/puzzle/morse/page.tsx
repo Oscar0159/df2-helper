@@ -31,7 +31,7 @@ export default function MorsePage({ params: { locale } }: Props) {
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            <div className="mt-2 grow">
+            <div className="mt-4 grow">
                 <Morse />
             </div>
         </>
