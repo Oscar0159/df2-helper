@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { usePathname, useRouter } from '@/navigation';
+import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
+import { useCallback, useState } from 'react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Button } from '@/components/ui/button';
@@ -19,17 +22,67 @@ type Props = {
 };
 
 export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize, drawState }: Props) {
-    const [showOutpost, setShowOutpost] = useState(true);
-    const [showPvP, setShowPvP] = useState(true);
-    const [showRedBuilding, setShowRedBuilding] = useState(true);
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const [showOutpost, setShowOutpost] = useState(searchParams.get('showOutpost') !== 'false');
+    const [showPvP, setShowPvP] = useState(searchParams.get('showPvP') !== 'false');
+    const [showRedBuilding, setShowRedBuilding] = useState(searchParams.get('showRedBuilding') === 'true');
+
+    const createQueryString = useCallback(
+        (name: string, value: string) => {
+            const params = new URLSearchParams(searchParams.toString());
+            params.set(name, value);
+
+            return params.toString();
+        },
+        [searchParams]
+    );
+
+    const t = useTranslations('MapTable');
 
     return (
         <div className="w-full flex flex-col gap-4">
             <div className="flex gap-2">
-                <Button onClick={() => setShowOutpost((prev) => !prev)}>{showOutpost ? 'Hide' : 'Show'} Outpost</Button>
-                <Button onClick={() => setShowPvP((prev) => !prev)}>{showPvP ? 'Hide' : 'Show'} PvP</Button>
-                <Button onClick={() => setShowRedBuilding((prev) => !prev)}>
-                    {showRedBuilding ? 'Hide' : 'Show'} Red Building
+                <Button
+                    variant={showOutpost ? 'default' : 'outline'}
+                    onClick={() => {
+                        router.replace(
+                            pathname + '?' + createQueryString('showOutpost', showOutpost ? 'false' : 'true'),
+                            {
+                                scroll: false,
+                            }
+                        );
+                        setShowOutpost((prev) => !prev);
+                    }}
+                >
+                    {t('outpost')}
+                </Button>
+                <Button
+                    variant={showPvP ? 'default' : 'outline'}
+                    onClick={() => {
+                        router.replace(pathname + '?' + createQueryString('showPvP', showPvP ? 'false' : 'true'), {
+                            scroll: false,
+                        });
+                        setShowPvP((prev) => !prev);
+                    }}
+                >
+                    {t('pvp')}
+                </Button>
+                <Button
+                    variant={showRedBuilding ? 'default' : 'outline'}
+                    onClick={() => {
+                        router.replace(
+                            pathname + '?' + createQueryString('showRedBuilding', showRedBuilding ? 'false' : 'true'),
+                            {
+                                scroll: false,
+                            }
+                        );
+                        setShowRedBuilding((prev) => !prev);
+                    }}
+                >
+                    {t('red-building')}
                 </Button>
             </div>
 
@@ -45,7 +98,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                         key={x}
                                         style={{
                                             backgroundColor: drawState?.pointColor.find(
-                                                (point) => point.x-1 === x && point.y-1 === y
+                                                (point) => point.x - 1 === x && point.y - 1 === y
                                             )?.color,
                                         }}
                                         className={cn(

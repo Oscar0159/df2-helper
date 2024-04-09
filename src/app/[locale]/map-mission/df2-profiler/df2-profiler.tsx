@@ -18,17 +18,17 @@ type Props = {
 
 export default function DF2Profiler({ mapUrl, mapCellList, missionList, outposts, redBuilding, chunkSize }: Props) {
     const [data, setData] = useState<(Mission & DrawOption)[]>(
-        missionList.map((mission) => ({ ...mission, drawdestination: false, drawgiver: false }))
+        missionList.map((mission) => ({ ...mission, drawDestination: false, drawGiver: false }))
     );
 
     const drawState = {
         pointColor: data.flatMap((missionAndDrawOption) => {
-            const { drawdestination, drawgiver } = missionAndDrawOption;
+            const { drawDestination, drawGiver } = missionAndDrawOption;
             const { xcoord, ycoord, giverxcoord, giverycoord } = missionAndDrawOption;
 
             return [
-                ...(drawdestination ? [{ x: xcoord, y: ycoord, color: 'rgba(211, 227, 92, 0.4)' }] : []),
-                ...(drawgiver ? [{ x: giverxcoord, y: giverycoord, color: 'rgba(133, 205, 231, 0.4)' }] : []),
+                ...(drawDestination ? [{ x: xcoord, y: ycoord, color: 'rgba(211, 227, 92, 0.4)' }] : []),
+                ...(drawGiver ? [{ x: giverxcoord, y: giverycoord, color: 'rgba(133, 205, 231, 0.4)' }] : []),
             ];
         }),
     };

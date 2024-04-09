@@ -19,6 +19,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Separator } from '@/components/ui/separator';
 
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 interface DataTableFacetedFilterProps<TData, TValue> {
     column?: Column<TData, TValue>;
@@ -35,13 +36,16 @@ export function DataTableFacetedFilter<TData, TValue>({
     title,
     options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
+
+    const t = useTranslations('DataTable');
+
     const facets = column?.getFacetedUniqueValues();
     const selectedValues = new Set(column?.getFilterValue() as string[]);
 
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button variant="outline" size="sm" className="border-dashed">
+                <Button variant="outline" className="border-dashed">
                     <FilterIcon className="mr-2 h-4 w-4" />
                     {title}
                     {selectedValues?.size > 0 && (
@@ -77,7 +81,7 @@ export function DataTableFacetedFilter<TData, TValue>({
                 <Command>
                     <CommandInput placeholder={title} />
                     <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
+                        <CommandEmpty>{t('no-results')}</CommandEmpty>
                         <CommandGroup>
                             {options.map((option) => {
                                 const isSelected = selectedValues.has(option.value);

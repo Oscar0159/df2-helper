@@ -27,6 +27,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { DrawOption, Mission } from '../types';
 import { DataTablePagination } from './data-table-pagination';
 import { DataTableToolbar } from './data-table-toolbar';
+import { useTranslations } from 'next-intl';
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -61,6 +62,8 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
+    const t = useTranslations('DataTable');
+
     const createQueryString = useCallback(
         (name: string, value: string) => {
             const params = new URLSearchParams(searchParams.toString());
@@ -75,7 +78,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
         JSON.parse(searchParams.get('columnFilters') ?? '[]')
     );
-    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ minlvl: false, maxlvl: false });
+    const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ building: false });
     const [rowSelection, setRowSelection] = useState({});
     const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper();
 
@@ -88,6 +91,11 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
             columnVisibility,
             rowSelection,
             columnFilters,
+        },
+        initialState: {
+            pagination: {
+                pageSize: data.length,
+            }
         },
         meta: {
             updateData: (rowIndex: number, columnId: string, value: unknown) => {
@@ -111,6 +119,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         onSortingChange: setSorting,
         onColumnFiltersChange: (updateFunction) => {
             const newColumnFiltersState = functionalUpdate(updateFunction, columnFilters);
+            console.log(newColumnFiltersState);
             router.replace(pathname + '?' + createQueryString('columnFilters', JSON.stringify(newColumnFiltersState)), {
                 scroll: false,
             });
@@ -163,7 +172,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                                    No results.
+                                    {t('no-results')}
                                 </TableCell>
                             </TableRow>
                         )}
@@ -194,8 +203,8 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => {
                             const cells = row.getVisibleCells();
-                            const drawdestinationCell = cells.find((cell) => cell.column.id === 'drawdestination');
-                            const drawgiverCell = cells.find((cell) => cell.column.id === 'drawgiver');
+                            const drawDestinationCell = cells.find((cell) => cell.column.id === 'drawDestination');
+                            const drawGiverCell = cells.find((cell) => cell.column.id === 'drawGiver');
                             const typeCell = cells.find((cell) => cell.column.id === 'type');
                             const requirementCell = cells.find((cell) => cell.column.id === 'requirement');
                             return (
@@ -221,19 +230,19 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                                     </CardHeader>
                                     <CardFooter>
                                         <div className="flex justify-between w-full">
-                                            {drawdestinationCell && (
+                                            {drawDestinationCell && (
                                                 <div>
                                                     {flexRender(
-                                                        drawdestinationCell.column.columnDef.cell,
-                                                        drawdestinationCell.getContext()
+                                                        drawDestinationCell.column.columnDef.cell,
+                                                        drawDestinationCell.getContext()
                                                     )}
                                                 </div>
                                             )}
-                                            {drawgiverCell && (
+                                            {drawGiverCell && (
                                                 <div>
                                                     {flexRender(
-                                                        drawgiverCell.column.columnDef.cell,
-                                                        drawgiverCell.getContext()
+                                                        drawGiverCell.column.columnDef.cell,
+                                                        drawGiverCell.getContext()
                                                     )}
                                                 </div>
                                             )}
@@ -244,7 +253,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                         })
                     ) : (
                         <Card>
-                            <div className="h-24 text-center">No results.</div>
+                            <div className="h-24 text-center">{t('no-results')}</div>
                         </Card>
                     )}
                 </div>

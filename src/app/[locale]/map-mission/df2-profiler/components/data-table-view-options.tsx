@@ -2,6 +2,7 @@
 
 import { Table } from '@tanstack/react-table';
 import { SlidersHorizontalIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,21 +14,25 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+import { kebabize } from '@/lib/utils';
+
 interface DataTableViewOptionsProps<TData> {
     table: Table<TData>;
 }
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
+    const t = useTranslations('DataTable');
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="ml-auto">
                     <SlidersHorizontalIcon className="mr-2 h-4 w-4" />
-                    View
+                    {t('view-options')}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[150px]">
-                <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+                <DropdownMenuLabel>{t('columns')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {table
                     .getAllColumns()
@@ -40,7 +45,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                                 checked={column.getIsVisible()}
                                 onCheckedChange={(value?: boolean) => column.toggleVisibility(!!value)}
                             >
-                                {column.id}
+                                {t(kebabize(column.id))}
                             </DropdownMenuCheckboxItem>
                         );
                     })}

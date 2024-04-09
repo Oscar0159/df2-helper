@@ -1,4 +1,4 @@
 export type DrawOption = {
-    drawdestination: boolean;
-    drawgiver: boolean;
+    drawDestination: boolean;
+    drawGiver: boolean;
 };

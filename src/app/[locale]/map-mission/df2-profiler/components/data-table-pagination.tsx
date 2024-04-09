@@ -3,19 +3,23 @@ import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon 
 
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useTranslations } from 'next-intl';
 
 interface DataTablePaginationProps<TData> {
     table: Table<TData>;
 }
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
+
+    const t = useTranslations('DataTable');
+
     const pageSizeOptions = ['10', '20', '30', '40', '50', 'All'];
 
     return (
         <div className="flex items-center justify-between p-2">
             <p className="text-sm text-muted-foreground">
                 {table.getFilteredRowModel().rows.length}{' '}
-                {table.getFilteredRowModel().rows.length === 1 ? 'result' : 'results'}
+                {table.getFilteredRowModel().rows.length === 1 ? t('result') : t('results')}
             </p>
             <div className="flex items-center space-x-2">
                 <Button
