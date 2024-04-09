@@ -104,7 +104,12 @@
     },
     "LightOutPage": {
         "title": "熄燈遊戲",
-        "description": "通過點擊燈泡來解決熄燈遊戲。"
+        "description": "通過點擊燈泡來解決熄燈遊戲。",
+        "toggle": "反轉",
+        "fill": "全亮",
+        "clear": "清除",
+        "edit": "編輯",
+        "show-solution": "顯示解答"
     },
     "SlidingPage": {
         "title": "滑塊拼圖",
