@@ -3,6 +3,7 @@ import { JSDOM } from 'jsdom';
 export const baseUrl = 'https://df2profiler.com';
 
 export const outposts = ['Dallbow Police Department', 'Haverbrook Memorial Hospital', 'Greywood Star Hotel'];
+export const redBuilding = ['Palehaven City\'s Archives', 'Comer and Son Inc', 'Ravenwall Heights Community Hospital']
 
 export function parse(html: string): { mapUrl: string; mapDataList: any[][]; missionDataList: any[] } {
     const dom = new JSDOM(html);
@@ -24,6 +25,7 @@ export function parse(html: string): { mapUrl: string; mapDataList: any[][]; mis
         ycoord: number;
         isOutpost: boolean;
         isPvP: boolean;
+        isRedBuilding: boolean;
         district: string;
         types: string[];
     }[][] = [];
@@ -34,6 +36,7 @@ export function parse(html: string): { mapUrl: string; mapDataList: any[][]; mis
         const ycoord = parseInt(td.getAttribute('data-ycoord') || '');
         const isOutpost = td.classList.contains('outpost');
         const isPvP = td.classList.contains('pvpZone');
+        const isRedBuilding = buildings.some((building) => redBuilding.includes(building));
         const district = td.getAttribute('data-district') || '';
         const types = (td.getAttribute('data-types') || '').split(',');
 
@@ -42,7 +45,7 @@ export function parse(html: string): { mapUrl: string; mapDataList: any[][]; mis
         if (!mapDataList[ycoord - 1]) {
             mapDataList[ycoord - 1] = [];
         }
-        mapDataList[ycoord - 1][xcoord - 1] = { level, buildings, xcoord, ycoord, isOutpost, isPvP, district, types };
+        mapDataList[ycoord - 1][xcoord - 1] = { level, buildings, xcoord, ycoord, isOutpost, isPvP, isRedBuilding, district, types };
     });
 
     const missionSpanList = document.querySelectorAll(

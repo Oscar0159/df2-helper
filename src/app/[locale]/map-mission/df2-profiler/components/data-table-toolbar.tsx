@@ -62,13 +62,12 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
     ];
 
     return (
-        <div className="flex flex-col justify-center gap-2 ">
+        <div className="flex flex-col justify-center gap-4">
             <div className="flex items-center space-x-2 justify-between">
                 <Input
                     placeholder="Filter requirement..."
                     value={(table.getColumn('requirement')?.getFilterValue() as string) ?? ''}
                     onChange={(event) => table.getColumn('requirement')?.setFilterValue(event.target.value)}
-                    className="h-8 "
                 />
                 <DataTableViewOptions table={table} />
             </div>
@@ -77,7 +76,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
                     <DataTableFacetedFilter column={table.getColumn('type')} title="Type" options={missionTypes} />
                 )}
                 {isFiltered && (
-                    <Button variant="default" onClick={() => table.resetColumnFilters()} className="h-8 px-2 lg:px-3">
+                    <Button variant="default" onClick={() => table.resetColumnFilters()} className="px-2 lg:px-3">
                         Reset
                         <XIcon className="ml-2 h-4 w-4" />
                     </Button>

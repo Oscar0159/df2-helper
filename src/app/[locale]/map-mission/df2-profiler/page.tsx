@@ -46,13 +46,14 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            <div className="mt-2 grow">
+            <div className="mt-4 grow">
                 <Suspense fallback={<Skeleton />}>
                     <DF2Profiler
                         mapUrl={mapUrl}
                         mapCellList={mapDataList}
                         missionList={missionDataList}
                         outposts={df2profiler.outposts}
+                        redBuilding={df2profiler.redBuilding}
                         chunkSize={6}
                     />
                 </Suspense>

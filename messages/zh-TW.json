@@ -77,8 +77,9 @@
         "maxlvl": "最高等級",
         "type": "類型",
         "requirement": "需求",
-        "drawdestination": "目地",
-        "drawgiver": "接取"
+        "drawdestination": "目標地",
+        "drawgiver": "接取地",
+        "building": "建築物"
     },
     "SideMissionsPage": {
         "title": "支線任務",
@@ -103,7 +104,12 @@
     },
     "LightOutPage": {
         "title": "熄燈遊戲",
-        "description": "通過點擊燈泡來解決熄燈遊戲。"
+        "description": "通過點擊燈泡來解決熄燈遊戲。",
+        "toggle": "反轉",
+        "fill": "全亮",
+        "clear": "清除",
+        "edit": "編輯",
+        "show-solution": "顯示解答"
     },
     "SlidingPage": {
         "title": "滑塊拼圖",

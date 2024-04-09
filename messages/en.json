@@ -78,7 +78,8 @@
         "type": "Type",
         "requirement": "Requirement",
         "drawdestination": "Dst",
-        "drawgiver": "Giv"
+        "drawgiver": "Giv",
+        "building": "Building"
     },
     "SideMissionsPage": {
         "title": "Side Mission",
@@ -103,7 +104,12 @@
     },
     "LightOutPage": {
         "title": "Light Out",
-        "description": "Solve the puzzle by turning on all the lights."
+        "description": "Solve the puzzle by turning on all the lights.",
+        "toggle": "Toggle",
+        "fill": "Fill",
+        "clear": "Clear",
+        "edit": "Edit",
+        "show-solution": "Show Solution"
     },
     "SlidingPage": {
         "title": "Sliding",

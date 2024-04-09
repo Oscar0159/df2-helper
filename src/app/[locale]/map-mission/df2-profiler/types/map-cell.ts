@@ -5,6 +5,7 @@ export type MapCell = {
     ycoord: number;
     isOutpost: boolean;
     isPvP: boolean;
+    isRedBuilding: boolean;
     district: string;
     types: string[];
 };
