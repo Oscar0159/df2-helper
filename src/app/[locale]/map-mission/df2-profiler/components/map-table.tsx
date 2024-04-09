@@ -45,7 +45,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                         key={x}
                                         style={{
                                             backgroundColor: drawState?.pointColor.find(
-                                                (point) => point.x === x && point.y === y
+                                                (point) => point.x-1 === x && point.y-1 === y
                                             )?.color,
                                         }}
                                         className={cn(
