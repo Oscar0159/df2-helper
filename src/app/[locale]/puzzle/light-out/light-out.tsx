@@ -130,7 +130,7 @@ export default function LightOut() {
                 </div>
 
                 <div className="flex gap-1">
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
@@ -147,7 +147,7 @@ export default function LightOut() {
                             <TooltipContent>{t('toggle')}</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
@@ -163,7 +163,7 @@ export default function LightOut() {
                             <TooltipContent>{t('fill')}</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
@@ -179,7 +179,7 @@ export default function LightOut() {
                             <TooltipContent>{t('clear')}</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button
@@ -195,7 +195,7 @@ export default function LightOut() {
                             <TooltipContent>{t('edit')}</TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
-                    <TooltipProvider>
+                    <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button

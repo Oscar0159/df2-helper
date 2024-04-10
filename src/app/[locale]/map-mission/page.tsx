@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+
 type Props = {
     params: { locale: string };
 };
@@ -29,11 +31,13 @@ export default function MapMission({ params: { locale } }: Props) {
             title: t('DF2ProfilerPage.title'),
             description: t('DF2ProfilerPage.description'),
             href: '/map-mission/df2-profiler',
+            image: noThumbnail.src,
         },
         {
             title: t('SideMissionsPage.title'),
             description: t('SideMissionsPage.description'),
             href: '/map-mission/side-missions',
+            image: noThumbnail.src,
         },
     ];
 
@@ -51,7 +55,13 @@ export default function MapMission({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>{image && <Image src={image} alt={title} />}</CardContent>
+                            <CardContent>
+                                {image && (
+                                    <div className="relative h-52">
+                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                    </div>
+                                )}
+                            </CardContent>
                         </Card>
                     </Link>
                 ))}

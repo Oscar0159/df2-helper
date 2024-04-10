@@ -111,9 +111,13 @@
         "title": "Binary",
         "description": "Convert the binary code to the correct number."
     },
-    "LettersPage": {
-        "title": "Letters",
-        "description": "Convert the number to the correct letter."
+    "AlphabetPage": {
+        "title": "Alphabet",
+        "description": "Convert the number to the correct Alphabet."
+    },
+    "LetterPage": {
+        "title": "Letter",
+        "description": "Guess the possible letter by the given information."
     },
     "MorsePage": {
         "title": "Morse Code",

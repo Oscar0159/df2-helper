@@ -44,6 +44,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
 
     return (
         <div className="w-full flex flex-col gap-4">
+            {/* options */}
             <div className="flex gap-2">
                 <Button
                     variant={showOutpost ? 'default' : 'outline'}
@@ -102,7 +103,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                             )?.color,
                                         }}
                                         className={cn(
-                                            'group relative border-collapse border border-white/10 border-opacity-0',
+                                            'group relative border-collapse border border-white border-opacity-0',
                                             x === 0 && y === 0 && 'rounded-tl-md',
                                             x === row.length - 1 && y === 0 && 'rounded-tr-md',
                                             x === 0 && y === mapCellList.length - 1 && 'rounded-bl-md',

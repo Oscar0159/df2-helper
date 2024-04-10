@@ -22,7 +22,7 @@ const numberMorsetMap = {
     9: '----.',
 };
 
-const LetterMorseMap = {
+const AlphabetMorseMap = {
     A: '.-',
     B: '-...',
     C: '-.-.',
@@ -51,7 +51,7 @@ const LetterMorseMap = {
     Z: '--..',
 };
 
-const morseMap = { ...LetterMorseMap, ...numberMorsetMap };
+const morseMap = { ...AlphabetMorseMap, ...numberMorsetMap };
 
 export default function Morse() {
     const [morse, setMorse] = useState('');
@@ -94,7 +94,7 @@ export default function Morse() {
                 </div>
 
                 <div className="grid grid-flow-col grid-rows-13 place-items-center gap-x-12 gap-y-4 p-6 pt-2 sm:grid-rows-9 sm:text-2xl xl:grid-rows-9 xl:pt-10">
-                    {Object.entries(LetterMorseMap).map(([char, morse]) => (
+                    {Object.entries(AlphabetMorseMap).map(([char, morse]) => (
                         <div key={char} className="grid grid-cols-5 place-items-center gap-2">
                             <span>{char}</span>
                             <ArrowRightIcon size={20} className="w-10" />

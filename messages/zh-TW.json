@@ -111,9 +111,13 @@
         "title": "二進制",
         "description": "將二進制數字轉換為正確的數字。"
     },
-    "LettersPage": {
+    "AlphabetPage": {
         "title": "字母",
         "description": "將數字轉換為正確的字母。"
+    },
+    "LetterPage": {
+        "title": "單字",
+        "description": "根據給定的訊息猜測可能的字詞。"
     },
     "MorsePage": {
         "title": "摩斯密碼",

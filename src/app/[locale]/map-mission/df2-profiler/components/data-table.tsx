@@ -17,6 +17,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from '@tanstack/react-table';
+import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from 'react';
 
@@ -27,7 +28,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { DrawOption, Mission } from '../types';
 import { DataTablePagination } from './data-table-pagination';
 import { DataTableToolbar } from './data-table-toolbar';
-import { useTranslations } from 'next-intl';
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -74,9 +74,16 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         [searchParams]
     );
 
+    const params: Record<string, string> = Object.fromEntries(searchParams.entries());
+
     const [sorting, setSorting] = useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-        JSON.parse(searchParams.get('columnFilters') ?? '[]')
+        Object.keys(params)
+            .filter((key) => key === 'type' || key === 'requirement')
+            .map((key) => ({
+                id: key,
+                value: JSON.parse(params[key]),
+            }))
     );
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ building: false });
     const [rowSelection, setRowSelection] = useState({});
@@ -95,7 +102,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         initialState: {
             pagination: {
                 pageSize: data.length,
-            }
+            },
         },
         meta: {
             updateData: (rowIndex: number, columnId: string, value: unknown) => {
@@ -119,9 +126,10 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         onSortingChange: setSorting,
         onColumnFiltersChange: (updateFunction) => {
             const newColumnFiltersState = functionalUpdate(updateFunction, columnFilters);
-            console.log(newColumnFiltersState);
-            router.replace(pathname + '?' + createQueryString('columnFilters', JSON.stringify(newColumnFiltersState)), {
-                scroll: false,
+            newColumnFiltersState.forEach(({ id, value }) => {
+                router.replace(pathname + '?' + createQueryString(id, JSON.stringify(value)), {
+                    scroll: false,
+                });
             });
             setColumnFilters(newColumnFiltersState);
         },
