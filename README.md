@@ -6,11 +6,11 @@ The information page provides some useful information about the game Dead Fronti
 
 ## Map & Mission Page
 The map & mission page provides data from [df2profiler](https://df2profiler.com/ "df2profiler") but in a more user-friendly way. It also provides some side missions that are optional to do.
-![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/master/readme_images/map-mission-page-demo.gif)
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/map-mission-page-demo.gif)
 
 ## Puzzle Page
 The puzzle page provides a list of puzzles solver for the game Dead Frontier 2.
-![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/master/readme_images/puzzle-page-demo.gif)
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/puzzle-page-demo.gif)
 
 ## Blueprint Page
 The blueprint page provides a list of all the blueprints in the game Dead Frontier 2.
