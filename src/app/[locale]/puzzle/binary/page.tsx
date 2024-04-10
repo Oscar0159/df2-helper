@@ -4,7 +4,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import BinaryPageOG from '../../../../../public/images/og/binary-page-og.png';
 import Binary from './binary';
 
 type Props = {
@@ -24,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: BinaryPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/binary-page-og.png",
                     alt: t('BinaryPage.title'),
                 },
             ],
@@ -38,7 +37,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: BinaryPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/binary-page-og.png",
                     alt: t('BinaryPage.title'),
                 },
             ],

@@ -4,7 +4,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import AlphabetPageOG from '../../../../../public/images/og/alphabet-page-og.png';
 import Alphabet from './alphabet';
 
 type Props = {
@@ -24,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: AlphabetPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/alphabet-page-og.png",
                     alt: t('AlphabetPage.title'),
                 },
             ],
@@ -38,7 +37,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: AlphabetPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/alphabet-page-og.png",
                     alt: t('AlphabetPage.title'),
                 },
             ],

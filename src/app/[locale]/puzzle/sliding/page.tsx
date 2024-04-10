@@ -5,7 +5,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
-import SlidingPageOG from '../../../../../public/images/og/sliding-page-og.png';
 import Sliding from './sliding';
 
 type Props = {
@@ -25,7 +24,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: SlidingPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png",
                     alt: t('SlidingPage.title'),
                 },
             ],
@@ -39,7 +38,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: SlidingPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png",
                     alt: t('SlidingPage.title'),
                 },
             ],

@@ -9,7 +9,6 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
-import lightOutPageOG from '../../../../../public/images/og/light-out-page-og.png';
 import LightOut from './light-out';
 
 type Props = {
@@ -29,7 +28,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: lightOutPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/light-out-page-og.png",
                     alt: t('LightOutPage.title'),
                 },
             ],
@@ -43,7 +42,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: lightOutPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/light-out-page-og.png",
                     alt: t('LightOutPage.title'),
                 },
             ],
