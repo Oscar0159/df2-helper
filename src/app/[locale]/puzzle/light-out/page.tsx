@@ -9,6 +9,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
+import lightOutPageOG from '../../../../../public/images/og/light-out-page-og.png';
 import LightOut from './light-out';
 
 type Props = {
@@ -16,18 +17,34 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'LightOutPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('LightOutPage.title'),
+        description: t('LightOutPage.description'),
         openGraph: {
-            title: t('title'),
-            description: t('description'),
+            title: t('LightOutPage.title'),
+            description: t('LightOutPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/light-out`,
+            siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: 'https://github.com/Oscar0159/df2-helper/blob/master/public/images/thumbnail/light-out-page-thumbnail.png',
-                    alt: t('title'),
+                    url: lightOutPageOG.src,
+                    alt: t('LightOutPage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('LightOutPage.title'),
+            description: t('LightOutPage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: lightOutPageOG.src,
+                    alt: t('LightOutPage.title'),
                 },
             ],
         },

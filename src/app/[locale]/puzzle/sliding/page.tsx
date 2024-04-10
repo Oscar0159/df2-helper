@@ -5,6 +5,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
+import SlidingPageOG from '../../../../../public/images/og/sliding-page-og.png';
 import Sliding from './sliding';
 
 type Props = {
@@ -12,11 +13,37 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'SlidingPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('SlidingPage.title'),
+        description: t('SlidingPage.description'),
+        openGraph: {
+            title: t('SlidingPage.title'),
+            description: t('SlidingPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/sliding`,
+            siteName: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: SlidingPageOG.src,
+                    alt: t('SlidingPage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('SlidingPage.title'),
+            description: t('SlidingPage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: SlidingPageOG.src,
+                    alt: t('SlidingPage.title'),
+                },
+            ],
+        },
     };
 }
 

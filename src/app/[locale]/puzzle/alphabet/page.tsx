@@ -4,6 +4,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import AlphabetPageOG from '../../../../../public/images/og/alphabet-page-og.png';
 import Alphabet from './alphabet';
 
 type Props = {
@@ -11,11 +12,37 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'AlphabetPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('AlphabetPage.title'),
+        description: t('AlphabetPage.description'),
+        openGraph: {
+            title: t('AlphabetPage.title'),
+            description: t('AlphabetPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/alphabet`,
+            siteName: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: AlphabetPageOG.src,
+                    alt: t('AlphabetPage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('AlphabetPage.title'),
+            description: t('AlphabetPage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: AlphabetPageOG.src,
+                    alt: t('AlphabetPage.title'),
+                },
+            ],
+        },
     };
 }
 
