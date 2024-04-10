@@ -4,6 +4,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import BinaryPageOG from '../../../../../public/images/og/binary-page-og.png';
 import Binary from './binary';
 
 type Props = {
@@ -11,11 +12,37 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'BinaryPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('BinaryPage.title'),
+        description: t('BinaryPage.description'),
+        openGraph: {
+            title: t('BinaryPage.title'),
+            description: t('BinaryPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/binary`,
+            siteName: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: BinaryPageOG.src,
+                    alt: t('BinaryPage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('BinaryPage.title'),
+            description: t('BinaryPage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: BinaryPageOG.src,
+                    alt: t('BinaryPage.title'),
+                },
+            ],
+        },
     };
 }
 

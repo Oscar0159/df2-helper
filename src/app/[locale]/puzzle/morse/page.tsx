@@ -4,6 +4,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import MorsePageOG from '../../../../../public/images/og/morse-page-og.png';
 import Morse from './morse';
 
 type Props = {
@@ -11,11 +12,37 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'MorsePage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('MorsePage.title'),
+        description: t('MorsePage.description'),
+        openGraph: {
+            title: t('MorsePage.title'),
+            description: t('MorsePage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/morse`,
+            siteName: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: MorsePageOG.src,
+                    alt: t('MorsePage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('MorsePage.title'),
+            description: t('MorsePage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: MorsePageOG.src,
+                    alt: t('MorsePage.title'),
+                },
+            ],
+        },
     };
 }
 

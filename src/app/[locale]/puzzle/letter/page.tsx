@@ -5,6 +5,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
+import LetterPageOG from '../../../../../public/images/og/letter-page-og.png';
 import Letter from './letter';
 
 type Props = {
@@ -12,11 +13,37 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'LetterPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('LetterPage.title'),
+        description: t('LetterPage.description'),
+        openGraph: {
+            title: t('LetterPage.title'),
+            description: t('LetterPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/puzzle/letter`,
+            siteName: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: LetterPageOG.src,
+                    alt: t('LetterPage.title'),
+                },
+            ],
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('LetterPage.title'),
+            description: t('LetterPage.description'),
+            site: t('LocaleLayout.title'),
+            images: [
+                {
+                    url: LetterPageOG.src,
+                    alt: t('LetterPage.title'),
+                },
+            ],
+        },
     };
 }
 
