@@ -1,7 +1,7 @@
 {
     "LocaleLayout": {
         "title": "死亡邊境2 工具",
-        "description": "死亡邊境2 工具是一個網站，提供了一些有用的工具，幫助你在遊戲中更好地管理你的角色。"
+        "description": "死亡邊境2工具是一個提供有關遊戲死亡邊境2的資訊和工具的網站。它是一個正在進行中的工作，並將定期更新。"
     },
 
     "Navigation": {
@@ -33,7 +33,7 @@
 
     "InformationPage": {
         "title": "基礎資訊",
-        "description": "基礎資訊頁面提供了一些有用的訊息，幫助你更好地了解遊戲。",
+        "description": "基礎資訊頁面提供了一些有關遊戲死亡邊境2的資訊。",
         "when-to-reset": {
             "title": "BOSS、搜索地點、任務重置時間",
             "content": "每天的下午5點(UTC+8)，但偶而會因為夏令時間而有些微變動，任務需要再刷新前回報完畢。"
@@ -66,7 +66,7 @@
 
     "MapMissionPage": {
         "title": "地圖和任務",
-        "description": "地圖和任務頁面提供了一些有用的地圖和任務訊息。"
+        "description": "地圖和任務頁面提供了DF2 Profiler的數據，但以更友好的方式呈現。它還提供了一些可選的支線任務。"
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
@@ -105,7 +105,7 @@
 
     "PuzzlePage": {
         "title": "寶箱謎題",
-        "description": "寶箱謎題頁面提供了一些謎題遊戲解答器。你可以使用它們來解決遊戲中的謎題。"
+        "description": "寶箱謎題頁面提供了遊戲死亡邊境2的寶箱謎題解答器。"
     },
     "BinaryPage": {
         "title": "二進制",
@@ -139,7 +139,7 @@
 
     "BlueprintPage": {
         "title": "藍圖",
-        "description": "藍圖頁面提供了一些有用的藍圖訊息。"
+        "description": "藍圖頁面提供了遊戲死亡邊境2中藍圖的一些有用資訊。你可以使用它來找到你需要製作物品的藍圖。"
     },
     "RoninsBladePage": {
         "title": "浪人之刃",
@@ -168,7 +168,7 @@
 
     "ToolPage": {
         "title": "實用工具",
-        "description": "實用工具頁面提供了一些有用的工具，使你有更好的遊戲體驗。"
+        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。"
     },
     "CrosshairPage": {
         "title": "Crosshair",
@@ -177,7 +177,7 @@
 
     "ResourceLinkPage": {
         "title": "資源連結",
-        "description": "資源連結頁面提供了一些有用的資源連結。",
+        "description": "資源連結頁面提供了一些遊戲死亡邊境2的有用連結。例如：df2profiler等。",
         "df2profiler": {
             "description": "DF2 Profiler是一個網站，提供了遊戲死亡邊境2中地圖和任務的訊息。你可以使用它來找到你需要完成的任務的位置。"
         }
