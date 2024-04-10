@@ -1,7 +1,7 @@
 {
     "LocaleLayout": {
         "title": "Dead Frontier 2 Helper",
-        "description": "Dead Frontier 2 Helper is a website that provides information about the game Dead Frontier 2. It is a work in progress and will be updated regularly."
+        "description": "Dead Frontier 2 Helper is a website that provides information and tools about the game Dead Frontier 2. It is a work in progress and will be updated regularly."
     },
 
     "Navigation": {
@@ -33,7 +33,7 @@
 
     "InformationPage": {
         "title": "Information",
-        "description": "The information page provides some useful information about the game Dead Frontier 2. You can use it to learn more about the game.",
+        "description": "The information page provides some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.",
         "when-to-reset": {
             "title": "Reset time of the boss, loot, and mission",
             "content": "Every day at 9:00 AM (UTC+0), but occasionally there will be slight changes due to daylight saving time, the mission needs to be reported before refreshing."
@@ -66,7 +66,7 @@
 
     "MapMissionPage": {
         "title": "Map & Mission",
-        "description": "The map & mission page provides some useful information about the map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+        "description": "The map & mission page provides data from df2profiler but in a more user-friendly way. It also provides some side missions that are optional to do."
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
@@ -105,7 +105,7 @@
 
     "PuzzlePage": {
         "title": "Puzzle",
-        "description": "The puzzle page provides some puzzle games solvers. You can use them to solve the puzzles in the game."
+        "description": "The puzzle page provides a list of puzzles solver for the game Dead Frontier 2."
     },
     "BinaryPage": {
         "title": "Binary",
@@ -163,12 +163,12 @@
     },
     "AllBlueprintListPage": {
         "title": "All Blueprint List",
-        "description": "All blueprints in the game Dead Frontier 2."
+        "description": "The blueprint page provides a list of all the blueprints in the game Dead Frontier 2."
     },
 
     "ToolPage": {
         "title": "Tool",
-        "description": "The tool page provides some useful tools to help you have a better gaming experience."
+        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc."
     },
     "CrosshairPage": {
         "title": "Crosshair",
@@ -177,7 +177,7 @@
 
     "ResourceLinkPage": {
         "title": "Resource Link",
-        "description": "The resource link page provides some useful resources about the game Dead Frontier 2. You can use them to find more information about the game.",
+        "description": "The resource link page provides some useful links for the game Dead Frontier 2. Ex. df2profiler, etc.",
         "df2profiler": {
             "description": "DF2 Profiler is a website that provides information of map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
         }

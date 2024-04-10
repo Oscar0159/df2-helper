@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dead Frontier 2 Helper
+Dead Frontier 2 Helper is a website that provides information and tools about the game Dead Frontier 2. It is a work in progress and will be updated regularly.
 
-## Getting Started
+## Information Page
+The information page provides some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/information-page-demo.gif)
 
-First, run the development server:
+## Map & Mission Page
+The map & mission page provides data from [df2profiler](https://df2profiler.com/ "df2profiler") but in a more user-friendly way. It also provides some side missions that are optional to do.
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/map-mission-page-demo.gif)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Puzzle Page
+The puzzle page provides a list of puzzles solver for the game Dead Frontier 2.
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/puzzle-page-demo.gif)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Blueprint Page
+The blueprint page provides a list of all the blueprints in the game Dead Frontier 2.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tools Page
+The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Resource Link Page
+The resource link page provides some useful links for the game Dead Frontier 2. Ex. [df2profiler](https://df2profiler.com/ "df2profiler"), etc.
