@@ -3,6 +3,7 @@ Dead Frontier 2 Helper is a website that provides information and tools about th
 
 ## Information Page
 The information page provides some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.
+![image](https://raw.githubusercontent.com/Oscar0159/df2-helper/develop/readme_images/information-page-demo.gif)
 
 ## Map & Mission Page
 The map & mission page provides data from [df2profiler](https://df2profiler.com/ "df2profiler") but in a more user-friendly way. It also provides some side missions that are optional to do.
