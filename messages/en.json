@@ -125,7 +125,7 @@
     },
     "LightOutPage": {
         "title": "Light Out",
-        "description": "Solve the puzzle by turning on all the lights.",
+        "description": "Solve the puzzle by given light status.",
         "toggle": "Toggle",
         "fill": "Fill",
         "clear": "Clear",
