@@ -19,16 +19,16 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
     //     enableSorting: false,
     //     enableHiding: false,
     // },
+    // {
+    //     accessorKey: 'minlvl',
+    //     header: ({ column }) => <DataTableColumnHeader column={column} translationKey="minlvl" />,
+    // },
+    // {
+    //     accessorKey: 'maxlvl',
+    //     header: ({ column }) => <DataTableColumnHeader column={column} translationKey="maxlvl" />,
+    // },
     {
-        accessorKey: 'minlvl',
-        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="minlvl" />,
-    },
-    {
-        accessorKey: 'maxlvl',
-        header: ({ column }) => <DataTableColumnHeader column={column} translationKey="maxlvl" />,
-    },
-    {
-        accessorKey: 'drawdestination',
+        accessorKey: 'drawDestination',
         header: ({ table, column }) => (
             <div className="flex items-center justify-center gap-2">
                 <Checkbox
@@ -42,12 +42,12 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                         (table
                             .getPaginationRowModel()
                             .rows.every(
-                                (row) => row.original.drawdestination || !row.original.xcoord || !row.original.ycoord
+                                (row) => row.original.drawDestination || !row.original.xcoord || !row.original.ycoord
                             ) ||
                             (table
                                 .getPaginationRowModel()
                                 .rows.some(
-                                    (row) => row.original.drawdestination && row.original.xcoord && row.original.ycoord
+                                    (row) => row.original.drawDestination && row.original.xcoord && row.original.ycoord
                                 ) &&
                                 'indeterminate'))
                     }
@@ -58,8 +58,8 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                             .rows.forEach((row) =>
                                 table.options.meta?.updateData(
                                     row.index,
-                                    'drawdestination',
-                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawdestination)
+                                    'drawDestination',
+                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawDestination)
                                 )
                             );
                     }}
@@ -71,9 +71,9 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
             <div className="flex items-center justify-center">
                 <Checkbox
                     disabled={!row.original.xcoord || !row.original.ycoord}
-                    checked={row.getValue('drawdestination')}
+                    checked={row.getValue('drawDestination')}
                     onCheckedChange={(value) => {
-                        table.options.meta?.updateData(row.index, 'drawdestination', value);
+                        table.options.meta?.updateData(row.index, 'drawDestination', value);
                     }}
                     className={!row.original.xcoord || !row.original.ycoord ? 'opacity-0 bg-red-500' : ''}
                 />
@@ -81,7 +81,7 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
         ),
     },
     {
-        accessorKey: 'drawgiver',
+        accessorKey: 'drawGiver',
         header: ({ table, column }) => (
             <div className="flex items-center justify-center gap-2">
                 <Checkbox
@@ -96,13 +96,13 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                             .getPaginationRowModel()
                             .rows.every(
                                 (row) =>
-                                    row.original.drawgiver || !row.original.giverxcoord || !row.original.giverycoord
+                                    row.original.drawGiver || !row.original.giverxcoord || !row.original.giverycoord
                             ) ||
                             (table
                                 .getPaginationRowModel()
                                 .rows.some(
                                     (row) =>
-                                        row.original.drawgiver && row.original.giverxcoord && row.original.giverycoord
+                                        row.original.drawGiver && row.original.giverxcoord && row.original.giverycoord
                                 ) &&
                                 'indeterminate'))
                     }
@@ -113,8 +113,8 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
                             .rows.forEach((row) =>
                                 table.options.meta?.updateData(
                                     row.index,
-                                    'drawgiver',
-                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawgiver)
+                                    'drawGiver',
+                                    !table.getPaginationRowModel().rows.every((row) => row.original.drawGiver)
                                 )
                             );
                     }}
@@ -126,9 +126,9 @@ export const columns: ColumnDef<Mission & DrawOption>[] = [
             <div className="flex items-center justify-center">
                 <Checkbox
                     disabled={!row.original.giverxcoord || !row.original.giverycoord}
-                    checked={row.getValue('drawgiver')}
+                    checked={row.getValue('drawGiver')}
                     onCheckedChange={(value) => {
-                        table.options.meta?.updateData(row.index, 'drawgiver', value);
+                        table.options.meta?.updateData(row.index, 'drawGiver', value);
                     }}
                     className={!row.original.giverxcoord || !row.original.giverycoord ? 'opacity-0 bg-red-500' : ''}
                 />

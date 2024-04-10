@@ -77,9 +77,26 @@
         "maxlvl": "最高等級",
         "type": "類型",
         "requirement": "需求",
-        "drawdestination": "目標地",
-        "drawgiver": "接取地",
-        "building": "建築物"
+        "draw-destination": "目標地",
+        "draw-giver": "接取地",
+        "building": "建築物",
+        "result": "筆資料",
+        "results": "筆資料",
+        "view-options": "顯示",
+        "columns": "資料欄",
+        "hide-column": "隱藏",
+        "sort-ascending": "升序",
+        "sort-descending": "降序",
+        "clear-sorting": "清除排序",
+        "filter-type": "類型",
+        "filter-requirement": "需求...",
+        "clear-filters": "清除篩選",
+        "no-results": "沒有結果"
+    },
+    "MapTable": {
+        "outpost": "前哨",
+        "pvp": "PVP",
+        "red-building": "紅色建築"
     },
     "SideMissionsPage": {
         "title": "支線任務",
@@ -94,9 +111,13 @@
         "title": "二進制",
         "description": "將二進制數字轉換為正確的數字。"
     },
-    "LettersPage": {
+    "AlphabetPage": {
         "title": "字母",
         "description": "將數字轉換為正確的字母。"
+    },
+    "LetterPage": {
+        "title": "單字",
+        "description": "根據給定的訊息猜測可能的字詞。"
     },
     "MorsePage": {
         "title": "摩斯密碼",

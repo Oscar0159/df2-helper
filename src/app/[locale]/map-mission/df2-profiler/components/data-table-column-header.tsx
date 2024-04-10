@@ -47,22 +47,22 @@ export function DataTableColumnHeader<TData, TValue>({
                 <DropdownMenuContent align="start">
                     <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
                         <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        Asc
+                        {t('sort-ascending')}
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
                         <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        Desc
+                        {t('sort-descending')}
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     {column.getIsSorted() && (
                         <DropdownMenuItem onClick={() => column.clearSorting()}>
                             <ArrowUpDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                            Clear
+                            {t('clear-sorting')}
                         </DropdownMenuItem>
                     )}
                     <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
                         <EyeOffIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        Hide
+                        {t('hide-column')}
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

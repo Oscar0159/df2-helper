@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import noThumbnail from '../../../public/images/thumbnail/no-thumbnail.png';
+
 type Props = {
     params: { locale: string };
 };
@@ -29,31 +31,37 @@ export default function Home({ params: { locale } }: Props) {
             title: t('InformationPage.title'),
             description: t('InformationPage.description'),
             href: '/information',
+            image: noThumbnail.src,
         },
         {
             title: t('MapMissionPage.title'),
             description: t('MapMissionPage.description'),
             href: '/map-mission',
+            image: noThumbnail.src,
         },
         {
             title: t('PuzzlePage.title'),
             description: t('PuzzlePage.description'),
             href: '/puzzle',
+            image: noThumbnail.src,
         },
         {
             title: t('BlueprintPage.title'),
             description: t('BlueprintPage.description'),
             href: '/blueprint',
+            image: noThumbnail.src,
         },
         {
             title: t('ToolPage.title'),
             description: t('ToolPage.description'),
             href: '/tool',
+            image: noThumbnail.src,
         },
         {
             title: t('ResourceLinkPage.title'),
             description: t('ResourceLinkPage.description'),
             href: '/resource-link',
+            image: noThumbnail.src,
         },
     ];
 
@@ -71,7 +79,13 @@ export default function Home({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>{image && <Image src={image} alt={title} />}</CardContent>
+                            <CardContent>
+                                {image && (
+                                    <div className="relative h-52">
+                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                    </div>
+                                )}
+                            </CardContent>
                         </Card>
                     </Link>
                 ))}

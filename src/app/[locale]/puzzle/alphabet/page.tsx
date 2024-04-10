@@ -4,14 +4,14 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import Letters from './letters';
+import Alphabet from './alphabet';
 
 type Props = {
     params: { locale: string };
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'LettersPage' });
+    const t = await getTranslations({ locale, namespace: 'AlphabetPage' });
 
     return {
         title: t('title'),
@@ -19,11 +19,11 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function LettersPage({ params: { locale } }: Props) {
+export default function AlphabetPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('LettersPage');
+    const t = useTranslations('AlphabetPage');
 
     return (
         <>
@@ -32,7 +32,7 @@ export default function LettersPage({ params: { locale } }: Props) {
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grow">
-                <Letters />
+                <Alphabet />
             </div>
         </>
     );

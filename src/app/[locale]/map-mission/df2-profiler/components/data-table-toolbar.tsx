@@ -6,12 +6,16 @@ import { Input } from '@/components/ui/input';
 
 import { DataTableFacetedFilter } from './data-table-faceted-filter';
 import { DataTableViewOptions } from './data-table-view-options';
+import { useTranslations } from 'next-intl';
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>;
 }
 
 export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>) {
+
+    const t = useTranslations('DataTable')
+
     const isFiltered = table.getState().columnFilters.length > 0;
 
     const missionTypes = [
@@ -65,7 +69,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         <div className="flex flex-col justify-center gap-4">
             <div className="flex items-center space-x-2 justify-between">
                 <Input
-                    placeholder="Filter requirement..."
+                    placeholder={t('filter-requirement')}
                     value={(table.getColumn('requirement')?.getFilterValue() as string) ?? ''}
                     onChange={(event) => table.getColumn('requirement')?.setFilterValue(event.target.value)}
                 />
@@ -73,11 +77,11 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
             </div>
             <div className="flex items-center space-x-2">
                 {table.getColumn('type') && (
-                    <DataTableFacetedFilter column={table.getColumn('type')} title="Type" options={missionTypes} />
+                    <DataTableFacetedFilter column={table.getColumn('type')} title={t('filter-type')} options={missionTypes} />
                 )}
                 {isFiltered && (
                     <Button variant="default" onClick={() => table.resetColumnFilters()} className="px-2 lg:px-3">
-                        Reset
+                        {t('clear-filters')}
                         <XIcon className="ml-2 h-4 w-4" />
                     </Button>
                 )}

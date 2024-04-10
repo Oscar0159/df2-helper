@@ -9,6 +9,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+
 type Props = {
     params: { locale: string };
 };
@@ -42,6 +44,7 @@ export default function ResourceLink({ params: { locale } }: Props) {
             description: t('df2profiler.description'),
             locales: ['en'],
             href: 'https://df2profiler.com/',
+            image: noThumbnail.src,
         },
     ];
 
@@ -52,22 +55,18 @@ export default function ResourceLink({ params: { locale } }: Props) {
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {resourceLinkItems.map((item) => (
-                    <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">
+                {resourceLinkItems.map(({ title, description, href, image }) => (
+                    <a key={title} href={href} target="_blank" rel="noopener noreferrer">
                         <Card className="transition-all duration-300 hover:bg-secondary">
                             <CardHeader>
-                                <CardTitle>{item.title}</CardTitle>
-                                <CardDescription>{item.description}</CardDescription>
+                                <CardTitle>{title}</CardTitle>
+                                <CardDescription>{description}</CardDescription>
                             </CardHeader>
                             <CardContent>
-                                {item.image && (
-                                    <Image
-                                        src={item.image}
-                                        alt={item.title}
-                                        width={400}
-                                        height={200}
-                                        layout="responsive"
-                                    />
+                                {image && (
+                                    <div className="relative h-52">
+                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                    </div>
                                 )}
                             </CardContent>
                         </Card>

@@ -9,12 +9,12 @@ import { Label } from '@/components/ui/label';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-export default function Letters() {
+export default function Alphabet() {
     const [number, setNumber] = useState('');
 
-    const t = useTranslations('LettersPage');
+    const t = useTranslations('AlphabetPage');
 
-    const letters = number.split(' ').map((numberStr) => {
+    const alphabet = number.split(' ').map((numberStr) => {
         const number = parseInt(numberStr, 10);
         return isNaN(number) ? '?' : String.fromCharCode(65 + number - 1);
     });
@@ -32,7 +32,7 @@ export default function Letters() {
                     />
                 </div>
                 <ArrowLeftRightIcon size={40} className="mt-7 rotate-90" />
-                <div className="p-3 text-7xl sm:text-9xl">{letters.join(' ')}</div>
+                <div className="p-3 text-7xl sm:text-9xl">{alphabet.join(' ')}</div>
             </div>
 
             <div className="grid grid-flow-col grid-rows-9 place-items-center gap-x-12 gap-y-4 p-6 pt-2 text-2xl sm:grid-rows-8 xl:gap-y-6 xl:pt-10">

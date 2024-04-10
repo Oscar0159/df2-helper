@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+
 type Props = {
     params: { locale: string };
 };
@@ -29,6 +31,7 @@ export default function Tool({ params: { locale } }: Props) {
             title: t('CrosshairPage.title'),
             description: t('CrosshairPage.description'),
             href: '/tool/crosshair',
+            image: noThumbnail.src,
         },
     ];
 
@@ -46,7 +49,13 @@ export default function Tool({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>{image && <Image src={image} alt={title} />}</CardContent>
+                            <CardContent>
+                                {image && (
+                                    <div className="relative h-52">
+                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                    </div>
+                                )}
+                            </CardContent>
                         </Card>
                     </Link>
                 ))}

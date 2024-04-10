@@ -77,9 +77,26 @@
         "maxlvl": "Max Level",
         "type": "Type",
         "requirement": "Requirement",
-        "drawdestination": "Dst",
-        "drawgiver": "Giv",
-        "building": "Building"
+        "draw-destination": "Dst",
+        "draw-giver": "Giv",
+        "building": "Building",
+        "result": "Result",
+        "results": "Results",
+        "view-options": "View",
+        "columns": "Columns",
+        "hide-column": "Hide",
+        "sort-ascending": "Ascending",
+        "sort-descending": "Descending",
+        "clear-sorting": "Clear Sorting",
+        "filter-type": "Type",
+        "filter-requirement": "Requirement",
+        "clear-filters": "Clear Filters",
+        "no-results": "No results."
+    },
+    "MapTable": {
+        "outpost": "Outpost",
+        "pvp": "PvP",
+        "red-building": "Red Building"
     },
     "SideMissionsPage": {
         "title": "Side Mission",
@@ -94,9 +111,13 @@
         "title": "Binary",
         "description": "Convert the binary code to the correct number."
     },
-    "LettersPage": {
-        "title": "Letters",
-        "description": "Convert the number to the correct letter."
+    "AlphabetPage": {
+        "title": "Alphabet",
+        "description": "Convert the number to the correct Alphabet."
+    },
+    "LetterPage": {
+        "title": "Letter",
+        "description": "Guess the possible letter by the given information."
     },
     "MorsePage": {
         "title": "Morse Code",
