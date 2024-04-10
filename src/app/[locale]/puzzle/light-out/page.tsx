@@ -21,6 +21,16 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     return {
         title: t('title'),
         description: t('description'),
+        openGraph: {
+            title: t('title'),
+            description: t('description'),
+            images: [
+                {
+                    url: 'https://github.com/Oscar0159/df2-helper/blob/master/public/images/thumbnail/light-out-page-thumbnail.png',
+                    alt: t('title'),
+                },
+            ],
+        },
     };
 }
 

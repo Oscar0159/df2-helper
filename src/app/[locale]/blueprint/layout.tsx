@@ -7,14 +7,14 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'BlueprintPage' });
+    const t = await getTranslations({ locale });
 
     return {
         title: {
-            template: `%s | ${t('title')}`,
-            default: t('title'),
+            template: `%s | ${t('BlueprintPage.title')} | ${t('LocaleLayout.title')}`,
+            default: t('BlueprintPage.title'),
         },
-        description: t('description'),
+        description: t('BlueprintPage.description'),
     };
 }
 
