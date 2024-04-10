@@ -5,7 +5,6 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 import ConstructionAnimation from '@/components/construction-animation';
 
-import LetterPageOG from '../../../../../public/images/og/letter-page-og.png';
 import Letter from './letter';
 
 type Props = {
@@ -25,7 +24,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: LetterPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/letter-page-og.png",
                     alt: t('LetterPage.title'),
                 },
             ],
@@ -39,7 +38,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: LetterPageOG.src,
+                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/letter-page-og.png",
                     alt: t('LetterPage.title'),
                 },
             ],
