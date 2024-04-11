@@ -21,9 +21,10 @@ export default function Binary() {
         <div className="flex flex-col">
             <div className="flex flex-col items-center p-5">
                 <div className="w-full sm:px-10 xl:px-20">
-                    <Label className="text-xl">Binary Number</Label>
+                    <Label htmlFor='binaryNumber' className="text-xl">Binary Number</Label>
                     <Input
                         type="text"
+                        id="binaryNumber"
                         value={binaryNumber}
                         onChange={(e) => setBinaryNumber(e.target.value)}
                         placeholder="010 111 100 101"
