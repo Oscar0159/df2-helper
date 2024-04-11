@@ -8,6 +8,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
 import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+import stairwayToHellPageThumbnail from '../../../../public/images/thumbnail/stairway-to-hell-page-thumbnail.png';
+import goreTrimmerPageThumbnail from '../../../../public/images/thumbnail/gore-trimmer-page-thumbnail.png';
+import callOfTheAccursedPageThumbnail from '../../../../public/images/thumbnail/call-of-the-accursed-page-thumbnail.png';
+
 
 type Props = {
     params: { locale: string };
@@ -37,13 +41,13 @@ export default function Blueprint({ params: { locale } }: Props) {
             title: t('StairwayToHellPage.title'),
             description: t('StairwayToHellPage.description'),
             href: '/blueprint/stairway-to-hell',
-            image: noThumbnail.src,
+            image: stairwayToHellPageThumbnail.src,
         },
         {
             title: t('GoreTrimmerPage.title'),
             description: t('GoreTrimmerPage.description'),
             href: '/blueprint/gore-trimmer',
-            image: noThumbnail.src,
+            image: goreTrimmerPageThumbnail.src,
         },
         {
             title: t('ViciousHoarderBackpackPage.title'),
@@ -55,7 +59,7 @@ export default function Blueprint({ params: { locale } }: Props) {
             title: t('CallOfTheAccursedPage.title'),
             description: t('CallOfTheAccursedPage.description'),
             href: '/blueprint/call-of-the-accursed',
-            image: noThumbnail.src,
+            image: callOfTheAccursedPageThumbnail.src,
         },
         {
             title: t('AllBlueprintListPage.title'),
@@ -72,7 +76,7 @@ export default function Blueprint({ params: { locale } }: Props) {
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-5">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {blueprintItems.map(({ title, description, href, image }) => (
                         <Link key={title} href={href}>
                             <Card className="transition-all duration-300 hover:bg-secondary">
@@ -82,7 +86,7 @@ export default function Blueprint({ params: { locale } }: Props) {
                                 </CardHeader>
                                 <CardContent>
                                     {image && (
-                                        <div className="relative h-52">
+                                        <div className="relative h-36">
                                             <Image src={image} alt={title} fill className="rounded-md object-cover" />
                                         </div>
                                     )}
