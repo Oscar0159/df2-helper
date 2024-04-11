@@ -1,11 +1,8 @@
-// TODO: make the code more clean and readable
 import { locales } from '@/config';
 import { GlobeIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
-import { cn } from '@/lib/utils';
 
 import LocaleSwitcherSelect from './locale-switcher-select';
 
@@ -17,22 +14,18 @@ const localeMap = {
 export default function LocaleSwitcher() {
     return (
         <LocaleSwitcherSelect>
-            <Button
-                asChild
-                variant="ghost"
-                className="aspect-square w-10 rounded-full p-2 xl:w-full xl:justify-start xl:px-4"
-            >
-                <SelectTrigger className="border-none border-background ring-0 ring-background focus:border-none focus:ring-0">
+            <SelectTrigger className="bg-background/0 border-none" asChild>
+                <Button variant="ghost" className="w-10 rounded-full p-2 xl:w-full xl:justify-start xl:px-4">
                     <GlobeIcon size={22} />
                     <p className="ml-3 hidden font-semibold xl:flex">
                         <SelectValue placeholder="Select a Language" />
                     </p>
-                </SelectTrigger>
-            </Button>
-            <SelectContent className="sm:mb:0 mb-5 -translate-x-1/3 sm:translate-x-0">
+                </Button>
+            </SelectTrigger>
+            <SelectContent align="center">
                 <SelectGroup>
                     {locales.map((locale) => (
-                        <SelectItem key={locale} value={locale}>
+                        <SelectItem key={locale} value={locale} className="select-item">
                             {localeMap[locale]}
                         </SelectItem>
                     ))}
