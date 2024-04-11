@@ -1,19 +1,12 @@
 'use client';
 
-// TODO: make the code more clean and readable
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
 
-import { cn } from '@/lib/utils';
-
-type Props = {
-    className?: string;
-};
-
-export default function ModeToggle({ className }: Props) {
+export default function ModeToggle() {
     const { theme, setTheme } = useTheme();
 
     const t = useTranslations('ModeToggle');
@@ -22,7 +15,7 @@ export default function ModeToggle({ className }: Props) {
         <Button
             variant="ghost"
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-            className={cn('font-semibold', className)}
+            className="xl:w-full xl:justify-start xl:px-4 aspect-square w-10 rounded-full p-2 font-semibold"
         >
             <SunIcon size={22} className="dark:hidden" />
             <MoonIcon size={22} className="hidden dark:block" />
