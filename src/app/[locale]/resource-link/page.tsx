@@ -40,11 +40,34 @@ export default function ResourceLink({ params: { locale } }: Props) {
 
     const resourceLinkItems: ResourceLinkItem[] = [
         {
+            title: 'Dead Frontier II Wiki',
+            description: t('dead-frontier-ii-wiki.description'),
+            locales: ['en'],
+            href: 'https://deadfrontier2.fandom.com/wiki/Deadfrontier_II_Wiki',
+        },
+        {
             title: 'DF2Profiler',
             description: t('df2profiler.description'),
             locales: ['en'],
             href: 'https://df2profiler.com/',
-            image: noThumbnail.src,
+        },
+        {
+            title: 'DF2Haven',
+            description: t('df2haven.description'),
+            locales: ['en'],
+            href: 'https://www.df2haven.com/',
+        },
+        {
+            title: 'Dead Frontier II Discord',
+            description: t('dead-frontier-ii-discord.description'),
+            locales: ['en'],
+            href: 'https://discordapp.com/invite/deadfrontier2',
+        },
+        {
+            title: 'Dead Frontier II Support',
+            description: t('dead-frontier-ii-support.description'),
+            locales: ['en'],
+            href: 'http://support.deadfrontier2.com/home',
         },
     ];
 
@@ -62,13 +85,6 @@ export default function ResourceLink({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                {image && (
-                                    <div className="relative h-52">
-                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
-                                    </div>
-                                )}
-                            </CardContent>
                         </Card>
                     </a>
                 ))}
