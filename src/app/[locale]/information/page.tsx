@@ -54,12 +54,12 @@ export default function Information({ params: { locale } }: Props) {
             content: t('any-place-increase-chance.content'),
         },
         {
-            title: t('increase-health-in-multiplayer.title'),
-            content: t('increase-health-in-multiplayer.content'),
-        },
-        {
             title: t('about-speed.title'),
             content: t('about-speed.content'),
+        },
+        {
+            title: t('about-tax.title'),
+            content: t('about-tax.content'),
         },
     ];
 
