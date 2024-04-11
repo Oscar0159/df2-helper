@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+import crosshairPageThumbnail from '../../../../public/images/thumbnail/crosshair-page-thumbnail.png';
 
 type Props = {
     params: { locale: string };
@@ -30,8 +30,8 @@ export default function Tool({ params: { locale } }: Props) {
         {
             title: t('CrosshairPage.title'),
             description: t('CrosshairPage.description'),
-            href: '/tool/crosshair',
-            image: noThumbnail.src,
+            href: 'https://apps.microsoft.com/detail/9n1k9q56hvxr',
+            image: crosshairPageThumbnail.src,
         },
     ];
 
@@ -43,7 +43,7 @@ export default function Tool({ params: { locale } }: Props) {
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {toolItems.map(({ title, description, href, image }) => (
-                    <Link key={href} href={href}>
+                    <a key={title} href={href} target="_blank" rel="noopener noreferrer">
                         <Card className="transition-all duration-300 hover:bg-secondary">
                             <CardHeader>
                                 <CardTitle>{title}</CardTitle>
@@ -57,7 +57,7 @@ export default function Tool({ params: { locale } }: Props) {
                                 )}
                             </CardContent>
                         </Card>
-                    </Link>
+                    </a>
                 ))}
             </div>
         </>
