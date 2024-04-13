@@ -3,55 +3,55 @@ import { JSDOM } from 'jsdom';
 export const baseUrl = 'https://df2profiler.com';
 
 export const outposts = ['Dallbow Police Department', 'Haverbrook Memorial Hospital', 'Greywood Star Hotel'];
-export const redBuilding = ['Palehaven City\'s Archives', 'Comer and Son Inc', 'Ravenwall Heights Community Hospital']
+export const raidBuildings = ['Palehaven City\'s Archives', 'Comer and Son Inc', 'Ravenwall Heights Community Hospital']
 
-export function parse(html: string): { mapUrl: string; mapDataList: any[][]; missionDataList: any[] } {
+export function parse(html: string): { mapUrl: string; mapCells: any[][]; missions: any[] } {
     const dom = new JSDOM(html);
     const window = dom.window;
     const document = window.document;
 
     const mapTable = document.querySelector('#map');
     if (!mapTable) {
-        return { mapUrl: '', mapDataList: [], missionDataList: [] };
+        return { mapUrl: '', mapCells: [], missions: [] };
     }
     const mapTableComputedStyle = window.getComputedStyle(mapTable);
     const mapUrl = baseUrl + mapTableComputedStyle.backgroundImage.slice(4, -1).replace(/"/g, '');
 
-    const mapTdList = mapTable.querySelectorAll('td');
-    const mapDataList: {
+    const mapTds = mapTable.querySelectorAll('td');
+    const mapCells: {
         level: number;
         buildings: string[];
-        xcoord: number;
-        ycoord: number;
+        x: number;
+        y: number;
         isOutpost: boolean;
         isPvP: boolean;
-        isRedBuilding: boolean;
+        isRaidBuilding: boolean;
         district: string;
         types: string[];
     }[][] = [];
-    mapTdList.forEach((td) => {
+    mapTds.forEach((td) => {
         const level = parseInt(td.getAttribute('data-level') || '');
         const buildings = (td.getAttribute('data-buildings') || '').split(',');
-        const xcoord = parseInt(td.getAttribute('data-xcoord') || '');
-        const ycoord = parseInt(td.getAttribute('data-ycoord') || '');
+        const x = parseInt(td.getAttribute('data-xcoord') || '');
+        const y = parseInt(td.getAttribute('data-ycoord') || '');
         const isOutpost = td.classList.contains('outpost');
         const isPvP = td.classList.contains('pvpZone');
-        const isRedBuilding = buildings.some((building) => redBuilding.includes(building));
+        const isRaidBuilding = buildings.some((building) => raidBuildings.includes(building));
         const district = td.getAttribute('data-district') || '';
         const types = (td.getAttribute('data-types') || '').split(',');
 
-        if (!xcoord || !ycoord) return;
+        if (!x || !y) return;
 
-        if (!mapDataList[ycoord - 1]) {
-            mapDataList[ycoord - 1] = [];
+        if (!mapCells[y - 1]) {
+            mapCells[y - 1] = [];
         }
-        mapDataList[ycoord - 1][xcoord - 1] = { level, buildings, xcoord, ycoord, isOutpost, isPvP, isRedBuilding, district, types };
+        mapCells[y - 1][x - 1] = { level, buildings, x, y, isOutpost, isPvP, isRaidBuilding: isRaidBuilding, district, types };
     });
 
-    const missionSpanList = document.querySelectorAll(
+    const missionSpans = document.querySelectorAll(
         '.center > div:not(.searchOptions):not(#searchBox):not(#sortedValue) > span'
     );
-    const missionDataList: {
+    const missions: {
         minlvl: number;
         maxlvl: number;
         xcoord: number;
@@ -62,7 +62,7 @@ export function parse(html: string): { mapUrl: string; mapDataList: any[][]; mis
         giverbuilding: string;
         type: string;
         requirement: string;
-    }[] = Array.from(missionSpanList).map((missionSpan) => {
+    }[] = Array.from(missionSpans).map((missionSpan) => {
         const missionTypeSpan = missionSpan.querySelector('strong');
         const giverSpan = missionSpan.querySelector('span.giverLookup');
 
@@ -88,5 +88,5 @@ export function parse(html: string): { mapUrl: string; mapDataList: any[][]; mis
         return { minlvl, maxlvl, xcoord, ycoord, giverxcoord, giverycoord, building, giverbuilding, type, requirement };
     });
 
-    return { mapUrl, mapDataList, missionDataList };
+    return { mapUrl, mapCells, missions };
 }

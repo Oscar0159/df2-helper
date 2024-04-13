@@ -36,7 +36,7 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const { mapUrl, mapDataList, missionDataList } = await getDF2ProfilerData();
+    const { mapUrl, mapCells: mapDataList, missions: missionDataList } = await getDF2ProfilerData();
 
     const t = await getTranslations({ locale, namespace: 'DF2ProfilerPage' });
 
@@ -50,10 +50,10 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                 <Suspense fallback={<Skeleton />}>
                     <DF2Profiler
                         mapUrl={mapUrl}
-                        mapCellList={mapDataList}
-                        missionList={missionDataList}
+                        mapCells={mapDataList}
+                        missions={missionDataList}
                         outposts={df2profiler.outposts}
-                        redBuilding={df2profiler.redBuilding}
+                        raidBuildings={df2profiler.raidBuildings}
                         chunkSize={6}
                     />
                 </Suspense>

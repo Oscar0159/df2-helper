@@ -16,12 +16,12 @@ type Props = {
     mapUrl: string;
     mapCellList: MapCell[][];
     outposts: string[];
-    redBuilding: string[];
+    raidBuildings: string[];
     chunkSize: number;
     drawState?: DrawState;
 };
 
-export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize, drawState }: Props) {
+export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSize, drawState }: Props) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
@@ -200,7 +200,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                                                         outposts.includes(building)
                                                                             ? 'text-green-700 dark:text-green-500'
                                                                             : '',
-                                                                        redBuilding.includes(building)
+                                                                        raidBuildings.includes(building)
                                                                             ? 'text-red-700 dark:text-red-500'
                                                                             : ''
                                                                     )}

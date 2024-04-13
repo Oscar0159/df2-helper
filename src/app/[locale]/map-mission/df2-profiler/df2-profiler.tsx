@@ -9,16 +9,23 @@ import type { DrawOption, MapCell, Mission } from './types';
 
 type Props = {
     mapUrl: string;
-    mapCellList: MapCell[][];
-    missionList: Mission[];
+    mapCells: MapCell[][];
+    missions: Mission[];
     outposts: string[];
-    redBuilding: string[];
+    raidBuildings: string[];
     chunkSize: number;
 };
 
-export default function DF2Profiler({ mapUrl, mapCellList, missionList, outposts, redBuilding, chunkSize }: Props) {
+export default function DF2Profiler({
+    mapUrl,
+    mapCells,
+    missions,
+    outposts,
+    raidBuildings,
+    chunkSize,
+}: Props) {
     const [data, setData] = useState<(Mission & DrawOption)[]>(
-        missionList.map((mission) => ({ ...mission, drawDestination: false, drawGiver: false }))
+        missions.map((mission) => ({ ...mission, drawDestination: false, drawGiver: false }))
     );
 
     const drawState = {
@@ -38,9 +45,9 @@ export default function DF2Profiler({ mapUrl, mapCellList, missionList, outposts
             <div className="col-span-5 lg:col-span-3">
                 <MapTable
                     mapUrl={mapUrl}
-                    mapCellList={mapCellList}
+                    mapCellList={mapCells}
                     outposts={outposts}
-                    redBuilding={redBuilding}
+                    raidBuildings={raidBuildings}
                     chunkSize={chunkSize}
                     drawState={drawState}
                 />
