@@ -33,6 +33,7 @@
         "clsx": "^2.1.0",
         "cmdk": "^1.0.0",
         "jsdom": "^24.0.0",
+        "konva": "^9.3.6",
         "lucide-react": "^0.364.0",
         "next": "14.1.4",
         "next-intl": "^3.10.0",
@@ -40,6 +41,7 @@
         "react": "^18",
         "react-beautiful-dnd": "^13.1.1",
         "react-dom": "^18",
+        "react-konva": "^18.2.10",
         "tailwind-merge": "^2.2.2",
         "tailwindcss-animate": "^1.0.7",
         "zod": "^3.22.4"
