@@ -1,7 +1,7 @@
 // https://mathworld.wolfram.com/LightsOutPuzzle.html
 
 // generate light-out puzzle toggle system matrix
-function genToggle(m: number, n: number): boolean[][] {
+function generateToggle(m: number, n: number): boolean[][] {
     const toggle: boolean[][] = [];
 
     for (let i = 0; i < m * n; i++) {
@@ -61,16 +61,13 @@ function gf2elim(M: boolean[][]): boolean[][] {
     return M;
 }
 
-export function solve(puzzle: boolean[][]): { solution: boolean[][], hasSolution: boolean } {
-    const m = puzzle.length;
-    const n = puzzle[0].length;
-    const toggle = genToggle(m, n);
-    const augmented = toggle.map((row, i) => row.concat(puzzle.flat()[i])) // augmented matrix [toggle | puzzle]
+export function solve(grid: boolean[][]): { solution: boolean[][], hasSolution: boolean } {
+    const m = grid.length;
+    const n = grid[0].length;
+    const toggle = generateToggle(m, n);
+    const augmented = toggle.map((row, i) => row.concat(grid.flat()[i])) // augmented matrix [toggle | puzzle]
 
     const U = gf2elim(augmented);
-    // const hasSolution = U[U.length-1].slice(0, toggle[0].length).some(val => val) === U[U.length-1][U[0].length-1];
-    // const hasSolution = true
-    // const solution = !hasSolution ? Array.from({ length: m }, () => Array(n).fill(false)) : Array.from({ length: m }, (_, i) => Array.from({ length: n }, (_, j) => U[i*n+j][m*n]));
 
     const solution = Array.from({ length: m }, () => Array(n).fill(false));
     for (let i = m * n - 1; i >= 0; i--) {
