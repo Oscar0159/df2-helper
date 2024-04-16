@@ -7,11 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
-import stairwayToHellPageThumbnail from '../../../../public/images/thumbnail/stairway-to-hell-page-thumbnail.png';
-import goreTrimmerPageThumbnail from '../../../../public/images/thumbnail/gore-trimmer-page-thumbnail.png';
-import callOfTheAccursedPageThumbnail from '../../../../public/images/thumbnail/call-of-the-accursed-page-thumbnail.png';
-
+import callOfTheAccursedPageThumbnail from '@/../public/images/thumbnail/call-of-the-accursed-page-thumbnail.png';
+import goreTrimmerPageThumbnail from '@/../public/images/thumbnail/gore-trimmer-page-thumbnail.png';
+import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
+import stairwayToHellPageThumbnail from '@/../public/images/thumbnail/stairway-to-hell-page-thumbnail.png';
 
 type Props = {
     params: { locale: string };
