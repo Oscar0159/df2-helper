@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import crosshairPageThumbnail from '../../../../public/images/thumbnail/crosshair-page-thumbnail.png';
+import crosshairPageThumbnail from '@/../public/images/thumbnail/crosshair-page-thumbnail.png';
 
 type Props = {
     params: { locale: string };
@@ -24,14 +24,20 @@ export default function Tool({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations();
+    const t = useTranslations('ToolPage');
 
     const toolItems: ToolItem[] = [
         {
-            title: t('CrosshairPage.title'),
-            description: t('CrosshairPage.description'),
+            title: t('crosshair.title'),
+            description: t('crosshair.description'),
             href: 'https://apps.microsoft.com/detail/9n1k9q56hvxr',
             image: crosshairPageThumbnail.src,
+        },
+        {
+            title: t('borderless-gaming.title'),
+            description: t('borderless-gaming.description'),
+            href: 'https://github.com/Codeusa/Borderless-Gaming',
+            image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/388080/header.jpg',
         },
     ];
 
