@@ -134,7 +134,11 @@
     },
     "SlidingPage": {
         "title": "Sliding",
-        "description": "Solve the puzzle by sliding the figures."
+        "description": "Solve the puzzle by sliding the figures.",
+        "show-number": "Show Number",
+        "show-solution": "Show Solution",
+        "keyboard-solution": "Keyboard Mode",
+        "mouse-solution": "Mouse Mode"
     },
 
     "BlueprintPage": {
@@ -168,11 +172,15 @@
 
     "ToolPage": {
         "title": "Tool",
-        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc."
-    },
-    "CrosshairPage": {
-        "title": "Crosshair",
-        "description": "A third-party crosshair overlay to help you aim better in the game."
+        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.",
+        "crosshair": {
+            "title": "Crosshair",
+            "description": "A third-party crosshair overlay to help you aim better in the game."
+        },
+        "borderless-gaming": {
+            "title": "Borderless Gaming",
+            "description": "A tool that allows you to play the game in borderless mode."
+        }
     },
 
     "ResourceLinkPage": {

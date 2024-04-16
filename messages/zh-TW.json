@@ -134,7 +134,11 @@
     },
     "SlidingPage": {
         "title": "滑塊拼圖",
-        "description": "通過移動滑塊來解決滑塊拼圖。"
+        "description": "通過移動滑塊來解決滑塊拼圖。",
+        "show-number": "顯示數字",
+        "show-solution": "顯示解答",
+        "keyboard-solution": "鍵盤模式",
+        "mouse-solution": "滑鼠模式"
     },
 
     "BlueprintPage": {
@@ -168,11 +172,15 @@
 
     "ToolPage": {
         "title": "實用工具",
-        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。"
-    },
-    "CrosshairPage": {
-        "title": "Crosshair",
-        "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
+        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。",
+        "crosshair": {
+            "title": "Crosshair",
+            "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
+        },
+        "borderless-gaming": {
+            "title": "Borderless Gaming",
+            "description": "更改視窗為無邊框全螢幕模式的工具。"
+        }
     },
 
     "ResourceLinkPage": {
