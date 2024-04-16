@@ -15,10 +15,11 @@ import { Button } from '@/components/ui/button';
 import { Toggle } from '@/components/ui/toggle';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
-import * as lightOutSolver from '@/lib/light-out-puzzle-solver';
+import * as lightOutPuzzleSolver from '@/lib/light-out-puzzle-solver';
 import { cn } from '@/lib/utils';
 
 const sizeOptions = [
+    { rows: 2, cols: 3 },
     { rows: 2, cols: 4 },
     { rows: 3, cols: 3 },
     { rows: 3, cols: 4 },
@@ -30,7 +31,7 @@ export default function LightOut() {
     const [editing, setEditing] = useState(false);
     const [showSolution, setShowSolution] = useState(true);
 
-    const { solution, hasSolution } = lightOutSolver.solve(grid.map((row) => row.map((cell) => !cell)));
+    const { solution, hasSolution } = lightOutPuzzleSolver.solve(grid.map((row) => row.map((cell) => !cell)));
 
     const t = useTranslations('LightOutPage');
 
