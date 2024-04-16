@@ -74,27 +74,35 @@ const config = {
             },
             gridColumn: {
                 'span-13': 'span 13 / span 13',
+                'span-14': 'span 14 / span 14',
             },
             gridRow: {
                 'span-13': 'span 13 / span 13',
+                'span-14': 'span 14 / span 14',
             },
             gridColumnStart: {
                 '13': '13',
+                '14': '14',
             },
             gridRowStart: {
                 '13': '13',
+                '14': '14',
             },
             gridColumnEnd: {
                 '13': '13',
+                '14': '14',
             },
             gridRowEnd: {
                 '13': '13',
+                '14': '14',
             },
             gridTemplateColumns: {
                 '13': 'repeat(13, minmax(0, 1fr))',
+                '14': 'repeat(14, minmax(0, 1fr))',
             },
             gridTemplateRows: {
                 '13': 'repeat(13, minmax(0, 1fr))',
+                '14': 'repeat(14, minmax(0, 1fr))',
             },
         },
     },

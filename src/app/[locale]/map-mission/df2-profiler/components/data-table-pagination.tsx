@@ -1,16 +1,15 @@
 import { Table } from '@tanstack/react-table';
 import { ChevronLeftIcon, ChevronRightIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useTranslations } from 'next-intl';
 
 interface DataTablePaginationProps<TData> {
     table: Table<TData>;
 }
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
-
     const t = useTranslations('DataTable');
 
     const pageSizeOptions = ['10', '20', '30', '40', '50', 'All'];

@@ -36,11 +36,11 @@
         "description": "The information page provides some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.",
         "when-to-reset": {
             "title": "Reset time of the boss, loot, and mission",
-            "content": "Every day at 9:00 AM (UTC+0), but occasionally there will be slight changes due to daylight saving time, the mission needs to be reported before refreshing."
+            "content": "Every day at 9:00 AM (UTC+0), the mission needs to be reported before refreshing."
         },
         "what-is-red-building": {
             "title": "What is the red building (COMER/PCA/HOSPITAL)?",
-            "content": "The red building is a special building with special BUFFs, which is relatively difficult compared to other buildings, it is recommended to team up."
+            "content": "The raid building is a special building with special BUFFs, which is relatively difficult compared to other buildings, it is recommended to team up."
         },
         "what-is-oa": {
             "title": "What is OA(Outpost Attack)?",
@@ -54,13 +54,13 @@
             "title": "Any place to increase the chance of searching?",
             "content": "Police Station increases the chance of ammunition and weapon, Hospital and Care Center increase the chance of medical supplies, Store increases the chance of food and drink, Factory increases the chance of car parts and gasoline, you can find the location of various types of buildings on DF2Profiler."
         },
-        "increase-health-in-multiplayer": {
-            "title": "Increase health in multiplayer",
-            "content": "8 players increase 40% health, 16 players increase 100% health."
-        },
         "about-speed": {
             "title": "About speed",
             "content": "Jogging is simply moving with WASD, sprinting is moving with Shift held down, walking includes aiming, reloading, and healing with Q, sneaking is moving with Ctrl held down, the movement speed is the same for all speeds, that is, 1% movement speed = 1% jogging speed + 1% sprinting speed + 1% walking speed + 1% sneaking speed."
+        },
+        "about-tax": {
+            "title": "About tax",
+            "content": "All transactions are subject to a 15% tax, including sending money through the mail."
         }
     },
 
@@ -96,7 +96,7 @@
     "MapTable": {
         "outpost": "Outpost",
         "pvp": "PvP",
-        "red-building": "Red Building"
+        "red-building": "Raid Building"
     },
     "SideMissionsPage": {
         "title": "Side Mission",
@@ -134,7 +134,11 @@
     },
     "SlidingPage": {
         "title": "Sliding",
-        "description": "Solve the puzzle by sliding the figures."
+        "description": "Solve the puzzle by sliding the figures.",
+        "show-number": "Show Number",
+        "show-solution": "Show Solution",
+        "keyboard-solution": "Keyboard Mode",
+        "mouse-solution": "Mouse Mode"
     },
 
     "BlueprintPage": {
@@ -163,23 +167,39 @@
     },
     "AllBlueprintListPage": {
         "title": "All Blueprint List",
-        "description": "The blueprint page provides a list of all the blueprints in the game Dead Frontier 2."
+        "description": "A list of all the blueprints in the game Dead Frontier 2."
     },
 
     "ToolPage": {
         "title": "Tool",
-        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc."
-    },
-    "CrosshairPage": {
-        "title": "Crosshair",
-        "description": "A third-party crosshair overlay to help you aim better in the game."
+        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.",
+        "crosshair": {
+            "title": "Crosshair",
+            "description": "A third-party crosshair overlay to help you aim better in the game."
+        },
+        "borderless-gaming": {
+            "title": "Borderless Gaming",
+            "description": "A tool that allows you to play the game in borderless mode."
+        }
     },
 
     "ResourceLinkPage": {
         "title": "Resource Link",
         "description": "The resource link page provides some useful links for the game Dead Frontier 2. Ex. df2profiler, etc.",
+        "dead-frontier-ii-wiki": {
+            "description": "Dead Frontier II Wiki."
+        },
         "df2profiler": {
             "description": "DF2 Profiler is a website that provides information of map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+        },
+        "df2haven": {
+            "description": "DF2 Haven is  an open gaming community in Dead Frontier 2, coming together to share information on quests, bosses, and other gameplay."
+        },
+        "dead-frontier-ii-discord": {
+            "description": "Dead Frontier II official Discord."
+        },
+        "dead-frontier-ii-support": {
+            "description": "Dead Frontier II support."
         }
     }
 }

@@ -24,7 +24,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png",
+                    url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png',
                     alt: t('SlidingPage.title'),
                 },
             ],
@@ -38,7 +38,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png",
+                    url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png',
                     alt: t('SlidingPage.title'),
                 },
             ],
@@ -58,12 +58,12 @@ export default function SlidingPage({ params: { locale } }: Props) {
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            {/* <div className="mt-4 grow">
+            <div className="mt-4 grow">
                 <Sliding />
-            </div> */}
-            <div className="flex grow items-center">
-                <ConstructionAnimation className="sm:w-1/2" />
             </div>
+            {/* <div className="flex grow items-center">
+                <ConstructionAnimation className="sm:w-1/2" />
+            </div> */}
         </>
     );
 }

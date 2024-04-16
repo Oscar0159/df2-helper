@@ -2,6 +2,7 @@
 
 import { Column } from '@tanstack/react-table';
 import { CheckIcon, FilterIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import * as React from 'react';
 
 import { Badge } from '@/components/ui/badge';
@@ -19,7 +20,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Separator } from '@/components/ui/separator';
 
 import { cn } from '@/lib/utils';
-import { useTranslations } from 'next-intl';
 
 interface DataTableFacetedFilterProps<TData, TValue> {
     column?: Column<TData, TValue>;
@@ -36,7 +36,6 @@ export function DataTableFacetedFilter<TData, TValue>({
     title,
     options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
-
     const t = useTranslations('DataTable');
 
     const facets = column?.getFacetedUniqueValues();

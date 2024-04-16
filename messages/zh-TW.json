@@ -36,11 +36,11 @@
         "description": "基礎資訊頁面提供了一些有關遊戲死亡邊境2的資訊。",
         "when-to-reset": {
             "title": "BOSS、搜索地點、任務重置時間",
-            "content": "每天的下午5點(UTC+8)，但偶而會因為夏令時間而有些微變動，任務需要再刷新前回報完畢。"
+            "content": "每天的下午5點(UTC+8)，任務需要再刷新前回報完畢。"
         },
         "what-is-red-building": {
             "title": "紅色建築物(通天/小通天)是什麼？",
-            "content": "紅色建築物(通天->科莫負父子公司 | 小通天->帕爾海文檔案館)是一個特殊的建築物，裡面有特殊BUFF，相對其他建築物困難，建議組隊。"
+            "content": "紅色建築物(通天->科莫負父子公司 | 小通天->帕爾海文檔案館 | 醫院->拉文沃爾高地社區醫院)是特殊的建築物，裡面有特殊BUFF，相對其他建築物困難，建議組隊。"
         },
         "what-is-oa": {
             "title": "OA(要塞攻擊)是什麼？",
@@ -54,13 +54,13 @@
             "title": "有什麼地方可以增加搜索機率？",
             "content": "警局增加彈藥、武器機率，醫院、照護中心增加醫療用品機率，商店增加食物、飲料機率，工廠增加汽車零件、汽油機率，各種類建築物位置可至DF2Profiler查詢。"
         },
-        "increase-health-in-multiplayer": {
-            "title": "多人遊玩的血量增加機制",
-            "content": "8人增加40%血量，16人增加100%血量。"
-        },
         "about-speed": {
             "title": "關於各種速度詞綴",
             "content": "慢跑為單純WASD移動，衝刺為按住Shift移動，走路包括瞄準時、換彈時、按Q治療時，潛行為按住Ctrl移動，移動速度等同所有的速度，也就是1%移動速度=1%慢跑速度+1%衝刺速度+1%走路速度+1%潛行速度。"
+        },
+        "about-tax": {
+            "title": "關於稅率",
+            "content": "所有交易都會收取15%的稅，包含信箱寄錢。"
         }
     },
 
@@ -134,7 +134,11 @@
     },
     "SlidingPage": {
         "title": "滑塊拼圖",
-        "description": "通過移動滑塊來解決滑塊拼圖。"
+        "description": "通過移動滑塊來解決滑塊拼圖。",
+        "show-number": "顯示數字",
+        "show-solution": "顯示解答",
+        "keyboard-solution": "鍵盤模式",
+        "mouse-solution": "滑鼠模式"
     },
 
     "BlueprintPage": {
@@ -168,18 +172,34 @@
 
     "ToolPage": {
         "title": "實用工具",
-        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。"
-    },
-    "CrosshairPage": {
-        "title": "Crosshair",
-        "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
+        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。",
+        "crosshair": {
+            "title": "Crosshair",
+            "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
+        },
+        "borderless-gaming": {
+            "title": "Borderless Gaming",
+            "description": "更改視窗為無邊框全螢幕模式的工具。"
+        }
     },
 
     "ResourceLinkPage": {
         "title": "資源連結",
         "description": "資源連結頁面提供了一些遊戲死亡邊境2的有用連結。例如：df2profiler等。",
+        "dead-frontier-ii-wiki": {
+            "description": "死亡邊境2維基。"
+        },
         "df2profiler": {
-            "description": "DF2 Profiler是一個網站，提供了遊戲死亡邊境2中地圖和任務的訊息。你可以使用它來找到你需要完成的任務的位置。"
+            "description": "DF2 Profiler是一個提供遊戲死亡邊境2地圖和任務資訊的網站。你可以使用它來找到你需要完成的任務的位置。"
+        },
+        "df2haven": {
+            "description": "DF2 Haven是一個開放的遊戲社區，一起分享有關任務、BOSS和其他遊戲內容的資訊。"
+        },
+        "dead-frontier-ii-discord": {
+            "description": "死亡邊境2官方Discord。"
+        },
+        "dead-frontier-ii-support": {
+            "description": "死亡邊境2客服。"
         }
     }
 }

@@ -12,6 +12,12 @@ const nextConfig = {
                 port: '',
                 pathname: '/gamemap/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'cdn.cloudflare.steamstatic.com',
+                port: '',
+                pathname: '/steam/apps/**',
+            }
         ],
     },
 };

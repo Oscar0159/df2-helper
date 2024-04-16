@@ -67,10 +67,13 @@ export default function Morse() {
         <div className="flex flex-col">
             <div className="flex flex-col items-center p-5">
                 <div className="w-full sm:px-10 xl:px-20">
-                    <Label className="text-xl">Morse Code</Label>
+                    <Label htmlFor="morse" className="text-xl">
+                        Morse Code
+                    </Label>
                     <Input
                         size={60}
                         type="text"
+                        id="morse"
                         value={morse}
                         onChange={(e) => setMorse(e.target.value)}
                         placeholder=".- -... -.-."

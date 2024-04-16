@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             siteName: t('LocaleLayout.title'),
             images: [
                 {
-                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/morse-page-og.png",
+                    url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/morse-page-og.png',
                     alt: t('MorsePage.title'),
                 },
             ],
@@ -37,7 +37,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             site: t('LocaleLayout.title'),
             images: [
                 {
-                    url: "https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/morse-page-og.png",
+                    url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/morse-page-og.png',
                     alt: t('MorsePage.title'),
                 },
             ],

@@ -16,19 +16,19 @@ type Props = {
     mapUrl: string;
     mapCellList: MapCell[][];
     outposts: string[];
-    redBuilding: string[];
+    raidBuildings: string[];
     chunkSize: number;
     drawState?: DrawState;
 };
 
-export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize, drawState }: Props) {
+export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSize, drawState }: Props) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     const [showOutpost, setShowOutpost] = useState(searchParams.get('showOutpost') !== 'false');
     const [showPvP, setShowPvP] = useState(searchParams.get('showPvP') !== 'false');
-    const [showRedBuilding, setShowRedBuilding] = useState(searchParams.get('showRedBuilding') === 'true');
+    const [showRaidBuilding, setShowRaidBuilding] = useState(searchParams.get('showRaidBuilding') === 'true');
 
     const createQueryString = useCallback(
         (name: string, value: string) => {
@@ -72,15 +72,15 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                     {t('pvp')}
                 </Button>
                 <Button
-                    variant={showRedBuilding ? 'default' : 'outline'}
+                    variant={showRaidBuilding ? 'default' : 'outline'}
                     onClick={() => {
                         router.replace(
-                            pathname + '?' + createQueryString('showRedBuilding', showRedBuilding ? 'false' : 'true'),
+                            pathname + '?' + createQueryString('showRaidBuilding', showRaidBuilding ? 'false' : 'true'),
                             {
                                 scroll: false,
                             }
                         );
-                        setShowRedBuilding((prev) => !prev);
+                        setShowRaidBuilding((prev) => !prev);
                     }}
                 >
                     {t('red-building')}
@@ -178,8 +178,8 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                                             data.isOutpost &&
                                                             'bg-green-500/40 hover:bg-green-500/70',
                                                         showPvP && data.isPvP && 'bg-red-500/40 hover:bg-red-500/70',
-                                                        showRedBuilding &&
-                                                            data.isRedBuilding &&
+                                                        showRaidBuilding &&
+                                                            data.isRaidBuilding &&
                                                             'bg-red-300/40 hover:bg-red-300/70'
                                                     )}
                                                 >
@@ -200,7 +200,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, redBuilding, chunkSize
                                                                         outposts.includes(building)
                                                                             ? 'text-green-700 dark:text-green-500'
                                                                             : '',
-                                                                        redBuilding.includes(building)
+                                                                        raidBuildings.includes(building)
                                                                             ? 'text-red-700 dark:text-red-500'
                                                                             : ''
                                                                     )}

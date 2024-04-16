@@ -1,6 +1,5 @@
 'use client';
 
-// TODO: make the code more clean and readable
 import { usePathname } from '@/navigation';
 import { Link } from '@/navigation';
 import { MenuIcon } from 'lucide-react';
@@ -126,7 +125,7 @@ export default function Navigation() {
                 </div>
                 <div className="flex w-full flex-col justify-center gap-3">
                     <LocaleSwitcher />
-                    <ModeToggle className="aspect-square w-10 rounded-full p-2 font-semibold xl:w-full xl:justify-start xl:px-4" />
+                    <ModeToggle />
                 </div>
             </nav>
 
@@ -198,7 +197,7 @@ export default function Navigation() {
                         </div>
 
                         <div className="flex flex-col items-center">
-                            <ModeToggle className="aspect-square w-10 rounded-full p-2" />
+                            <ModeToggle />
                             <small>{t('theme')}</small>
                         </div>
                     </div>
