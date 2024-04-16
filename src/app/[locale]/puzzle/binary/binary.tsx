@@ -21,7 +21,9 @@ export default function Binary() {
         <div className="flex flex-col">
             <div className="flex flex-col items-center p-5">
                 <div className="w-full sm:px-10 xl:px-20">
-                    <Label htmlFor='binaryNumber' className="text-xl">Binary Number</Label>
+                    <Label htmlFor="binaryNumber" className="text-xl">
+                        Binary Number
+                    </Label>
                     <Input
                         type="text"
                         id="binaryNumber"

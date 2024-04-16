@@ -23,7 +23,9 @@ export default function Alphabet() {
         <div className="flex flex-col">
             <div className="flex flex-col items-center p-5">
                 <div className="w-full sm:px-10 xl:px-20">
-                    <Label htmlFor='number' className="text-xl">Number</Label>
+                    <Label htmlFor="number" className="text-xl">
+                        Number
+                    </Label>
                     <Input
                         type="text"
                         id="number"

@@ -1,6 +1,5 @@
 'use client';
 
-// TODO: make the code more clean and readable
 import { usePathname } from '@/navigation';
 import { Link } from '@/navigation';
 import { MenuIcon } from 'lucide-react';

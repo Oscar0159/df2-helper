@@ -16,14 +16,7 @@ type Props = {
     chunkSize: number;
 };
 
-export default function DF2Profiler({
-    mapUrl,
-    mapCells,
-    missions,
-    outposts,
-    raidBuildings,
-    chunkSize,
-}: Props) {
+export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raidBuildings, chunkSize }: Props) {
     const [data, setData] = useState<(Mission & DrawOption)[]>(
         missions.map((mission) => ({ ...mission, drawDestination: false, drawGiver: false }))
     );

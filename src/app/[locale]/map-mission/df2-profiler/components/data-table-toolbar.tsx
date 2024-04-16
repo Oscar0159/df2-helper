@@ -1,20 +1,19 @@
 import { Table } from '@tanstack/react-table';
 import { XIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 import { DataTableFacetedFilter } from './data-table-faceted-filter';
 import { DataTableViewOptions } from './data-table-view-options';
-import { useTranslations } from 'next-intl';
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>;
 }
 
 export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>) {
-
-    const t = useTranslations('DataTable')
+    const t = useTranslations('DataTable');
 
     const isFiltered = table.getState().columnFilters.length > 0;
 
@@ -77,7 +76,11 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
             </div>
             <div className="flex items-center space-x-2">
                 {table.getColumn('type') && (
-                    <DataTableFacetedFilter column={table.getColumn('type')} title={t('filter-type')} options={missionTypes} />
+                    <DataTableFacetedFilter
+                        column={table.getColumn('type')}
+                        title={t('filter-type')}
+                        options={missionTypes}
+                    />
                 )}
                 {isFiltered && (
                     <Button variant="default" onClick={() => table.resetColumnFilters()} className="px-2 lg:px-3">

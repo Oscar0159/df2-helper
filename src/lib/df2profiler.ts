@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 export const baseUrl = 'https://df2profiler.com';
 
 export const outposts = ['Dallbow Police Department', 'Haverbrook Memorial Hospital', 'Greywood Star Hotel'];
-export const raidBuildings = ['Palehaven City\'s Archives', 'Comer and Son Inc', 'Ravenwall Heights Community Hospital']
+export const raidBuildings = ["Palehaven City's Archives", 'Comer and Son Inc', 'Ravenwall Heights Community Hospital'];
 
 export function parse(html: string): { mapUrl: string; mapCells: any[][]; missions: any[] } {
     const dom = new JSDOM(html);
@@ -45,7 +45,17 @@ export function parse(html: string): { mapUrl: string; mapCells: any[][]; missio
         if (!mapCells[y - 1]) {
             mapCells[y - 1] = [];
         }
-        mapCells[y - 1][x - 1] = { level, buildings, x, y, isOutpost, isPvP, isRaidBuilding: isRaidBuilding, district, types };
+        mapCells[y - 1][x - 1] = {
+            level,
+            buildings,
+            x,
+            y,
+            isOutpost,
+            isPvP,
+            isRaidBuilding: isRaidBuilding,
+            district,
+            types,
+        };
     });
 
     const missionSpans = document.querySelectorAll(
