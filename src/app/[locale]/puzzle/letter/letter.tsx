@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { useRef, useState } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
