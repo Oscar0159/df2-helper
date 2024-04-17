@@ -135,10 +135,13 @@
     "SlidingPage": {
         "title": "滑塊拼圖",
         "description": "通過移動滑塊來解決滑塊拼圖。",
+        "reset": "重置",
         "show-number": "顯示數字",
         "show-solution": "顯示解答",
         "keyboard-solution": "鍵盤模式",
-        "mouse-solution": "滑鼠模式"
+        "mouse-solution": "滑鼠模式",
+        "finished": "完成 ！",
+        "no-solution": "--- 無解 ---"
     },
 
     "BlueprintPage": {
