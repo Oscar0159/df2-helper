@@ -44,7 +44,7 @@ export default function Tool({ params: { locale } }: Props) {
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('ToolPage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

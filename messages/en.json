@@ -135,10 +135,13 @@
     "SlidingPage": {
         "title": "Sliding",
         "description": "Solve the puzzle by sliding the figures.",
+        "reset": "Reset",
         "show-number": "Show Number",
         "show-solution": "Show Solution",
         "keyboard-solution": "Keyboard Mode",
-        "mouse-solution": "Mouse Mode"
+        "mouse-solution": "Mouse Mode",
+        "finished": "Finished !",
+        "no-solution": "No solution."
     },
 
     "BlueprintPage": {
