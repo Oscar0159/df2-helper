@@ -27,6 +27,7 @@ export default function Alphabet() {
                         Number
                     </Label>
                     <Input
+                        autoFocus
                         type="text"
                         id="number"
                         value={number}

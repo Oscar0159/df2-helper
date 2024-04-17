@@ -71,6 +71,7 @@ export default function Morse() {
                         Morse Code
                     </Label>
                     <Input
+                        autoFocus
                         size={60}
                         type="text"
                         id="morse"

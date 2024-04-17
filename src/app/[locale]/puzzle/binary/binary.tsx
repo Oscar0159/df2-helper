@@ -25,6 +25,7 @@ export default function Binary() {
                         Binary Number
                     </Label>
                     <Input
+                        autoFocus
                         type="text"
                         id="binaryNumber"
                         value={binaryNumber}
