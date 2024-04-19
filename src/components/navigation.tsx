@@ -4,9 +4,8 @@ import { usePathname } from '@/navigation';
 import { Link } from '@/navigation';
 import { MenuIcon } from 'lucide-react';
 import {
-    ArrowLeftFromLineIcon,
-    ArrowRightFromLineIcon,
     BadgeAlertIcon,
+    CalculatorIcon,
     BookIcon,
     DraftingCompassIcon,
     GithubIcon,
@@ -55,6 +54,11 @@ export default function Navigation() {
             name: t('blueprint'),
             slug: '/blueprint',
             icon: <DraftingCompassIcon size={22} />,
+        },
+        {
+            name: t('calculator'),
+            slug: '/calculator',
+            icon: <CalculatorIcon size={22} />,
         },
         {
             name: t('tool'),
