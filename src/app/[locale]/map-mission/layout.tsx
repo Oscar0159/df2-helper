@@ -15,6 +15,20 @@ export async function generateMetadata({ params: { locale } }: { params: { local
             default: t('MapMissionPage.title'),
         },
         description: t('MapMissionPage.description'),
+        openGraph: {
+            title: t('MapMissionPage.title'),
+            description: t('MapMissionPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/map-mission`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('MapMissionPage.title'),
+            description: t('MapMissionPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 

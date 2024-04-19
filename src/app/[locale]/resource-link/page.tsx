@@ -24,11 +24,25 @@ type ResourceLinkItem = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'ResourceLinkPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('ResourceLinkPage.title'),
+        description: t('ResourceLinkPage.description'),
+        openGraph: {
+            title: t('ResourceLinkPage.title'),
+            description: t('ResourceLinkPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/resource-link`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('ResourceLinkPage.title'),
+            description: t('ResourceLinkPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 

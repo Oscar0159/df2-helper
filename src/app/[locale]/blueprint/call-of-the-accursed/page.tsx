@@ -10,11 +10,25 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'CallOfTheAccursedPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('CallOfTheAccursedPage.title'),
+        description: t('CallOfTheAccursedPage.description'),
+        openGraph: {
+            title: t('CallOfTheAccursedPage.title'),
+            description: t('CallOfTheAccursedPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/blueprint/call-of-the-accursed`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('CallOfTheAccursedPage.title'),
+            description: t('CallOfTheAccursedPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 

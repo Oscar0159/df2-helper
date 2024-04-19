@@ -24,11 +24,25 @@ async function getDF2ProfilerData() {
 }
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'DF2ProfilerPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('DF2ProfilerPage.title'),
+        description: t('DF2ProfilerPage.description'),
+        openGraph: {
+            title: t('DF2ProfilerPage.title'),
+            description: t('DF2ProfilerPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/map-mission/df2-profiler`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('DF2ProfilerPage.title'),
+            description: t('DF2ProfilerPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 
