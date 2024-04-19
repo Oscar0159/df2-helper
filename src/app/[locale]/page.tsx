@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '../../../public/images/thumbnail/no-thumbnail.png';
+import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
 
 type Props = {
     params: { locale: string };
@@ -52,6 +52,12 @@ export default function Home({ params: { locale } }: Props) {
             image: noThumbnail.src,
         },
         {
+            title: t('CalculatorPage.title'),
+            description: t('CalculatorPage.description'),
+            href: '/calculator',
+            image: noThumbnail.src,
+        },
+        {
             title: t('ToolPage.title'),
             description: t('ToolPage.description'),
             href: '/tool',
@@ -67,11 +73,12 @@ export default function Home({ params: { locale } }: Props) {
 
     return (
         <>
-            <h1 className="text-2xl font-bold">{t('HomePage.title')}</h1>
-            <BreadcrumbNav className="mt-2" />
-            <p className="mt-2">{t('HomePage.description')}</p>
+            <div>
+                <h1 className="text-4xl font-semibold">{t('HomePage.title')}</h1>
+                <BreadcrumbNav className="mt-2" />
+            </div>
 
-            <section className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <section className="mt-5 grid grid-cols-1 gap-4 xl:grid-cols-3 sm:grid-cols-2">
                 {navigationItems.map(({ title, description, href, image }) => (
                     <Link key={title} href={href}>
                         <Card className="transition-all duration-300 hover:bg-secondary">
