@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
-import ConstructionAnimation from '@/components/construction-animation';
 
 import Letter from './letter';
 
@@ -58,11 +57,8 @@ export default function LetterPage({ params: { locale } }: Props) {
                 <h1 className="text-4xl font-semibold">{t('title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
-            {/* <div className="mt-4 grow">
+            <div className="mt-4 grow">
                 <Letter />
-            </div> */}
-            <div className="flex grow items-center">
-                <ConstructionAnimation className="sm:w-1/2" />
             </div>
         </>
     );
