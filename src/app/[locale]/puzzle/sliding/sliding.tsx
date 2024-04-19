@@ -446,7 +446,7 @@ export default function Sliding() {
     const debouncedGrid = useDebounce(grid, 700);
     const [isSolving, setIsSolving] = useState(false);
     const [solution, setSolution] = useState<string[]>([]);
-    const [solutionMode, setSolutionMode] = useState<'keyboard' | 'mouse'>('mouse');
+    const [solutionMode, setSolutionMode] = useState<'keyboard' | 'mouse'>('keyboard');
     const [hasSolution, setHasSolution] = useState(false);
     const [showNumbers, setShowNumbers] = useState(true);
     const [showSolution, setShowSolution] = useState(true);
