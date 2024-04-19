@@ -11,6 +11,7 @@
         "map-mission": "Map & Mission",
         "puzzle": "Puzzle",
         "blueprint": "Blueprint",
+        "calculator": "Calculator",
         "tool": "Tool",
         "resource-link": "Resource Link",
         "issue": "Issue",
@@ -33,7 +34,11 @@
 
     "InformationPage": {
         "title": "Information",
-        "description": "The information page provides some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.",
+        "description": "Contains some useful information about the game Dead Frontier 2."
+    },
+    "BasicPage": {
+        "title": "Basic Information",
+        "description": "Some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.",
         "when-to-reset": {
             "title": "Reset time of the boss, loot, and mission",
             "content": "Every day at 9:00 AM (UTC+0), the mission needs to be reported before refreshing."
@@ -63,10 +68,50 @@
             "content": "All transactions are subject to a 15% tax, including sending money through the mail."
         }
     },
+    "BossPage": {
+        "title": "Boss",
+        "description": "Information about the boss in the game Dead Frontier 2."
+    },
+    "CharacterStatsPage": {
+        "title": "Character Stats",
+        "description": "Information about the character stats in the game Dead Frontier 2."
+    },
+    "CraftItemPage": {
+        "title": "Craft Item",
+        "description": "Information about the craft item in the game Dead Frontier 2."
+    },
+    "CreditsMembershipPage": {
+        "title": "Credits & Membership",
+        "description": "Information about the credits and membership in the game Dead Frontier 2."
+    },
+    "ExpPage": {
+        "title": "Experience",
+        "description": "Information about the experience in the game Dead Frontier 2."
+    },
+    "HistoryEventPage": {
+        "title": "History Event",
+        "description": "Information about the history event in the game Dead Frontier 2."
+    },
+    "MonsterHpPage": {
+        "title": "Monster HP",
+        "description": "Information about the monster HP in the game Dead Frontier 2."
+    },
+    "PvpPage": {
+        "title": "PvP",
+        "description": "Information about the PvP in the game Dead Frontier 2."
+    },
+    "ScrapCashPage": {
+        "title": "Scrap Cash",
+        "description": "Information about the scrap cash in the game Dead Frontier 2."
+    },
+    "UpgradeItemPage": {
+        "title": "Upgrade Item",
+        "description": "Information about the upgrade item in the game Dead Frontier 2."
+    },
 
     "MapMissionPage": {
         "title": "Map & Mission",
-        "description": "The map & mission page provides data from df2profiler but in a more user-friendly way. It also provides some side missions that are optional to do."
+        "description": "Present DF2 Profiler in a more friendly way, as well as some optional side missions."
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
@@ -105,7 +150,7 @@
 
     "PuzzlePage": {
         "title": "Puzzle",
-        "description": "The puzzle page provides a list of puzzles solver for the game Dead Frontier 2."
+        "description": "Provides a list of puzzles solver for the game Dead Frontier 2."
     },
     "BinaryPage": {
         "title": "Binary",
@@ -125,7 +170,7 @@
     },
     "LightOutPage": {
         "title": "Light Out",
-        "description": "Solve the puzzle by given light status.",
+        "description": "Solve the puzzle by given light stats.",
         "toggle": "Toggle",
         "fill": "Fill",
         "clear": "Clear",
@@ -146,7 +191,7 @@
 
     "BlueprintPage": {
         "title": "Blueprint",
-        "description": "The blueprint page provides some useful information about the blueprint in the game Dead Frontier 2. You can use it to find the blueprint you need to craft the item."
+        "description": "Use it to find the blueprint you need."
     },
     "RoninsBladePage": {
         "title": "Ronin's Blade",
@@ -173,9 +218,44 @@
         "description": "A list of all the blueprints in the game Dead Frontier 2."
     },
 
+    "CalculatorPage": {
+        "title": "Calculator",
+        "description": "Experience calculator, DPS calculator, etc."
+    },
+    "DpsCalculatorPage": {
+        "title": "Dps Calculator",
+        "description": "Calculate the damage per second of the weapon.",
+        "character-stats": "Character Stats",
+        "expert-skill": "Expert Skill V (+25%)",
+        "weapon-stats": "Weapon Stats",
+        "weapon-stats-precaution": "The weapon stats are the stats of the weapon itself, not the stats of the weapon equipped on the character.",
+        "your-dps": "Your DPS",
+        "attack-speed": "Attack Speed",
+        "reload-speed": "Reload Speed",
+        "ammo-capacity": "Ammo Capacity",
+        "headshot-damage": "Headshot Damage",
+        "body-damage": "Body Damage",
+        "damage-vs-infected": "Damage vs Infected",
+        "damage-vs-mutated": "Damage vs Mutated",
+        "body-damage-per-hit": "Body Damage per Hit",
+        "headshot-damage-per-hit": "Headshot Damage per Hit",
+        "attacks-per-second": "Attacks per Second",
+        "reload-time": "Reload Time",
+        "clip-size": "Clip Size",
+        "weapon-attack-speed": "Weapon Attack Speed",
+        "weapon-reload-speed": "Weapon Reload Speed",
+        "weapon-ammo-capacity": "Weapon Ammo Capacity",
+        "weapon-headshot-damage": "Weapon Headshot Damage",
+        "weapon-body-damage": "Weapon Body Damage",
+        "dps-vs-infected-on-body": "Infected | Body",
+        "dps-vs-infected-on-head": "Infected | Head",
+        "dps-vs-mutated-on-body": "Mutated | Body",
+        "dps-vs-mutated-on-head": "Mutated | Head"
+    },
+
     "ToolPage": {
         "title": "Tool",
-        "description": "The tools page provides some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.",
+        "description": "Some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.",
         "crosshair": {
             "title": "Crosshair",
             "description": "A third-party crosshair overlay to help you aim better in the game."
@@ -188,7 +268,7 @@
 
     "ResourceLinkPage": {
         "title": "Resource Link",
-        "description": "The resource link page provides some useful links for the game Dead Frontier 2. Ex. df2profiler, etc.",
+        "description": "Some useful links for the game Dead Frontier 2. Ex. df2profiler, etc.",
         "dead-frontier-ii-wiki": {
             "description": "Dead Frontier II Wiki."
         },
