@@ -1,8 +1,13 @@
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
+
+type Props = {
+    params: { locale: string };
+};
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
     const t = await getTranslations({ locale });
@@ -27,7 +32,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function ScrapCash() {
+export default function ScrapCash({ params: { locale } }: Props) {
+    // Enable static rendering
+    unstable_setRequestLocale(locale);
+
     const t = useTranslations('ScrapCashPage');
 
     return (

@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
+
+type Props = {
+    params: { locale: string };
+};
 
 type BasicItem = {
     title: string;
@@ -34,7 +39,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     };
 }
 
-export default function Basic() {
+export default function Basic({ params: { locale } }: Props) {
+    // Enable static rendering
+    unstable_setRequestLocale(locale);
+
     const t = useTranslations('BasicPage');
 
     const BasicItems: BasicItem[] = [
