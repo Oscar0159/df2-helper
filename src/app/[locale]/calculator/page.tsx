@@ -13,24 +13,24 @@ type Props = {
     params: { locale: string };
 };
 
-type InformationItem = {
+type CalculatorItem = {
     title: string;
     description: string;
     href: string;
     image?: string;
 };
 
-export default function Information({ params: { locale } }: Props) {
+export default function Calculator({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
     const t = useTranslations();
 
-    const InformationItems: InformationItem[] = [
+    const calculatorItems: CalculatorItem[] = [
         {
-            title: t('BasicPage.title'),
-            description: t('BasicPage.description'),
-            href: '/information/basic',
+            title: t('DpsCalculatorPage.title'),
+            description: t('DpsCalculatorPage.description'),
+            href: '/calculator/dps',
             image: noThumbnail.src,
         },
     ];
@@ -38,12 +38,12 @@ export default function Information({ params: { locale } }: Props) {
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('InformationPage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('CalculatorPage.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-5">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {InformationItems.map(({ title, description, href, image }) => (
+                    {calculatorItems.map(({ title, description, href, image }) => (
                         <Link key={title} href={href}>
                             <Card className="transition-all duration-300 hover:bg-secondary">
                                 <CardHeader>

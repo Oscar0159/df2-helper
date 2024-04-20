@@ -10,11 +10,25 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'SideMissionsPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('SideMissionsPage.title'),
+        description: t('SideMissionsPage.description'),
+        openGraph: {
+            title: t('SideMissionsPage.title'),
+            description: t('SideMissionsPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/map-mission/side-missions`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('SideMissionsPage.title'),
+            description: t('SideMissionsPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 

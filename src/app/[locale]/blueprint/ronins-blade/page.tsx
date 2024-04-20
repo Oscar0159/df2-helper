@@ -10,11 +10,25 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'RoninsBladePage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('RoninsBladePage.title'),
+        description: t('RoninsBladePage.description'),
+        openGraph: {
+            title: t('RoninsBladePage.title'),
+            description: t('RoninsBladePage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/blueprint/rorins-blade`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('RoninsBladePage.title'),
+            description: t('RoninsBladePage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 

@@ -7,10 +7,11 @@
     "Navigation": {
         "title": "死亡邊境2 工具",
         "title_short": "DH",
-        "information": "基礎資訊",
+        "information": "實用資訊",
         "map-mission": "地圖和任務",
         "puzzle": "寶箱謎題",
         "blueprint": "藍圖",
+        "calculator": "計算機",
         "tool": "實用工具",
         "resource-link": "資源連結",
         "issue": "問題 | 建議",
@@ -32,8 +33,12 @@
     },
 
     "InformationPage": {
+        "title": "實用資訊",
+        "description": "一些有關遊戲死亡邊境2的資訊。"
+    },
+    "BasicPage": {
         "title": "基礎資訊",
-        "description": "基礎資訊頁面提供了一些有關遊戲死亡邊境2的資訊。",
+        "description": "一些有關遊戲死亡邊境2的基本資訊。例如：HR、SM等。",
         "when-to-reset": {
             "title": "BOSS、搜索地點、任務重置時間",
             "content": "每天的下午5點(UTC+8)，任務需要再刷新前回報完畢。"
@@ -63,10 +68,50 @@
             "content": "所有交易都會收取15%的稅，包含信箱寄錢。"
         }
     },
+    "BossPage": {
+        "title": "Boss",
+        "description": "遊戲死亡邊境2中BOSS的資訊。"
+    },
+    "CharacterStatsPage": {
+        "title": "角色狀態",
+        "description": "遊戲死亡邊境2中角色狀態的資訊。"
+    },
+    "CraftItemPage": {
+        "title": "製作物品",
+        "description": "遊戲死亡邊境2中製作物品的資訊。"
+    },
+    "CreditsMembershipPage": {
+        "title": "點數和會員",
+        "description": "遊戲死亡邊境2中點數和會員的資訊。"
+    },
+    "ExpPage": {
+        "title": "經驗值",
+        "description": "遊戲死亡邊境2中經驗值的資訊。"
+    },
+    "HistoryEventPage": {
+        "title": "歷史活動",
+        "description": "遊戲死亡邊境2中歷史活動的資訊。"
+    },
+    "MonsterHpPage": {
+        "title": "怪物血量",
+        "description": "遊戲死亡邊境2中怪物血量的資訊。"
+    },
+    "PvpPage": {
+        "title": "PvP",
+        "description": "遊戲死亡邊境2中PvP的資訊。"
+    },
+    "ScrapCashPage": {
+        "title": "報廢價值",
+        "description": "遊戲死亡邊境2中報廢價值的資訊。"
+    },
+    "UpgradeItemPage": {
+        "title": "升級配件",
+        "description": "遊戲死亡邊境2中升級配件的資訊。"
+    },
 
     "MapMissionPage": {
         "title": "地圖和任務",
-        "description": "地圖和任務頁面提供了DF2 Profiler的數據，但以更友好的方式呈現。它還提供了一些可選的支線任務。"
+        "description": "以更友好的方式呈現DF2 Profiler，以及一些可選的支線任務。"
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
@@ -105,7 +150,7 @@
 
     "PuzzlePage": {
         "title": "寶箱謎題",
-        "description": "寶箱謎題頁面提供了遊戲死亡邊境2的寶箱謎題解答器。"
+        "description": "寶箱謎題解答器。"
     },
     "BinaryPage": {
         "title": "二進制",
@@ -146,7 +191,7 @@
 
     "BlueprintPage": {
         "title": "藍圖",
-        "description": "藍圖頁面提供了遊戲死亡邊境2中藍圖的一些有用資訊。你可以使用它來找到你需要製作物品的藍圖。"
+        "description": "使用它來找到你需要的藍圖。"
     },
     "RoninsBladePage": {
         "title": "浪人之刃",
@@ -173,9 +218,44 @@
         "description": "所有藍圖列表"
     },
 
+    "CalculatorPage": {
+        "title": "計算機",
+        "description": "經驗值計算機、DPS計算機等。"
+    },
+    "DpsCalculatorPage": {
+        "title": "DPS 計算機",
+        "description": "計算武器的DPS。",
+        "character-stats": "角色狀態",
+        "expert-skill": "專家技能 V (+25%)",
+        "weapon-stats": "武器狀態",
+        "weapon-stats-precaution": "武器狀態是武器本身的狀態，而不是裝備在角色身上的武器的狀態。",
+        "your-dps": "你的 DPS",
+        "attack-speed": "攻擊速度",
+        "reload-speed": "裝填速度",
+        "ammo-capacity": "彈匣容量",
+        "headshot-damage": "爆頭傷害",
+        "body-damage": "身體傷害",
+        "damage-vs-infected": "對感染者的傷害",
+        "damage-vs-mutated": "對變異者的傷害",
+        "body-damage-per-hit": "單次擊中身體傷害",
+        "headshot-damage-per-hit": "單次爆頭傷害",
+        "attacks-per-second": "每秒攻擊次數",
+        "reload-time": "裝彈時間",
+        "clip-size": "彈匣容量",
+        "weapon-attack-speed": "武器攻擊速度",
+        "weapon-reload-speed": "武器裝彈速度",
+        "weapon-ammo-capacity": "武器彈匣容量",
+        "weapon-headshot-damage": "武器爆頭傷害",
+        "weapon-body-damage": "武器身體傷害",
+        "dps-vs-infected-on-body": "感染者 | 身體",
+        "dps-vs-infected-on-head": "感染者 | 爆頭",
+        "dps-vs-mutated-on-body": "變異者 | 身體",
+        "dps-vs-mutated-on-head": "變異者 | 爆頭"
+    },
+
     "ToolPage": {
         "title": "實用工具",
-        "description": "實用工具頁面提供了一些遊戲死亡邊境2的有用工具。例如：第三方準心軟體等。",
+        "description": "一些在死亡邊境2的第三方工具。例如：準心軟體等。",
         "crosshair": {
             "title": "Crosshair",
             "description": "第三方準心覆蓋程式，幫助你在遊戲中更好瞄準。"
@@ -188,7 +268,7 @@
 
     "ResourceLinkPage": {
         "title": "資源連結",
-        "description": "資源連結頁面提供了一些遊戲死亡邊境2的有用連結。例如：df2profiler等。",
+        "description": "一些死亡邊境2的相關連結。例如：df2profiler等。",
         "dead-frontier-ii-wiki": {
             "description": "死亡邊境2維基。"
         },

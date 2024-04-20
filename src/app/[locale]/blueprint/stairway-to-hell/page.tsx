@@ -10,11 +10,25 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'StairwayToHellPage' });
+    const t = await getTranslations({ locale });
 
     return {
-        title: t('title'),
-        description: t('description'),
+        title: t('StairwayToHellPage.title'),
+        description: t('StairwayToHellPage.description'),
+        openGraph: {
+            title: t('StairwayToHellPage.title'),
+            description: t('StairwayToHellPage.description'),
+            url: `https://df2-helper.vercel.app/${locale}/blueprint/stairway-to-hell`,
+            siteName: t('LocaleLayout.title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('StairwayToHellPage.title'),
+            description: t('StairwayToHellPage.description'),
+            site: t('LocaleLayout.title'),
+        },
     };
 }
 
