@@ -13,8 +13,8 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('RoninsBladePage.ttitle'),
-        description: t('RoninsBladePage.tdescription'),
+        title: t('RoninsBladePage.title'),
+        description: t('RoninsBladePage.description'),
         openGraph: {
             title: t('RoninsBladePage.title'),
             description: t('RoninsBladePage.description'),
