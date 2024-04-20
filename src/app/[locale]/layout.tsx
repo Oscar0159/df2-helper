@@ -31,6 +31,21 @@ export async function generateMetadata({ params: { locale } }: Omit<Props, 'chil
             template: `%s | ${t('title')}`,
             default: t('title'),
         },
+        description: t('description'),
+        openGraph: {
+            title: t('title'),
+            description: t('description'),
+            url: `https://df2-helper.vercel.app/${locale}`,
+            siteName: t('title'),
+            locale: locale,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: t('title'),
+            description: t('description'),
+            site: t('title'),
+        },
     };
 }
 
