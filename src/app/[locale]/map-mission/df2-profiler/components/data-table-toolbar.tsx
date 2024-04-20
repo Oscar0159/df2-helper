@@ -13,7 +13,7 @@ interface DataTableToolbarProps<TData> {
 }
 
 export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>) {
-    const t = useTranslations('DataTable');
+    const t = useTranslations('MapDataTable');
 
     const isFiltered = table.getState().columnFilters.length > 0;
 

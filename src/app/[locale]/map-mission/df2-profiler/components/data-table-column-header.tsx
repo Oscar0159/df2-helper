@@ -23,7 +23,7 @@ export function DataTableColumnHeader<TData, TValue>({
     translationKey,
     className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
-    const t = useTranslations('DataTable');
+    const t = useTranslations('MapDataTable');
 
     if (!column.getCanSort()) {
         return <div className={cn(className)}>{t(translationKey)}</div>;

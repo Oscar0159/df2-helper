@@ -62,7 +62,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
-    const t = useTranslations('DataTable');
+    const t = useTranslations('MapDataTable');
 
     const createQueryString = useCallback(
         (name: string, value: string) => {

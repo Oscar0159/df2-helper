@@ -117,7 +117,7 @@
         "title": "DF2 Profiler",
         "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。"
     },
-    "DataTable": {
+    "MapDataTable": {
         "minlvl": "最低等級",
         "maxlvl": "最高等級",
         "type": "類型",

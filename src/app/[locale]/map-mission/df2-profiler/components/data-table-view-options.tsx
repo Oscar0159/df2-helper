@@ -21,7 +21,7 @@ interface DataTableViewOptionsProps<TData> {
 }
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
-    const t = useTranslations('DataTable');
+    const t = useTranslations('MapDataTable');
 
     return (
         <DropdownMenu>

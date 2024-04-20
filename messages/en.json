@@ -117,7 +117,7 @@
         "title": "DF2 Profiler",
         "description": "According to the data of DF2 Profiler, display and draw the information on the map."
     },
-    "DataTable": {
+    "MapDataTable": {
         "minlvl": "Min Level",
         "maxlvl": "Max Level",
         "type": "Type",
