@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CircleAlertIcon, CrownIcon } from 'lucide-react';
+import { CircleAlertIcon, CrosshairIcon, CrownIcon, ShirtIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -40,6 +40,8 @@ const weaponStatsSchema = z.object({
 
 export default function Dps() {
     const [hasExpertSkill, setHasExpertSkill] = useState(true);
+    const [hasQuickShotSkill, setHasQuickShotSkill] = useState(true);
+    const [hasEquipWeapon, setHasEquipWeapon] = useState(true);
 
     const t = useTranslations('DpsCalculatorPage');
 
@@ -104,7 +106,12 @@ export default function Dps() {
     ).toFixed(2);
     const weaponFinalAttackPerSecond = +(
         weaponOriginalAttackPerSecond *
-        (1 + (characterStats.attackSpeed + weaponStats.weaponAttackSpeed + (hasExpertSkill ? 25 : 0)) / 100)
+        (1 +
+            (characterStats.attackSpeed +
+                weaponStats.weaponAttackSpeed +
+                (hasExpertSkill ? 25 : 0) +
+                (hasQuickShotSkill ? 50 : 0)) /
+                100)
     ).toFixed(2);
     const weaponFinalReloadTime = +(
         weaponOriginalReloadTime /
@@ -127,17 +134,18 @@ export default function Dps() {
     const weaponFinalDamageVsMutatedOnBody = +(
         ((weaponFinalBodyDamagePerHit * weaponFinalClipSize) /
             (weaponFinalClipSize / weaponFinalAttackPerSecond + weaponFinalReloadTime)) *
-        (1 + (characterStats.damageVsMutated + weaponStats.damageVsMutated) / 100)
+        (1 + (characterStats.damageVsMutated + (hasEquipWeapon ? 0 : weaponStats.damageVsMutated)) / 100)
     ).toFixed(2);
     const weaponFinalDamageVsMutatedOnHead = +(
         ((weaponFinalHeadshotDamagePerHit * weaponFinalClipSize) /
             (weaponFinalClipSize / weaponFinalAttackPerSecond + weaponFinalReloadTime)) *
-        (1 + (characterStats.damageVsMutated + weaponStats.damageVsMutated) / 100)
+        (1 + (characterStats.damageVsMutated + (hasEquipWeapon ? 0 : weaponStats.damageVsMutated)) / 100)
     ).toFixed(2);
 
     return (
         <div className="grow grid grid-cols-6 h-full gap-4">
             <div className="grid sm:grid-cols-3 col-span-6 xl:col-span-4 gap-4">
+                {/* character stats */}
                 <div className="grow col-span-3 sm:col-span-1">
                     <div className="flex justify-center gap-2 items-start">
                         <h2 className="text-2xl font-semibold text-center mb-2">{t('character-stats')}</h2>
@@ -156,6 +164,23 @@ export default function Dps() {
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent>{t('expert-skill')}</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                        <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Button
+                                        variant={hasQuickShotSkill ? 'default' : 'outline'}
+                                        size="icon"
+                                        onClick={() => {
+                                            setHasQuickShotSkill((prev) => !prev);
+                                        }}
+                                        className="w-8 h-8"
+                                    >
+                                        <CrosshairIcon className="w-5 h-5" />
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>{t('quick-shot-skill')}</TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
                     </div>
@@ -290,9 +315,27 @@ export default function Dps() {
                         </form>
                     </Form>
                 </div>
+                {/* weapon stats */}
                 <div className="grow col-span-3 sm:col-span-2">
                     <div className="flex justify-center gap-2 items-center mb-2 ">
                         <h2 className="text-2xl font-semibold text-center">{t('weapon-stats')}</h2>
+                        <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
+                            <Tooltip>
+                                <TooltipTrigger asChild>
+                                    <Button
+                                        variant={hasEquipWeapon ? 'default' : 'outline'}
+                                        size="icon"
+                                        onClick={() => {
+                                            setHasEquipWeapon((prev) => !prev);
+                                        }}
+                                        className="w-8 h-8"
+                                    >
+                                        <ShirtIcon className="w-5 h-5" />
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>{t('equip-weapon')}</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                         <TooltipProvider delayDuration={0} skipDelayDuration={0} disableHoverableContent>
                             <Tooltip>
                                 <TooltipTrigger>
@@ -536,7 +579,7 @@ export default function Dps() {
                             <CardTitle>{t('dps-vs-infected-on-body')}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p>{weaponFinalDamageVsInfectedOnBody}</p>
+                            <p>{isNaN(weaponFinalDamageVsInfectedOnBody)?0:weaponFinalDamageVsInfectedOnBody}</p>
                         </CardContent>
                     </Card>
                     <Card className="hover:bg-secondary">
@@ -544,7 +587,7 @@ export default function Dps() {
                             <CardTitle>{t('dps-vs-infected-on-head')}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p>{weaponFinalDamageVsInfectedOnHead}</p>
+                            <p>{isNaN(weaponFinalDamageVsInfectedOnHead)?0:weaponFinalDamageVsInfectedOnHead}</p>
                         </CardContent>
                     </Card>
                     <Separator /> */}
@@ -553,7 +596,7 @@ export default function Dps() {
                             <CardTitle>{t('dps-vs-mutated-on-body')}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p>{weaponFinalDamageVsMutatedOnBody}</p>
+                            <p>{isNaN(weaponFinalDamageVsMutatedOnBody) ? 0 : weaponFinalDamageVsMutatedOnBody}</p>
                         </CardContent>
                     </Card>
                     <Card className="hover:bg-secondary">
@@ -561,7 +604,7 @@ export default function Dps() {
                             <CardTitle>{t('dps-vs-mutated-on-head')}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <p>{weaponFinalDamageVsMutatedOnHead}</p>
+                            <p>{isNaN(weaponFinalDamageVsMutatedOnHead) ? 0 : weaponFinalDamageVsMutatedOnHead}</p>
                         </CardContent>
                     </Card>
                 </div>
