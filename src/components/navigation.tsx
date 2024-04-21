@@ -5,8 +5,8 @@ import { Link } from '@/navigation';
 import { MenuIcon } from 'lucide-react';
 import {
     BadgeAlertIcon,
-    CalculatorIcon,
     BookIcon,
+    CalculatorIcon,
     DraftingCompassIcon,
     GithubIcon,
     LinkIcon,
