@@ -9,7 +9,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 
 import { cn } from '@/lib/utils';
 
-import mapBackground from '../../../../../../public/images/map_background.png';
+import mapBackground from '@/../public/images/map_background.png';
+
 import type { DrawOption, DrawState, MapCell, Mission } from '../types';
 
 type Props = {
@@ -22,23 +23,9 @@ type Props = {
 };
 
 export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSize, drawState }: Props) {
-    const router = useRouter();
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-
-    const [showOutpost, setShowOutpost] = useState(searchParams.get('showOutpost') !== 'false');
-    const [showPvP, setShowPvP] = useState(searchParams.get('showPvP') !== 'false');
-    const [showRaidBuilding, setShowRaidBuilding] = useState(searchParams.get('showRaidBuilding') === 'true');
-
-    const createQueryString = useCallback(
-        (name: string, value: string) => {
-            const params = new URLSearchParams(searchParams.toString());
-            params.set(name, value);
-
-            return params.toString();
-        },
-        [searchParams]
-    );
+    const [showOutpost, setShowOutpost] = useState(true);
+    const [showPvP, setShowPvP] = useState(true);
+    const [showRaidBuilding, setShowRaidBuilding] = useState(false);
 
     const t = useTranslations('MapTable');
 
@@ -49,12 +36,6 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
                 <Button
                     variant={showOutpost ? 'default' : 'outline'}
                     onClick={() => {
-                        router.replace(
-                            pathname + '?' + createQueryString('showOutpost', showOutpost ? 'false' : 'true'),
-                            {
-                                scroll: false,
-                            }
-                        );
                         setShowOutpost((prev) => !prev);
                     }}
                 >
@@ -63,9 +44,6 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
                 <Button
                     variant={showPvP ? 'default' : 'outline'}
                     onClick={() => {
-                        router.replace(pathname + '?' + createQueryString('showPvP', showPvP ? 'false' : 'true'), {
-                            scroll: false,
-                        });
                         setShowPvP((prev) => !prev);
                     }}
                 >
@@ -74,12 +52,6 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
                 <Button
                     variant={showRaidBuilding ? 'default' : 'outline'}
                     onClick={() => {
-                        router.replace(
-                            pathname + '?' + createQueryString('showRaidBuilding', showRaidBuilding ? 'false' : 'true'),
-                            {
-                                scroll: false,
-                            }
-                        );
                         setShowRaidBuilding((prev) => !prev);
                     }}
                 >
