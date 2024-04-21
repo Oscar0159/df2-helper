@@ -1,0 +1,15 @@
+{
+    "Pistol": "手槍",
+    "Rifle": "步槍",
+    "Shotgun": "散彈槍",
+    "Submachine Gun": "衝鋒槍",
+    "Assault Rifle": "突擊步槍",
+    "Melee": "近戰",
+    "Chainsaw": "電鋸",
+    "Armour": "護甲",
+    "Head": "頭部",
+    "Body": "身體",
+    "Legs": "腿部",
+    "Hands": "手部",
+    "Feet": "腳部"
+}
