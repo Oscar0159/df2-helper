@@ -58,33 +58,12 @@ function useSkipper() {
 }
 
 export function DataTable<TData, TValue>({ columns, data, setData }: DataTableProps<TData, TValue>) {
-    const router = useRouter();
-    const pathname = usePathname();
     const searchParams = useSearchParams();
 
     const t = useTranslations('DataTable');
 
-    const createQueryString = useCallback(
-        (name: string, value: string) => {
-            const params = new URLSearchParams(searchParams.toString());
-            params.set(name, value);
-
-            return params.toString();
-        },
-        [searchParams]
-    );
-
-    const params: Record<string, string> = Object.fromEntries(searchParams.entries());
-
     const [sorting, setSorting] = useState<SortingState>([]);
-    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-        Object.keys(params)
-            .filter((key) => key === 'type' || key === 'requirement')
-            .map((key) => ({
-                id: key,
-                value: JSON.parse(params[key]),
-            }))
-    );
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({ building: false });
     const [rowSelection, setRowSelection] = useState({});
     const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper();
@@ -124,15 +103,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
         filterFromLeafRows: false,
         onRowSelectionChange: setRowSelection,
         onSortingChange: setSorting,
-        onColumnFiltersChange: (updateFunction) => {
-            const newColumnFiltersState = functionalUpdate(updateFunction, columnFilters);
-            newColumnFiltersState.forEach(({ id, value }) => {
-                router.replace(pathname + '?' + createQueryString(id, JSON.stringify(value)), {
-                    scroll: false,
-                });
-            });
-            setColumnFilters(newColumnFiltersState);
-        },
+        onColumnFiltersChange: setColumnFilters,
         onColumnVisibilityChange: setColumnVisibility,
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
@@ -145,8 +116,6 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
     return (
         <div className="gap-4 flex flex-col grow justify-between">
             <DataTableToolbar table={table} />
-
-            {/* <pre>{JSON.stringify(columnFilters, null, 2)}</pre> */}
 
             {/* Desktop */}
             <div className="rounded-md border h-[500px] overflow-y-auto hidden sm:block">
@@ -193,7 +162,7 @@ export function DataTable<TData, TValue>({ columns, data, setData }: DataTablePr
                 {table.getHeaderGroups().map((headerGroup) => (
                     <div
                         key={headerGroup.id}
-                        className="sticky top-0 flex gap-6 items-cente bg-gradient-to-b from-25% from-background to-background/70 px-2 pb-4"
+                        className="sticky top-0 flex gap-6 items-cente bg-gradient-to-b from-25% from-background to-background/70 px-2 pb-8 pt-4"
                     >
                         {headerGroup.headers.map((header) => {
                             return (

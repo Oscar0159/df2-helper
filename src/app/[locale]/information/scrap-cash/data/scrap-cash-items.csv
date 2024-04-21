@@ -1,0 +1,117 @@
+﻿Name,Name_zh-TW,Type,Type_zh-TW,Normal,Superior,Rare,Elite
+Ivanov,伊萬諾夫,Pistol,手槍,24 ,192 ,384 ,768 
+CZ-83,CZ-83,Pistol,手槍,24 ,192 ,384 ,768 
+Speed Six,快手6號,Pistol,手槍,40 ,320 ,640 ,1280 
+Parabellum,魯格,Pistol,手槍,60 ,480 ,960 ,1920 
+Lock-17,拉克-17,Pistol,手槍,80 ,640 ,1280 ,2560 
+Python,蟒蛇,Pistol,手槍,80 ,640 ,1280 ,2560 
+Beta 8000,貝塔 8000,Pistol,手槍,100 ,800 ,1600 ,3200 
+Lock-31,洛克-31,Pistol,手槍,120 ,960 ,1920 ,3840 
+Webster 1942,韋伯斯特 1942,Pistol,手槍,140 ,1120 ,2240 ,4480 
+Lock-25,洛克-25,Pistol,手槍,160 ,1280 ,2560 ,5120 
+Kolt Police,警用科爾特,Pistol,手槍,180 ,1440 ,2880 ,5760 
+Beta 90-Two,貝塔90-2,Pistol,手槍,200 ,1600 ,3200 ,6400 
+Anaconda,蟒蛇,Pistol,手槍,220 ,1760 ,3520 ,7040 
+Kolt 1911,科爾特 1911,Pistol,手槍,220 ,1760 ,3520 ,7040 
+Greening GLR,格林 GLR,Rifle,步槍,24 ,192 ,384 ,768 
+Scout,史考特,Rifle,步槍,40 ,320 ,640 ,1280 
+Mouzer M59,穆澤 M59,Rifle,步槍,60 ,480 ,960 ,1920 
+Enfield,恩菲爾德,Rifle,步槍,80 ,640 ,1280 ,2560 
+M1 Garand,M1加蘭德,Rifle,步槍,100 ,800 ,1600 ,3200 
+Dragon SVD,龍火 SVD,Rifle,步槍,120 ,960 ,1920 ,3840 
+M14,M14,Rifle,步槍,140 ,1120 ,2240 ,4480 
+Mosin-Nagant,莫辛納甘,Rifle,步槍,160 ,1280 ,2560 ,5120 
+Karabiner 98k,卡賓槍 98k,Rifle,步槍,160 ,1280 ,2560 ,5120 
+Gewehr 43,格維爾43,Rifle,步槍,180 ,1440 ,2880 ,5760 
+Chesterfield Model 70,切斯特菲爾德70模組,Rifle,步槍,200 ,1600 ,3200 ,6400 
+Chesterfield 1894,切斯特菲爾德1894,Rifle,步槍,220 ,1760 ,3520 ,7040 
+VSS Vintorez,VSS溫托雷斯,Rifle,步槍,220 ,1760 ,3520 ,7040 
+Greening Sitori,雷德菲爾德史托利,Shotgun,散彈槍,24 ,192 ,384 ,768 
+Washington 1100,華盛頓1100,Shotgun,散彈槍,40 ,320 ,640 ,1280 
+Mannberg 500,曼伯格 500,Shotgun,散彈槍,60 ,480 ,960 ,1920 
+Chesterfield 21,切斯特菲爾德 21,Shotgun,散彈槍,60 ,480 ,960 ,1920 
+Mannberg 590,曼伯格 590,Shotgun,散彈槍,80 ,640 ,1280 ,2560 
+Mancini M4,曼奇尼 M4,Shotgun,散彈槍,100 ,800 ,1600 ,3200 
+SPSA-12,SPSA-12,Shotgun,散彈槍,100 ,800 ,1600 ,3200 
+Sawn-off Shotgun,短管散彈槍,Shotgun,散彈槍,120 ,960 ,1920 ,3840 
+Mannberg 590M,曼伯格 590M,Shotgun,散彈槍,140 ,1120 ,2240 ,4480 
+Ethaca-10,埃薩卡-10,Shotgun,散彈槍,160 ,1280 ,2560 ,5120 
+Sega-20,賽加-20,Shotgun,散彈槍,180 ,1440 ,2880 ,5760 
+Chesterfield 1887,切斯特菲爾德1887,Shotgun,散彈槍,200 ,1600 ,3200 ,6400 
+Packhammer-12,包垂12,Shotgun,散彈槍,200 ,1600 ,3200 ,6400 
+AA-12,AA-12,Shotgun,散彈槍,220 ,1760 ,3520 ,7040 
+Scorpion,天蠍,Submachine Gun,衝鋒槍,40 ,320 ,640 ,1280 
+USI,USI,Submachine Gun,衝鋒槍,60 ,480 ,960 ,1920 
+Beta C4,貝塔C4,Submachine Gun,衝鋒槍,80 ,640 ,1280 ,2560 
+HK-5,HK-5,Submachine Gun,衝鋒槍,100 ,800 ,1600 ,3200 
+Lanchester,蘭切斯特,Submachine Gun,衝鋒槍,120 ,960 ,1920 ,3840 
+Mac-11,麥克-11,Submachine Gun,衝鋒槍,140 ,1120 ,2240 ,4480 
+Bulldog,鬥牛犬,Submachine Gun,衝鋒槍,160 ,1280 ,2560 ,5120 
+Criss Victor,克里斯維克多,Submachine Gun,衝鋒槍,180 ,1440 ,2880 ,5760 
+UMP-40,UMP-40,Submachine Gun,衝鋒槍,200 ,1600 ,3200 ,6400 
+Thompson,湯普森,Submachine Gun,衝鋒槍,220 ,1760 ,3520 ,7040 
+Grease Gun,黃油槍,Submachine Gun,衝鋒槍,220 ,1760 ,3520 ,7040 
+M16,M16,Assault Rifle,突擊步槍,160 ,1280 ,2560 ,5120 
+AK-12,AK-12,Assault Rifle,突擊步槍,180 ,1440 ,2880 ,5760 
+M4,M4,Assault Rifle,突擊步槍,200 ,1600 ,3200 ,6400 
+AR-10,AR-10,Assault Rifle,突擊步槍,220 ,1760 ,3520 ,7040 
+AK-47,AK-47,Assault Rifle,突擊步槍,220 ,1760 ,3520 ,7040 
+2x4,2 x 4,Melee,近戰,24 ,192 ,384 ,768 
+Iron Pipe,鐵管,Melee,近戰,24 ,192 ,384 ,768 
+Sledge Hammer,大槌子,Melee,近戰,100 ,800 ,1600 ,3200 
+Baseball Bat,球棒,Melee,近戰,32 ,256 ,512 ,1024 
+Wrench,板手,Melee,近戰,32 ,256 ,512 ,1024 
+Shovel,鐵鍬,Melee,近戰,40 ,320 ,640 ,1280 
+Crowbar,翹棍,Melee,近戰,40 ,320 ,640 ,1280 
+Barbed Bat,帶刺的球棒,Melee,近戰,60 ,480 ,960 ,1920 
+Pick Axe,十字搞,Melee,近戰,60 ,480 ,960 ,1920 
+Nail Bat,狼牙棒,Melee,近戰,80 ,640 ,1280 ,2560 
+Axe,斧頭,Melee,近戰,80 ,640 ,1280 ,2560 
+Machete,開山刀,Melee,近戰,120 ,960 ,1920 ,3840 
+Longsword,長劍,Melee,近戰,140 ,1120 ,2240 ,4480 
+War Hammer,戰槌,Melee,近戰,160 ,1280 ,2560 ,5120 
+Dane Axe,戴恩斧,Melee,近戰,180 ,1440 ,2880 ,5760 
+Wakizashi,脇差,Melee,近戰,200 ,1600 ,3200 ,6400 
+Katana,日本武士刀,Melee,近戰,220 ,1760 ,3520 ,7040 
+Mace,釘錘,Melee,近戰,220 ,1760 ,3520 ,7040 
+Hedge Trimmer,Hedge Trimmer,Chainsaw,電鋸,60 ,480 ,960 ,1920 
+Dilmar PS,杜爾瑪PS,Chainsaw,電鋸,100 ,800 ,1600 ,3200 
+Ronan Pro,羅南Pro,Chainsaw,電鋸,140 ,1120 ,2240 ,4480 
+Yatesman G10,耶茨曼G10,Chainsaw,電鋸,180 ,1440 ,2880 ,5760 
+Cut-Off Saw,碎屍鋸,Chainsaw,電鋸,220 ,1760 ,3520 ,7040 
+Motocross Armour,越野摩托車裝甲,Armour,護甲,50 ,400 ,800 ,1600 
+Zylon Vest,賽隆背心,Armour,護甲,70 ,560 ,1120 ,2240 
+Flak Jacket,防彈背心,Armour,護甲,80 ,640 ,1280 ,2560 
+Kevlar Vest,凱夫拉背心,Armour,護甲,90 ,720 ,1440 ,2880 
+Breast Plate,胸甲,Armour,護甲,90 ,720 ,1440 ,2880 
+Assault Vest,突擊隊背心,Armour,護甲,90 ,720 ,1440 ,2880 
+SN42,SN42,Armour,護甲,90 ,720 ,1440 ,2880 
+Beanie Hat,貝尼帽,Head,頭部,12 ,96 ,192 ,384 
+Baseball Hat,棒球帽子,Head,頭部,12 ,96 ,192 ,384 
+Sunglasses,墨鏡,Head,頭部,20 ,160 ,320 ,640 
+Army Hat,軍帽,Head,頭部,30 ,240 ,480 ,960 
+Cowboy Hat,牛仔帽,Head,頭部,40 ,320 ,640 ,1280 
+Police Hat,警察帽,Head,頭部,50 ,400 ,800 ,1600 
+Surgical Mask,手術□罩,Head,頭部,60 ,480 ,960 ,1920 
+Motorbike Helmet,摩托車頭盔,Head,頭部,70 ,560 ,1120 ,2240 
+Hockey Helmet,曲棍球頭盔,Head,頭部,70 ,560 ,1120 ,2240 
+Football Helmet,足球頭盔,Head,頭部,70 ,560 ,1120 ,2240 
+Fireman Helmet,消防員頭盔,Head,頭部,80 ,640 ,1280 ,2560 
+Army Helmet,軍用頭盔,Head,頭部,90 ,720 ,1440 ,2880 
+Shirt,襯衫,Body,身體,12 ,96 ,192 ,384 
+Vest,背心,Body,身體,20 ,160 ,320 ,640 
+Long Sleeve T-Shirt,長袖汗衫,Body,身體,12 ,96 ,192 ,384 
+Hoodie,連帽衫,Body,身體,40 ,320 ,640 ,1280 
+Leather Jacket,皮夾克,Body,身體,50 ,400 ,800 ,1600 
+Trousers,長褲,Legs,腿部,12 ,96 ,192 ,384 
+Joggers,運動褲,Legs,腿部,20 ,160 ,320 ,640 
+Jeans,牛仔褲,Legs,腿部,30 ,240 ,480 ,960 
+Wooly Glvoes,羊毛手套,Hands,手部,12 ,96 ,192 ,384 
+Fingeriess Gloves,無指手套,Hands,手部,20 ,160 ,320 ,640 
+Surgical Gloves,手術手套,Hands,手部,30 ,240 ,480 ,960 
+Leather Gloves,皮手套,Hands,手部,40 ,320 ,640 ,1280 
+Superior San dais,涼鞋,Feet,腳部,12 ,96 ,192 ,384 
+Leather Shoes,皮鞋,Feet,腳部,20 ,160 ,320 ,640 
+Trainers,運動鞋,Feet,腳部,30 ,240 ,480 ,960 
+Hiking Boots,登山鞋,Feet,腳部,40 ,320 ,640 ,1280 
+Combat Boots,戰鬥鞋,Feet,腳部,50 ,400 ,800 ,1600 

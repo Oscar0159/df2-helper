@@ -33,6 +33,12 @@ export default function Information({ params: { locale } }: Props) {
             href: '/information/basic',
             image: noThumbnail.src,
         },
+        {
+            title: t('ScrapCashPage.title'),
+            description: t('ScrapCashPage.description'),
+            href: '/information/scrap-cash',
+            image: noThumbnail.src,
+        },
     ];
 
     return (

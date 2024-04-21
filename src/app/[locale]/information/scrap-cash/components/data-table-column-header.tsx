@@ -26,7 +26,7 @@ export function DataTableColumnHeader<TData, TValue>({
     const t = useTranslations();
 
     if (!column.getCanSort()) {
-        return <div className={cn(className)}>{t('MapDataTable.' + translationKey)}</div>;
+        return <div className={cn(className)}>{t('ScrapCashDataTable.' + translationKey)}</div>;
     }
 
     return (
@@ -34,7 +34,7 @@ export function DataTableColumnHeader<TData, TValue>({
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="-ml-3 h-8 data-[state=open]:bg-accent">
-                        <span>{t('MapDataTable.' + translationKey)}</span>
+                        <span>{t('ScrapCashDataTable.' + translationKey)}</span>
                         {column.getIsSorted() === 'desc' ? (
                             <ArrowDownIcon className="ml-2 h-4 w-4" />
                         ) : column.getIsSorted() === 'asc' ? (

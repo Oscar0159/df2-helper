@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
 
 type Props = {
     params: { locale: string };
@@ -82,6 +82,18 @@ export default function ResourceLink({ params: { locale } }: Props) {
             description: t('dead-frontier-ii-support.description'),
             locales: ['en'],
             href: 'http://support.deadfrontier2.com/home',
+        },
+        {
+            title: 'Dead Frontier II 筆記',
+            description: '由作者：[ℕ.ℂ.] 𝑭𝒂𝒏𝒕𝒂𝒔𝒚 𝑫𝒆𝒊𝒕𝒚整理的DF2筆記',
+            locales: ['zh-TW'],
+            href: 'https://docs.google.com/spreadsheets/d/1BvPEnkWrWL7KWxabj7JWqzJ48gu_LwPo_tdkU_wZKyk',
+        },
+        {
+            title: 'Dead Frontier II 實用資訊',
+            description: 'Discord [DF系列專群]內張貼的實用資訊',
+            locales: ['zh-TW'],
+            href: 'https://docs.google.com/spreadsheets/d/1KdgvE0y1ZEPK7MXJ59K2DmBQDe7XKnDPTIL0npwkpbE',
         },
     ];
 

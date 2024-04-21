@@ -45,7 +45,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                                 checked={column.getIsVisible()}
                                 onCheckedChange={(value?: boolean) => column.toggleVisibility(!!value)}
                             >
-                                {t('MapDataTable.' + kebabize(column.id))}
+                                {t('ScrapCashDataTable.' + kebabize(column.id))}
                             </DropdownMenuCheckboxItem>
                         );
                     })}

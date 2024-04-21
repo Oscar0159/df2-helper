@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '../../../../public/images/thumbnail/no-thumbnail.png';
+import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
 
 type Props = {
     params: { locale: string };

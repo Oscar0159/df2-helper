@@ -7,12 +7,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import alphabetPageThumbnail from '../../../../public/images/thumbnail/alphabet-page-thumbnail.png';
-import binaryPageThumbnail from '../../../../public/images/thumbnail/binary-page-thumbnail.png';
-import letterPageThumbnail from '../../../../public/images/thumbnail/letter-page-thumbnail.png';
-import lightOutPageThumbnail from '../../../../public/images/thumbnail/light-out-page-thumbnail.png';
-import morsePageThumbnail from '../../../../public/images/thumbnail/morse-page-thumbnail.png';
-import slidingPageThumbnail from '../../../../public/images/thumbnail/sliding-page-thumbnail.png';
+import alphabetPageThumbnail from '@/../public/images/thumbnail/alphabet-page-thumbnail.png';
+import binaryPageThumbnail from '@/../public/images/thumbnail/binary-page-thumbnail.png';
+import letterPageThumbnail from '@/../public/images/thumbnail/letter-page-thumbnail.png';
+import lightOutPageThumbnail from '@/../public/images/thumbnail/light-out-page-thumbnail.png';
+import morsePageThumbnail from '@/../public/images/thumbnail/morse-page-thumbnail.png';
+import slidingPageThumbnail from '@/../public/images/thumbnail/sliding-page-thumbnail.png';
 
 type Props = {
     params: { locale: string };
