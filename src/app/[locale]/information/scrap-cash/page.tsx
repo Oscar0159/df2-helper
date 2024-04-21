@@ -3,10 +3,19 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table';
+
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import { columns } from './components/columns';
-import { DataTable } from './components/data-table';
 import type { ScrapCashItem } from './types';
 
 type Props = {
@@ -516,14 +525,6 @@ export default function ScrapCash({ params: { locale } }: Props) {
             elite: 768,
         },
         {
-            name: t('ScrapCashItemName.Sledge Hammer'),
-            type: t('ScrapCashItemType.Melee'),
-            normal: 100,
-            superior: 800,
-            rare: 1600,
-            elite: 3200,
-        },
-        {
             name: t('ScrapCashItemName.Baseball Bat'),
             type: t('ScrapCashItemType.Melee'),
             normal: 32,
@@ -586,6 +587,14 @@ export default function ScrapCash({ params: { locale } }: Props) {
             superior: 640,
             rare: 1280,
             elite: 2560,
+        },
+        {
+            name: t('ScrapCashItemName.Sledge Hammer'),
+            type: t('ScrapCashItemType.Melee'),
+            normal: 100,
+            superior: 800,
+            rare: 1600,
+            elite: 3200,
         },
         {
             name: t('ScrapCashItemName.Machete'),
@@ -973,14 +982,464 @@ export default function ScrapCash({ params: { locale } }: Props) {
         },
     ];
 
+    const scrapCashPistolItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Pistol'));
+    const scrapCashRifleItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Rifle'));
+    const scrapCashShotgunItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Shotgun'));
+    const scrapCashSubmachineGunItems = scrapCashItems.filter(
+        (item) => item.type === t('ScrapCashItemType.Submachine Gun')
+    );
+    const scrapCashAssaultRifleItems = scrapCashItems.filter(
+        (item) => item.type === t('ScrapCashItemType.Assault Rifle')
+    );
+    const scrapCashMeleeItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Melee'));
+    const scrapCashChainsawItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Chainsaw'));
+    const scrapCashArmourItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Armour'));
+    const scrapCashHeadItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Head'));
+    const scrapCashBodyItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Body'));
+    const scrapCashLegsItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Legs'));
+    const scrapCashHandsItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Hands'));
+    const scrapCashFeetItems = scrapCashItems.filter((item) => item.type === t('ScrapCashItemType.Feet'));
+
     return (
         <>
-            <div>
+            <div className="grow flex flex-col">
                 <h1 className="text-4xl font-semibold">{t('ScrapCashPage.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
 
-                <div className="mt-5">
-                    <DataTable data={scrapCashItems} columns={columns} />
+                <div className="mt-5 grid xl:grid-cols-5 sm:grid-cols-3 grid-cols-1 grow gap-6">
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Pistol')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashPistolItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">{t('ScrapCashItemType.Rifle')}</h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashRifleItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Shotgun')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashShotgunItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Submachine Gun')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashSubmachineGunItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Assault Rifle')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashAssaultRifleItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">{t('ScrapCashItemType.Melee')}</h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashMeleeItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Chainsaw')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashChainsawItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">{t('ScrapCashItemType.Head')}</h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashHeadItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Body') + '&' + t('ScrapCashItemType.Armour')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashBodyItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {scrapCashArmourItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                    <div>
+                        <h2 className="text-2xl font-semibold text-muted-foreground">
+                            {t('ScrapCashItemType.Legs') +
+                                '&' +
+                                t('ScrapCashItemType.Hands') +
+                                '&' +
+                                t('ScrapCashItemType.Feet')}
+                        </h2>
+                        <Table className="text-sm">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                        {t('ScrapCashDataTable.superior')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                        {t('ScrapCashDataTable.rare')}
+                                    </TableHead>
+                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                        {t('ScrapCashDataTable.elite')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {scrapCashLegsItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {scrapCashHandsItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {scrapCashFeetItems.map((item, index) => (
+                                    <TableRow key={index}>
+                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
+                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                            {item.superior}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                            {item.rare}
+                                        </TableCell>
+                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                            {item.elite}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
                 </div>
             </div>
         </>
