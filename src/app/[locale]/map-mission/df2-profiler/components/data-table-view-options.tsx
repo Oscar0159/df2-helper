@@ -21,18 +21,18 @@ interface DataTableViewOptionsProps<TData> {
 }
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
-    const t = useTranslations('MapDataTable');
+    const t = useTranslations();
 
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="ml-auto">
                     <SlidersHorizontalIcon className="mr-2 h-4 w-4" />
-                    {t('view-options')}
+                    {t('DataTable.view-options')}
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[150px]">
-                <DropdownMenuLabel>{t('columns')}</DropdownMenuLabel>
+                <DropdownMenuLabel>{t('DataTable.columns')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 {table
                     .getAllColumns()
@@ -45,7 +45,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                                 checked={column.getIsVisible()}
                                 onCheckedChange={(value?: boolean) => column.toggleVisibility(!!value)}
                             >
-                                {t(kebabize(column.id))}
+                                {t('MapDataTable.' + kebabize(column.id))}
                             </DropdownMenuCheckboxItem>
                         );
                     })}

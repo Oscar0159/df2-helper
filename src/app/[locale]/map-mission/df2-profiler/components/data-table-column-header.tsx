@@ -23,10 +23,10 @@ export function DataTableColumnHeader<TData, TValue>({
     translationKey,
     className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
-    const t = useTranslations('MapDataTable');
+    const t = useTranslations();
 
     if (!column.getCanSort()) {
-        return <div className={cn(className)}>{t(translationKey)}</div>;
+        return <div className={cn(className)}>{t('MapDataTable.' + translationKey)}</div>;
     }
 
     return (
@@ -34,7 +34,7 @@ export function DataTableColumnHeader<TData, TValue>({
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="-ml-3 h-8 data-[state=open]:bg-accent">
-                        <span>{t(translationKey)}</span>
+                        <span>{t('MapDataTable.' + translationKey)}</span>
                         {column.getIsSorted() === 'desc' ? (
                             <ArrowDownIcon className="ml-2 h-4 w-4" />
                         ) : column.getIsSorted() === 'asc' ? (
@@ -47,22 +47,22 @@ export function DataTableColumnHeader<TData, TValue>({
                 <DropdownMenuContent align="start">
                     <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
                         <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        {t('sort-ascending')}
+                        {t('DataTable.sort-ascending')}
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
                         <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        {t('sort-descending')}
+                        {t('DataTable.sort-descending')}
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     {column.getIsSorted() && (
                         <DropdownMenuItem onClick={() => column.clearSorting()}>
                             <ArrowUpDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                            {t('clear-sorting')}
+                            {t('DataTable.clear-sorting')}
                         </DropdownMenuItem>
                     )}
                     <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
                         <EyeOffIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                        {t('hide-column')}
+                        {t('DataTable.hide-column')}
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

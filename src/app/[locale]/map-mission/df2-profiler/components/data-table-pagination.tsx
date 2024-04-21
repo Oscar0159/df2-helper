@@ -10,7 +10,7 @@ interface DataTablePaginationProps<TData> {
 }
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProps<TData>) {
-    const t = useTranslations('MapDataTable');
+    const t = useTranslations('DataTable');
 
     const pageSizeOptions = ['10', '20', '30', '40', '50', 'All'];
 

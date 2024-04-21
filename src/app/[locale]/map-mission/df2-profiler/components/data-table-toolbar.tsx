@@ -13,7 +13,7 @@ interface DataTableToolbarProps<TData> {
 }
 
 export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>) {
-    const t = useTranslations('MapDataTable');
+    const t = useTranslations();
 
     const isFiltered = table.getState().columnFilters.length > 0;
 
@@ -68,7 +68,7 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
         <div className="flex flex-col justify-center gap-4">
             <div className="flex items-center space-x-2 justify-between">
                 <Input
-                    placeholder={t('filter-requirement')}
+                    placeholder={t('MapDataTable.filter-requirement')}
                     value={(table.getColumn('requirement')?.getFilterValue() as string) ?? ''}
                     onChange={(event) => table.getColumn('requirement')?.setFilterValue(event.target.value)}
                 />
@@ -78,13 +78,13 @@ export function DataTableToolbar<TData>({ table }: DataTableToolbarProps<TData>)
                 {table.getColumn('type') && (
                     <DataTableFacetedFilter
                         column={table.getColumn('type')}
-                        title={t('filter-type')}
+                        title={t('MapDataTable.filter-type')}
                         options={missionTypes}
                     />
                 )}
                 {isFiltered && (
                     <Button variant="default" onClick={() => table.resetColumnFilters()} className="px-2 lg:px-3">
-                        {t('clear-filters')}
+                        {t('DataTable.clear-filters')}
                         <XIcon className="ml-2 h-4 w-4" />
                     </Button>
                 )}

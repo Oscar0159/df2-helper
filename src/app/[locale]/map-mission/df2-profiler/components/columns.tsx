@@ -13,13 +13,6 @@ import { DataTableSelectHeader } from './data-table-select-header';
 
 export const columns: ColumnDef<Mission & DrawOption>[] = [
     // {
-    //     id: 'select',
-    //     header: ({ table }) => <DataTableSelectHeader table={table} />,
-    //     cell: ({ table, row }) => <DataTableSelectCell table={table} row={row} />,
-    //     enableSorting: false,
-    //     enableHiding: false,
-    // },
-    // {
     //     accessorKey: 'minlvl',
     //     header: ({ column }) => <DataTableColumnHeader column={column} translationKey="minlvl" />,
     // },
