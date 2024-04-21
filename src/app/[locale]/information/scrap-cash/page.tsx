@@ -1006,7 +1006,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                 <h1 className="text-4xl font-semibold">{t('ScrapCashPage.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
 
-                <div className="mt-5 grid xl:grid-cols-5 sm:grid-cols-3 grid-cols-1 grow gap-6">
+                <div className="mt-5 grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 grow gap-6">
                     <div>
                         <h2 className="text-2xl font-semibold text-muted-foreground">
                             {t('ScrapCashItemType.Pistol')}
@@ -1014,15 +1014,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1030,15 +1030,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashPistolItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1051,15 +1051,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1067,15 +1067,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashRifleItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1090,15 +1090,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1106,15 +1106,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashShotgunItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1129,15 +1129,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1145,15 +1145,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashSubmachineGunItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1168,15 +1168,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1184,15 +1184,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashAssaultRifleItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1205,15 +1205,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1221,15 +1221,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashMeleeItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1244,15 +1244,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1260,15 +1260,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashChainsawItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1281,15 +1281,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1297,15 +1297,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashHeadItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1320,15 +1320,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1336,30 +1336,30 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashBodyItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
                                 ))}
                                 {scrapCashArmourItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
@@ -1378,15 +1378,15 @@ export default function ScrapCash({ params: { locale } }: Props) {
                         <Table className="text-sm">
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead className="p-0 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
-                                    <TableHead className="p-0 dark:text-blue-500 text-blue-700">
+                                    <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
+                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-yellow-500 text-yellow-700">
+                                    <TableHead className="p-1 dark:text-yellow-500 text-yellow-700">
                                         {t('ScrapCashDataTable.rare')}
                                     </TableHead>
-                                    <TableHead className="p-0 dark:text-violet-500 text-violet-700">
+                                    <TableHead className="p-1 dark:text-violet-500 text-violet-700">
                                         {t('ScrapCashDataTable.elite')}
                                     </TableHead>
                                 </TableRow>
@@ -1394,45 +1394,45 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableBody>
                                 {scrapCashLegsItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
                                 ))}
                                 {scrapCashHandsItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
                                 ))}
                                 {scrapCashFeetItems.map((item, index) => (
                                     <TableRow key={index}>
-                                        <TableCell className="p-0 py-1">{item.name}</TableCell>
-                                        <TableCell className="p-0 py-1">{item.normal}</TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-blue-500 text-blue-700">
+                                        <TableCell className="p-1">{item.name}</TableCell>
+                                        <TableCell className="p-1">{item.normal}</TableCell>
+                                        <TableCell className="p-1 dark:text-blue-500 text-blue-700">
                                             {item.superior}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-yellow-500 text-yellow-700">
+                                        <TableCell className="p-1 dark:text-yellow-500 text-yellow-700">
                                             {item.rare}
                                         </TableCell>
-                                        <TableCell className="p-0 py-1 dark:text-violet-500 text-violet-700">
+                                        <TableCell className="p-1 dark:text-violet-500 text-violet-700">
                                             {item.elite}
                                         </TableCell>
                                     </TableRow>
