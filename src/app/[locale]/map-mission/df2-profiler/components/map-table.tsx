@@ -1,6 +1,5 @@
-import { usePathname, useRouter } from '@/navigation';
+import { DownloadIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -29,6 +28,107 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
 
     const t = useTranslations('MapTable');
 
+    const downloadMap = useCallback(() => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        if (!ctx) return;
+
+        // set canvas size and draw map
+        const img = new Image();
+        img.src = mapUrl;
+        img.onload = () => {
+            alert("onload")
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+
+            // // draw grid
+            // const cellWidth = img.width / mapCellList[0].length;
+            // const cellHeight = img.height / mapCellList.length;
+            // ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+            // ctx.lineWidth = 1;
+            // for (let y = 1; y < mapCellList.length; y++) {
+            //     if (y % chunkSize === 0) continue;
+            //     ctx.beginPath();
+            //     ctx.moveTo(0, y * cellHeight);
+            //     ctx.lineTo(img.width, y * cellHeight);
+            //     ctx.stroke();
+            // }
+            // for (let x = 1; x < mapCellList[0].length; x++) {
+            //     if (x % chunkSize === 0) continue;
+            //     ctx.beginPath();
+            //     ctx.moveTo(x * cellWidth, 0);
+            //     ctx.lineTo(x * cellWidth, img.height);
+            //     ctx.stroke();
+            // }
+
+            // // draw chunk border
+            // ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            // ctx.lineWidth = 2;
+            // for (let y = chunkSize; y < mapCellList.length; y += chunkSize) {
+            //     ctx.beginPath();
+            //     ctx.moveTo(0, y * cellHeight);
+            //     ctx.lineTo(img.width, y * cellHeight);
+            //     ctx.stroke();
+            // }
+            // for (let x = chunkSize; x < mapCellList[0].length; x += chunkSize) {
+            //     ctx.beginPath();
+            //     ctx.moveTo(x * cellWidth, 0);
+            //     ctx.lineTo(x * cellWidth, img.height);
+            //     ctx.stroke();
+            // }
+
+            // // draw outpost, pvp, raid building
+            // if (showOutpost) {
+            //     ctx.fillStyle = 'rgba(34, 197, 94, 0.4)';
+            //     mapCellList.forEach((row, y) => {
+            //         row.forEach((data, x) => {
+            //             if (data.isOutpost) {
+            //                 ctx.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
+            //             }
+            //         });
+            //     });
+            // }
+            // if (showPvP) {
+            //     ctx.fillStyle = 'rgba(239, 68, 68, 0.4)';
+            //     mapCellList.forEach((row, y) => {
+            //         row.forEach((data, x) => {
+            //             if (data.isPvP) {
+            //                 ctx.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
+            //             }
+            //         });
+            //     });
+            // }
+            // if (showRaidBuilding) {
+            //     ctx.fillStyle = 'rgba(252, 165, 165, 0.4)';
+            //     mapCellList.forEach((row, y) => {
+            //         row.forEach((data, x) => {
+            //             if (data.isRaidBuilding) {
+            //                 ctx.fillRect(x * cellWidth, y * cellHeight, cellWidth, cellHeight);
+            //             }
+            //         });
+            //     });
+            // }
+
+            // // draw point
+            // if (drawState) {
+            //     drawState.pointColor.forEach((point) => {
+            //         ctx.fillStyle = point.color;
+            //         ctx.fillRect((point.x - 1) * cellWidth, (point.y - 1) * cellHeight, cellWidth, cellHeight);
+            //     });
+            // }
+
+            // download
+            const a = document.createElement('a');
+            // img.crossOrigin="anonymous"
+            a.href = canvas.toDataURL('image/png');
+            a.download = 'map.png';
+            a.click();
+        };
+
+    }, [mapUrl]);
+
     return (
         <div className="w-full flex flex-col gap-4">
             {/* options */}
@@ -56,6 +156,16 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
                     }}
                 >
                     {t('red-building')}
+                </Button>
+                <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => {
+                        downloadMap();
+                    }}
+                    className="ml-auto"
+                >
+                    <DownloadIcon />
                 </Button>
             </div>
 
