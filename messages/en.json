@@ -274,7 +274,8 @@
     "MapTable": {
         "outpost": "Outpost",
         "pvp": "PvP",
-        "red-building": "Raid Building"
+        "red-building": "Raid Building",
+        "download": "Download"
     },
     "SideMissionsPage": {
         "title": "Side Mission",

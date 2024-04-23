@@ -274,7 +274,8 @@
     "MapTable": {
         "outpost": "前哨",
         "pvp": "PVP",
-        "red-building": "紅色建築"
+        "red-building": "紅色建築",
+        "download": "下載"
     },
     "SideMissionsPage": {
         "title": "支線任務",
