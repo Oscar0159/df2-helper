@@ -1015,7 +1015,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1052,7 +1052,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1091,7 +1091,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1130,7 +1130,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1169,7 +1169,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1206,7 +1206,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1245,7 +1245,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1282,7 +1282,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1321,7 +1321,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
@@ -1379,7 +1379,7 @@ export default function ScrapCash({ params: { locale } }: Props) {
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="p-1 w-36">{t('ScrapCashDataTable.name')}</TableHead>
-                                    <TableHead className="p-1">{t('ScrapCashDataTable.normal')}</TableHead>
+                                    <TableHead className="p-0">{t('ScrapCashDataTable.normal')}</TableHead>
                                     <TableHead className="p-1 dark:text-blue-500 text-blue-700">
                                         {t('ScrapCashDataTable.superior')}
                                     </TableHead>
