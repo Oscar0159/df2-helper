@@ -36,9 +36,7 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
 
         // set canvas size and draw map
         const img = new Image();
-        img.src = mapUrl;
         img.onload = () => {
-            alert("onload")
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
@@ -121,12 +119,13 @@ export function MapTable({ mapUrl, mapCellList, outposts, raidBuildings, chunkSi
 
             // download
             const a = document.createElement('a');
-            // img.crossOrigin="anonymous"
             a.href = canvas.toDataURL('image/png');
             a.download = 'map.png';
             a.click();
         };
 
+        img.crossOrigin = 'Anonymous';
+        img.src = mapUrl || mapBackground.src;
     }, [mapUrl]);
 
     return (
