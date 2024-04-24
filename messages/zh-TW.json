@@ -266,7 +266,8 @@
         "police": "警局",
         "human-remains": "人類遺骸",
         "stalker": "追靈者",
-        "download": "下載"
+        "download": "下載",
+        "no-selected": "你沒有選擇區域"
     },
     "SideMissionsPage": {
         "title": "支線任務",

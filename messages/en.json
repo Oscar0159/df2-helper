@@ -266,7 +266,8 @@
         "police": "Police Department",
         "human-remains": "Human Remains",
         "stalker": "Stalker",
-        "download": "Download"
+        "download": "Download",
+        "no-selected": "No selected."
     },
     "SideMissionsPage": {
         "title": "Side Mission",
