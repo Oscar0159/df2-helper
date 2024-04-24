@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
-import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
 import bluePrintPageThumbnail from '@/../public/images/thumbnail/blueprint-page-thumbnail.png';
-import puzzlePageThumbnail from '@/../public/images/thumbnail/puzzle-page-thumbnail.png';
 import mapMissionPageThumbnail from '@/../public/images/thumbnail/map-mission-page-thumbnail.png';
+import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
+import puzzlePageThumbnail from '@/../public/images/thumbnail/puzzle-page-thumbnail.png';
 import toolPageThumbnail from '@/../public/images/thumbnail/tool-page-thumbnail.png';
 
 type Props = {
@@ -93,7 +93,14 @@ export default function Home({ params: { locale } }: Props) {
                             <CardContent>
                                 {image && (
                                     <div className="relative h-52">
-                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                        <Image
+                                            src={image}
+                                            alt={title}
+                                            priority
+                                            fill
+                                            sizes='100% 100%'
+                                            className="rounded-md object-cover"
+                                        />
                                     </div>
                                 )}
                             </CardContent>
