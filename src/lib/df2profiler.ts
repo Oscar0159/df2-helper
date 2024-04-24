@@ -82,8 +82,8 @@ export function parse(html: string): { mapUrl: string; mapCells: any[][]; missio
         const ycoord = parseInt(missionSpan.getAttribute('data-ycoord') || '');
         const giverxcoord = parseInt(giverSpan?.getAttribute('data-xcoord') || '');
         const giverycoord = parseInt(giverSpan?.getAttribute('data-ycoord') || '');
-        const building = missionSpan.getAttribute('data-building') || '';
-        const giverbuilding = giverSpan?.getAttribute('data-building') || '';
+        const building = missionSpan.getAttribute('data-building')?.replace('&#039;', "'") || '';
+        const giverbuilding = giverSpan?.getAttribute('data-building')?.replace('&#039;', "'") || '';
         const type = missionTypeSpan?.textContent || '';
         const missionText = missionSpan.textContent || '';
         const requirement =
