@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -61,16 +62,14 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grow">
-                <Suspense fallback={<Skeleton />}>
-                    <DF2Profiler
-                        mapUrl={mapUrl}
-                        mapCells={mapDataList}
-                        missions={missionDataList}
-                        outposts={df2profiler.outposts}
-                        raidBuildings={df2profiler.raidBuildings}
-                        chunkSize={6}
-                    />
-                </Suspense>
+                <DF2Profiler
+                    mapUrl={mapUrl}
+                    mapCells={mapDataList}
+                    missions={missionDataList}
+                    outposts={df2profiler.outposts}
+                    raidBuildings={df2profiler.raidBuildings}
+                    chunkSize={6}
+                />
             </div>
         </>
     );

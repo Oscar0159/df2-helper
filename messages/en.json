@@ -258,23 +258,16 @@
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
-        "description": "According to the data of DF2 Profiler, display and draw the information on the map."
-    },
-    "MapDataTable": {
-        "minlvl": "Min Level",
-        "maxlvl": "Max Level",
-        "type": "Type",
-        "requirement": "Requirement",
-        "draw-destination": "Dst",
-        "draw-giver": "Giv",
-        "building": "Building",
-        "filter-type": "Type",
-        "filter-requirement": "Requirement"
-    },
-    "MapTable": {
+        "description": "According to the data of DF2 Profiler, display and draw the information on the map.",
         "outpost": "Outpost",
         "pvp": "PvP",
-        "red-building": "Raid Building"
+        "red-building": "Raid Building",
+        "hospital": "Hospital",
+        "police": "Police Department",
+        "human-remains": "Human Remains",
+        "stalker": "Stalker",
+        "download": "Download",
+        "no-selected": "No selected."
     },
     "SideMissionsPage": {
         "title": "Side Mission",

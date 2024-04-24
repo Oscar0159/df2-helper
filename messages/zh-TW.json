@@ -208,7 +208,7 @@
         "Army Hat": "軍帽",
         "Cowboy Hat": "牛仔帽",
         "Police Hat": "警察帽",
-        "Surgical Mask": "手術□罩",
+        "Surgical Mask": "手術口罩",
         "Motorbike Helmet": "摩托車頭盔",
         "Hockey Helmet": "曲棍球頭盔",
         "Football Helmet": "足球頭盔",
@@ -258,23 +258,16 @@
     },
     "DF2ProfilerPage": {
         "title": "DF2 Profiler",
-        "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。"
-    },
-    "MapDataTable": {
-        "minlvl": "最低等級",
-        "maxlvl": "最高等級",
-        "type": "類型",
-        "requirement": "需求",
-        "draw-destination": "目標地",
-        "draw-giver": "接取地",
-        "building": "建築物",
-        "filter-type": "類型",
-        "filter-requirement": "需求..."
-    },
-    "MapTable": {
+        "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。",
         "outpost": "前哨",
         "pvp": "PVP",
-        "red-building": "紅色建築"
+        "red-building": "紅色建築",
+        "hospital": "醫院",
+        "police": "警局",
+        "human-remains": "人類遺骸",
+        "stalker": "追靈者",
+        "download": "下載",
+        "no-selected": "你沒有選擇區域"
     },
     "SideMissionsPage": {
         "title": "支線任務",

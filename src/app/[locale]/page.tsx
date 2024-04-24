@@ -7,7 +7,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import bluePrintPageThumbnail from '@/../public/images/thumbnail/blueprint-page-thumbnail.png';
+import mapMissionPageThumbnail from '@/../public/images/thumbnail/map-mission-page-thumbnail.png';
 import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
+import puzzlePageThumbnail from '@/../public/images/thumbnail/puzzle-page-thumbnail.png';
+import toolPageThumbnail from '@/../public/images/thumbnail/tool-page-thumbnail.png';
 
 type Props = {
     params: { locale: string };
@@ -37,19 +41,19 @@ export default function Home({ params: { locale } }: Props) {
             title: t('MapMissionPage.title'),
             description: t('MapMissionPage.description'),
             href: '/map-mission',
-            image: noThumbnail.src,
+            image: mapMissionPageThumbnail.src,
         },
         {
             title: t('PuzzlePage.title'),
             description: t('PuzzlePage.description'),
             href: '/puzzle',
-            image: noThumbnail.src,
+            image: puzzlePageThumbnail.src,
         },
         {
             title: t('BlueprintPage.title'),
             description: t('BlueprintPage.description'),
             href: '/blueprint',
-            image: noThumbnail.src,
+            image: bluePrintPageThumbnail.src,
         },
         {
             title: t('CalculatorPage.title'),
@@ -61,7 +65,7 @@ export default function Home({ params: { locale } }: Props) {
             title: t('ToolPage.title'),
             description: t('ToolPage.description'),
             href: '/tool',
-            image: noThumbnail.src,
+            image: toolPageThumbnail.src,
         },
         {
             title: t('ResourceLinkPage.title'),
@@ -89,7 +93,14 @@ export default function Home({ params: { locale } }: Props) {
                             <CardContent>
                                 {image && (
                                     <div className="relative h-52">
-                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                        <Image
+                                            src={image}
+                                            alt={title}
+                                            priority
+                                            fill
+                                            sizes='100% 100%'
+                                            className="rounded-md object-cover"
+                                        />
                                     </div>
                                 )}
                             </CardContent>

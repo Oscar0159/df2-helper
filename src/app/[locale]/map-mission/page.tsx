@@ -58,7 +58,14 @@ export default function MapMission({ params: { locale } }: Props) {
                             <CardContent>
                                 {image && (
                                     <div className="relative h-52">
-                                        <Image src={image} alt={title} fill className="rounded-md object-cover" />
+                                        <Image
+                                            src={image}
+                                            alt={title}
+                                            priority
+                                            fill
+                                            sizes='100% 100%'
+                                            className="rounded-md object-cover"
+                                        />
                                     </div>
                                 )}
                             </CardContent>

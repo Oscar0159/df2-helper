@@ -613,10 +613,11 @@ export default function Sliding() {
                                         <Image
                                             src={image.src}
                                             alt={image.alt}
+                                            priority
                                             fill
-                                            sizes="100%"
+                                            sizes='100% 100%'
                                             loading="eager"
-                                            className={cn('cursor-pointer rounded-md object-cover object-top')}
+                                            className="cursor-pointer rounded-md  object-cover object-top"
                                         />
                                     </CardContent>
                                     <div className="absolute p-3 group-hover/card:translate-y-0 translate-y-[110%] bg-secondary/70 inset-x-0 bottom-0 rounded-md pointer-events-none transition-all duration-300 group-hover/card:delay-500">
@@ -679,9 +680,10 @@ export default function Sliding() {
                                                 : images.find((image) => image.id === currentImageId)?.crop3x3[tile - 1]
                                                       .alt ?? ''
                                         }
+                                        priority
                                         fill
-                                        sizes="100%"
-                                        className="object-cover rounded-md"
+                                        sizes='100% 100%'
+                                        className="rounded-md object-cover"
                                     />
                                 )}
                                 <span
