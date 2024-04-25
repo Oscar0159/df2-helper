@@ -182,7 +182,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                     <TooltipTrigger asChild>
                                                         <div
                                                             className={cn(
-                                                                'absolute inset-0 hover:bg-white/30',
+                                                                'absolute inset-0 hover:bg-white/30 rounded-sm',
                                                                 x === 0 && y === 0 && 'rounded-tl-md',
                                                                 x === row.length - 1 && y === 0 && 'rounded-tr-md',
                                                                 x === 0 && y === mapCells.length - 1 && 'rounded-bl-md',
@@ -239,7 +239,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                                                 mission.building
                                                                                             )
                                                                                     ) &&
-                                                                                    ' text-yellow-500 dark:text-yellow-300',
+                                                                                    'underline text-yellow-500 dark:text-yellow-300',
                                                                                 showStalkerMission &&
                                                                                     missions.some(
                                                                                         (mission) =>
@@ -250,7 +250,11 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                                                 mission.giverbuilding
                                                                                             )
                                                                                     ) &&
-                                                                                    ' text-rose-600 dark:text-rose-400'
+                                                                                    'underline text-rose-600 dark:text-rose-400',
+                                                                                building.includes('(Hospital)') &&
+                                                                                    'underline text-gray-600',
+                                                                                building.includes('(Police)') &&
+                                                                                    'underline text-sky-500'
                                                                             )}
                                                                         >
                                                                             {building}
@@ -342,16 +346,6 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                         'border-4 border-sky-500'
                                                 )}
                                             />
-                                            <div
-                                                className={cn(
-                                                    'absolute inset-0 rounded-sm pointer-events-none',
-                                                    showHospital &&
-                                                        showPolice &&
-                                                        data.types.includes('HOS') &&
-                                                        data.types.includes('POL') &&
-                                                        'border-4 border-violet-400'
-                                                )}
-                                            />
 
                                             {/* selected */}
                                             <div
@@ -421,14 +415,16 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                         mission.requirement.includes('Human Remains') &&
                                                         building.includes(mission.building)
                                                 ) &&
-                                                ' text-yellow-500 dark:text-yellow-300',
+                                                'underline text-yellow-500 dark:text-yellow-300',
                                             showStalkerMission &&
                                                 missions.some(
                                                     (mission) =>
                                                         mission.requirement.includes('Stalker') &&
                                                         building.includes(mission.giverbuilding)
                                                 ) &&
-                                                ' text-rose-600 dark:text-rose-400'
+                                                'underline text-rose-600 dark:text-rose-400',
+                                            building.includes('(Hospital)') && 'underline text-gray-600',
+                                            building.includes('(Police)') && 'underline text-sky-500'
                                         )}
                                     >
                                         {building}

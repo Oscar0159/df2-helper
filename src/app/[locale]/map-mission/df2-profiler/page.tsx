@@ -1,10 +1,5 @@
 import { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Skeleton } from '@/components/ui/skeleton';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
