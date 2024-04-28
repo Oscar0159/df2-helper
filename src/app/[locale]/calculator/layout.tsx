@@ -11,23 +11,23 @@ export async function generateMetadata({ params: { locale } }: { params: { local
 
     return {
         title: {
-            template: `%s | ${t('CalculatorPage.title')} | ${t('LocaleLayout.title')}`,
-            default: t('CalculatorPage.title'),
+            template: `%s | ${t('calculator-page.title')} | ${t('locale-layout.title')}`,
+            default: t('calculator-page.title'),
         },
-        description: t('CalculatorPage.description'),
+        description: t('calculator-page.description'),
         openGraph: {
-            title: t('CalculatorPage.title'),
-            description: t('CalculatorPage.description'),
+            title: t('calculator-page.title'),
+            description: t('calculator-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/calculator`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('CalculatorPage.title'),
-            description: t('CalculatorPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('calculator-page.title'),
+            description: t('calculator-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }

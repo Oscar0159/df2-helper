@@ -32,44 +32,44 @@ export default function Home({ params: { locale } }: Props) {
 
     const navigationItems: NavigationItem[] = [
         {
-            title: t('InformationPage.title'),
-            description: t('InformationPage.description'),
+            title: t('information-page.title'),
+            description: t('information-page.description'),
             href: '/information',
             image: noThumbnail.src,
         },
         {
-            title: t('MapMissionPage.title'),
-            description: t('MapMissionPage.description'),
+            title: t('map-mission-page.title'),
+            description: t('map-mission-page.description'),
             href: '/map-mission',
             image: mapMissionPageThumbnail.src,
         },
         {
-            title: t('PuzzlePage.title'),
-            description: t('PuzzlePage.description'),
+            title: t('puzzle-page.title'),
+            description: t('puzzle-page.description'),
             href: '/puzzle',
             image: puzzlePageThumbnail.src,
         },
         {
-            title: t('BlueprintPage.title'),
-            description: t('BlueprintPage.description'),
+            title: t('blueprint-page.title'),
+            description: t('blueprint-page.description'),
             href: '/blueprint',
             image: bluePrintPageThumbnail.src,
         },
         {
-            title: t('CalculatorPage.title'),
-            description: t('CalculatorPage.description'),
+            title: t('calculator-page.title'),
+            description: t('calculator-page.description'),
             href: '/calculator',
             image: noThumbnail.src,
         },
         {
-            title: t('ToolPage.title'),
-            description: t('ToolPage.description'),
+            title: t('tool-page.title'),
+            description: t('tool-page.description'),
             href: '/tool',
             image: toolPageThumbnail.src,
         },
         {
-            title: t('ResourceLinkPage.title'),
-            description: t('ResourceLinkPage.description'),
+            title: t('resource-link-page.title'),
+            description: t('resource-link-page.description'),
             href: '/resource-link',
             image: noThumbnail.src,
         },
@@ -78,7 +78,7 @@ export default function Home({ params: { locale } }: Props) {
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('HomePage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('home-page.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
 
@@ -90,20 +90,20 @@ export default function Home({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                {image && (
+                            {image && (
+                                <CardContent>
                                     <div className="relative h-52">
                                         <Image
                                             src={image}
                                             alt={title}
                                             priority
                                             fill
-                                            sizes='100% 100%'
+                                            sizes="100% 100%"
                                             className="rounded-md object-cover"
                                         />
                                     </div>
-                                )}
-                            </CardContent>
+                                </CardContent>
+                            )}
                         </Card>
                     </Link>
                 ))}

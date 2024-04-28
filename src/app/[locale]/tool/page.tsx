@@ -24,7 +24,7 @@ export default function Tool({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('ToolPage');
+    const t = useTranslations('tool-page');
 
     const toolItems: ToolItem[] = [
         {
@@ -55,20 +55,20 @@ export default function Tool({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                {image && (
+                            {image && (
+                                <CardContent>
                                     <div className="relative h-52">
                                         <Image
                                             src={image}
                                             alt={title}
                                             priority
                                             fill
-                                            sizes='100% 100%'
+                                            sizes="100% 100%"
                                             className="rounded-md object-cover"
                                         />
                                     </div>
-                                )}
-                            </CardContent>
+                                </CardContent>
+                            )}
                         </Card>
                     </a>
                 ))}

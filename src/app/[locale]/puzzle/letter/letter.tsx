@@ -140,7 +140,7 @@ export default function Letter() {
 
     const result = findLetter(letter.toUpperCase(), mode);
 
-    const t = useTranslations('LetterPage');
+    const t = useTranslations('letter-page');
 
     return (
         <div className="flex flex-col">

@@ -28,17 +28,16 @@ export default function Calculator({ params: { locale } }: Props) {
 
     const calculatorItems: CalculatorItem[] = [
         {
-            title: t('DpsCalculatorPage.title'),
-            description: t('DpsCalculatorPage.description'),
+            title: t('dps-calculator-page.title'),
+            description: t('dps-calculator-page.description'),
             href: '/calculator/dps',
-            image: noThumbnail.src,
         },
     ];
 
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('CalculatorPage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('calculator-page.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-5">
@@ -50,20 +49,20 @@ export default function Calculator({ params: { locale } }: Props) {
                                     <CardTitle>{title}</CardTitle>
                                     <CardDescription>{description}</CardDescription>
                                 </CardHeader>
-                                <CardContent>
-                                    {image && (
+                                {image && (
+                                    <CardContent>
                                         <div className="relative h-52">
                                             <Image
                                                 src={image}
                                                 alt={title}
                                                 priority
                                                 fill
-                                                sizes='100% 100%'
+                                                sizes="100% 100%"
                                                 className="rounded-md object-cover"
                                             />
                                         </div>
-                                    )}
-                                </CardContent>
+                                    </CardContent>
+                                )}
                             </Card>
                         </Link>
                     ))}

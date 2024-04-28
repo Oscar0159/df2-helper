@@ -1,15 +1,15 @@
 {
-    "Pistol": "手槍",
-    "Rifle": "步槍",
-    "Shotgun": "散彈槍",
-    "Submachine Gun": "衝鋒槍",
-    "Assault Rifle": "突擊步槍",
-    "Melee": "近戰",
-    "Chainsaw": "電鋸",
-    "Armour": "護甲",
-    "Head": "頭部",
-    "Body": "身體",
-    "Legs": "腿部",
-    "Hands": "手部",
-    "Feet": "腳部"
+    "pistol": "手槍",
+    "rifle": "步槍",
+    "shotgun": "散彈槍",
+    "submachine-gun": "衝鋒槍",
+    "assault-rifle": "突擊步槍",
+    "melee": "近戰",
+    "chainsaw": "電鋸",
+    "armour": "護甲",
+    "head": "頭部",
+    "body": "身體",
+    "legs": "腿部",
+    "hands": "手部",
+    "feet": "腳部"
 }

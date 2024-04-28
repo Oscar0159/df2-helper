@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('PvpPage.title'),
-        description: t('PvpPage.description'),
+        title: t('pvp-page.title'),
+        description: t('pvp-page.description'),
         openGraph: {
-            title: t('PvpPage.title'),
-            description: t('PvpPage.description'),
+            title: t('pvp-page.title'),
+            description: t('pvp-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/information/pvp`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('PvpPage.title'),
-            description: t('PvpPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('pvp-page.title'),
+            description: t('pvp-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function Pvp({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('PvpPage');
+    const t = useTranslations('pvp-page');
 
     return (
         <>

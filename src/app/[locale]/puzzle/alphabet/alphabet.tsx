@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 export default function Alphabet() {
     const [number, setNumber] = useState('');
 
-    const t = useTranslations('AlphabetPage');
+    const t = useTranslations('alphabet-page');
 
     const alphabet = number.split(' ').map((numberStr) => {
         const number = parseInt(numberStr, 10);

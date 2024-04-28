@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('CreditsMembershipPage.title'),
-        description: t('CreditsMembershipPage.description'),
+        title: t('credits-membership-page.title'),
+        description: t('credits-membership-page.description'),
         openGraph: {
-            title: t('CreditsMembershipPage.title'),
-            description: t('CreditsMembershipPage.description'),
+            title: t('credits-membership-page.title'),
+            description: t('credits-membership-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/information/credits-membership`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('CreditsMembershipPage.title'),
-            description: t('CreditsMembershipPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('credits-membership-page.title'),
+            description: t('credits-membership-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function CreditsMembership({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('CreditsMembershipPage');
+    const t = useTranslations('credits-membership-page');
 
     return (
         <>

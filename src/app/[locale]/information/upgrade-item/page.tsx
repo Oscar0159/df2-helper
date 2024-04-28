@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('UpgradeItemPage.title'),
-        description: t('UpgradeItemPage.description'),
+        title: t('upgrade-item-page.title'),
+        description: t('upgrade-item-page.description'),
         openGraph: {
-            title: t('UpgradeItemPage.title'),
-            description: t('UpgradeItemPage.description'),
+            title: t('upgrade-item-page.title'),
+            description: t('upgrade-item-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/information/upgrade-item`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('UpgradeItemPage.title'),
-            description: t('UpgradeItemPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('upgrade-item-page.title'),
+            description: t('upgrade-item-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function UpgradeItem({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('UpgradeItemPage');
+    const t = useTranslations('upgrade-item-page');
 
     return (
         <>

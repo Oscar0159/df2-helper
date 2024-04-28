@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 export default function Binary() {
     const [binaryNumber, setBinaryNumber] = useState('');
 
-    const t = useTranslations('BinaryPage');
+    const t = useTranslations('binary-page');
 
     const numbers = binaryNumber.split(' ').map((binaryStr) => {
         const binary = parseInt(binaryStr, 2);

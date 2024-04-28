@@ -43,7 +43,7 @@ export default function Dps() {
     const [hasQuickShotSkill, setHasQuickShotSkill] = useState(true);
     const [hasEquipWeapon, setHasEquipWeapon] = useState(true);
 
-    const t = useTranslations('DpsCalculatorPage');
+    const t = useTranslations('dps-calculator-page');
 
     const characterStatsFrom = useForm<z.infer<typeof characterStatsSchema>>({
         mode: 'onChange',

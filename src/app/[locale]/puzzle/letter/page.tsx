@@ -14,17 +14,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('LetterPage.title'),
-        description: t('LetterPage.description'),
+        title: t('letter-page.title'),
+        description: t('letter-page.description'),
         openGraph: {
-            title: t('LetterPage.title'),
-            description: t('LetterPage.description'),
+            title: t('letter-page.title'),
+            description: t('letter-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/puzzle/letter`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/letter-page-og.png',
-                    alt: t('LetterPage.title'),
+                    alt: t('letter-page.title'),
                 },
             ],
             locale: locale,
@@ -32,13 +32,13 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('LetterPage.title'),
-            description: t('LetterPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('letter-page.title'),
+            description: t('letter-page.description'),
+            site: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/letter-page-og.png',
-                    alt: t('LetterPage.title'),
+                    alt: t('letter-page.title'),
                 },
             ],
         },
@@ -49,7 +49,7 @@ export default function LetterPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('LetterPage');
+    const t = useTranslations('letter-page');
 
     return (
         <>

@@ -32,7 +32,7 @@ export default function Navigation() {
 
     const pathname = usePathname();
 
-    const t = useTranslations('Navigation');
+    const t = useTranslations('navigation');
 
     const navItems: { name: string; slug: string; icon?: JSX.Element }[] = [
         {

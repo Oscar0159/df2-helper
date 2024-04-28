@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('StairwayToHellPage.title'),
-        description: t('StairwayToHellPage.description'),
+        title: t('stairway-to-hell-page.title'),
+        description: t('stairway-to-hell-page.description'),
         openGraph: {
-            title: t('StairwayToHellPage.title'),
-            description: t('StairwayToHellPage.description'),
+            title: t('stairway-to-hell-page.title'),
+            description: t('stairway-to-hell-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/blueprint/stairway-to-hell`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('StairwayToHellPage.title'),
-            description: t('StairwayToHellPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('stairway-to-hell-page.title'),
+            description: t('stairway-to-hell-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function StairwayToHellPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('StairwayToHellPage');
+    const t = useTranslations('stairway-to-hell-page');
 
     return (
         <>

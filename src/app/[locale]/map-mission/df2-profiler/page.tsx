@@ -1,10 +1,5 @@
 import { Metadata } from 'next';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Skeleton } from '@/components/ui/skeleton';
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
@@ -28,21 +23,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('DF2ProfilerPage.title'),
-        description: t('DF2ProfilerPage.description'),
+        title: t('df2profiler-page.title'),
+        description: t('df2profiler-page.description'),
         openGraph: {
-            title: t('DF2ProfilerPage.title'),
-            description: t('DF2ProfilerPage.description'),
+            title: t('df2profiler-page.title'),
+            description: t('df2profiler-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/map-mission/df2-profiler`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('DF2ProfilerPage.title'),
-            description: t('DF2ProfilerPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('df2profiler-page.title'),
+            description: t('df2profiler-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -53,7 +48,7 @@ export default async function DF2ProfilerPage({ params: { locale } }: Props) {
 
     const { mapUrl, mapCells: mapDataList, missions: missionDataList } = await getDF2ProfilerData();
 
-    const t = await getTranslations({ locale, namespace: 'DF2ProfilerPage' });
+    const t = await getTranslations({ locale, namespace: 'df2profiler-page' });
 
     return (
         <>

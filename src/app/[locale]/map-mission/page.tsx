@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 import BreadcrumbNav from '@/components/breadcrumb-nav';
 
+import df2profilerPageThumbnail from '@/../public/images/thumbnail/df2profiler-page-thumbnail.png';
 import noThumbnail from '@/../public/images/thumbnail/no-thumbnail.png';
 
 type Props = {
@@ -28,14 +29,14 @@ export default function MapMission({ params: { locale } }: Props) {
 
     const mapMissionItems: MapMissionItem[] = [
         {
-            title: t('DF2ProfilerPage.title'),
-            description: t('DF2ProfilerPage.description'),
+            title: t('df2profiler-page.title'),
+            description: t('df2profiler-page.description'),
             href: '/map-mission/df2-profiler',
-            image: noThumbnail.src,
+            image: df2profilerPageThumbnail.src,
         },
         {
-            title: t('SideMissionsPage.title'),
-            description: t('SideMissionsPage.description'),
+            title: t('side-missions-page.title'),
+            description: t('side-missions-page.description'),
             href: '/map-mission/side-missions',
             image: noThumbnail.src,
         },
@@ -44,7 +45,7 @@ export default function MapMission({ params: { locale } }: Props) {
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('MapMissionPage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('map-mission-page.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -55,20 +56,20 @@ export default function MapMission({ params: { locale } }: Props) {
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
-                            <CardContent>
-                                {image && (
+                            {image && (
+                                <CardContent>
                                     <div className="relative h-52">
                                         <Image
                                             src={image}
                                             alt={title}
                                             priority
                                             fill
-                                            sizes='100% 100%'
+                                            sizes="100% 100%"
                                             className="rounded-md object-cover"
                                         />
                                     </div>
-                                )}
-                            </CardContent>
+                                </CardContent>
+                            )}
                         </Card>
                     </Link>
                 ))}

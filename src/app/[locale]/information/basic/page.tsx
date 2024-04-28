@@ -20,21 +20,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('BasicPage.title'),
-        description: t('BasicPage.description'),
+        title: t('basic-page.title'),
+        description: t('basic-page.description'),
         openGraph: {
-            title: t('BasicPage.title'),
-            description: t('BasicPage.description'),
+            title: t('basic-page.title'),
+            description: t('basic-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/information/basic`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('BasicPage.title'),
-            description: t('BasicPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('basic-page.title'),
+            description: t('basic-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -43,7 +43,7 @@ export default function Basic({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('BasicPage');
+    const t = useTranslations('basic-page');
 
     const BasicItems: BasicItem[] = [
         {

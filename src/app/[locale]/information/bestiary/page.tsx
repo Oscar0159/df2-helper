@@ -13,30 +13,30 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('CharacterStatsPage.title'),
-        description: t('CharacterStatsPage.description'),
+        title: t('bestiary-page.title'),
+        description: t('bestiary-page.description'),
         openGraph: {
-            title: t('CharacterStatsPage.title'),
-            description: t('CharacterStatsPage.description'),
-            url: `https://df2-helper.vercel.app/${locale}/information/characterStats`,
-            siteName: t('LocaleLayout.title'),
+            title: t('bestiary-page.title'),
+            description: t('bestiary-page.description'),
+            url: `https://df2-helper.vercel.app/${locale}/information/boss`,
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('CharacterStatsPage.title'),
-            description: t('CharacterStatsPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('bestiary-page.title'),
+            description: t('bestiary-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
 
-export default function CharacterStats({ params: { locale } }: Props) {
+export default function Bestiary({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('CharacterStatsPage');
+    const t = useTranslations('bestiary-page');
 
     return (
         <>

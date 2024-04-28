@@ -15,17 +15,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('SlidingPage.title'),
-        description: t('SlidingPage.description'),
+        title: t('sliding-page.title'),
+        description: t('sliding-page.description'),
         openGraph: {
-            title: t('SlidingPage.title'),
-            description: t('SlidingPage.description'),
+            title: t('sliding-page.title'),
+            description: t('sliding-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/puzzle/sliding`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png',
-                    alt: t('SlidingPage.title'),
+                    alt: t('sliding-page.title'),
                 },
             ],
             locale: locale,
@@ -33,13 +33,13 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('SlidingPage.title'),
-            description: t('SlidingPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('sliding-page.title'),
+            description: t('sliding-page.description'),
+            site: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/sliding-page-og.png',
-                    alt: t('SlidingPage.title'),
+                    alt: t('sliding-page.title'),
                 },
             ],
         },
@@ -50,7 +50,7 @@ export default function SlidingPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('SlidingPage');
+    const t = useTranslations('sliding-page');
 
     return (
         <>

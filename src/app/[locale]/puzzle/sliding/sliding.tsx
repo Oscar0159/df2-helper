@@ -457,7 +457,7 @@ export default function Sliding() {
         gridSet.has(i)
     );
 
-    const t = useTranslations('SlidingPage');
+    const t = useTranslations('sliding-page');
 
     const resetGrid = () => {
         setGrid((prev) =>
@@ -615,7 +615,7 @@ export default function Sliding() {
                                             alt={image.alt}
                                             priority
                                             fill
-                                            sizes='100% 100%'
+                                            sizes="100% 100%"
                                             loading="eager"
                                             className="cursor-pointer rounded-md  object-cover object-top"
                                         />
@@ -682,7 +682,7 @@ export default function Sliding() {
                                         }
                                         priority
                                         fill
-                                        sizes='100% 100%'
+                                        sizes="100% 100%"
                                         className="rounded-md object-cover"
                                     />
                                 )}

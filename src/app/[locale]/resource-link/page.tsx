@@ -27,21 +27,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('ResourceLinkPage.title'),
-        description: t('ResourceLinkPage.description'),
+        title: t('resource-link-page.title'),
+        description: t('resource-link-page.description'),
         openGraph: {
-            title: t('ResourceLinkPage.title'),
-            description: t('ResourceLinkPage.description'),
+            title: t('resource-link-page.title'),
+            description: t('resource-link-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/resource-link`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('ResourceLinkPage.title'),
-            description: t('ResourceLinkPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('resource-link-page.title'),
+            description: t('resource-link-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -50,7 +50,7 @@ export default function ResourceLink({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('ResourceLinkPage');
+    const t = useTranslations('resource-link-page');
 
     const resourceLinkItems: ResourceLinkItem[] = [
         {

@@ -56,7 +56,7 @@ const morseMap = { ...AlphabetMorseMap, ...numberMorsetMap };
 export default function Morse() {
     const [morse, setMorse] = useState('');
 
-    const t = useTranslations('MorsePage');
+    const t = useTranslations('morse-page');
 
     const chars = morse.split(' ').map((morseChar) => {
         const char = Object.entries(morseMap).find(([, morse]) => morse === morseChar);

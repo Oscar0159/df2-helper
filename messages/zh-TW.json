@@ -1,10 +1,10 @@
 {
-    "LocaleLayout": {
+    "locale-layout": {
         "title": "死亡邊境2 工具",
         "description": "死亡邊境2工具是一個提供有關遊戲死亡邊境2的資訊和工具的網站。它是一個正在進行中的工作，並將定期更新。"
     },
 
-    "Navigation": {
+    "navigation": {
         "title": "死亡邊境2 工具",
         "title_short": "DH",
         "information": "實用資訊",
@@ -22,21 +22,21 @@
         "theme": "主題"
     },
 
-    "ModeToggle": {
+    "mode-toggle": {
         "light": "明亮主題",
         "dark": "暗黑主題"
     },
 
-    "HomePage": {
+    "home-page": {
         "title": "首頁",
         "description": "歡迎來到死亡邊境2工具。這個網站提供了一些有用的工具，幫助你在遊戲中遇到的問題。"
     },
 
-    "InformationPage": {
+    "information-page": {
         "title": "實用資訊",
         "description": "一些有關遊戲死亡邊境2的資訊。"
     },
-    "BasicPage": {
+    "basic-page": {
         "title": "基礎資訊",
         "description": "一些有關遊戲死亡邊境2的基本資訊。例如：HR、SM等。",
         "when-to-reset": {
@@ -68,43 +68,59 @@
             "content": "所有交易都會收取15%的稅，包含信箱寄錢。"
         }
     },
-    "BossPage": {
+    "bestiary-page": {
         "title": "Boss",
         "description": "遊戲死亡邊境2中BOSS的資訊。"
     },
-    "CharacterStatsPage": {
+    "character-maximum-stats-page": {
         "title": "角色狀態",
         "description": "遊戲死亡邊境2中角色狀態的資訊。"
     },
-    "CraftItemPage": {
+    "craft-item-page": {
         "title": "製作物品",
         "description": "遊戲死亡邊境2中製作物品的資訊。"
     },
-    "CreditsMembershipPage": {
+    "credits-membership-page": {
         "title": "點數和會員",
         "description": "遊戲死亡邊境2中點數和會員的資訊。"
     },
-    "ExpPage": {
+    "exp-page": {
         "title": "經驗值",
-        "description": "遊戲死亡邊境2中經驗值的資訊。"
+        "description": "遊戲死亡邊境2中經驗值的資訊。",
+        "level": "等級",
+        "exp": "經驗值",
+        "total-exp": "總經驗值"
     },
-    "HistoryEventPage": {
-        "title": "歷史活動",
-        "description": "遊戲死亡邊境2中歷史活動的資訊。"
+    "history-event-item-page": {
+        "title": "歷史活動裝備",
+        "description": "遊戲死亡邊境2中歷史活動裝備的資訊。",
+        "festival": "節日",
+        "lunar-new-year": "農曆新年",
+        "easter": "復活節",
+        "summer": "夏季",
+        "halloween": "萬聖節",
+        "christmas": "聖誕節",
+        "drop": "掉落",
+        "craft": "製作",
+        "drop-craft": "掉落 & 製作",
+        "type": "類型",
+        "name": "名稱",
+        "date": "日期",
+        "acquisition-method": "獲取方式"
     },
-    "MonsterHpPage": {
+    "monster-hp-page": {
         "title": "怪物血量",
         "description": "遊戲死亡邊境2中怪物血量的資訊。"
     },
-    "PvpPage": {
+    "pvp-page": {
         "title": "PvP",
         "description": "遊戲死亡邊境2中PvP的資訊。"
     },
-    "ScrapCashPage": {
+    "scrap-cash-page": {
         "title": "報廢價值",
         "description": "遊戲死亡邊境2中報廢價值的資訊。"
     },
-    "ScrapCashDataTable": {
+    "scrap-cash-data-table": {
         "name": "名稱",
         "type": "類型",
         "normal": "常見",
@@ -114,149 +130,16 @@
         "filter-type": "類型",
         "filter-name": "名稱..."
     },
-    "ScrapCashItemName": {
-        "Ivanov": "伊萬諾夫",
-        "CZ-83": "CZ-83",
-        "Speed Six": "快手6號",
-        "Parabellum": "魯格",
-        "Lock-17": "拉克-17",
-        "Python": "蟒蛇",
-        "Beta 8000": "貝塔 8000",
-        "Lock-31": "洛克-31",
-        "Webster 1942": "韋伯斯特 1942",
-        "Lock-25": "洛克-25",
-        "Kolt Police": "警用科爾特",
-        "Beta 90-Two": "貝塔90-2",
-        "Anaconda": "蟒蛇",
-        "Kolt 1911": "科爾特 1911",
-        "Greening GLR": "格林 GLR",
-        "Scout": "史考特",
-        "Mouzer M59": "穆澤 M59",
-        "Enfield": "恩菲爾德",
-        "M1 Garand": "M1加蘭德",
-        "Dragon SVD": "龍火 SVD",
-        "M14": "M14",
-        "Mosin-Nagant": "莫辛納甘",
-        "Karabiner 98k": "卡賓槍 98k",
-        "Gewehr 43": "格維爾43",
-        "Chesterfield Model 70": "切斯特菲爾德70模組",
-        "Chesterfield 1894": "切斯特菲爾德1894",
-        "VSS Vintorez": "VSS溫托雷斯",
-        "Greening Sitori": "雷德菲爾德史托利",
-        "Washington 1100": "華盛頓1100",
-        "Mannberg 500": "曼伯格 500",
-        "Chesterfield 21": "切斯特菲爾德 21",
-        "Mannberg 590": "曼伯格 590",
-        "Mancini M4": "曼奇尼 M4",
-        "SPSA-12": "SPSA-12",
-        "Sawn-off Shotgun": "短管散彈槍",
-        "Mannberg 590M": "曼伯格 590M",
-        "Ethaca-10": "埃薩卡-10",
-        "Sega-20": "賽加-20",
-        "Chesterfield 1887": "切斯特菲爾德1887",
-        "Packhammer-12": "包垂12",
-        "AA-12": "AA-12",
-        "Scorpion": "天蠍",
-        "USI": "USI",
-        "Beta C4": "貝塔C4",
-        "HK-5": "HK-5",
-        "Lanchester": "蘭切斯特",
-        "Mac-11": "麥克-11",
-        "Bulldog": "鬥牛犬",
-        "Criss Victor": "克里斯維克多",
-        "UMP-40": "UMP-40",
-        "Thompson": "湯普森",
-        "Grease Gun": "黃油槍",
-        "M16": "M16",
-        "AK-12": "AK-12",
-        "M4": "M4",
-        "AR-10": "AR-10",
-        "AK-47": "AK-47",
-        "2x4": "2 x 4",
-        "Iron Pipe": "鐵管",
-        "Sledge Hammer": "大槌子",
-        "Baseball Bat": "球棒",
-        "Wrench": "板手",
-        "Shovel": "鐵鍬",
-        "Crowbar": "翹棍",
-        "Barbed Bat": "帶刺的球棒",
-        "Pick Axe": "十字搞",
-        "Nail Bat": "狼牙棒",
-        "Axe": "斧頭",
-        "Machete": "開山刀",
-        "Longsword": "長劍",
-        "War Hammer": "戰槌",
-        "Dane Axe": "戴恩斧",
-        "Wakizashi": "脇差",
-        "Katana": "日本武士刀",
-        "Mace": "釘錘",
-        "Hedge Trimmer": "除草機",
-        "Dilmar PS": "杜爾瑪PS",
-        "Ronan Pro": "羅南Pro",
-        "Yatesman G10": "耶茨曼G10",
-        "Cut-Off Saw": "碎屍鋸",
-        "Motocross Armour": "越野摩托車裝甲",
-        "Zylon Vest": "賽隆背心",
-        "Flak Jacket": "防彈背心",
-        "Kevlar Vest": "凱夫拉背心",
-        "Breast Plate": "胸甲",
-        "Assault Vest": "突擊隊背心",
-        "SN42": "SN42",
-        "Beanie Hat": "貝尼帽",
-        "Baseball Hat": "棒球帽子",
-        "Sunglasses": "墨鏡",
-        "Army Hat": "軍帽",
-        "Cowboy Hat": "牛仔帽",
-        "Police Hat": "警察帽",
-        "Surgical Mask": "手術口罩",
-        "Motorbike Helmet": "摩托車頭盔",
-        "Hockey Helmet": "曲棍球頭盔",
-        "Football Helmet": "足球頭盔",
-        "Fireman Helmet": "消防員頭盔",
-        "Army Helmet": "軍用頭盔",
-        "Shirt": "襯衫",
-        "Vest": "背心",
-        "Long Sleeve T-Shirt": "長袖汗衫",
-        "Hoodie": "連帽衫",
-        "Leather Jacket": "皮夾克",
-        "Trousers": "長褲",
-        "Joggers": "運動褲",
-        "Jeans": "牛仔褲",
-        "Wooly Glvoes": "羊毛手套",
-        "Fingeriess Gloves": "無指手套",
-        "Surgical Gloves": "手術手套",
-        "Leather Gloves": "皮手套",
-        "Superior San dais": "涼鞋",
-        "Leather Shoes": "皮鞋",
-        "Trainers": "運動鞋",
-        "Hiking Boots": "登山鞋",
-        "Combat Boots": "戰鬥鞋"
-    },
-    "ScrapCashItemType": {
-        "Pistol": "手槍",
-        "Rifle": "步槍",
-        "Shotgun": "散彈槍",
-        "Submachine Gun": "衝鋒槍",
-        "Assault Rifle": "突擊步槍",
-        "Melee": "近戰",
-        "Chainsaw": "電鋸",
-        "Armour": "護甲",
-        "Head": "頭部",
-        "Body": "身體",
-        "Legs": "腿部",
-        "Hands": "手部",
-        "Feet": "腳部"
-    },
-    "UpgradeItemPage": {
+    "upgrade-item-page": {
         "title": "升級配件",
         "description": "遊戲死亡邊境2中升級配件的資訊。"
     },
 
-    "MapMissionPage": {
+    "map-mission-page": {
         "title": "地圖和任務",
         "description": "以更友好的方式呈現DF2 Profiler，以及一些可選的支線任務。"
     },
-    "DF2ProfilerPage": {
+    "df2profiler-page": {
         "title": "DF2 Profiler",
         "description": "根據DF2 Profiler的數據，顯示並繪製訊息在地圖上。",
         "outpost": "前哨",
@@ -269,32 +152,32 @@
         "download": "下載",
         "no-selected": "你沒有選擇區域"
     },
-    "SideMissionsPage": {
+    "side-missions-page": {
         "title": "支線任務",
         "description": "支線任務是可選的任務，完成它們來獲得額外的獎勵。"
     },
 
-    "PuzzlePage": {
+    "puzzle-page": {
         "title": "寶箱謎題",
         "description": "寶箱謎題解答器。"
     },
-    "BinaryPage": {
+    "binary-page": {
         "title": "二進制",
         "description": "將二進制數字轉換為正確的數字。"
     },
-    "AlphabetPage": {
+    "alphabet-page": {
         "title": "字母",
         "description": "將數字轉換為正確的字母。"
     },
-    "LetterPage": {
+    "letter-page": {
         "title": "單字",
         "description": "根據給定的訊息猜測可能的字詞。"
     },
-    "MorsePage": {
+    "morse-page": {
         "title": "摩斯密碼",
         "description": "將摩斯密碼轉換為正確的數字或字母。"
     },
-    "LightOutPage": {
+    "light-out-page": {
         "title": "熄燈遊戲",
         "description": "根據給定的燈光狀態來解決熄燈謎題。",
         "toggle": "反轉",
@@ -303,7 +186,7 @@
         "edit": "編輯",
         "show-solution": "顯示解答"
     },
-    "SlidingPage": {
+    "sliding-page": {
         "title": "滑塊拼圖",
         "description": "通過移動滑塊來解決滑塊拼圖。",
         "reset": "重置",
@@ -315,40 +198,40 @@
         "no-solution": "--- 無解 ---"
     },
 
-    "BlueprintPage": {
+    "blueprint-page": {
         "title": "藍圖",
         "description": "使用它來找到你需要的藍圖。"
     },
-    "RoninsBladePage": {
+    "ronins-blade-page": {
         "title": "浪人之刃",
         "description": "手槍"
     },
-    "StairwayToHellPage": {
+    "stairway-to-hell-page": {
         "title": "通往地獄的階梯",
         "description": "步槍"
     },
-    "GoreTrimmerPage": {
+    "gore-trimmer-page": {
         "title": "戈爾的修剪鋸",
         "description": "電鋸"
     },
-    "ViciousHoarderBackpackPage": {
+    "vicious-hoarder-backpack-page": {
         "title": "惡毒的囤積者背包",
         "description": "背包"
     },
-    "CallOfTheAccursedPage": {
+    "call-of-the-accursed-page": {
         "title": "被詛咒的召喚",
         "description": "近戰"
     },
-    "AllBlueprintListPage": {
+    "all-blueprint-list-page": {
         "title": "所有藍圖",
         "description": "所有藍圖列表"
     },
 
-    "CalculatorPage": {
+    "calculator-page": {
         "title": "計算機",
         "description": "經驗值計算機、DPS計算機等。"
     },
-    "DpsCalculatorPage": {
+    "dps-calculator-page": {
         "title": "DPS 計算機",
         "description": "計算武器的DPS。",
         "character-stats": "角色狀態",
@@ -382,7 +265,7 @@
         "dps-vs-mutated-on-head": "變異者 | 爆頭"
     },
 
-    "ToolPage": {
+    "tool-page": {
         "title": "實用工具",
         "description": "一些在死亡邊境2的第三方工具。例如：準心軟體等。",
         "crosshair": {
@@ -395,7 +278,7 @@
         }
     },
 
-    "ResourceLinkPage": {
+    "resource-link-page": {
         "title": "資源連結",
         "description": "一些死亡邊境2的相關連結。例如：df2profiler等。",
         "dead-frontier-ii-wiki": {
@@ -415,7 +298,7 @@
         }
     },
 
-    "DataTable": {
+    "data-table": {
         "result": "筆資料",
         "results": "筆資料",
         "view-options": "顯示",
@@ -426,5 +309,167 @@
         "clear-sorting": "清除排序",
         "clear-filters": "清除篩選",
         "no-results": "沒有結果"
+    },
+
+    "item-name": {
+        "ivanov": "伊萬諾夫",
+        "cz-83": "CZ-83",
+        "speed-six": "快手6號",
+        "parabellum": "魯格",
+        "lock-17": "拉克-17",
+        "python": "蟒蛇",
+        "beta-8000": "貝塔 8000",
+        "lock-31": "洛克-31",
+        "webster-1942": "韋伯斯特 1942",
+        "lock-25": "洛克-25",
+        "kolt-police": "警用科爾特",
+        "beta-90-two": "貝塔90-2",
+        "anaconda": "蟒蛇",
+        "kolt-1911": "科爾特 1911",
+        "greening-glr": "格林 GLR",
+        "scout": "史考特",
+        "mouzer-m59": "穆澤 M59",
+        "enfield": "恩菲爾德",
+        "m1-garand": "M1加蘭德",
+        "dragon-svd": "龍火 SVD",
+        "m14": "M14",
+        "mosin-nagant": "莫辛納甘",
+        "karabiner-98k": "卡賓槍 98k",
+        "gewehr-43": "格維爾43",
+        "chesterfield-model-70": "切斯特菲爾德70模組",
+        "chesterfield-1894": "切斯特菲爾德1894",
+        "vss-vintorez": "VSS溫托雷斯",
+        "greening-sitori": "雷德菲爾德史托利",
+        "washington-1100": "華盛頓1100",
+        "mannberg-500": "曼伯格 500",
+        "chesterfield-21": "切斯特菲爾德 21",
+        "mannberg-590": "曼伯格 590",
+        "mancini-m4": "曼奇尼 M4",
+        "spsa-12": "SPSA-12",
+        "sawn-off-shotgun": "短管散彈槍",
+        "mannberg-590m": "曼伯格 590M",
+        "ethaca-10": "埃薩卡-10",
+        "sega-20": "賽加-20",
+        "chesterfield-1887": "切斯特菲爾德1887",
+        "packhammer-12": "包垂12",
+        "aa-12": "AA-12",
+        "scorpion": "天蠍",
+        "usi": "USI",
+        "beta-c4": "貝塔C4",
+        "hk-5": "HK-5",
+        "lanchester": "蘭切斯特",
+        "mac-11": "麥克-11",
+        "bulldog": "鬥牛犬",
+        "criss-victor": "克里斯維克多",
+        "ump-40": "UMP-40",
+        "thompson": "湯普森",
+        "grease-gun": "黃油槍",
+        "m16": "M16",
+        "ak-12": "AK-12",
+        "m4": "M4",
+        "ar-10": "AR-10",
+        "ak-47": "AK-47",
+        "2x4": "2 x 4",
+        "iron-pipe": "鐵管",
+        "sledge-hammer": "大槌子",
+        "baseball-bat": "球棒",
+        "wrench": "板手",
+        "shovel": "鐵鍬",
+        "crowbar": "翹棍",
+        "barbed-bat": "帶刺的球棒",
+        "pick-axe": "十字搞",
+        "nail-bat": "狼牙棒",
+        "axe": "斧頭",
+        "machete": "開山刀",
+        "longsword": "長劍",
+        "war-hammer": "戰槌",
+        "dane-axe": "戴恩斧",
+        "wakizashi": "脇差",
+        "katana": "日本武士刀",
+        "mace": "釘錘",
+        "hedge-trimmer": "Hedge Trimmer",
+        "dilmar-ps": "杜爾瑪PS",
+        "ronan-pro": "羅南Pro",
+        "yatesman-g10": "耶茨曼G10",
+        "cut-off-saw": "碎屍鋸",
+        "motocross-armour": "越野摩托車裝甲",
+        "zylon-vest": "賽隆背心",
+        "flak-jacket": "防彈背心",
+        "kevlar-vest": "凱夫拉背心",
+        "breast-plate": "胸甲",
+        "assault-vest": "突擊隊背心",
+        "sn42": "SN42",
+        "beanie-hat": "貝尼帽",
+        "baseball-hat": "棒球帽子",
+        "sunglasses": "墨鏡",
+        "army-hat": "軍帽",
+        "cowboy-hat": "牛仔帽",
+        "police-hat": "警察帽",
+        "surgical-mask": "手術□罩",
+        "motorbike-helmet": "摩托車頭盔",
+        "hockey-helmet": "曲棍球頭盔",
+        "football-helmet": "足球頭盔",
+        "fireman-helmet": "消防員頭盔",
+        "army-helmet": "軍用頭盔",
+        "shirt": "襯衫",
+        "vest": "背心",
+        "long-sleeve-t-shirt": "長袖汗衫",
+        "hoodie": "連帽衫",
+        "leather-jacket": "皮夾克",
+        "trousers": "長褲",
+        "joggers": "運動褲",
+        "jeans": "牛仔褲",
+        "wooly-glvoes": "羊毛手套",
+        "fingeriess-gloves": "無指手套",
+        "surgical-gloves": "手術手套",
+        "leather-gloves": "皮手套",
+        "superior-san-dais": "涼鞋",
+        "leather-shoes": "皮鞋",
+        "trainers": "運動鞋",
+        "hiking-boots": "登山鞋",
+        "combat-boots": "戰鬥鞋",
+
+        "crusader-sword": "十字軍之劍",
+        "crusader-helmet": "十字軍頭盔",
+        "reaper-scythe": "死神之鐮",
+        "fatman-sidearm": "胖公公的副武器",
+        "purple-raider": "紫色掠奪者",
+        "orange-raider": "橘色掠奪者",
+        "barbeque-n-run": "燒烤禁執令",
+        "scarecrow-cross": "稻草人十字架",
+        "fright-mask": "驚嚇面具",
+        "fatman-all-purpose-mittens": "胖子的萬能手套",
+        "fatman-enforcer": "胖子的執行者",
+        "flowing-rabbit": "狡兔衝鋒槍",
+        "two-headed-devourer": "雙頭吞噬者",
+        "sunburn": "日耀斑紋",
+        "safari-shorts": "狩獵短褲",
+        "tombstone": "墓碑",
+        "hanged-man-mask": "倒吊人面具",
+        "fatman-trimmer": "胖子的收割機",
+        "ravenous-gunslinger": "貪婪射手",
+        "boots-of-greed": "貪婪鞋子",
+        "jeans-of-greed": "貪婪牛仔褲",
+        "dragon-onslaught": "應劫金龍",
+        "enhanced-dragon-onslaught": "破劫金麟龍神",
+        "silver-nian-mask": "銀龍面具",
+        "cain-solution": "轉輪獵手",
+        "cain-retribution": "普渡眾生輪轉王",
+        "carved-hare-mask": "雕刻野兔面具"
+    },
+    "item-type": {
+        "pistol": "手槍",
+        "rifle": "步槍",
+        "shotgun": "散彈槍",
+        "submachine-gun": "衝鋒槍",
+        "assault-rifle": "突擊步槍",
+        "melee": "近戰",
+        "chainsaw": "電鋸",
+        "armour": "護甲",
+        "head": "頭部",
+        "body": "身體",
+        "legs": "腿部",
+        "hands": "手部",
+        "feet": "腳部"
     }
 }

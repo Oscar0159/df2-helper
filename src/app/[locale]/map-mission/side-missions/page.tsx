@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('SideMissionsPage.title'),
-        description: t('SideMissionsPage.description'),
+        title: t('side-missions-page.title'),
+        description: t('side-missions-page.description'),
         openGraph: {
-            title: t('SideMissionsPage.title'),
-            description: t('SideMissionsPage.description'),
+            title: t('side-missions-page.title'),
+            description: t('side-missions-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/map-mission/side-missions`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('SideMissionsPage.title'),
-            description: t('SideMissionsPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('side-missions-page.title'),
+            description: t('side-missions-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function SideMissionsPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('SideMissionsPage');
+    const t = useTranslations('side-missions-page');
 
     return (
         <>

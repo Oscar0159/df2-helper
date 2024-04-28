@@ -14,21 +14,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('DpsCalculatorPage.title'),
-        description: t('DpsCalculatorPage.description'),
+        title: t('dps-calculator-page.title'),
+        description: t('dps-calculator-page.description'),
         openGraph: {
-            title: t('DpsCalculatorPage.title'),
-            description: t('DpsCalculatorPage.description'),
+            title: t('dps-calculator-page.title'),
+            description: t('dps-calculator-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/puzzle/letter`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('DpsCalculatorPage.title'),
-            description: t('DpsCalculatorPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('dps-calculator-page.title'),
+            description: t('dps-calculator-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -37,7 +37,7 @@ export default function DpsCalculatorPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('DpsCalculatorPage');
+    const t = useTranslations('dps-calculator-page');
 
     return (
         <>

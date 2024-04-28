@@ -33,7 +33,7 @@ export default function LightOut() {
 
     const { solution, hasSolution } = lightOutPuzzleSolver.solve(grid.map((row) => row.map((cell) => !cell)));
 
-    const t = useTranslations('LightOutPage');
+    const t = useTranslations('light-out-page');
 
     const reversePuzzle = () => {
         setGrid(grid.map((row) => row.map((cell) => !cell)));
