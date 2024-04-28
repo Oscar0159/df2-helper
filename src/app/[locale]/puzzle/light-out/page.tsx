@@ -19,17 +19,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('LightOutPage.title'),
-        description: t('LightOutPage.description'),
+        title: t('light-out-page.title'),
+        description: t('light-out-page.description'),
         openGraph: {
-            title: t('LightOutPage.title'),
-            description: t('LightOutPage.description'),
+            title: t('light-out-page.title'),
+            description: t('light-out-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/puzzle/light-out`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/light-out-page-og.png',
-                    alt: t('LightOutPage.title'),
+                    alt: t('light-out-page.title'),
                 },
             ],
             locale: locale,
@@ -37,13 +37,13 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('LightOutPage.title'),
-            description: t('LightOutPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('light-out-page.title'),
+            description: t('light-out-page.description'),
+            site: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/light-out-page-og.png',
-                    alt: t('LightOutPage.title'),
+                    alt: t('light-out-page.title'),
                 },
             ],
         },
@@ -54,7 +54,7 @@ export default function AllBlueprintList({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('LightOutPage');
+    const t = useTranslations('light-out-page');
 
     return (
         <>

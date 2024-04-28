@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('MonsterHpPage.title'),
-        description: t('MonsterHpPage.description'),
+        title: t('monster-hp-page.title'),
+        description: t('monster-hp-page.description'),
         openGraph: {
-            title: t('MonsterHpPage.title'),
-            description: t('MonsterHpPage.description'),
+            title: t('monster-hp-page.title'),
+            description: t('monster-hp-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/information/monster-hp`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('MonsterHpPage.title'),
-            description: t('MonsterHpPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('monster-hp-page.title'),
+            description: t('monster-hp-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function MonsterHp({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('MonsterHpPage');
+    const t = useTranslations('monster-hp-page');
 
     return (
         <>

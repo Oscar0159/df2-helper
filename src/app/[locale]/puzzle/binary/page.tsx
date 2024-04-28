@@ -14,17 +14,17 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('BinaryPage.title'),
-        description: t('BinaryPage.description'),
+        title: t('binary-page.title'),
+        description: t('binary-page.description'),
         openGraph: {
-            title: t('BinaryPage.title'),
-            description: t('BinaryPage.description'),
+            title: t('binary-page.title'),
+            description: t('binary-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/puzzle/binary`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/binary-page-og.png',
-                    alt: t('BinaryPage.title'),
+                    alt: t('binary-page.title'),
                 },
             ],
             locale: locale,
@@ -32,13 +32,13 @@ export async function generateMetadata({ params: { locale } }: { params: { local
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('BinaryPage.title'),
-            description: t('BinaryPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('binary-page.title'),
+            description: t('binary-page.description'),
+            site: t('locale-layout.title'),
             images: [
                 {
                     url: 'https://raw.githubusercontent.com/Oscar0159/df2-helper/master/public/images/og/binary-page-og.png',
-                    alt: t('BinaryPage.title'),
+                    alt: t('binary-page.title'),
                 },
             ],
         },
@@ -49,7 +49,7 @@ export default function BinaryPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('BinaryPage');
+    const t = useTranslations('binary-page');
 
     return (
         <>

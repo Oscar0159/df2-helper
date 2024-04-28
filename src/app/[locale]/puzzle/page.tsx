@@ -33,38 +33,38 @@ export default function Puzzle({ params: { locale } }: Props) {
 
     const puzzleItems: PuzzleItem[] = [
         {
-            title: t('BinaryPage.title'),
-            description: t('BinaryPage.description'),
+            title: t('binary-page.title'),
+            description: t('binary-page.description'),
             href: '/puzzle/binary',
             image: binaryPageThumbnail.src,
         },
         {
-            title: t('AlphabetPage.title'),
-            description: t('AlphabetPage.description'),
+            title: t('alphabet-page.title'),
+            description: t('alphabet-page.description'),
             href: '/puzzle/alphabet',
             image: alphabetPageThumbnail.src,
         },
         {
-            title: t('LetterPage.title'),
-            description: t('LetterPage.description'),
+            title: t('letter-page.title'),
+            description: t('letter-page.description'),
             href: '/puzzle/letter',
             image: letterPageThumbnail.src,
         },
         {
-            title: t('MorsePage.title'),
-            description: t('MorsePage.description'),
+            title: t('morse-page.title'),
+            description: t('morse-page.description'),
             href: '/puzzle/morse',
             image: morsePageThumbnail.src,
         },
         {
-            title: t('LightOutPage.title'),
-            description: t('LightOutPage.description'),
+            title: t('light-out-page.title'),
+            description: t('light-out-page.description'),
             href: '/puzzle/light-out',
             image: lightOutPageThumbnail.src,
         },
         {
-            title: t('SlidingPage.title'),
-            description: t('SlidingPage.description'),
+            title: t('sliding-page.title'),
+            description: t('sliding-page.description'),
             href: '/puzzle/sliding',
             image: slidingPageThumbnail.src,
         },
@@ -73,7 +73,7 @@ export default function Puzzle({ params: { locale } }: Props) {
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('PuzzlePage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('puzzle-page.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-5">
@@ -85,20 +85,20 @@ export default function Puzzle({ params: { locale } }: Props) {
                                     <CardTitle>{title}</CardTitle>
                                     <CardDescription>{description}</CardDescription>
                                 </CardHeader>
-                                <CardContent>
-                                    {image && (
+                                {image && (
+                                    <CardContent>
                                         <div className="relative h-52">
                                             <Image
                                                 src={image}
                                                 alt={title}
                                                 priority
                                                 fill
-                                                sizes='100% 100%'
+                                                sizes="100% 100%"
                                                 className="rounded-md object-cover"
                                             />
                                         </div>
-                                    )}
-                                </CardContent>
+                                    </CardContent>
+                                )}
                             </Card>
                         </Link>
                     ))}

@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('AllBlueprintListPage.title'),
-        description: t('AllBlueprintListPage.description'),
+        title: t('all-blueprint-list-page.title'),
+        description: t('all-blueprint-list-page.description'),
         openGraph: {
-            title: t('AllBlueprintListPage.title'),
-            description: t('AllBlueprintListPage.description'),
+            title: t('all-blueprint-list-page.title'),
+            description: t('all-blueprint-list-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/blueprint/all-blueprint-list`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('AllBlueprintListPage.title'),
-            description: t('AllBlueprintListPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('all-blueprint-list-page.title'),
+            description: t('all-blueprint-list-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function AllBlueprintListPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('AllBlueprintListPage');
+    const t = useTranslations('all-blueprint-list-page');
 
     return (
         <>

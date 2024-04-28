@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('GoreTrimmerPage.title'),
-        description: t('GoreTrimmerPage.description'),
+        title: t('gore-trimmer-page.title'),
+        description: t('gore-trimmer-page.description'),
         openGraph: {
-            title: t('GoreTrimmerPage.title'),
-            description: t('GoreTrimmerPage.description'),
+            title: t('gore-trimmer-page.title'),
+            description: t('gore-trimmer-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/blueprint/gore-trimmer`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('GoreTrimmerPage.title'),
-            description: t('GoreTrimmerPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('gore-trimmer-page.title'),
+            description: t('gore-trimmer-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function GoreTrimmerPage({ params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('GoreTrimmerPage');
+    const t = useTranslations('gore-trimmer-page');
 
     return (
         <>

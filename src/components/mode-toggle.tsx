@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 export default function ModeToggle() {
     const { theme, setTheme } = useTheme();
 
-    const t = useTranslations('ModeToggle');
+    const t = useTranslations('mode-toggle');
 
     return (
         <Button

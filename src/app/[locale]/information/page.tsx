@@ -28,23 +28,31 @@ export default function Information({ params: { locale } }: Props) {
 
     const InformationItems: InformationItem[] = [
         {
-            title: t('BasicPage.title'),
-            description: t('BasicPage.description'),
+            title: t('basic-page.title'),
+            description: t('basic-page.description'),
             href: '/information/basic',
-            image: noThumbnail.src,
         },
         {
-            title: t('ScrapCashPage.title'),
-            description: t('ScrapCashPage.description'),
+            title: t('scrap-cash-page.title'),
+            description: t('scrap-cash-page.description'),
             href: '/information/scrap-cash',
-            image: noThumbnail.src,
+        },
+        {
+            title: t('exp-page.title'),
+            description: t('exp-page.description'),
+            href: '/information/exp',
+        },
+        {
+            title: t('history-event-item-page.title'),
+            description: t('history-event-item-page.description'),
+            href: '/information/history-event-item',
         },
     ];
 
     return (
         <>
             <div>
-                <h1 className="text-4xl font-semibold">{t('InformationPage.title')}</h1>
+                <h1 className="text-4xl font-semibold">{t('information-page.title')}</h1>
                 <BreadcrumbNav className="mt-2" />
             </div>
             <div className="mt-5">
@@ -56,20 +64,20 @@ export default function Information({ params: { locale } }: Props) {
                                     <CardTitle>{title}</CardTitle>
                                     <CardDescription>{description}</CardDescription>
                                 </CardHeader>
-                                <CardContent>
-                                    {image && (
+                                {image && (
+                                    <CardContent>
                                         <div className="relative h-52">
                                             <Image
                                                 src={image}
                                                 alt={title}
                                                 priority
                                                 fill
-                                                sizes='100% 100%'
+                                                sizes="100% 100%"
                                                 className="rounded-md object-cover"
                                             />
                                         </div>
-                                    )}
-                                </CardContent>
+                                    </CardContent>
+                                )}
                             </Card>
                         </Link>
                     ))}

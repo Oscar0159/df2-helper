@@ -13,21 +13,21 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     const t = await getTranslations({ locale });
 
     return {
-        title: t('ViciousHoarderBackpackPage.title'),
-        description: t('ViciousHoarderBackpackPage.description'),
+        title: t('vicious-hoarder-backpack-page.title'),
+        description: t('vicious-hoarder-backpack-page.description'),
         openGraph: {
-            title: t('ViciousHoarderBackpackPage.title'),
-            description: t('ViciousHoarderBackpackPage.description'),
+            title: t('vicious-hoarder-backpack-page.title'),
+            description: t('vicious-hoarder-backpack-page.description'),
             url: `https://df2-helper.vercel.app/${locale}/blueprint/vicious-hoarder-backpack`,
-            siteName: t('LocaleLayout.title'),
+            siteName: t('locale-layout.title'),
             locale: locale,
             type: 'website',
         },
         twitter: {
             card: 'summary_large_image',
-            title: t('ViciousHoarderBackpackPage.title'),
-            description: t('ViciousHoarderBackpackPage.description'),
-            site: t('LocaleLayout.title'),
+            title: t('vicious-hoarder-backpack-page.title'),
+            description: t('vicious-hoarder-backpack-page.description'),
+            site: t('locale-layout.title'),
         },
     };
 }
@@ -36,7 +36,7 @@ export default function ViciousHoarderBackpackPage({ params: { locale } }: Props
     // Enable static rendering
     unstable_setRequestLocale(locale);
 
-    const t = useTranslations('ViciousHoarderBackpackPage');
+    const t = useTranslations('vicious-hoarder-backpack-page');
 
     return (
         <>
