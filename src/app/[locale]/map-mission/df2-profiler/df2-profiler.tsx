@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -39,7 +40,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
     const [showStalkerMission, setShowStalkerMission] = useState(false);
     const mapRef = useRef<HTMLTableElement>(null);
 
-    const t = useTranslations('DF2ProfilerPage');
+    const t = useTranslations('df2profiler-page');
 
     const downloadMap = async () => {
         const map = mapRef.current;
@@ -189,7 +190,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                 x === row.length - 1 &&
                                                                     y === mapCells.length - 1 &&
                                                                     'rounded-br-md',
-                                                                showGrid && 'border border-white/10 border-collapse',
+                                                                showGrid && 'border border-gray-500/20 border-collapse',
                                                                 showChunk &&
                                                                     x % chunkSize === 0 &&
                                                                     x !== 0 &&
@@ -239,7 +240,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                                                 mission.building
                                                                                             )
                                                                                     ) &&
-                                                                                    'underline text-yellow-500 dark:text-yellow-300',
+                                                                                    'underline text-yellow-600 dark:text-yellow-300',
                                                                                 showStalkerMission &&
                                                                                     missions.some(
                                                                                         (mission) =>
@@ -251,9 +252,11 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                                             )
                                                                                     ) &&
                                                                                     'underline text-rose-600 dark:text-rose-400',
-                                                                                building.includes('(Hospital)') &&
+                                                                                showHospital &&
+                                                                                    building.includes('(Hospital)') &&
                                                                                     'underline text-gray-600',
-                                                                                building.includes('(Police)') &&
+                                                                                showPolice &&
+                                                                                    building.includes('(Police)') &&
                                                                                     'underline text-sky-500'
                                                                             )}
                                                                         >
@@ -310,7 +313,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                 mission.xcoord - 1 === x &&
                                                                 mission.ycoord - 1 === y
                                                         ) &&
-                                                        ' bg-yellow-500/40'
+                                                        'border-2 border-yellow-500'
                                                 )}
                                             />
 
@@ -325,7 +328,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                                 mission.giverxcoord - 1 === x &&
                                                                 mission.giverycoord - 1 === y
                                                         ) &&
-                                                        'bg-pink-800/40'
+                                                        'border-2 border-pink-500'
                                                 )}
                                             />
 
@@ -335,7 +338,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                     'absolute inset-0 rounded-sm pointer-events-none',
                                                     showHospital &&
                                                         data.types.includes('HOS') &&
-                                                        'border-4 border-gray-300'
+                                                        'border-2 border-gray-300'
                                                 )}
                                             />
                                             <div
@@ -343,7 +346,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                     'absolute inset-0 rounded-sm pointer-events-none',
                                                     showPolice &&
                                                         data.types.includes('POL') &&
-                                                        'border-4 border-sky-500'
+                                                        'border-2 border-sky-500'
                                                 )}
                                             />
 
@@ -396,10 +399,10 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                             ) : (
                                 t('no-selected')
                             )}
-                            <Separator className="mt-4" />
+                            <Separator className={selectXY[0] === -1 && selectXY[1] === -1 ? 'hidden' : 'mt-4'} />
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className={selectXY[0] === -1 && selectXY[1] === -1 ? 'hidden' : ''}>
                         {(selectXY[0] !== -1 || selectXY[1] !== -1) && (
                             <div className="space-y-4">
                                 {mapCells[selectXY[1]][selectXY[0]].buildings.map((building, i) => (
@@ -415,7 +418,7 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                         mission.requirement.includes('Human Remains') &&
                                                         building.includes(mission.building)
                                                 ) &&
-                                                'underline text-yellow-500 dark:text-yellow-300',
+                                                'underline text-yellow-600 dark:text-yellow-300',
                                             showStalkerMission &&
                                                 missions.some(
                                                     (mission) =>
@@ -423,8 +426,10 @@ export default function DF2Profiler({ mapUrl, mapCells, missions, outposts, raid
                                                         building.includes(mission.giverbuilding)
                                                 ) &&
                                                 'underline text-rose-600 dark:text-rose-400',
-                                            building.includes('(Hospital)') && 'underline text-gray-600',
-                                            building.includes('(Police)') && 'underline text-sky-500'
+                                            showHospital &&
+                                                building.includes('(Hospital)') &&
+                                                'underline text-gray-600',
+                                            showPolice && building.includes('(Police)') && 'underline text-sky-500'
                                         )}
                                     >
                                         {building}
