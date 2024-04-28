@@ -1,10 +1,10 @@
 {
-    "LocaleLayout": {
+    "locale-layout": {
         "title": "Dead Frontier 2 Helper",
-        "description": "Dead Frontier 2 Helper is a website that provides information and tools about the game Dead Frontier 2. It is a work in progress and will be updated regularly."
+        "description": "Dead Frontier 2 Helper is a website that provides information and tools about the game. It is a work in progress and will be updated regularly."
     },
 
-    "Navigation": {
+    "navigation": {
         "title": "DF2 Helper",
         "title_short": "DH",
         "information": "Information",
@@ -22,23 +22,23 @@
         "theme": "Theme"
     },
 
-    "ModeToggle": {
+    "mode-toggle": {
         "light": "Light Mode",
         "dark": "Dark Mode"
     },
 
-    "HomePage": {
+    "home-page": {
         "title": "Home",
         "description": "Welcome to Dead Frontier 2 Helper. This website provides some useful tools to help you with the problems you encounter in the game."
     },
 
-    "InformationPage": {
+    "information-page": {
         "title": "Information",
-        "description": "Contains some useful information about the game Dead Frontier 2."
+        "description": "Contains some useful information about the game."
     },
-    "BasicPage": {
+    "basic-page": {
         "title": "Basic Information",
-        "description": "Some useful information about the game Dead Frontier 2. Ex. What is HR, SM, etc.",
+        "description": "Basic information in the game. Ex. What is HR, SM, etc.",
         "when-to-reset": {
             "title": "Reset time of the boss, loot, and mission",
             "content": "Every day at 9:00 AM (UTC+0), the mission needs to be reported before refreshing."
@@ -68,43 +68,59 @@
             "content": "All transactions are subject to a 15% tax, including sending money through the mail."
         }
     },
-    "BossPage": {
+    "bestiary-page": {
         "title": "Boss",
-        "description": "Information about the boss in the game Dead Frontier 2."
+        "description": "Information about the boss in the game."
     },
-    "CharacterStatsPage": {
+    "character-maximum-stats-page": {
         "title": "Character Stats",
-        "description": "Information about the character stats in the game Dead Frontier 2."
+        "description": "Information about the character stats in the game."
     },
-    "CraftItemPage": {
+    "craft-item-page": {
         "title": "Craft Item",
-        "description": "Information about the craft item in the game Dead Frontier 2."
+        "description": "Information about the craft item in the game."
     },
-    "CreditsMembershipPage": {
+    "credits-membership-page": {
         "title": "Credits & Membership",
-        "description": "Information about the credits and membership in the game Dead Frontier 2."
+        "description": "Information about the credits and membership in the game."
     },
-    "ExpPage": {
+    "exp-page": {
         "title": "Experience",
-        "description": "Information about the experience in the game Dead Frontier 2."
+        "description": "Information about the experience in the game.",
+        "level": "Level",
+        "exp": "Exp",
+        "total-exp": "Total Exp"
     },
-    "HistoryEventPage": {
-        "title": "History Event",
-        "description": "Information about the history event in the game Dead Frontier 2."
+    "history-event-item-page": {
+        "title": "History Event Item",
+        "description": "Information about the history event item in the game.",
+        "festival": "Festival",
+        "lunar-new-year": "Lunar New Year",
+        "easter": "Easter",
+        "summer": "Summer",
+        "halloween": "Halloween",
+        "christmas": "Christmas",
+        "drop": "Drop",
+        "craft": "Craft",
+        "drop-craft": "Drop & Craft",
+        "type": "Type",
+        "name": "Name",
+        "date": "Date",
+        "acquisition-method": "Acquisition Method"
     },
-    "MonsterHpPage": {
+    "monster-hp-page": {
         "title": "Monster HP",
-        "description": "Information about the monster HP in the game Dead Frontier 2."
+        "description": "Information about the monster HP in the game."
     },
-    "PvpPage": {
+    "pvp-page": {
         "title": "PvP",
-        "description": "Information about the PvP in the game Dead Frontier 2."
+        "description": "Information about the PvP in the game."
     },
-    "ScrapCashPage": {
+    "scrap-cash-page": {
         "title": "Scrap Cash",
-        "description": "Information about the scrap cash in the game Dead Frontier 2."
+        "description": "Information about the scrap cash in the game."
     },
-    "ScrapCashDataTable": {
+    "scrap-cash-data-table": {
         "name": "Name",
         "type": "Type",
         "normal": "Normal",
@@ -114,149 +130,16 @@
         "filter-type": "Type",
         "filter-name": "Name"
     },
-    "ScrapCashItemName": {
-        "Ivanov": "Ivanov",
-        "CZ-83": "CZ-83",
-        "Speed Six": "Speed Six",
-        "Parabellum": "Parabellum",
-        "Lock-17": "Lock-17",
-        "Python": "Python",
-        "Beta 8000": "Beta 8000",
-        "Lock-31": "Lock-31",
-        "Webster 1942": "Webster 1942",
-        "Lock-25": "Lock-25",
-        "Kolt Police": "Kolt Police",
-        "Beta 90-Two": "Beta 90-Two",
-        "Anaconda": "Anaconda",
-        "Kolt 1911": "Kolt 1911",
-        "Greening GLR": "Greening GLR",
-        "Scout": "Scout",
-        "Mouzer M59": "Mouzer M59",
-        "Enfield": "Enfield",
-        "M1 Garand": "M1 Garand",
-        "Dragon SVD": "Dragon SVD",
-        "M14": "M14",
-        "Mosin-Nagant": "Mosin-Nagant",
-        "Karabiner 98k": "Karabiner 98k",
-        "Gewehr 43": "Gewehr 43",
-        "Chesterfield Model 70": "Chesterfield Model 70",
-        "Chesterfield 1894": "Chesterfield 1894",
-        "VSS Vintorez": "VSS Vintorez",
-        "Greening Sitori": "Greening Sitori",
-        "Washington 1100": "Washington 1100",
-        "Mannberg 500": "Mannberg 500",
-        "Chesterfield 21": "Chesterfield 21",
-        "Mannberg 590": "Mannberg 590",
-        "Mancini M4": "Mancini M4",
-        "SPSA-12": "SPSA-12",
-        "Sawn-off Shotgun": "Sawn-off Shotgun",
-        "Mannberg 590M": "Mannberg 590M",
-        "Ethaca-10": "Ethaca-10",
-        "Sega-20": "Sega-20",
-        "Chesterfield 1887": "Chesterfield 1887",
-        "Packhammer-12": "Packhammer-12",
-        "AA-12": "AA-12",
-        "Scorpion": "Scorpion",
-        "USI": "USI",
-        "Beta C4": "Beta C4",
-        "HK-5": "HK-5",
-        "Lanchester": "Lanchester",
-        "Mac-11": "Mac-11",
-        "Bulldog": "Bulldog",
-        "Criss Victor": "Criss Victor",
-        "UMP-40": "UMP-40",
-        "Thompson": "Thompson",
-        "Grease Gun": "Grease Gun",
-        "M16": "M16",
-        "AK-12": "AK-12",
-        "M4": "M4",
-        "AR-10": "AR-10",
-        "AK-47": "AK-47",
-        "2x4": "2x4",
-        "Iron Pipe": "Iron Pipe",
-        "Sledge Hammer": "Sledge Hammer",
-        "Baseball Bat": "Baseball Bat",
-        "Wrench": "Wrench",
-        "Shovel": "Shovel",
-        "Crowbar": "Crowbar",
-        "Barbed Bat": "Barbed Bat",
-        "Pick Axe": "Pick Axe",
-        "Nail Bat": "Nail Bat",
-        "Axe": "Axe",
-        "Machete": "Machete",
-        "Longsword": "Longsword",
-        "War Hammer": "War Hammer",
-        "Dane Axe": "Dane Axe",
-        "Wakizashi": "Wakizashi",
-        "Katana": "Katana",
-        "Mace": "Mace",
-        "Hedge Trimmer": "Hedge Trimmer",
-        "Dilmar PS": "Dilmar PS",
-        "Ronan Pro": "Ronan Pro",
-        "Yatesman G10": "Yatesman G10",
-        "Cut-Off Saw": "Cut-Off Saw",
-        "Motocross Armour": "Motocross Armour",
-        "Zylon Vest": "Zylon Vest",
-        "Flak Jacket": "Flak Jacket",
-        "Kevlar Vest": "Kevlar Vest",
-        "Breast Plate": "Breast Plate",
-        "Assault Vest": "Assault Vest",
-        "SN42": "SN42",
-        "Beanie Hat": "Beanie Hat",
-        "Baseball Hat": "Baseball Hat",
-        "Sunglasses": "Sunglasses",
-        "Army Hat": "Army Hat",
-        "Cowboy Hat": "Cowboy Hat",
-        "Police Hat": "Police Hat",
-        "Surgical Mask": "Surgical Mask",
-        "Motorbike Helmet": "Motorbike Helmet",
-        "Hockey Helmet": "Hockey Helmet",
-        "Football Helmet": "Football Helmet",
-        "Fireman Helmet": "Fireman Helmet",
-        "Army Helmet": "Army Helmet",
-        "Shirt": "Shirt",
-        "Vest": "Vest",
-        "Long Sleeve T-Shirt": "Long Sleeve T-Shirt",
-        "Hoodie": "Hoodie",
-        "Leather Jacket": "Leather Jacket",
-        "Trousers": "Trousers",
-        "Joggers": "Joggers",
-        "Jeans": "Jeans",
-        "Wooly Glvoes": "Wooly Glvoes",
-        "Fingeriess Gloves": "Fingeriess Gloves",
-        "Surgical Gloves": "Surgical Gloves",
-        "Leather Gloves": "Leather Gloves",
-        "Superior San dais": "Superior San dais",
-        "Leather Shoes": "Leather Shoes",
-        "Trainers": "Trainers",
-        "Hiking Boots": "Hiking Boots",
-        "Combat Boots": "Combat Boots"
-    },
-    "ScrapCashItemType": {
-        "Pistol": "Pistol",
-        "Rifle": "Rifle",
-        "Shotgun": "Shotgun",
-        "Submachine Gun": "Submachine Gun",
-        "Assault Rifle": "Assault Rifle",
-        "Melee": "Melee",
-        "Chainsaw": "Chainsaw",
-        "Armour": "Armour",
-        "Head": "Head",
-        "Body": "Body",
-        "Legs": "Legs",
-        "Hands": "Hands",
-        "Feet": "Feet"
-    },
-    "UpgradeItemPage": {
+    "upgrade-item-page": {
         "title": "Upgrade Item",
-        "description": "Information about the upgrade item in the game Dead Frontier 2."
+        "description": "Information about the upgrade item in the game."
     },
 
-    "MapMissionPage": {
+    "map-mission-page": {
         "title": "Map & Mission",
         "description": "Present DF2 Profiler in a more friendly way, as well as some optional side missions."
     },
-    "DF2ProfilerPage": {
+    "df2profiler-page": {
         "title": "DF2 Profiler",
         "description": "According to the data of DF2 Profiler, display and draw the information on the map.",
         "outpost": "Outpost",
@@ -269,32 +152,32 @@
         "download": "Download",
         "no-selected": "No selected."
     },
-    "SideMissionsPage": {
+    "side-missions-page": {
         "title": "Side Mission",
         "description": "Side missions are optional missions that you can complete to earn extra rewards."
     },
 
-    "PuzzlePage": {
+    "puzzle-page": {
         "title": "Puzzle",
-        "description": "Provides a list of puzzles solver for the game Dead Frontier 2."
+        "description": "Provides a list of puzzles solver for the game."
     },
-    "BinaryPage": {
+    "binary-page": {
         "title": "Binary",
         "description": "Convert the binary code to the correct number."
     },
-    "AlphabetPage": {
+    "alphabet-page": {
         "title": "Alphabet",
         "description": "Convert the number to the correct Alphabet."
     },
-    "LetterPage": {
+    "letter-page": {
         "title": "Letter",
         "description": "Guess the possible letter by the given information."
     },
-    "MorsePage": {
+    "morse-page": {
         "title": "Morse Code",
         "description": "Convert the morse code to the correct value."
     },
-    "LightOutPage": {
+    "light-out-page": {
         "title": "Light Out",
         "description": "Solve the puzzle by given light stats.",
         "toggle": "Toggle",
@@ -303,7 +186,7 @@
         "edit": "Edit",
         "show-solution": "Show Solution"
     },
-    "SlidingPage": {
+    "sliding-page": {
         "title": "Sliding",
         "description": "Solve the puzzle by sliding the figures.",
         "reset": "Reset",
@@ -315,40 +198,40 @@
         "no-solution": "No solution."
     },
 
-    "BlueprintPage": {
+    "blueprint-page": {
         "title": "Blueprint",
         "description": "Use it to find the blueprint you need."
     },
-    "RoninsBladePage": {
+    "ronins-blade-page": {
         "title": "Ronin's Blade",
         "description": "Pistol"
     },
-    "StairwayToHellPage": {
+    "stairway-to-hell-page": {
         "title": "Stairway to Hell",
         "description": "Rifle"
     },
-    "GoreTrimmerPage": {
+    "gore-trimmer-page": {
         "title": "Gore Trimmer",
         "description": "Chainsaw"
     },
-    "ViciousHoarderBackpackPage": {
+    "vicious-hoarder-backpack-page": {
         "title": "Vicious Hoarder Backpack",
         "description": "Backpack"
     },
-    "CallOfTheAccursedPage": {
+    "call-of-the-accursed-page": {
         "title": "Call of the Accursed",
         "description": "Melee"
     },
-    "AllBlueprintListPage": {
+    "all-blueprint-list-page": {
         "title": "All Blueprint List",
-        "description": "A list of all the blueprints in the game Dead Frontier 2."
+        "description": "A list of all the blueprints in the game."
     },
 
-    "CalculatorPage": {
+    "calculator-page": {
         "title": "Calculator",
         "description": "Experience calculator, DPS calculator, etc."
     },
-    "DpsCalculatorPage": {
+    "dps-calculator-page": {
         "title": "Dps Calculator",
         "description": "Calculate the damage per second of the weapon.",
         "character-stats": "Character Stats",
@@ -382,9 +265,9 @@
         "dps-vs-mutated-on-head": "Mutated | Head"
     },
 
-    "ToolPage": {
+    "tool-page": {
         "title": "Tool",
-        "description": "Some useful tools for the game Dead Frontier 2. Ex. Crosshair third-party software, etc.",
+        "description": "Some useful tools for the game. Ex. Crosshair third-party software, etc.",
         "crosshair": {
             "title": "Crosshair",
             "description": "A third-party crosshair overlay to help you aim better in the game."
@@ -395,17 +278,17 @@
         }
     },
 
-    "ResourceLinkPage": {
+    "resource-link-page": {
         "title": "Resource Link",
-        "description": "Some useful links for the game Dead Frontier 2. Ex. df2profiler, etc.",
+        "description": "Some useful links for the game. Ex. df2profiler, etc.",
         "dead-frontier-ii-wiki": {
             "description": "Dead Frontier II Wiki."
         },
         "df2profiler": {
-            "description": "DF2 Profiler is a website that provides information of map and mission in the game Dead Frontier 2. You can use it to find the location of the mission you need to complete."
+            "description": "A website that provides information of map and mission in the game."
         },
         "df2haven": {
-            "description": "DF2 Haven is  an open gaming community in Dead Frontier 2, coming together to share information on quests, bosses, and other gameplay."
+            "description": "An open gaming community in Dead Frontier 2."
         },
         "dead-frontier-ii-discord": {
             "description": "Dead Frontier II official Discord."
@@ -415,7 +298,7 @@
         }
     },
 
-    "DataTable": {
+    "data-table": {
         "result": "Result",
         "results": "Results",
         "view-options": "View",
@@ -426,5 +309,167 @@
         "clear-sorting": "Clear Sorting",
         "clear-filters": "Clear Filters",
         "no-results": "No results."
+    },
+
+    "item-name": {
+        "ivanov": "Ivanov",
+        "cz-83": "CZ-83",
+        "speed-six": "Speed Six",
+        "parabellum": "Parabellum",
+        "lock-17": "Lock-17",
+        "python": "Python",
+        "beta-8000": "Beta 8000",
+        "lock-31": "Lock-31",
+        "webster-1942": "Webster 1942",
+        "lock-25": "Lock-25",
+        "kolt-police": "Kolt Police",
+        "beta-90-two": "Beta 90-Two",
+        "anaconda": "Anaconda",
+        "kolt-1911": "Kolt 1911",
+        "greening-glr": "Greening GLR",
+        "scout": "Scout",
+        "mouzer-m59": "Mouzer M59",
+        "enfield": "Enfield",
+        "m1-garand": "M1 Garand",
+        "dragon-svd": "Dragon SVD",
+        "m14": "M14",
+        "mosin-nagant": "Mosin-Nagant",
+        "karabiner-98k": "Karabiner 98k",
+        "gewehr-43": "Gewehr 43",
+        "chesterfield-model-70": "Chesterfield Model 70",
+        "chesterfield-1894": "Chesterfield 1894",
+        "vss-vintorez": "VSS Vintorez",
+        "greening-sitori": "Greening Sitori",
+        "washington-1100": "Washington 1100",
+        "mannberg-500": "Mannberg 500",
+        "chesterfield-21": "Chesterfield 21",
+        "mannberg-590": "Mannberg 590",
+        "mancini-m4": "Mancini M4",
+        "spsa-12": "SPSA-12",
+        "sawn-off-shotgun": "Sawn-off Shotgun",
+        "mannberg-590m": "Mannberg 590M",
+        "ethaca-10": "Ethaca-10",
+        "sega-20": "Sega-20",
+        "chesterfield-1887": "Chesterfield 1887",
+        "packhammer-12": "Packhammer-12",
+        "aa-12": "AA-12",
+        "scorpion": "Scorpion",
+        "usi": "USI",
+        "beta-c4": "Beta C4",
+        "hk-5": "HK-5",
+        "lanchester": "Lanchester",
+        "mac-11": "Mac-11",
+        "bulldog": "Bulldog",
+        "criss-victor": "Criss Victor",
+        "ump-40": "UMP-40",
+        "thompson": "Thompson",
+        "grease-gun": "Grease Gun",
+        "m16": "M16",
+        "ak-12": "AK-12",
+        "m4": "M4",
+        "ar-10": "AR-10",
+        "ak-47": "AK-47",
+        "2x4": "2x4",
+        "iron-pipe": "Iron Pipe",
+        "sledge-hammer": "Sledge Hammer",
+        "baseball-bat": "Baseball Bat",
+        "wrench": "Wrench",
+        "shovel": "Shovel",
+        "crowbar": "Crowbar",
+        "barbed-bat": "Barbed Bat",
+        "pick-axe": "Pick Axe",
+        "nail-bat": "Nail Bat",
+        "axe": "Axe",
+        "machete": "Machete",
+        "longsword": "Longsword",
+        "war-hammer": "War Hammer",
+        "dane-axe": "Dane Axe",
+        "wakizashi": "Wakizashi",
+        "katana": "Katana",
+        "mace": "Mace",
+        "hedge-trimmer": "Hedge Trimmer",
+        "dilmar-ps": "Dilmar PS",
+        "ronan-pro": "Ronan Pro",
+        "yatesman-g10": "Yatesman G10",
+        "cut-off-saw": "Cut-Off Saw",
+        "motocross-armour": "Motocross Armour",
+        "zylon-vest": "Zylon Vest",
+        "flak-jacket": "Flak Jacket",
+        "kevlar-vest": "Kevlar Vest",
+        "breast-plate": "Breast Plate",
+        "assault-vest": "Assault Vest",
+        "sn42": "SN42",
+        "beanie-hat": "Beanie Hat",
+        "baseball-hat": "Baseball Hat",
+        "sunglasses": "Sunglasses",
+        "army-hat": "Army Hat",
+        "cowboy-hat": "Cowboy Hat",
+        "police-hat": "Police Hat",
+        "surgical-mask": "Surgical Mask",
+        "motorbike-helmet": "Motorbike Helmet",
+        "hockey-helmet": "Hockey Helmet",
+        "football-helmet": "Football Helmet",
+        "fireman-helmet": "Fireman Helmet",
+        "army-helmet": "Army Helmet",
+        "shirt": "Shirt",
+        "vest": "Vest",
+        "long-sleeve-t-shirt": "Long Sleeve T-Shirt",
+        "hoodie": "Hoodie",
+        "leather-jacket": "Leather Jacket",
+        "trousers": "Trousers",
+        "joggers": "Joggers",
+        "jeans": "Jeans",
+        "wooly-glvoes": "Wooly Glvoes",
+        "fingeriess-gloves": "Fingeriess Gloves",
+        "surgical-gloves": "Surgical Gloves",
+        "leather-gloves": "Leather Gloves",
+        "superior-san-dais": "Superior San dais",
+        "leather-shoes": "Leather Shoes",
+        "trainers": "Trainers",
+        "hiking-boots": "Hiking Boots",
+        "combat-boots": "Combat Boots",
+
+        "crusader-sword": "Crusader Sword",
+        "crusader-helmet": "Crusader's Helmet",
+        "reaper-scythe": "Reaper's Scythe",
+        "fatman-sidearm": "Fatman's Sidearm",
+        "purple-raider": "Purple Raider",
+        "orange-raider": "Orange Raider",
+        "barbeque-n-run": "Barbeque N Run",
+        "scarecrow-cross": "Scarecrow's Cross",
+        "fright-mask": "Fright Mask",
+        "fatman-all-purpose-mittens": "Fatman's All-Purpose Mittens",
+        "fatman-enforcer": "Fatman's Enforcer",
+        "flowing-rabbit": "Flowing Rabbit",
+        "two-headed-devourer": "Two-Headed Devourer",
+        "sunburn": "Sunburn",
+        "safari-shorts": "Safari Shorts",
+        "tombstone": "Tombstone",
+        "hanged-man-mask": "Hanged Man's Mask",
+        "fatman-trimmer": "Fatman's Trimmer",
+        "ravenous-gunslinger": "Ravenous Gunslinger",
+        "boots-of-greed": "Boots of Greed",
+        "jeans-of-greed": "Jeans of Greed",
+        "dragon-onslaught": "Dragon's Onslaught",
+        "enhanced-dragon-onslaught": "Enhanced Dragon's Onslaught",
+        "silver-nian-mask": "Silver Nian mask",
+        "cain-solution": "Cain's Solution",
+        "cain-retribution": "Cain's Retribution",
+        "carved-hare-mask": "Carved Hare Mask"
+    },
+    "item-type": {
+        "pistol": "Pistol",
+        "rifle": "Rifle",
+        "shotgun": "Shotgun",
+        "submachine-gun": "Submachine Gun",
+        "assault-rifle": "Assault Rifle",
+        "melee": "Melee",
+        "chainsaw": "Chainsaw",
+        "armour": "Armour",
+        "head": "Head",
+        "body": "Body",
+        "legs": "Legs",
+        "hands": "Hands",
+        "feet": "Feet"
     }
 }
