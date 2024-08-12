@@ -276,7 +276,7 @@ export default function Dps() {
                                     </FormItem>
                                 )}
                             />
-                            <FormField
+                            {/* <FormField
                                 control={characterStatsFrom.control}
                                 name="damageVsInfected"
                                 render={({ field }) => (
@@ -293,7 +293,7 @@ export default function Dps() {
                                         </FormControl>
                                     </FormItem>
                                 )}
-                            />
+                            /> */}
                             <FormField
                                 control={characterStatsFrom.control}
                                 name="damageVsMutated"
@@ -530,7 +530,7 @@ export default function Dps() {
                                         </FormItem>
                                     )}
                                 />
-                                <FormField
+                                {/* <FormField
                                     control={weaponStatsFrom.control}
                                     name="damageVsInfected"
                                     render={({ field }) => (
@@ -547,7 +547,7 @@ export default function Dps() {
                                             </FormControl>
                                         </FormItem>
                                     )}
-                                />
+                                /> */}
                                 <FormField
                                     control={weaponStatsFrom.control}
                                     name="damageVsMutated"
