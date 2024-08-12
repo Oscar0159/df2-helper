@@ -232,6 +232,34 @@ export default function HistoryEventItem({ params: { locale } }: Props) {
             date: new Date('2024-03-29'),
             acquisitionMethod: t('history-event-item-page.drop-craft'),
         },
+        {
+            festival: t('history-event-item-page.summer'),
+            type: t('item-type.chainsaw'),
+            name: t('item-name.reaver-arm'),
+            date: new Date('2024-08-09'),
+            acquisitionMethod: t('history-event-item-page.drop-craft')
+        },
+        {
+            festival: t('history-event-item-page.summer'),
+            type: t('item-type.chainsaw'),
+            name: t('item-name.reaver-reach'),
+            date: new Date('2024-08-09'),
+            acquisitionMethod: t('history-event-item-page.drop-craft')
+        },
+        {
+            festival: t('history-event-item-page.summer'),
+            type: t('item-type.head'),
+            name: t('item-name.sunset-drifter-hat'),
+            date: new Date('2024-08-09'),
+            acquisitionMethod: t('history-event-item-page.drop-craft')
+        },
+        {
+            festival: t('history-event-item-page.summer'),
+            type: t('item-type.feet'),
+            name: t('item-name.sunset-drifter-sandals'),
+            date: new Date('2024-08-09'),
+            acquisitionMethod: t('history-event-item-page.drop-craft')
+        }
     ];
 
     return (
