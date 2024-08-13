@@ -244,7 +244,7 @@ export default function HistoryEventItem({ params: { locale } }: Props) {
             type: t('item-type.chainsaw'),
             name: t('item-name.reaver-reach'),
             date: new Date('2024-08-09'),
-            acquisitionMethod: t('history-event-item-page.drop-craft')
+            acquisitionMethod: t('history-event-item-page.craft')
         },
         {
             festival: t('history-event-item-page.summer'),
