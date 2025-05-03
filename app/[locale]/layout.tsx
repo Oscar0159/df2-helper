@@ -62,7 +62,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
         <NextIntlClientProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
             <div className="fixed inset-0 -z-50 flex items-center justify-center">
               <Spotlight />
               <div

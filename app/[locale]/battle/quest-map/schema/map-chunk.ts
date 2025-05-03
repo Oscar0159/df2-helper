@@ -14,7 +14,7 @@ export const MapChunkSchema = z.object({
   hasSpecialBuilding: z.boolean(),
   // accept string for preventing new district/building type appear
   district: z.union([DistrictSchema, z.string()]),
-  buildingTypes: z.array(z.union([BuildingTypeSchema,z.string()]))
+  buildingTypes: z.array(z.union([BuildingTypeSchema, z.string()])),
 });
 
 export type MapChunk = z.infer<typeof MapChunkSchema>;

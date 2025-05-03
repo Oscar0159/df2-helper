@@ -1,5 +1,7 @@
 function generateGoalGrid(m: number, n: number): number[][] {
-  const grid: number[][] = Array.from({ length: m }, (_, i) => Array.from({ length: n }, (_, j) => i * n + j + 1));
+  const grid: number[][] = Array.from({ length: m }, (_, i) =>
+    Array.from({ length: n }, (_, j) => i * n + j + 1),
+  );
   grid[m - 1][n - 1] = 0;
   return grid;
 }
@@ -16,17 +18,31 @@ function find(grid: number[][], value: number): [number, number] {
 }
 
 // return a new grid with the values at (i, j) and (ni, nj) swapped
-const swap = (grid: number[][], i: number, j: number, ni: number, nj: number): number[][] => {
+const swap = (
+  grid: number[][],
+  i: number,
+  j: number,
+  ni: number,
+  nj: number,
+): number[][] => {
   const newGrid = grid.map((row) => row.slice());
   [newGrid[i][j], newGrid[ni][nj]] = [newGrid[ni][nj], newGrid[i][j]];
   return newGrid;
 };
 
-function manhattanDistance(x1: number, y1: number, x2: number, y2: number): number {
+function manhattanDistance(
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+): number {
   return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
 
-function manhattanMisplacedDistance(grid: number[][], goalGrid: number[][]): number {
+function manhattanMisplacedDistance(
+  grid: number[][],
+  goalGrid: number[][],
+): number {
   let distance = 0;
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
@@ -47,7 +63,12 @@ const moves = [
   [0, 1],
 ];
 
-const moveToDirection = (i: number, j: number, ni: number, nj: number): string => {
+const moveToDirection = (
+  i: number,
+  j: number,
+  ni: number,
+  nj: number,
+): string => {
   if (ni === i - 1) return 'U';
   if (ni === i + 1) return 'D';
   if (nj === j - 1) return 'L';
@@ -72,7 +93,13 @@ function idaStar(grid: number[][]): number[][] {
   }
 }
 
-function idaSearch(grid: number[][], goalGrid: number[][], path: number[][], g: number, bound: number): number {
+function idaSearch(
+  grid: number[][],
+  goalGrid: number[][],
+  path: number[][],
+  g: number,
+  bound: number,
+): number {
   // TODO: do not calculate the heuristic distance for each search, instead calculate it once and update it when swapping the tiles
   // but i think it's fine since the grid is small, more readable and easier to debug
   const h = manhattanMisplacedDistance(grid, goalGrid);
@@ -142,7 +169,7 @@ function isSolvable(grid: number[][]): boolean {
     if (n % 2 === 1) return inversions % 2 === 0;
 
     // Even column & row width
-    const [i, j] = find(grid, 0);
+    const [i] = find(grid, 0);
     if (m % 2 === 0 && n % 2 === 0) {
       return (inversions + i + 1) % 2 === 0;
     }
@@ -156,14 +183,17 @@ function isSolvable(grid: number[][]): boolean {
   if (n % 2 === 1) return inversions % 2 === 0;
 
   // Even column width
-  const [i, j] = find(grid, 0);
+  const [i] = find(grid, 0);
   if ((m - i) % 2 === 0) {
     return inversions % 2 === 0;
   }
   return inversions % 2 === 1;
 }
 
-export function solve(grid: number[][]): { solution: string[]; hasSolution: boolean } {
+export function solve(grid: number[][]): {
+  solution: string[];
+  hasSolution: boolean;
+} {
   if (!isSolvable(grid)) {
     return { solution: [], hasSolution: false };
   }

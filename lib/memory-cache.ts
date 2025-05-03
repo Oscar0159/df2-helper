@@ -24,4 +24,3 @@ export function clearCache(key?: string): void {
   if (key) memoryCache.delete(key);
   else memoryCache.clear();
 }
-

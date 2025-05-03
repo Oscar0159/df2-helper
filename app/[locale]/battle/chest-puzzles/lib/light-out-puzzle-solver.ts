@@ -29,10 +29,8 @@ function gf2elim(M: boolean[][]): boolean[][] {
   while (i < m && j < n) {
     // find value and index of largest element in remainder of column j
     let maxIndex: number = i;
-    let maxVal: boolean = M[i][j];
     for (let k = i + 1; k < m; k++) {
       if (M[k][j]) {
-        maxVal = M[k][j];
         maxIndex = k;
       }
     }
@@ -46,7 +44,9 @@ function gf2elim(M: boolean[][]): boolean[][] {
 
     col[i] = false; // avoid xoring pivot row with itself
 
-    const flip: boolean[][] = col.map((colVal) => aijn.map((aijnVal) => colVal && aijnVal));
+    const flip: boolean[][] = col.map((colVal) =>
+      aijn.map((aijnVal) => colVal && aijnVal),
+    );
 
     for (let row = 0; row < M.length; row++) {
       for (let colIdx = j; colIdx < M[row].length; colIdx++) {
@@ -61,7 +61,10 @@ function gf2elim(M: boolean[][]): boolean[][] {
   return M;
 }
 
-export function solve(grid: boolean[][]): { solution: boolean[][]; hasSolution: boolean } {
+export function solve(grid: boolean[][]): {
+  solution: boolean[][];
+  hasSolution: boolean;
+} {
   const m = grid.length;
   const n = grid[0].length;
   const toggle = generateToggle(m, n);
@@ -88,7 +91,8 @@ export function solve(grid: boolean[][]): { solution: boolean[][]; hasSolution: 
     solution[Math.floor(i / n)][i % n] = U[i][m * n];
     for (let j = pivot + 1; j < m * n; j++) {
       solution[Math.floor(i / n)][i % n] =
-        solution[Math.floor(i / n)][i % n] !== (U[i][j] && solution[Math.floor(j / n)][j % n]);
+        solution[Math.floor(i / n)][i % n] !==
+        (U[i][j] && solution[Math.floor(j / n)][j % n]);
     }
   }
 

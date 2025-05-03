@@ -23,7 +23,9 @@ export default async function Page() {
               >
                 <div className="flex h-full flex-col items-center justify-center gap-2 p-4">
                   <h2 className="text-lg font-bold">Newbie Player</h2>
-                  <p className="text-sm text-muted-foreground">Read the basic information about the game</p>
+                  <p className="text-sm text-muted-foreground">
+                    Read the basic information about the game
+                  </p>
                   <Button variant="outline" className="mt-6">
                     <Link href="/information/basic">
                       <ArrowRight className="" />
@@ -58,8 +60,12 @@ export default async function Page() {
                     className="-z-1"
                   />
 
-                  <h2 className="text-lg font-bold text-background dark:text-foreground">Quest Map</h2>
-                  <p className="text-sm text-secondary dark:text-muted-foreground">Redesign of DF2Profiler</p>
+                  <h2 className="text-lg font-bold text-background dark:text-foreground">
+                    Quest Map
+                  </h2>
+                  <p className="text-sm text-secondary dark:text-muted-foreground">
+                    Redesign of DF2Profiler
+                  </p>
                 </Link>
               </CardItem>
             </CardBody>
@@ -80,7 +86,9 @@ export default async function Page() {
                   className="flex h-full flex-col items-center justify-center gap-2 p-4"
                 >
                   <h2 className="text-lg font-bold">Chest Puzzles</h2>
-                  <p className="text-sm text-muted-foreground">About the website</p>
+                  <p className="text-sm text-muted-foreground">
+                    About the website
+                  </p>
                 </Link>
               </CardItem>
             </CardBody>
@@ -96,8 +104,16 @@ export default async function Page() {
                 as="div"
                 className="h-16 w-16 rounded-lg bg-muted opacity-70 shadow-lg transition-opacity duration-300 hover:opacity-90"
               >
-                <Link href="https://github.com/Oscar0159/df2-helper" target="_blank">
-                  <Image fill alt="Github" src={Github} className="object-contain p-2 dark:invert" />
+                <Link
+                  href="https://github.com/Oscar0159/df2-helper"
+                  target="_blank"
+                >
+                  <Image
+                    fill
+                    alt="Github"
+                    src={Github}
+                    className="object-contain p-2 dark:invert"
+                  />
                 </Link>
               </CardItem>
             </CardBody>

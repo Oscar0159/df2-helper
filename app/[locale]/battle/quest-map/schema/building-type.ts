@@ -10,7 +10,7 @@ export const BuildingTypeSchema = z.enum([
   'RST', // 'Restaurant',
   'APT', // 'Apartment',
   'OFF', // 'Office',
-  'MAN' // 'Mansion',
+  'MAN', // 'Mansion',
 ]);
 
 export type BuildingType = z.infer<typeof BuildingTypeSchema>;

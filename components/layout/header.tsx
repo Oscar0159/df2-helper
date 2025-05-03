@@ -14,12 +14,36 @@ import {
 
 export default function Header() {
   const informations = [
-    { title: 'Basic Information', description: 'Basic information about the game', href: '/information/basic' },
-    { title: 'Membership', description: 'Information about the membership', href: '/information/membership' },
-    { title: 'Event Gears', description: 'Information about the event gears', href: '/information/event-gears' },
-    { title: 'Blueprints', description: 'Information about the blueprints', href: '/information/blueprints' },
-    { title: 'Scrap Value', description: 'Information about the scrap value', href: '/information/scrap-value' },
-    { title: 'Skills', description: 'Information about the skills', href: '/information/skills' },
+    {
+      title: 'Basic Information',
+      description: 'Basic information about the game',
+      href: '/information/basic',
+    },
+    {
+      title: 'Membership',
+      description: 'Information about the membership',
+      href: '/information/membership',
+    },
+    {
+      title: 'Event Gears',
+      description: 'Information about the event gears',
+      href: '/information/event-gears',
+    },
+    {
+      title: 'Blueprints',
+      description: 'Information about the blueprints',
+      href: '/information/blueprints',
+    },
+    {
+      title: 'Scrap Value',
+      description: 'Information about the scrap value',
+      href: '/information/scrap-value',
+    },
+    {
+      title: 'Skills',
+      description: 'Information about the skills',
+      href: '/information/skills',
+    },
   ];
 
   return (
@@ -37,8 +61,12 @@ export default function Header() {
                   <li key={info.title}>
                     <NavigationMenuLink asChild>
                       <Link href={info.href}>
-                        <h2 className="text-sm leading-none font-medium">{info.title}</h2>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{info.description}</p>
+                        <h2 className="text-sm leading-none font-medium">
+                          {info.title}
+                        </h2>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          {info.description}
+                        </p>
                       </Link>
                     </NavigationMenuLink>
                   </li>
@@ -61,7 +89,11 @@ export default function Header() {
                         src="https://df2profiler.com/gamemap/map_background.png"
                         fill
                         alt="map"
-                        objectFit="cover"
+                        sizes="1089px"
+                        style={{
+                          objectFit: 'cover',
+                        }}
+                        priority
                       />
                       <h2 className="z-1 text-lg leading-none font-medium text-background dark:text-foreground">
                         Quest Map
@@ -75,24 +107,36 @@ export default function Header() {
                 <li>
                   <NavigationMenuLink asChild>
                     <Link href="/battle/chest-puzzles">
-                      <h2 className="text-sm leading-none font-medium">Chest Puzzles</h2>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">About the website</p>
+                      <h2 className="text-sm leading-none font-medium">
+                        Chest Puzzles
+                      </h2>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        About the website
+                      </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
                     <Link href="/battle/damage-calculator">
-                      <h2 className="text-sm leading-none font-medium">Damage Calculator</h2>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">About the website</p>
+                      <h2 className="text-sm leading-none font-medium">
+                        Damage Calculator
+                      </h2>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        About the website
+                      </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
                     <Link href="/battle/unique-chest-simulator">
-                      <h2 className="text-sm leading-none font-medium">Unique Chest Simulator</h2>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">About the website</p>
+                      <h2 className="text-sm leading-none font-medium">
+                        Unique Chest Simulator
+                      </h2>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        About the website
+                      </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
@@ -107,16 +151,24 @@ export default function Header() {
                 <li>
                   <NavigationMenuLink asChild>
                     <Link href="/others/helper-tools">
-                      <h2 className="text-sm leading-none font-medium">Helper Tools</h2>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">About the website</p>
+                      <h2 className="text-sm leading-none font-medium">
+                        Helper Tools
+                      </h2>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        About the website
+                      </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
                     <Link href="/others/resource-links">
-                      <h2 className="text-sm leading-none font-medium">Resource Links</h2>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">About the website</p>
+                      <h2 className="text-sm leading-none font-medium">
+                        Resource Links
+                      </h2>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        About the website
+                      </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>

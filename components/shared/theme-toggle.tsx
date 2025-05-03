@@ -27,8 +27,16 @@ export default function ThemeToggle() {
     }
 
     const radius = Math.sqrt(
-      Math.max(btnRect.x + btnRect.width / 2, window.innerWidth - (btnRect.x + btnRect.width / 2)) ** 2 +
-        Math.max(btnRect.y + btnRect.height / 2, window.innerHeight - (btnRect.y + btnRect.height / 2)) ** 2,
+      Math.max(
+        btnRect.x + btnRect.width / 2,
+        window.innerWidth - (btnRect.x + btnRect.width / 2),
+      ) **
+        2 +
+        Math.max(
+          btnRect.y + btnRect.height / 2,
+          window.innerHeight - (btnRect.y + btnRect.height / 2),
+        ) **
+          2,
     );
 
     await flushSync(() => {

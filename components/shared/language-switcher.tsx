@@ -1,6 +1,5 @@
 'use client';
 
-import { SelectSeparator } from '@radix-ui/react-select';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Locale } from 'next-intl';
@@ -50,7 +49,11 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <Select onValueChange={onSelectChange} defaultValue={locale} disabled={isPending}>
+    <Select
+      onValueChange={onSelectChange}
+      defaultValue={locale}
+      disabled={isPending}
+    >
       <SelectTrigger className="w-[120px]">
         <SelectValue />
       </SelectTrigger>
