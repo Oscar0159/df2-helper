@@ -22,8 +22,8 @@ export const SPECIAL_BUILDINGS: Set<string> = new Set([
   'Drowned Mine',
 ]);
 
-export const FIND_ITEM_REGEX = /Find the following item\(s\):(.+?)\(Building:\)?/;
-export const WANTS_YOU_TO_REGEX = /wants you to:?\s?(.+?)\(Building:\)?/;
+export const FIND_ITEM_REGEX = /Find the following item\(s\):(.*)/;
+export const WANTS_YOU_TO_REGEX = /wants you to:?\s?(.*),?/;
 
 export const MEMORY_CACHE_TTL = 5 * 60;
 export const FETCH_REVALIDATE = 10 * 60;

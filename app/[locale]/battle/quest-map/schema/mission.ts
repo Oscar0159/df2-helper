@@ -1,18 +1,18 @@
 import { z } from 'zod';
 
 import { CoordSchema } from './coord';
-import { MissionTypeSchema } from './mission-type';
 import { DistrictSchema } from './district';
+import { MissionTypeSchema } from './mission-type';
 
 export const MissionSchema = z.object({
+  id: z.string(),
   minLevel: z.number().int(),
   maxLevel: z.number().int(),
   distCoord: CoordSchema.nullable(),
   giverCoord: CoordSchema.nullable(),
-  distBuilding: z.string(),
+  distBuilding: z.string().nullable(),
   giverBuilding: z.string().nullable(),
-  // accept string for preventing new district appear
-  distDistrict: z.union([DistrictSchema, z.string()]),
+  distDistrict: z.union([DistrictSchema, z.string()]).nullable(),
   giverDistrict: z.union([DistrictSchema, z.string()]).nullable(),
   type: MissionTypeSchema,
   isForever: z.boolean(),

@@ -18,19 +18,20 @@ import {
   WANTS_YOU_TO_REGEX,
 } from './constant';
 
-const sharedJSDOM = new JSDOM();
-const sharedDocument = sharedJSDOM.window.document;
-const textarea = sharedDocument.createElement('textarea');
-function decodeHtml(html: string): string {
-  textarea.innerHTML = html;
-  return textarea.value;
+function makeCoord(x: number | null, y: number | null) {
+  return x !== null && y !== null ? { x, y } : null;
 }
 
 async function fetchHTML(): Promise<Document> {
-  const cached = getFromCache<Document>('df2profiler-document', MEMORY_CACHE_TTL);
+  const cached = getFromCache<Document>(
+    'df2profiler-document',
+    MEMORY_CACHE_TTL,
+  );
   if (cached) return cached;
 
-  const response = await fetch(GAME_MAP_URL, { next: { revalidate: FETCH_REVALIDATE } });
+  const response = await fetch(GAME_MAP_URL, {
+    next: { revalidate: FETCH_REVALIDATE },
+  });
   if (!response.ok) {
     console.error(`Failed to fetch game map: ${response.status}`);
     throw new Error(`Failed to fetch game map: ${response.status}`);
@@ -67,7 +68,10 @@ export async function fetchMapUrl(): Promise<string> {
 }
 
 export async function fetchMapChunksData(): Promise<MapChunk[]> {
-  const cached = getFromCache<MapChunk[]>('df2profiler-map-chunks', MEMORY_CACHE_TTL);
+  const cached = getFromCache<MapChunk[]>(
+    'df2profiler-map-chunks',
+    MEMORY_CACHE_TTL,
+  );
   if (cached) return cached;
 
   const document = await fetchHTML();
@@ -79,15 +83,23 @@ export async function fetchMapChunksData(): Promise<MapChunk[]> {
 
   const mapChunks = Array.from(mapTable.querySelectorAll('td')).map((td) => {
     const level = safeParseInt(td.getAttribute('data-level'));
-    const buildings = (td.getAttribute('data-buildings') || '').split(',').filter(Boolean);
+    const buildings = (td.getAttribute('data-buildings') || '')
+      .split(',')
+      .filter(Boolean);
     const x = safeParseInt(td.getAttribute('data-xcoord'));
     const y = safeParseInt(td.getAttribute('data-ycoord'));
     const hasOutpost = buildings.some((building) => OUTPOSTS.has(building));
     const isPvPZone = td.classList.contains('pvpZone');
-    const hasRaidBuilding = buildings.some((building) => RAID_BUILDINGS.has(building));
-    const hasSpecialBuilding = buildings.some((building) => SPECIAL_BUILDINGS.has(building));
+    const hasRaidBuilding = buildings.some((building) =>
+      RAID_BUILDINGS.has(building),
+    );
+    const hasSpecialBuilding = buildings.some((building) =>
+      SPECIAL_BUILDINGS.has(building),
+    );
     const district = td.getAttribute('data-district') || '';
-    const buildingTypes = (td.getAttribute('data-types') || '').split(',').filter(Boolean);
+    const buildingTypes = (td.getAttribute('data-types') || '')
+      .split(',')
+      .filter(Boolean);
 
     return MapChunkSchema.parse({
       level,
@@ -107,7 +119,10 @@ export async function fetchMapChunksData(): Promise<MapChunk[]> {
 }
 
 export async function fetchMissionsData(): Promise<Mission[]> {
-  const cached = getFromCache<Mission[]>('df2profiler-missions', MEMORY_CACHE_TTL);
+  const cached = getFromCache<Mission[]>(
+    'df2profiler-missions',
+    MEMORY_CACHE_TTL,
+  );
   if (cached) return cached;
 
   const document = await fetchHTML();
@@ -115,42 +130,46 @@ export async function fetchMissionsData(): Promise<Mission[]> {
     '.center > div:not(.searchOptions):not(#searchBox):not(#sortedValue) > span',
   );
 
-  const missions: Mission[] = Array.from(missionSpans).map((missionSpan) => {
+  const missions: Mission[] = Array.from(missionSpans).map((missionSpan, i) => {
     const missionTypeSpan = missionSpan.querySelector('strong');
     const giverSpan = missionSpan.querySelector('span.giverLookup');
     const requiredText = missionSpan.textContent || '';
 
+    const id = `${i + 1}`; // Generate a unique ID for each mission
     const minLevel = safeParseInt(missionSpan.getAttribute('data-minlvl'));
     const maxLevel = safeParseInt(missionSpan.getAttribute('data-maxlvl'));
     const distX = safeParseInt(missionSpan.getAttribute('data-xcoord'));
     const distY = safeParseInt(missionSpan.getAttribute('data-ycoord'));
-    const giverX = giverSpan ? safeParseInt(missionSpan.getAttribute('data-giverx')) : null;
-    const giverY = giverSpan ? safeParseInt(missionSpan.getAttribute('data-givery')) : null;
-    const distBuilding = decodeHtml(missionSpan.getAttribute('data-building') || '');
-    const giverBuilding = giverSpan ? decodeHtml(giverSpan.getAttribute('data-building') || '') : null;
-    const distDistrict = decodeHtml(missionSpan.getAttribute('data-district') || '');
-    const giverDistrict = giverSpan ? decodeHtml(giverSpan.getAttribute('data-district') || '') : null;
+    const giverX = safeParseInt(giverSpan?.getAttribute('data-xcoord'));
+    const giverY = safeParseInt(giverSpan?.getAttribute('data-ycoord'));
+    const distBuilding = missionSpan.getAttribute('data-building');
+    const giverBuilding = giverSpan?.getAttribute('data-building');
+    const distDistrict = missionSpan.getAttribute('data-district');
+    const giverDistrict = giverSpan?.getAttribute('data-district');
+    const isForever = missionSpan.getAttribute('data-forever') == '1';
+    const isDaily = missionSpan.getAttribute('data-daily') == '1';
     const type = missionTypeSpan?.textContent || '';
 
-    let requirement = '';
-    if (type === 'Find Item') {
-      requirement = FIND_ITEM_REGEX.exec(requiredText)?.[1]?.split(',')[0]?.trim() ?? '';
-    } else {
-      requirement = WANTS_YOU_TO_REGEX.exec(requiredText)?.[1]?.replace(' at ', ', ').split(',')[0]?.trim() ?? '';
-    }
+    const replacedText = requiredText
+      .replace(' at ', ', ')
+      .replace('Building:', ', ');
+    const regex = type === 'Find Item' ? FIND_ITEM_REGEX : WANTS_YOU_TO_REGEX;
+    const requirement =
+      regex.exec(replacedText)?.[1]?.split(',')[0]?.trim() ?? '';
 
     return MissionSchema.parse({
+      id,
       minLevel,
       maxLevel,
-      distCoord: distX !== null && distY !== null ? { x: distX, y: distY } : null,
-      giverCoord: giverX !== null && giverY !== null ? { x: giverX, y: giverY } : null,
+      distCoord: makeCoord(distX, distY),
+      giverCoord: makeCoord(giverX, giverY),
       distBuilding,
       giverBuilding,
       distDistrict,
       giverDistrict,
       type,
-      isForever: false,
-      isDaily: false,
+      isForever,
+      isDaily,
       requirement,
     });
   });
