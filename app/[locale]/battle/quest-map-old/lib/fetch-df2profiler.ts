@@ -12,9 +12,9 @@ import {
   FIND_ITEM_REGEX,
   GAME_MAP_URL,
   MEMORY_CACHE_TTL,
-  MISSION_BUILDINGS,
   OUTPOSTS,
   RAID_BUILDINGS,
+  SPECIAL_BUILDINGS,
   WANTS_YOU_TO_REGEX,
 } from './constant';
 
@@ -67,7 +67,7 @@ export async function fetchMapUrl(): Promise<string> {
   return mapUrl;
 }
 
-export async function fetchMapChunks(): Promise<MapChunk[]> {
+export async function fetchMapChunksData(): Promise<MapChunk[]> {
   const cached = getFromCache<MapChunk[]>(
     'df2profiler-map-chunks',
     MEMORY_CACHE_TTL,
@@ -77,8 +77,8 @@ export async function fetchMapChunks(): Promise<MapChunk[]> {
   const document = await fetchHTML();
   const mapTable = document.querySelector('table#map');
   if (!mapTable) {
-    console.error('fetchMapChunk: Map table not found');
-    throw new Error('fetchMapChunk: Map table not found');
+    console.error('fetchMapChunkData: Map table not found');
+    throw new Error('fetchMapChunkData: Map table not found');
   }
 
   const mapChunks = Array.from(mapTable.querySelectorAll('td')).map((td) => {
@@ -94,7 +94,7 @@ export async function fetchMapChunks(): Promise<MapChunk[]> {
       RAID_BUILDINGS.has(building),
     );
     const hasSpecialBuilding = buildings.some((building) =>
-      MISSION_BUILDINGS.has(building),
+      SPECIAL_BUILDINGS.has(building),
     );
     const district = td.getAttribute('data-district') || '';
     const buildingTypes = (td.getAttribute('data-types') || '')
@@ -105,8 +105,8 @@ export async function fetchMapChunks(): Promise<MapChunk[]> {
       level,
       buildings,
       coord: { x, y },
-      isPvPZone,
       hasOutpost,
+      isPvPZone,
       hasRaidBuilding,
       hasSpecialBuilding,
       district,
@@ -118,7 +118,7 @@ export async function fetchMapChunks(): Promise<MapChunk[]> {
   return mapChunks;
 }
 
-export async function fetchMissions(): Promise<Mission[]> {
+export async function fetchMissionsData(): Promise<Mission[]> {
   const cached = getFromCache<Mission[]>(
     'df2profiler-missions',
     MEMORY_CACHE_TTL,

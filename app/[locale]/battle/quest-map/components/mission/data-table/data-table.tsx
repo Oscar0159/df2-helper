@@ -2,17 +2,14 @@
 
 import {
   ColumnDef,
-  ColumnFiltersState,
-  SortingState,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table';
+import { Header } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import { AnimatePresence } from 'motion/react';
 import { useRef } from 'react';
-import { useState } from 'react';
 
 import {
   Table,
@@ -24,75 +21,56 @@ import {
 } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 
-import {
-  ClearFilter,
-  RequirementFilter,
-  SelectedFilter,
-  TypeFilter,
-} from './filters';
+import { Mission } from '../../../schema/mission';
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+interface DataTableProps {
+  columns: ColumnDef<Mission, unknown>[];
+  data: Mission[];
 }
 
-export default function DataTable<TData, TValue>({
+export default function DataTable({
   columns,
   data,
-  className,
   ...props
-}: DataTableProps<TData, TValue> & React.ComponentProps<'div'>) {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-
+}: DataTableProps & React.ComponentProps<'div'>) {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    state: {
-      sorting,
-      columnFilters,
-    },
   });
 
-  console.log('rerender, columnFilters:', columnFilters);
+  const rowHeight = 37;
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const allRows = table.getRowModel().rows;
 
-  const parentRef = useRef<HTMLDivElement>(null);
   const rowVirtualizer = useVirtualizer({
-    count: table.getRowModel().rows.length,
-    getScrollElement: () => parentRef.current,
-    estimateSize: () => 37, // Adjust this based on your row height
+    count: allRows.length,
+    getScrollElement: () => scrollContainerRef.current,
+    estimateSize: () => rowHeight, // Adjust this based on your row height
   });
 
-  const virtualRows = rowVirtualizer.getVirtualItems();
+  const virtualizedRows = rowVirtualizer.getVirtualItems();
   const totalSize = rowVirtualizer.getTotalSize();
 
-  const paddingTop = virtualRows[0]?.start ?? 0;
-  const paddingBottom = totalSize - (virtualRows.at(-1)?.end ?? 0);
+  const paddingTop = virtualizedRows.length > 0 ? virtualizedRows[0].start : 0;
+  const paddingBottom =
+    virtualizedRows.length > 0 ? totalSize - virtualizedRows.at(-1)!.end : 0;
+
+  const isEmpty = virtualizedRows.length === 0;
+
+  const getHeaderClassName = (header: Header<Mission, unknown>) => {
+    return cn(
+      header.id === 'id' && 'w-10 sm:w-12',
+      header.id === 'missionType' && 'w-18 sm:w-36',
+      header.id === 'distSelect' && 'w-16 sm:w-20',
+      header.id === 'giverSelect' && 'w-16 sm:w-20',
+      header.column.columnDef.meta?.textAlign === 'center' && 'text-center',
+    );
+  };
 
   return (
-    <div className="relative w-full">
-      <div className="absolute flex w-full -translate-y-[150%] items-center justify-between gap-2">
-        <ClearFilter table={table} />
-        <TypeFilter column={table.getColumn('missionType')} />
-        <SelectedFilter table={table} />
-        <RequirementFilter
-          column={table.getColumn('requirement')}
-          className="w-full"
-        />
-      </div>
-      <div
-        ref={parentRef}
-        className={cn(
-          'aspect-[726/644] h-84 w-full overflow-x-auto rounded-sm backdrop-blur-sm sm:h-108 md:rounded-lg xl:h-auto',
-          className,
-        )}
-        {...props}
-      >
+    <>
+      <div ref={scrollContainerRef} {...props}>
         <Table className="table-fixed">
           <TableHeader className="sticky top-0 z-10">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -103,14 +81,7 @@ export default function DataTable<TData, TValue>({
                 {headerGroup.headers.map((header) => (
                   <TableHead
                     key={header.id}
-                    className={cn(
-                      header.id === 'id' && 'w-10 sm:w-12',
-                      header.id === 'missionType' && 'w-18 sm:w-36',
-                      header.id === 'distSelect' && 'w-16 sm:w-20',
-                      header.id === 'giverSelect' && 'w-16 sm:w-20',
-                      header.column.columnDef.meta?.textAlign === 'center' &&
-                        'text-center',
-                    )}
+                    className={getHeaderClassName(header)}
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -122,42 +93,77 @@ export default function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {paddingTop > 0 && (
-              <TableRow id="top">
+            {isEmpty ? (
+              <TableRow
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+                layout
+              >
                 <TableCell
-                  style={{ height: `${paddingTop}px` }}
                   colSpan={columns.length}
-                />
+                  className="text-center text-muted-foreground"
+                >
+                  No Result.
+                </TableCell>
               </TableRow>
-            )}
+            ) : (
+              <>
+                {paddingTop > 0 && (
+                  <TableRow id="top">
+                    <TableCell
+                      style={{ height: `${paddingTop}px` }}
+                      colSpan={columns.length}
+                    />
+                  </TableRow>
+                )}
 
-            {virtualRows.map((virtualRow) => {
-              const row = table.getRowModel().rows[virtualRow.index];
-              return (
-                <TableRow key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell className="truncate" key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              );
-            })}
+                <AnimatePresence initial={false}>
+                  {virtualizedRows.map((virtualRow) => {
+                    const row = allRows[virtualRow.index];
+                    return (
+                      <TableRow
+                        key={row.original.id}
+                        initial={{
+                          opacity: 0,
+                        }}
+                        animate={{
+                          opacity: 1,
+                        }}
+                        layout
+                      >
+                        {row.getVisibleCells().map((cell) => (
+                          <TableCell className="truncate" key={cell.id}>
+                            {flexRender(
+                              cell.column.columnDef.cell,
+                              cell.getContext(),
+                            )}
+                          </TableCell>
+                        ))}
+                      </TableRow>
+                    );
+                  })}
+                </AnimatePresence>
 
-            {paddingBottom > 0 && (
-              <TableRow id="bottom">
-                <TableCell
-                  style={{ height: `${paddingBottom}px` }}
-                  colSpan={columns.length}
-                />
-              </TableRow>
+                {paddingBottom > 0 && (
+                  <TableRow id="bottom">
+                    <TableCell
+                      style={{ height: `${paddingBottom}px` }}
+                      colSpan={columns.length}
+                    />
+                  </TableRow>
+                )}
+              </>
             )}
           </TableBody>
         </Table>
       </div>
-    </div>
+      <span className="text-center text-sm text-muted-foreground bg-muted rounded-b-sm py-1">
+        {`${data.length} row(s) mission`}
+      </span>
+    </>
   );
 }

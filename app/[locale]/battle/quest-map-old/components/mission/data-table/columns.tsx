@@ -7,15 +7,20 @@ import SelectCell from './select-cell';
 import SelectHead from './select-head';
 
 export const columns: ColumnDef<Mission>[] = [
-  // {
-  //   id: 'id',
-  //   header: 'ID',
-  //   cell: ({ row }) => row.original.id,
-  // },
+  {
+    id: 'id',
+    header: 'ID',
+    cell: ({ row }) => row.original.id,
+    sortingFn: (rowA, rowB) => rowA.original.id.localeCompare(rowB.original.id),
+  },
   {
     id: 'missionType',
     header: 'Type',
     cell: ({ row }) => row.original.type,
+    filterFn: (row, columnId, filterValue) => {
+      const mission = row.original;
+      return mission.type === filterValue;
+    },
   },
   {
     id: 'distSelect',
@@ -25,6 +30,11 @@ export const columns: ColumnDef<Mission>[] = [
     cell: ({ row }) => <SelectCell mission={row.original} role="dist" />,
     meta: {
       textAlign: 'center',
+    },
+    filterFn: (row, columnId, filterValue: Set<string>) => {
+      const mission = row.original;
+      console.log(filterValue?.has(mission.id));
+      return filterValue?.has(mission.id);
     },
   },
   {
@@ -36,6 +46,11 @@ export const columns: ColumnDef<Mission>[] = [
     meta: {
       textAlign: 'center',
     },
+    filterFn: (row, columnId, filterValue: Set<string>) => {
+      const mission = row.original;
+      console.log(filterValue?.has(mission.id));
+      return filterValue?.has(mission.id);
+    },
   },
   {
     id: 'requirement',
@@ -45,6 +60,11 @@ export const columns: ColumnDef<Mission>[] = [
         {row.original.requirement}
       </span>
     ),
+    filterFn: (row, columnId, filterValue) => {
+      const mission = row.original;
+      const requirement = mission.requirement?.toLowerCase();
+      return requirement?.includes(filterValue.toLowerCase()) || false;
+    },
   },
   // {
   //   id: 'isForever',

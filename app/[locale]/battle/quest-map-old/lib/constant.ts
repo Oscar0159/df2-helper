@@ -12,7 +12,7 @@ export const RAID_BUILDINGS: Set<string> = new Set([
   'Secronom Labs',
 ]);
 
-export const MISSION_BUILDINGS: Set<string> = new Set([
+export const SPECIAL_BUILDINGS: Set<string> = new Set([
   "Kenneth's Hideout",
   'Welcoming Retreat Apartments',
   'Playstop',

@@ -51,20 +51,6 @@ function TableFooter({ className, ...props }: React.ComponentProps<'tfoot'>) {
 function TableRow({ className, ...props }: HTMLMotionProps<'tr'>) {
   return (
     <motion.tr
-      layout
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-      }}
-      exit={{
-        opacity: 0,
-      }}
-      transition={{
-        duration: 0.5,
-        ease: 'easeInOut',
-      }}
       data-slot="table-row"
       className={cn(
         'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',

@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
 import { Mission } from '../../../schema/mission';
-import { useMissionSelection } from '../../../stores/mission-selection';
+import { useMissionStore } from '../../../stores/use-mission-store';
 
 type Role = 'dist' | 'giver';
 
@@ -19,27 +19,19 @@ export default function SelectHead({
   role: Role;
   label: string;
 }) {
-  const {
-    selectedDistIds,
-    selectedGiverIds,
-    addSelectDist,
-    addSelectGiver,
-    removeSelectDist,
-    removeSelectGiver,
-  } = useMissionSelection();
+  const selectedMissions = useMissionStore((s) => s.selectedMissions);
+  const setMissionSelection = useMissionStore((s) => s.setMissionSelection);
 
   const visibleMissions = table.getRowModel().rows.map((row) => row.original);
 
-  const allSelected = visibleMissions.every((m) =>
-    role === 'dist'
-      ? m.distCoord === null || selectedDistIds.has(m.id)
-      : m.giverCoord === null || selectedGiverIds.has(m.id),
+  const allSelected = visibleMissions.every(
+    (m) =>
+      (role === 'dist' ? m.distCoord === null : m.giverCoord === null) ||
+      selectedMissions[role].has(m.id),
   );
   const someSelected =
     !allSelected &&
-    visibleMissions.some((m) =>
-      role === 'dist' ? selectedDistIds.has(m.id) : selectedGiverIds.has(m.id),
-    );
+    visibleMissions.some((m) => selectedMissions[role].has(m.id));
   const someHaveSelected =
     role === 'dist'
       ? visibleMissions.some((m) => m.distCoord !== null)
@@ -51,19 +43,8 @@ export default function SelectHead({
         role === 'dist'
           ? mission.distCoord !== null
           : mission.giverCoord !== null;
-      if (!canCheck) return;
-      if (checked) {
-        if (role === 'dist') {
-          addSelectDist(mission.id);
-        } else {
-          addSelectGiver(mission.id);
-        }
-      } else {
-        if (role === 'dist') {
-          removeSelectDist(mission.id);
-        } else {
-          removeSelectGiver(mission.id);
-        }
+      if (canCheck) {
+        setMissionSelection(mission.id, role, checked);
       }
     });
   };
@@ -74,7 +55,7 @@ export default function SelectHead({
         id={`select-all-${role}`}
         disabled={!visibleMissions.length || !someHaveSelected}
         checked={allSelected ? true : someSelected ? 'indeterminate' : false}
-        onCheckedChange={handleToggleAll}
+        onCheckedChange={(val) => handleToggleAll(!!val)}
       />
       <Label htmlFor={`select-all-${role}`}>{label}</Label>
     </div>

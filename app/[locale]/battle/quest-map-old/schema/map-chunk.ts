@@ -8,8 +8,8 @@ export const MapChunkSchema = z.object({
   level: z.number(),
   buildings: z.array(z.string()),
   coord: CoordSchema,
-  isPvPZone: z.boolean(),
   hasOutpost: z.boolean(),
+  isPvPZone: z.boolean(),
   hasRaidBuilding: z.boolean(),
   hasSpecialBuilding: z.boolean(),
   // accept string for preventing new district/building type appear
