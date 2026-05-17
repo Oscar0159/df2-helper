@@ -1,5 +1,357 @@
 {
-    "language-switcher": {
-        "language": "語言"
+  "home": {
+    "badge": "DF2 Helper Toolkit",
+    "title": "開箱即用的解謎工具",
+    "description": "整合 Dead Frontier 2 解謎工具、任務查詢、官方連結與玩家常用資源，讓日常查找更快完成。",
+    "cta": "開始使用",
+    "toolsSection": {
+      "eyebrow": "主工具",
+      "title": "主要 DF2 工具",
+      "description": "直接選擇要用的工具，快速進入解碼、查樣式或解謎流程，不需要額外操作。",
+      "hint": "所有工具都會在本站內開啟。"
+    },
+    "resources": {
+      "eyebrow": "常用連結",
+      "title": "常用的 Dead Frontier 2 外部資源",
+      "description": "把官方管道與最常查的社群資料放在一起，任務、地圖與日常查詢都能更快找到。",
+      "hint": "所有連結都會在新分頁開啟。",
+      "groups": {
+        "official": {
+          "eyebrow": "官方",
+          "title": "官方管道",
+          "description": "公告、客服需求與即時社群互動，優先從這些官方入口開始最穩定。"
+        },
+        "unofficial": {
+          "eyebrow": "非官方",
+          "title": "社群整理資源",
+          "description": "這些由玩家整理維護的網站，最適合快速查任務、地圖與延伸資料。"
+        }
+      },
+      "items": {
+        "support": {
+          "badge": "官方",
+          "label": "客服網站",
+          "description": "官方客服入口，可用於帳號問題、回報事項與其他服務相關需求。"
+        },
+        "discord": {
+          "badge": "官方",
+          "label": "官方 Discord",
+          "description": "加入 Dead Frontier 2 官方 Discord，查看公告、參與社群討論，或直接向其他玩家尋求協助。"
+        },
+        "missions": {
+          "badge": "社群",
+          "label": "DF2 Haven 任務指南",
+          "description": "由玩家維護、每日更新的免費非官方任務指南，方便快速查詢當前任務內容。"
+        },
+        "map": {
+          "badge": "社群",
+          "label": "DF2 Profiler 任務地圖",
+          "description": "每日更新的免費非官方任務地圖，能更快掌握任務相關的位置資訊。"
+        },
+        "wiki": {
+          "badge": "資料庫",
+          "label": "Fandom Wiki",
+          "description": "收錄 Dead Frontier 2 物品、系統與歷史社群資料的綜合參考百科。"
+        }
+      }
+    },
+    "quickStart": {
+      "eyebrow": "新手入口",
+      "title": "新玩家常用快速入口",
+      "description": "如果你剛開始玩，這四個連結通常會是最常先打開的入口，查任務與找資料都比較快。",
+      "items": {
+        "missions": {
+          "badge": "每日任務",
+          "title": "先看目前的任務指南",
+          "description": "出發前先確認最新任務清單與條件，比較不容易漏掉需求。",
+          "cta": "打開任務指南"
+        },
+        "map": {
+          "badge": "城市地圖",
+          "title": "打開任務地圖",
+          "description": "用每日更新的地圖更快確認任務位置與移動方向。",
+          "cta": "打開任務地圖"
+        },
+        "discord": {
+          "badge": "社群交流",
+          "title": "加入官方 Discord",
+          "description": "看公告、提問，或直接向仍在遊玩的玩家尋求幫助。",
+          "cta": "加入 Discord"
+        },
+        "wiki": {
+          "badge": "查資料",
+          "title": "查閱 Wiki",
+          "description": "需要更完整的物品、系統或舊資料時，可以先從這裡開始查。",
+          "cta": "打開 Wiki"
+        }
+      }
     }
+  },
+  "breadcrumbs": {
+    "home": "首頁"
+  },
+  "header": {
+    "searchLabel": "搜尋",
+    "searchSuffix": "工具與連結...",
+    "dialogTitle": "搜尋工具",
+    "dialogDescription": "快速找到需要的工具或常用外部資源",
+    "searchPlaceholder": "搜尋工具與連結...",
+    "empty": "找不到符合的工具或連結。",
+    "groupHeading": "工具",
+    "officialGroupHeading": "官方連結",
+    "unofficialGroupHeading": "社群連結"
+  },
+  "footer": {
+    "description": "提供 Dead Frontier 2 玩家快速使用的解謎工具、任務查詢與常用連結整理。",
+    "navigationTitle": "站內導覽",
+    "navigation": {
+      "home": "首頁",
+      "binary": "二進制轉換",
+      "wordFinder": "單字搜尋"
+    },
+    "resourcesTitle": "常用資源",
+    "resources": {
+      "discord": "官方 Discord",
+      "github": "GitHub 原始碼"
+    },
+    "copyright": "© {year} DF2 Helper"
+  },
+  "tools": {
+    "meta": {
+      "binary": {
+        "label": "二進制轉換",
+        "description": "快速在二進制分組與數字線索之間切換。",
+        "badge": "解碼"
+      },
+      "alphaNumeric": {
+        "label": "字母數字轉換",
+        "description": "在字母索引與數字提示之間快速互轉。",
+        "badge": "密碼"
+      },
+      "wordFinder": {
+        "label": "單字搜尋",
+        "description": "依照缺字樣式或亂序字母，找出可能的單字。",
+        "badge": "字庫"
+      },
+      "morse": {
+        "label": "摩斯密碼轉換",
+        "description": "在摩斯碼與英數字元之間快速轉換。",
+        "badge": "訊號"
+      },
+      "lightsOut": {
+        "label": "點燈遊戲",
+        "description": "調整盤面、編輯燈況，並查看讓全盤亮起的解法。",
+        "badge": "解謎"
+      },
+      "slidingPuzzle": {
+        "label": "滑塊拼圖",
+        "description": "切換圖片與尺寸，操作滑塊並查看當前解法。",
+        "badge": "拼圖"
+      }
+    },
+    "binary": {
+      "badge": "多組解碼",
+      "title": "二進制轉換",
+      "description": "把二進制分組轉成數字，或把數字轉回二進制分組。",
+      "conversionMode": "轉換方向",
+      "modes": {
+        "binaryToDigits": "二進制 -> 數字",
+        "digitsToBinary": "數字 -> 二進制"
+      },
+      "inputTitle": "輸入內容",
+      "inputDescriptionBinaryToDigits": "輸入以空白分隔的二進制分組，例如 101 11 110。",
+      "inputDescriptionDigitsToBinary": "輸入一串數字，例如 5362。",
+      "sampleButton": "帶入範例",
+      "outputTitle": "轉換結果",
+      "primaryTitle": "主要結果",
+      "groupedViewTitle": "逐項拆解",
+      "emptyState": "開始輸入後，結果會立即顯示在這裡。",
+      "errors": {
+        "invalidBinaryCharacters": "二進制分組只能包含 0 和 1。",
+        "binaryOutOfRange": "每組二進制換算後都必須是 0 到 9 的單一數字。",
+        "invalidDigits": "只支援 0 到 9 的數字。"
+      }
+    },
+    "letterNumber": {
+      "badge": "字母與索引",
+      "title": "字母數字轉換",
+      "description": "把數字索引轉成字母，或把 A 到 I 轉成對應數字。",
+      "conversionMode": "轉換方向",
+      "modes": {
+        "numbersToLetters": "數字 -> 字母",
+        "lettersToNumbers": "字母 -> 數字"
+      },
+      "inputTitle": "輸入",
+      "inputDescriptionNumbersToLetters": "輸入以空白分隔的 1 到 26，例如 20 8 5。",
+      "inputDescriptionLettersToNumbers": "輸入 A 到 I 的字母，大小寫皆可。",
+      "sampleButton": "帶入範例",
+      "outputTitle": "轉換結果",
+      "primaryTitle": "主要結果",
+      "breakdownTitle": "逐項拆解",
+      "emptyState": "開始輸入後，這裡會顯示對應結果。",
+      "errors": {
+        "numberOutOfRange": "數字必須介於 1 到 26。"
+      }
+    },
+    "wordFinder": {
+      "badge": "英文單字庫",
+      "title": "單字搜尋",
+      "description": "依照缺字樣式或給定的全部亂序字母，找出可能的單字。",
+      "categories": {
+        "3": "3 個字母",
+        "4": "4 個字母",
+        "5": "5 個字母",
+        "6": "6 個字母",
+        "6+": "6 個以上字母"
+      },
+      "modeTitle": "搜尋模式",
+      "modes": {
+        "pattern": "缺字查詢",
+        "anagram": "亂序字母"
+      },
+      "inputTitle": "搜尋條件",
+      "inputDescription": {
+        "pattern": "已知位置輸入字母，未知位置可用 _、? 或 * 代表單一字母。",
+        "anagram": "輸入這個單字的全部字母，順序可任意排列。"
+      },
+      "inputPlaceholder": {
+        "pattern": "CH__D",
+        "anagram": "DLIHC"
+      },
+      "sampleButton": "帶入範例",
+      "clearButton": "清空",
+      "normalizedInputTitle": "整理後輸入",
+      "normalizedInputEmptyPattern": "全部",
+      "normalizedInputEmptyAnagram": "尚未輸入",
+      "rulesTitle": "搜尋規則",
+      "rulesDescription": {
+        "pattern": "空白與其他符號會被忽略。工具會依照字母位置與長度搜尋，並自動整理所有字數分類。",
+        "anagram": "空白與非英文字母會被忽略。只有字母完全相同、長度一致的單字才會列入結果。"
+      },
+      "resultsTitle": "結果",
+      "resultsCount": "共找到 {count} 筆結果。",
+      "emptyCategory": "這個分類目前沒有符合結果。",
+      "idleAnagram": "輸入完整字母後，這裡會顯示符合結果。",
+      "noResults": {
+        "pattern": "目前單字庫中沒有符合這個樣式的單字。",
+        "anagram": "目前單字庫中沒有能由這組字母組成的單字。"
+      },
+      "resultsSummary": "所有可能結果會依字數分類顯示。"
+    },
+    "morse": {
+      "badge": "點與線",
+      "title": "摩斯密碼轉換",
+      "description": "把摩斯碼轉成文字，或把英數字元轉回摩斯碼。",
+      "conversionMode": "轉換方向",
+      "modes": {
+        "morseToText": "摩斯 -> 文字",
+        "textToMorse": "文字 -> 摩斯"
+      },
+      "inputTitle": "輸入",
+      "inputDescriptionMorseToText": "輸入以空白分隔的摩斯碼分組。",
+      "inputDescriptionTextToMorse": "輸入英數字元，例如 1AB9。",
+      "sampleButton": "帶入範例",
+      "outputTitle": "轉換結果",
+      "primaryTitle": "主要結果",
+      "groupedViewTitle": "逐項拆解",
+      "emptyState": "開始輸入後，這裡會顯示轉換結果。",
+      "errors": {
+        "unsupportedMorseSequence": "偵測到不支援的摩斯碼。"
+      }
+    },
+    "lightsOut": {
+      "badge": "交叉切換",
+      "title": "點燈遊戲",
+      "description": "調整盤面、編輯燈況，並查看讓所有燈亮起的操作位置。",
+      "sizeTitle": "盤面尺寸",
+      "actionsTitle": "操作",
+      "solutionTitle": "解答",
+      "solutionDescription": "操作面板會直接標出順序，右側也會列出所有要按的位置。",
+      "solutionCount": "共 {count} 步",
+      "solutionHint": "依照面板上的標號或右側清單按下對應燈泡即可，順序不影響結果。",
+      "solutionCollapsedHint": "還有 {count} 步尚未顯示，展開後可查看完整清單。",
+      "solutionHidden": "已隱藏解答標記。",
+      "alreadySolved": "目前盤面已經全亮，不需要額外操作。",
+      "noSolution": "這個盤面無法透過十字切換變成全亮。",
+      "rulesTitle": "玩法說明",
+      "rulesDescription": "預設點擊會切換中心與上下左右。開啟編輯模式後，點擊只會改變單一燈泡，方便建立自訂題目。",
+      "stepLabel": "第 {row} 列，第 {col} 行",
+      "cellAriaLabel": "第 {row} 列，第 {col} 行，目前{state}",
+      "lightState": {
+        "on": "亮燈",
+        "off": "熄燈"
+      },
+      "boardMode": {
+        "cross": "十字切換",
+        "edit": "編輯模式"
+      },
+      "actions": {
+        "shuffle": "隨機",
+        "fill": "全亮",
+        "clear": "清除",
+        "edit": "編輯",
+        "showSolution": "顯示解答",
+        "expandSolution": "展開清單",
+        "collapseSolution": "收合清單"
+      }
+    },
+    "slidingPuzzle": {
+      "badge": "圖片拼圖",
+      "title": "滑塊拼圖",
+      "description": "切換圖片與尺寸，拖曳或點擊滑塊，並查看目前盤面的解法。",
+      "boardTitle": "拼圖盤面",
+      "boardDescription": "點擊可移動與空格相鄰的滑塊，拖曳則可直接交換任意兩格；系統也會提示下一步該操作哪一塊。",
+      "controlsTitle": "操作面板",
+      "controlsDescription": "調整尺寸、重製或隨機盤面，並切換數字與解答提示。",
+      "sizeTitle": "盤面尺寸",
+      "actionsTitle": "操作",
+      "imageTitle": "圖片選擇",
+      "imageDescription": "選擇要切成拼圖的圖片；切換圖片時不會重置目前盤面。",
+      "solutionTitle": "解答",
+      "solutionDescription": "顯示目前盤面的最短步驟，並在棋盤上標示下一個建議滑塊。",
+      "solutionCount": "共 {count} 步",
+      "solutionHint": "滑塊拼圖的步驟順序會影響結果，請依照清單順序操作。",
+      "solutionCollapsedHint": "還有 {count} 步尚未顯示，展開後可查看完整清單。",
+      "solutionHidden": "已隱藏解答清單。",
+      "alreadySolved": "目前盤面已完成，不需要額外操作。",
+      "noSolution": "這個盤面目前無解，通常是拖曳交換後造成的；可按重製回到可解盤面。",
+      "nextMoveTitle": "下一步",
+      "nextMoveStates": {
+        "hidden": "已隱藏下一步提示。",
+        "unsolvable": "目前盤面無解，沒有可用的下一步提示。",
+        "solved": "目前已完成，暫時不需要下一步。",
+        "pending": "正在更新下一步提示。"
+      },
+      "hintTitle": "操作提示",
+      "playbackSpeedTitle": "播放倍速",
+      "hintDescription": "先操作 {tile} 號塊並往{direction}移動，即可接續解答；棋盤上的外框與編號也會同步提示。",
+      "hintSolved": "目前已完成拼圖；若想再玩一次，可使用隨機或重製。",
+      "stepLabel": "移動 {tile} 號塊向{direction}",
+      "rulesTitle": "玩法說明",
+      "rulesDescription": "初始盤面會維持完成狀態。點擊只能移動與空格相鄰的滑塊；拖曳可以直接交換任意兩格，因此可能產生無解狀態。開啟顯示數字後，滑塊左下角會顯示原始順序。",
+      "emptySlot": "空格",
+      "status": {
+        "solved": "已完成",
+        "solvable": "可解",
+        "unsolvable": "無解"
+      },
+      "actions": {
+        "reset": "重製",
+        "shuffle": "隨機",
+        "showNumbers": "顯示數字",
+        "showSolution": "顯示解答",
+        "playSolution": "自動播放",
+        "pauseSolution": "暫停播放",
+        "applyNext": "執行下一步",
+        "expandSolution": "展開清單",
+        "collapseSolution": "收合清單"
+      },
+      "directions": {
+        "up": "上",
+        "down": "下",
+        "left": "左",
+        "right": "右"
+      }
+    }
+  }
 }

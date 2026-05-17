@@ -1,5 +1,357 @@
 {
-    "language-switcher": {
-        "language": "Language"
+  "home": {
+    "badge": "DF2 Helper Toolkit",
+    "title": "Ready-to-use puzzle tools",
+    "description": "Use fast Dead Frontier 2 tools for puzzle clues, mission lookups, official links, and the everyday resources players open most.",
+    "cta": "Open first tool",
+    "toolsSection": {
+      "eyebrow": "Core tools",
+      "title": "Main DF2 helpers",
+      "description": "Pick a tool and jump straight into decoding, pattern lookup, or puzzle solving without extra setup.",
+      "hint": "All tools open inside this site."
+    },
+    "resources": {
+      "eyebrow": "Useful links",
+      "title": "Frequently used Dead Frontier 2 resources",
+      "description": "Keep the official channels close and pin the best community references for missions, maps, and everyday lookups.",
+      "hint": "All links open in a new tab.",
+      "groups": {
+        "official": {
+          "eyebrow": "Official",
+          "title": "Official channels",
+          "description": "Use these first for announcements, support requests, and direct communication with the live community."
+        },
+        "unofficial": {
+          "eyebrow": "Unofficial",
+          "title": "Community references",
+          "description": "These player-run resources are the fastest way to check missions, maps, and long-form reference material."
+        }
+      },
+      "items": {
+        "support": {
+          "badge": "Official",
+          "label": "Support Portal",
+          "description": "The official customer support site for account issues, reports, and other service requests."
+        },
+        "discord": {
+          "badge": "Official",
+          "label": "Official Discord",
+          "description": "Join the main Dead Frontier 2 Discord server for announcements, community discussion, and live help from other players."
+        },
+        "missions": {
+          "badge": "Community",
+          "label": "DF2 Haven Mission Guide",
+          "description": "A free unofficial mission guide maintained by fellow players and updated daily with current mission details."
+        },
+        "map": {
+          "badge": "Community",
+          "label": "DF2 Profiler Mission Map",
+          "description": "A free unofficial mission map that is updated every day and helps you track mission locations faster."
+        },
+        "wiki": {
+          "badge": "Reference",
+          "label": "Fandom Wiki",
+          "description": "A broad reference wiki for Dead Frontier 2 items, systems, and archived community knowledge."
+        }
+      }
+    },
+    "quickStart": {
+      "eyebrow": "Start here",
+      "title": "New player quick access",
+      "description": "If you are just getting started, these are the four links you will most likely open first during regular play.",
+      "items": {
+        "missions": {
+          "badge": "Daily missions",
+          "title": "Check the current mission guide",
+          "description": "Review the latest mission list and requirements before you head out.",
+          "cta": "Open mission guide"
+        },
+        "map": {
+          "badge": "City map",
+          "title": "Open the mission map",
+          "description": "Find mission locations faster with a map that updates every day.",
+          "cta": "Open mission map"
+        },
+        "discord": {
+          "badge": "Community",
+          "title": "Join the official Discord",
+          "description": "Follow announcements, ask questions, and get help from active players.",
+          "cta": "Join Discord"
+        },
+        "wiki": {
+          "badge": "Reference",
+          "title": "Browse the wiki",
+          "description": "Look up items, systems, and older community notes when you need more detail.",
+          "cta": "Open wiki"
+        }
+      }
     }
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "header": {
+    "searchLabel": "Search",
+    "searchSuffix": "tools and links...",
+    "dialogTitle": "Search tools",
+    "dialogDescription": "Jump to a tool or a useful external resource",
+    "searchPlaceholder": "Search tools and links...",
+    "empty": "No tools or links found.",
+    "groupHeading": "Tools",
+    "officialGroupHeading": "Official links",
+    "unofficialGroupHeading": "Community links"
+  },
+  "footer": {
+    "description": "A lightweight Dead Frontier 2 companion for puzzle solving, mission lookups, and the links players open most often.",
+    "navigationTitle": "Navigate",
+    "navigation": {
+      "home": "Home",
+      "binary": "Binary Converter",
+      "wordFinder": "Word Finder"
+    },
+    "resourcesTitle": "Resources",
+    "resources": {
+      "discord": "Official Discord",
+      "github": "GitHub Repository"
+    },
+    "copyright": "© {year} DF2 Helper"
+  },
+  "tools": {
+    "meta": {
+      "binary": {
+        "label": "Binary Converter",
+        "description": "Switch quickly between binary groups and numeric clues.",
+        "badge": "Decode"
+      },
+      "alphaNumeric": {
+        "label": "Letter Number Converter",
+        "description": "Convert quickly between letter indexes and number clues.",
+        "badge": "Cipher"
+      },
+      "wordFinder": {
+        "label": "Word Finder",
+        "description": "Find possible words from missing-letter patterns or scrambled letters.",
+        "badge": "Word Bank"
+      },
+      "morse": {
+        "label": "Morse Converter",
+        "description": "Convert quickly between Morse code and alphanumeric text.",
+        "badge": "Signal"
+      },
+      "lightsOut": {
+        "label": "Lights Out",
+        "description": "Adjust the board, edit light states, and inspect the solving presses.",
+        "badge": "Puzzle"
+      },
+      "slidingPuzzle": {
+        "label": "Sliding Puzzle",
+        "description": "Switch images and sizes, move tiles, and inspect the current solution.",
+        "badge": "Puzzle"
+      }
+    },
+    "binary": {
+      "badge": "multi-group decoder",
+      "title": "Binary Converter",
+      "description": "Turn binary groups into digits, or convert digits back into binary groups.",
+      "conversionMode": "Direction",
+      "modes": {
+        "binaryToDigits": "Binary -> Digits",
+        "digitsToBinary": "Digits -> Binary"
+      },
+      "inputTitle": "Input",
+      "inputDescriptionBinaryToDigits": "Enter binary groups separated by spaces, such as 101 11 110.",
+      "inputDescriptionDigitsToBinary": "Enter a string of digits such as 5362.",
+      "sampleButton": "Use sample",
+      "outputTitle": "Output",
+      "primaryTitle": "Primary result",
+      "groupedViewTitle": "Item breakdown",
+      "emptyState": "Results will appear here as soon as you start typing.",
+      "errors": {
+        "invalidBinaryCharacters": "Binary groups can only contain 0 and 1.",
+        "binaryOutOfRange": "Each binary group must resolve to a single digit between 0 and 9.",
+        "invalidDigits": "Only digits from 0 to 9 are supported."
+      }
+    },
+    "letterNumber": {
+      "badge": "letters and indexes",
+      "title": "Letter Number Converter",
+      "description": "Convert number indexes into letters, or turn A-I clues back into digits.",
+      "conversionMode": "Direction",
+      "modes": {
+        "numbersToLetters": "Numbers -> Letters",
+        "lettersToNumbers": "Letters -> Numbers"
+      },
+      "inputTitle": "Input",
+      "inputDescriptionNumbersToLetters": "Use spaces between values from 1 to 26, such as 20 8 5.",
+      "inputDescriptionLettersToNumbers": "Enter letters from A to I. Lowercase works too.",
+      "sampleButton": "Use sample",
+      "outputTitle": "Output",
+      "primaryTitle": "Primary result",
+      "breakdownTitle": "Item breakdown",
+      "emptyState": "Results will appear here as soon as you start typing.",
+      "errors": {
+        "numberOutOfRange": "Numbers must stay between 1 and 26."
+      }
+    },
+    "wordFinder": {
+      "badge": "curated word bank",
+      "title": "Word Finder",
+      "description": "Find possible words from clue patterns or a full set of scrambled letters.",
+      "categories": {
+        "3": "3 letters",
+        "4": "4 letters",
+        "5": "5 letters",
+        "6": "6 letters",
+        "6+": "6+ letters"
+      },
+      "modeTitle": "Search mode",
+      "modes": {
+        "pattern": "Missing letters",
+        "anagram": "Scrambled letters"
+      },
+      "inputTitle": "Search input",
+      "inputDescription": {
+        "pattern": "Use letters for known positions and _, ?, or * for single-letter blanks.",
+        "anagram": "Enter every letter in the word once. The order can be scrambled."
+      },
+      "inputPlaceholder": {
+        "pattern": "CH__D",
+        "anagram": "DLIHC"
+      },
+      "sampleButton": "Use sample",
+      "clearButton": "Clear",
+      "normalizedInputTitle": "Normalized input",
+      "normalizedInputEmptyPattern": "ALL",
+      "normalizedInputEmptyAnagram": "EMPTY",
+      "rulesTitle": "Pattern rules",
+      "rulesDescription": {
+        "pattern": "Spaces and extra symbols are ignored. The tool matches both letter positions and word length, then groups every match for you.",
+        "anagram": "Spaces and non-letters are ignored. A result only appears when it uses exactly the same letters with the same length."
+      },
+      "resultsTitle": "Results",
+      "resultsCount": "Found {count} matches.",
+      "emptyCategory": "No matches in this category yet.",
+      "idleAnagram": "Matches will appear here after you enter the full letter set.",
+      "noResults": {
+        "pattern": "No words matched this pattern in the current word bank.",
+        "anagram": "No words in the current word bank can be built from this letter set."
+      },
+      "resultsSummary": "Possible matches are grouped by word length."
+    },
+    "morse": {
+      "badge": "dots and dashes",
+      "title": "Morse Converter",
+      "description": "Decode Morse groups or encode letters and digits for quick clue checks.",
+      "conversionMode": "Direction",
+      "modes": {
+        "morseToText": "Morse -> Text",
+        "textToMorse": "Text -> Morse"
+      },
+      "inputTitle": "Input",
+      "inputDescriptionMorseToText": "Enter any number of Morse groups separated by spaces.",
+      "inputDescriptionTextToMorse": "Enter any number of alphanumeric characters such as 1AB9.",
+      "sampleButton": "Use sample",
+      "outputTitle": "Output",
+      "primaryTitle": "Primary result",
+      "groupedViewTitle": "Item breakdown",
+      "emptyState": "Results will appear here as soon as you start typing.",
+      "errors": {
+        "unsupportedMorseSequence": "Unsupported Morse sequence detected."
+      }
+    },
+    "lightsOut": {
+      "badge": "cross toggle",
+      "title": "Lights Out",
+      "description": "Adjust the board, edit the light pattern, and show the presses needed to light every cell.",
+      "sizeTitle": "Board size",
+      "actionsTitle": "Actions",
+      "solutionTitle": "Solution",
+      "solutionDescription": "The board shows numbered markers, and the required presses are listed here as well.",
+      "solutionCount": "{count} presses",
+      "solutionHint": "Press the highlighted lights on the board or follow the list below. Order does not matter.",
+      "solutionCollapsedHint": "{count} more steps are hidden. Expand the list to see the full sequence.",
+      "solutionHidden": "Solution markers are currently hidden.",
+      "alreadySolved": "The board is already fully lit.",
+      "noSolution": "This board cannot be turned fully on with cross toggles.",
+      "rulesTitle": "How it works",
+      "rulesDescription": "By default, each press toggles the center light plus its up, down, left, and right neighbors. In edit mode, only the clicked light changes so you can build custom setups.",
+      "stepLabel": "Row {row}, Column {col}",
+      "cellAriaLabel": "Row {row}, Column {col}, currently {state}",
+      "lightState": {
+        "on": "on",
+        "off": "off"
+      },
+      "boardMode": {
+        "cross": "Cross toggle",
+        "edit": "Edit mode"
+      },
+      "actions": {
+        "shuffle": "Shuffle",
+        "fill": "Fill",
+        "clear": "Clear",
+        "edit": "Edit",
+        "showSolution": "Show solution",
+        "expandSolution": "Expand list",
+        "collapseSolution": "Collapse list"
+      }
+    },
+    "slidingPuzzle": {
+      "badge": "image puzzle",
+      "title": "Sliding Puzzle",
+      "description": "Switch images and sizes, move tiles by tap or drag, and inspect the current solution.",
+      "boardTitle": "Puzzle board",
+      "boardDescription": "Tap to move a tile next to the empty space. Dragging swaps any two positions, and the UI keeps highlighting the next recommended move.",
+      "controlsTitle": "Control panel",
+      "controlsDescription": "Adjust the size, reset or shuffle the layout, and toggle numbers and guidance.",
+      "sizeTitle": "Board size",
+      "actionsTitle": "Actions",
+      "imageTitle": "Image picker",
+      "imageDescription": "Choose the picture to slice into tiles. Switching images keeps the current layout.",
+      "solutionTitle": "Solution",
+      "solutionDescription": "Shows the shortest ordered steps for the current board and highlights the next suggested tile.",
+      "solutionCount": "{count} moves",
+      "solutionHint": "Order matters in a sliding puzzle, so follow the sequence from top to bottom.",
+      "solutionCollapsedHint": "{count} more moves are hidden. Expand the list to see the full sequence.",
+      "solutionHidden": "The solution list is currently hidden.",
+      "alreadySolved": "The board is already solved.",
+      "noSolution": "This board is currently unsolvable, usually because of a drag swap. Reset to return to a solvable state.",
+      "nextMoveTitle": "Next move",
+      "nextMoveStates": {
+        "hidden": "Next-move guidance is hidden.",
+        "unsolvable": "This board is unsolvable, so there is no next move to show.",
+        "solved": "The puzzle is solved, so no next move is needed.",
+        "pending": "Updating the next move..."
+      },
+      "hintTitle": "Hint",
+      "playbackSpeedTitle": "Playback speed",
+      "hintDescription": "Move tile {tile} {direction} to continue the solution. The board outline and badge will match this hint.",
+      "hintSolved": "The puzzle is already solved. Use shuffle or reset if you want to start again.",
+      "stepLabel": "Move tile {tile} {direction}",
+      "rulesTitle": "How it works",
+      "rulesDescription": "The board starts solved. Clicking only moves tiles next to the empty slot. Dragging can swap any two cells, which means it can also create unsolvable states. Turning on numbers shows each tile's original order in the bottom-left corner.",
+      "emptySlot": "empty",
+      "status": {
+        "solved": "Solved",
+        "solvable": "Solvable",
+        "unsolvable": "Unsolvable"
+      },
+      "actions": {
+        "reset": "Reset",
+        "shuffle": "Shuffle",
+        "showNumbers": "Show numbers",
+        "showSolution": "Show solution",
+        "playSolution": "Play solution",
+        "pauseSolution": "Pause playback",
+        "applyNext": "Apply next step",
+        "expandSolution": "Expand list",
+        "collapseSolution": "Collapse list"
+      },
+      "directions": {
+        "up": "up",
+        "down": "down",
+        "left": "left",
+        "right": "right"
+      }
+    }
+  }
 }
