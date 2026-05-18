@@ -1,21 +1,20 @@
-"use client";
+'use client';
 
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
-import { AppBreadcrumbs } from "./app-breadcrumbs";
+import { Header } from '@/components/layout/header';
+
+import { AppBreadcrumbs } from './app-breadcrumbs';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-2 sm:px-6 lg:px-8">
+    <div className="flex min-h-screen flex-col">
       <Header />
       <AppBreadcrumbs />
 
-      <main className="flex flex-1 flex-col py-6">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-6 sm:px-6 lg:px-8">
         {/* TOOL SELECTOR */}
         {children}
       </main>
 
-      <Footer />
     </div>
   );
 }

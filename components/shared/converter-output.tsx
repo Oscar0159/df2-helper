@@ -9,7 +9,7 @@ function splitSecondaryItems(secondary: string) {
   const counts = new Map<string, number>();
 
   return secondary
-    .split(" • ")
+    .split(' • ')
     .map((item) => item.trim())
     .filter(Boolean)
     .map((item) => {
@@ -35,9 +35,7 @@ export function ConverterOutput({
     <div className="space-y-4">
       <div className="tool-subpanel">
         <p className="tool-section-label">{primaryTitle}</p>
-        <p className="mt-2 break-all font-semibold text-3xl tracking-[0.24em]">
-          {primary}
-        </p>
+        <p className="mt-2 text-3xl font-semibold tracking-[0.24em] break-all">{primary}</p>
       </div>
 
       <div className="tool-subpanel-inset">
@@ -47,14 +45,14 @@ export function ConverterOutput({
             {secondaryItems.map((item) => (
               <span
                 key={item.id}
-                className="rounded-full border border-border/60 bg-muted px-3 py-1 font-medium text-sm"
+                className="border-border/60 bg-muted rounded-full border px-3 py-1 text-sm font-medium"
               >
                 {item.label}
               </span>
             ))}
           </div>
         ) : (
-          <p className="mt-2 text-muted-foreground text-sm">{secondary}</p>
+          <p className="text-muted-foreground mt-2 text-sm">{secondary}</p>
         )}
       </div>
     </div>

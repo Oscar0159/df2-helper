@@ -1,18 +1,19 @@
-import type { Metadata } from "next";
-import { hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
+import type { Metadata } from 'next';
+import { hasLocale } from 'next-intl';
 
-const siteName = "DF2 Helper";
+import { routing } from '@/i18n/routing';
+
+const siteName = 'DF2 Helper';
 const siteDescription = {
-  "en-US":
-    "Fast and lightweight Dead Frontier 2 tools with puzzle helpers, official links, community resources, and quick access for everyday play.",
-  "zh-TW":
-    "提供給 Dead Frontier 2 的快速輕量工具站，整合解謎工具、官方連結、社群資源與日常常用入口。",
+  'en-US':
+    'Fast and lightweight Dead Frontier 2 tools with puzzle helpers, official links, community resources, and quick access for everyday play.',
+  'zh-TW':
+    '提供給 Dead Frontier 2 的快速輕量工具站，整合解謎工具、官方連結、社群資源與日常常用入口。',
 } as const;
 
 const localeMap = {
-  "en-US": "en_US",
-  "zh-TW": "zh_TW",
+  'en-US': 'en_US',
+  'zh-TW': 'zh_TW',
 } as const;
 
 function getSiteOrigin() {
@@ -22,13 +23,10 @@ function getSiteOrigin() {
     process.env.VERCEL_URL;
 
   if (!configuredOrigin) {
-    return "http://localhost:3000";
+    return 'http://localhost:3000';
   }
 
-  if (
-    configuredOrigin.startsWith("http://") ||
-    configuredOrigin.startsWith("https://")
-  ) {
+  if (configuredOrigin.startsWith('http://') || configuredOrigin.startsWith('https://')) {
     return configuredOrigin;
   }
 
@@ -48,7 +46,7 @@ type PageSeoInput = {
 };
 
 function getLocalizedPath(locale: AppLocale, pathname: string) {
-  if (pathname === "/") {
+  if (pathname === '/') {
     return `/${locale}`;
   }
 
@@ -57,10 +55,7 @@ function getLocalizedPath(locale: AppLocale, pathname: string) {
 
 function getLanguageAlternates(pathname: string) {
   return Object.fromEntries(
-    routing.locales.map((locale) => [
-      locale,
-      getLocalizedPath(locale, pathname),
-    ]),
+    routing.locales.map((locale) => [locale, getLocalizedPath(locale, pathname)]),
   );
 }
 
@@ -81,11 +76,11 @@ export function createPageMetadata({
       canonical: localizedPath,
       languages: {
         ...getLanguageAlternates(pathname),
-        "x-default": getLocalizedPath(routing.defaultLocale, pathname),
+        'x-default': getLocalizedPath(routing.defaultLocale, pathname),
       },
     },
     openGraph: {
-      type: "website",
+      type: 'website',
       locale: localeMap[locale],
       url: localizedPath,
       siteName,
@@ -93,7 +88,7 @@ export function createPageMetadata({
       description,
     },
     twitter: {
-      card: "summary",
+      card: 'summary',
       title: `${title} | ${siteName}`,
       description,
     },
@@ -109,13 +104,13 @@ export function createAppMetadata(locale: AppLocale): Metadata {
       template: `%s | ${siteName}`,
     },
     description: siteDescription[locale],
-    category: "games",
+    category: 'games',
     creator: siteName,
     publisher: siteName,
     alternates: {
       languages: {
-        ...getLanguageAlternates("/"),
-        "x-default": getLocalizedPath(routing.defaultLocale, "/"),
+        ...getLanguageAlternates('/'),
+        'x-default': getLocalizedPath(routing.defaultLocale, '/'),
       },
     },
     robots: {
@@ -124,9 +119,9 @@ export function createAppMetadata(locale: AppLocale): Metadata {
       googleBot: {
         index: true,
         follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
       },
     },
   };

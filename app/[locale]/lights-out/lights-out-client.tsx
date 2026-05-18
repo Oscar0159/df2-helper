@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   ChevronDown,
@@ -9,24 +9,26 @@ import {
   PaintBucket,
   PencilLine,
   Shuffle,
-} from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+} from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
 import {
+  type LightsOutGrid,
   createGrid,
   createRandomGrid,
   fillGrid,
   getSolutionSteps,
   invertGrid,
-  type LightsOutGrid,
   resizeGrid,
   solve,
   toggleCrossCell,
   toggleSingleCell,
-} from "./lights-out-solver";
+} from './lights-out-solver';
 
 const sizeOptions = [
   { rows: 2, cols: 3 },
@@ -40,22 +42,22 @@ function getCellSizeClass(rows: number, cols: number) {
   const largerSide = Math.max(rows, cols);
 
   if (largerSide >= 5) {
-    return "size-15 sm:size-18";
+    return 'size-15 sm:size-18';
   }
 
   if (largerSide === 4) {
-    return "size-17 sm:size-22";
+    return 'size-17 sm:size-22';
   }
 
-  return "size-20 sm:size-24";
+  return 'size-20 sm:size-24';
 }
 
 function getModeLabel(editing: boolean, t: ReturnType<typeof useTranslations>) {
-  return editing ? t("boardMode.edit") : t("boardMode.cross");
+  return editing ? t('boardMode.edit') : t('boardMode.cross');
 }
 
 export function LightsOutClient() {
-  const t = useTranslations("tools.lightsOut");
+  const t = useTranslations('tools.lightsOut');
   const [grid, setGrid] = useState<LightsOutGrid>(() => createGrid(3, 3));
   const [editing, setEditing] = useState(false);
   const [showSolution, setShowSolution] = useState(true);
@@ -64,9 +66,7 @@ export function LightsOutClient() {
   const { solution, hasSolution } = solve(invertGrid(grid));
   const solutionSteps = getSolutionSteps(solution);
   const previewSteps = solutionSteps.slice(0, 3);
-  const solutionStepMap = new Map(
-    solutionSteps.map((step) => [`${step.row}-${step.col}`, step]),
-  );
+  const solutionStepMap = new Map(solutionSteps.map((step) => [`${step.row}-${step.col}`, step]));
   const boardRows = grid.map((row, rowIndex) => ({
     id: `row-${rowIndex + 1}`,
     cells: row.map((isLit, colIndex) => ({
@@ -97,87 +97,21 @@ export function LightsOutClient() {
   const cellSizeClass = getCellSizeClass(grid.length, grid[0].length);
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)]">
-      <section className="tool-panel space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="rounded-full bg-muted px-3 py-1 font-medium text-muted-foreground text-xs uppercase tracking-[0.18em]">
-            {grid.length}x{grid[0].length}
-          </div>
-          <div className="rounded-full bg-muted px-3 py-1 font-medium text-muted-foreground text-xs uppercase tracking-[0.18em]">
-            {getModeLabel(editing, t)}
-          </div>
-        </div>
-
-        <div className="rounded-[20px] bg-muted/35 p-4 sm:p-5">
-          <div className="flex justify-center overflow-x-auto">
-            <div className="inline-flex rounded-[20px] bg-background/80 px-4 py-5 ring-1 ring-border/40 sm:px-5">
-              <div className="flex flex-col gap-3">
-                {boardRows.map((row) => (
-                  <div key={row.id} className="flex gap-3">
-                    {row.cells.map(
-                      ({ id, isLit, rowIndex, colIndex, step }) => {
-                        return (
-                          <button
-                            type="button"
-                            key={id}
-                            onClick={() => handleCellClick(rowIndex, colIndex)}
-                            className={cn(
-                              "relative flex items-center justify-center rounded-full border outline-none transition-colors duration-200 focus-visible:ring-3 focus-visible:ring-ring/50",
-                              cellSizeClass,
-                              isLit
-                                ? "border-primary/30 bg-primary text-primary-foreground"
-                                : "border-border bg-muted text-muted-foreground",
-                              !editing &&
-                                "hover:border-primary/45 hover:bg-primary/90",
-                              editing &&
-                                "hover:border-primary/60 hover:bg-accent",
-                            )}
-                            aria-label={t("cellAriaLabel", {
-                              row: rowIndex + 1,
-                              col: colIndex + 1,
-                              state: isLit
-                                ? t("lightState.on")
-                                : t("lightState.off"),
-                            })}
-                          >
-                            <span
-                              className={cn(
-                                "pointer-events-none absolute inset-[18%] rounded-full border",
-                                isLit
-                                  ? "border-primary-foreground/30"
-                                  : "border-foreground/10",
-                              )}
-                            />
-                            {showSolution && step ? (
-                              <span className="-top-1 -right-1 absolute flex size-6 items-center justify-center rounded-full border border-background bg-primary font-semibold text-[11px] text-primary-foreground shadow-sm">
-                                {step.index}
-                              </span>
-                            ) : null}
-                          </button>
-                        );
-                      },
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="space-y-6">
+    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] xl:items-start">
+      <div className="space-y-6 xl:col-start-1 xl:row-start-1">
         <section className="tool-panel space-y-5">
+          <p className="tool-section-title">{t('controlsTitle')}</p>
+
           <div className="space-y-3">
-            <p className="tool-section-label">{t("sizeTitle")}</p>
+            <p className="tool-section-label">{t('sizeTitle')}</p>
             <div className="tool-action-row">
               {sizeOptions.map(({ rows, cols }) => {
-                const isActive =
-                  grid.length === rows && grid[0].length === cols;
+                const isActive = grid.length === rows && grid[0].length === cols;
 
                 return (
                   <Button
                     key={`${rows}x${cols}`}
-                    variant={isActive ? "default" : "outline"}
+                    variant={isActive ? 'default' : 'outline'}
                     onClick={() => setGridSize(rows, cols)}
                   >
                     {rows}x{cols}
@@ -188,139 +122,194 @@ export function LightsOutClient() {
           </div>
 
           <div className="space-y-3">
-            <p className="tool-section-label">{t("actionsTitle")}</p>
+            <p className="tool-section-label">{t('actionsTitle')}</p>
             <div className="tool-action-row">
               <ActionButton
                 icon={Eraser}
-                label={t("actions.clear")}
+                label={t('actions.clear')}
                 onClick={() => setGrid((current) => fillGrid(current, false))}
               />
               <ActionButton
                 icon={PaintBucket}
-                label={t("actions.fill")}
+                label={t('actions.fill')}
                 onClick={() => setGrid((current) => fillGrid(current, true))}
               />
               <ActionButton
                 icon={Shuffle}
-                label={t("actions.shuffle")}
+                label={t('actions.shuffle')}
                 onClick={() => setGrid((current) => createRandomGrid(current))}
               />
               <ActionButton
                 icon={PencilLine}
-                label={t("actions.edit")}
+                label={t('actions.edit')}
                 active={editing}
                 onClick={() => setEditing((current) => !current)}
               />
               <ActionButton
                 icon={showSolution ? Lightbulb : LightbulbOff}
-                label={t("actions.showSolution")}
+                label={t('actions.showSolution')}
                 active={showSolution}
-                activeVariant={hasSolution ? "default" : "destructive"}
+                activeVariant={hasSolution ? 'default' : 'destructive'}
                 onClick={() => setShowSolution((current) => !current)}
               />
             </div>
           </div>
         </section>
 
-        <section className="tool-panel space-y-4">
-          <div className="flex items-start justify-between gap-3">
-            <p className="tool-section-title">{t("solutionTitle")}</p>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              onClick={() => setSolutionExpanded((current) => !current)}
-            >
-              {solutionExpanded ? (
-                <ChevronUp className="size-4" />
-              ) : (
-                <ChevronDown className="size-4" />
-              )}
-              {solutionExpanded
-                ? t("actions.collapseSolution")
-                : t("actions.expandSolution")}
-            </Button>
+        <section className="tool-panel space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
+              {grid.length}x{grid[0].length}
+            </div>
+            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
+              {getModeLabel(editing, t)}
+            </div>
           </div>
 
-          {!hasSolution ? (
-            <div className="tool-feedback-danger">{t("noSolution")}</div>
-          ) : showSolution && solutionSteps.length > 0 ? (
-            <div className="space-y-4">
-              <div className="tool-subpanel">
-                <p className="tool-section-label">
-                  {t("solutionCount", { count: solutionSteps.length })}
-                </p>
-                <p className="mt-2 text-sm leading-6">{t("solutionHint")}</p>
-              </div>
-
-              {solutionExpanded ? (
-                <div className="grid max-h-80 gap-2 overflow-auto pr-1">
-                  {solutionSteps.map((step) => (
-                    <div
-                      key={`${step.row}-${step.col}`}
-                      className={cn(
-                        "tool-subpanel-inset flex items-center gap-3",
-                        step.index === 1 && "ring-2 ring-primary/60",
-                      )}
-                    >
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary font-semibold text-primary-foreground text-sm">
-                        {step.index}
-                      </span>
-                      <span className="font-medium text-sm">
-                        {t("stepLabel", {
-                          row: step.row + 1,
-                          col: step.col + 1,
-                        })}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="grid gap-2">
-                  {previewSteps.map((step) => (
-                    <div
-                      key={`${step.row}-${step.col}`}
-                      className={cn(
-                        "tool-subpanel-inset flex items-center gap-3",
-                        step.index === 1 && "ring-2 ring-primary/60",
-                      )}
-                    >
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary font-semibold text-primary-foreground text-sm">
-                        {step.index}
-                      </span>
-                      <span className="font-medium text-sm">
-                        {t("stepLabel", {
-                          row: step.row + 1,
-                          col: step.col + 1,
-                        })}
-                      </span>
-                    </div>
-                  ))}
-
-                  {solutionSteps.length > previewSteps.length ? (
-                    <p className="px-1 text-muted-foreground text-sm">
-                      {t("solutionCollapsedHint", {
-                        count: solutionSteps.length - previewSteps.length,
+          <div className="bg-muted/35 rounded-[20px] p-4 sm:p-5">
+            <div className="flex justify-center overflow-x-auto">
+              <div className="bg-background/80 ring-border/40 inline-flex rounded-[20px] px-4 py-5 ring-1 sm:px-5">
+                <div className="flex flex-col gap-3">
+                  {boardRows.map((row) => (
+                    <div key={row.id} className="flex gap-3">
+                      {row.cells.map(({ id, isLit, rowIndex, colIndex, step }) => {
+                        return (
+                          <button
+                            type="button"
+                            key={id}
+                            onClick={() => handleCellClick(rowIndex, colIndex)}
+                            className={cn(
+                              'focus-visible:ring-ring/50 relative flex items-center justify-center rounded-full border transition-colors duration-200 outline-none focus-visible:ring-3',
+                              cellSizeClass,
+                              isLit
+                                ? 'border-primary/30 bg-primary text-primary-foreground'
+                                : 'border-border bg-muted text-muted-foreground',
+                              !editing && 'hover:border-primary/45 hover:bg-primary/90',
+                              editing && 'hover:border-primary/60 hover:bg-accent',
+                            )}
+                            aria-label={t('cellAriaLabel', {
+                              row: rowIndex + 1,
+                              col: colIndex + 1,
+                              state: isLit ? t('lightState.on') : t('lightState.off'),
+                            })}
+                          >
+                            <span
+                              className={cn(
+                                'pointer-events-none absolute inset-[18%] rounded-full border',
+                                isLit ? 'border-primary-foreground/30' : 'border-foreground/10',
+                              )}
+                            />
+                            {showSolution && step ? (
+                              <span className="border-background bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-6 items-center justify-center rounded-full border text-[11px] font-semibold shadow-sm">
+                                {step.index}
+                              </span>
+                            ) : null}
+                          </button>
+                        );
                       })}
-                    </p>
-                  ) : null}
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
-          ) : (
-            <div className="tool-feedback-empty">
-              {showSolution ? t("alreadySolved") : t("solutionHidden")}
-            </div>
-          )}
-
-          <div className="tool-subpanel-inset text-sm leading-6">
-            <p className="font-medium">{t("rulesTitle")}</p>
-            <p className="mt-2 text-muted-foreground">
-              {t("rulesDescription")}
-            </p>
           </div>
         </section>
       </div>
+
+      <section className="tool-panel space-y-4 xl:col-start-2 xl:row-start-1 xl:min-h-168">
+        <div className="flex items-start justify-between gap-3">
+          <p className="tool-section-title">{t('solutionTitle')}</p>
+          <Button
+            type="button"
+            variant="ghost"
+            size="sm"
+            onClick={() => setSolutionExpanded((current) => !current)}
+          >
+            {solutionExpanded ? (
+              <ChevronUp className="size-4" />
+            ) : (
+              <ChevronDown className="size-4" />
+            )}
+            {solutionExpanded ? t('actions.collapseSolution') : t('actions.expandSolution')}
+          </Button>
+        </div>
+
+        {!hasSolution ? (
+          <div className="tool-feedback-danger">{t('noSolution')}</div>
+        ) : showSolution && solutionSteps.length > 0 ? (
+          <div className="space-y-4">
+            <div className="tool-subpanel">
+              <p className="tool-section-label">
+                {t('solutionCount', { count: solutionSteps.length })}
+              </p>
+              <p className="mt-2 text-sm leading-6">{t('solutionHint')}</p>
+            </div>
+
+            {solutionExpanded ? (
+              <div className="grid max-h-80 gap-2 overflow-auto pr-1 xl:max-h-144">
+                {solutionSteps.map((step) => (
+                  <div
+                    key={`${step.row}-${step.col}`}
+                    className={cn(
+                      'tool-subpanel-inset flex items-center gap-3',
+                      step.index === 1 && 'ring-primary/60 ring-2',
+                    )}
+                  >
+                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
+                      {step.index}
+                    </span>
+                    <span className="text-sm font-medium">
+                      {t('stepLabel', {
+                        row: step.row + 1,
+                        col: step.col + 1,
+                      })}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid gap-2">
+                {previewSteps.map((step) => (
+                  <div
+                    key={`${step.row}-${step.col}`}
+                    className={cn(
+                      'tool-subpanel-inset flex items-center gap-3',
+                      step.index === 1 && 'ring-primary/60 ring-2',
+                    )}
+                  >
+                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
+                      {step.index}
+                    </span>
+                    <span className="text-sm font-medium">
+                      {t('stepLabel', {
+                        row: step.row + 1,
+                        col: step.col + 1,
+                      })}
+                    </span>
+                  </div>
+                ))}
+
+                {solutionSteps.length > previewSteps.length ? (
+                  <p className="text-muted-foreground px-1 text-sm">
+                    {t('solutionCollapsedHint', {
+                      count: solutionSteps.length - previewSteps.length,
+                    })}
+                  </p>
+                ) : null}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="tool-feedback-empty">
+            {showSolution ? t('alreadySolved') : t('solutionHidden')}
+          </div>
+        )}
+
+        <div className="tool-subpanel-inset text-sm leading-6">
+          <p className="font-medium">{t('rulesTitle')}</p>
+          <p className="text-muted-foreground mt-2">{t('rulesDescription')}</p>
+        </div>
+      </section>
     </div>
   );
 }
@@ -330,22 +319,22 @@ function ActionButton({
   label,
   onClick,
   active = false,
-  activeVariant = "default",
+  activeVariant = 'default',
   className,
 }: {
   icon: typeof Shuffle;
   label: string;
   onClick: () => void;
   active?: boolean;
-  activeVariant?: "default" | "destructive";
+  activeVariant?: 'default' | 'destructive';
   className?: string;
 }) {
   return (
     <Button
       type="button"
-      variant={active ? activeVariant : "outline"}
+      variant={active ? activeVariant : 'outline'}
       onClick={onClick}
-      className={cn("justify-start", className)}
+      className={cn('justify-start', className)}
       aria-label={label}
     >
       <Icon className="size-4" />

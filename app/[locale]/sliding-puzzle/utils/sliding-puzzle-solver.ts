@@ -1,6 +1,6 @@
 export type SlidingPuzzleGrid = number[][];
-export type SlidingPuzzleDirection = "U" | "D" | "L" | "R";
-export type SlidingPuzzleStepDirection = "up" | "down" | "left" | "right";
+export type SlidingPuzzleDirection = 'U' | 'D' | 'L' | 'R';
+export type SlidingPuzzleStepDirection = 'up' | 'down' | 'left' | 'right';
 
 export type SlidingPuzzleSolutionStep = {
   index: number;
@@ -10,10 +10,7 @@ export type SlidingPuzzleSolutionStep = {
 
 export function createGoalGrid(rows: number, cols: number): SlidingPuzzleGrid {
   const grid: SlidingPuzzleGrid = Array.from({ length: rows }, (_, rowIndex) =>
-    Array.from(
-      { length: cols },
-      (_, colIndex) => rowIndex * cols + colIndex + 1,
-    ),
+    Array.from({ length: cols }, (_, colIndex) => rowIndex * cols + colIndex + 1),
   );
 
   grid[rows - 1][cols - 1] = 0;
@@ -24,10 +21,7 @@ export function cloneGrid(grid: SlidingPuzzleGrid): SlidingPuzzleGrid {
   return grid.map((row) => row.slice());
 }
 
-export function findValue(
-  grid: SlidingPuzzleGrid,
-  value: number,
-): [number, number] {
+export function findValue(grid: SlidingPuzzleGrid, value: number): [number, number] {
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
       if (grid[i][j] === value) {
@@ -46,10 +40,7 @@ export function swapTiles(
   nextCol: number,
 ): SlidingPuzzleGrid {
   const newGrid = cloneGrid(grid);
-  [newGrid[row][col], newGrid[nextRow][nextCol]] = [
-    newGrid[nextRow][nextCol],
-    newGrid[row][col],
-  ];
+  [newGrid[row][col], newGrid[nextRow][nextCol]] = [newGrid[nextRow][nextCol], newGrid[row][col]];
   return newGrid;
 }
 
@@ -59,23 +50,14 @@ export function getAdjacentPositions(
   col: number,
 ): Array<readonly [number, number]> {
   return moves
-    .map(
-      ([rowOffset, colOffset]) => [row + rowOffset, col + colOffset] as const,
-    )
+    .map(([rowOffset, colOffset]) => [row + rowOffset, col + colOffset] as const)
     .filter(
       ([nextRow, nextCol]) =>
-        nextRow >= 0 &&
-        nextRow < grid.length &&
-        nextCol >= 0 &&
-        nextCol < grid[0].length,
+        nextRow >= 0 && nextRow < grid.length && nextCol >= 0 && nextCol < grid[0].length,
     );
 }
 
-export function canSlideTile(
-  grid: SlidingPuzzleGrid,
-  row: number,
-  col: number,
-): boolean {
+export function canSlideTile(grid: SlidingPuzzleGrid, row: number, col: number): boolean {
   const [blankRow, blankCol] = findValue(grid, 0);
   return Math.abs(blankRow - row) + Math.abs(blankCol - col) === 1;
 }
@@ -113,12 +95,11 @@ export function createShuffledGrid(
     const candidates = getAdjacentPositions(grid, blankRow, blankCol).filter(
       ([nextRow, nextCol]) => `${nextRow}-${nextCol}` !== previousBlankKey,
     );
-    const pool = candidates.length
-      ? candidates
-      : getAdjacentPositions(grid, blankRow, blankCol);
-    const [tileRow, tileCol] = pool[
-      Math.floor(Math.random() * pool.length)
-    ] ?? [blankRow, blankCol];
+    const pool = candidates.length ? candidates : getAdjacentPositions(grid, blankRow, blankCol);
+    const [tileRow, tileCol] = pool[Math.floor(Math.random() * pool.length)] ?? [
+      blankRow,
+      blankCol,
+    ];
 
     previousBlankKey = `${blankRow}-${blankCol}`;
     grid = swapTiles(grid, blankRow, blankCol, tileRow, tileCol);
@@ -127,19 +108,11 @@ export function createShuffledGrid(
   return grid;
 }
 
-function manhattanDistance(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-): number {
+function manhattanDistance(x1: number, y1: number, x2: number, y2: number): number {
   return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
 
-function manhattanMisplacedDistance(
-  grid: SlidingPuzzleGrid,
-  goalGrid: SlidingPuzzleGrid,
-): number {
+function manhattanMisplacedDistance(grid: SlidingPuzzleGrid, goalGrid: SlidingPuzzleGrid): number {
   let distance = 0;
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[0].length; j++) {
@@ -160,32 +133,25 @@ const moves = [
   [0, 1],
 ] as const;
 
-const moveToDirection = (
-  i: number,
-  j: number,
-  ni: number,
-  nj: number,
-): SlidingPuzzleDirection => {
-  if (ni === i - 1) return "U";
-  if (ni === i + 1) return "D";
-  if (nj === j - 1) return "L";
-  if (nj === j + 1) return "R";
+const moveToDirection = (i: number, j: number, ni: number, nj: number): SlidingPuzzleDirection => {
+  if (ni === i - 1) return 'U';
+  if (ni === i + 1) return 'D';
+  if (nj === j - 1) return 'L';
+  if (nj === j + 1) return 'R';
 
-  throw new Error("Invalid sliding puzzle direction");
+  throw new Error('Invalid sliding puzzle direction');
 };
 
-function getTileDirection(
-  direction: SlidingPuzzleDirection,
-): SlidingPuzzleStepDirection {
+function getTileDirection(direction: SlidingPuzzleDirection): SlidingPuzzleStepDirection {
   switch (direction) {
-    case "U":
-      return "down";
-    case "D":
-      return "up";
-    case "L":
-      return "right";
-    case "R":
-      return "left";
+    case 'U':
+      return 'down';
+    case 'D':
+      return 'up';
+    case 'L':
+      return 'right';
+    case 'R':
+      return 'left';
   }
 }
 
@@ -195,13 +161,13 @@ function getNextBlankPosition(
   direction: SlidingPuzzleDirection,
 ): [number, number] {
   switch (direction) {
-    case "U":
+    case 'U':
       return [row - 1, col];
-    case "D":
+    case 'D':
       return [row + 1, col];
-    case "L":
+    case 'L':
       return [row, col - 1];
-    case "R":
+    case 'R':
       return [row, col + 1];
   }
 }
@@ -362,11 +328,7 @@ export function getSolutionDetails(grid: SlidingPuzzleGrid): {
 
   for (const [index, direction] of solution.entries()) {
     const [blankRow, blankCol] = findValue(workingGrid, 0);
-    const [tileRow, tileCol] = getNextBlankPosition(
-      blankRow,
-      blankCol,
-      direction,
-    );
+    const [tileRow, tileCol] = getNextBlankPosition(blankRow, blankCol, direction);
     const tile = workingGrid[tileRow][tileCol];
 
     steps.push({

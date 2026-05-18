@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -148,11 +148,11 @@ body {
 
 @layer utilities {
   .tool-hero {
-    @apply rounded-[24px] bg-card p-6 ring-1 ring-border/60 sm:p-8;
+    @apply bg-card ring-border/60 rounded-[24px] p-6 ring-1 sm:p-8;
   }
 
   .tool-panel {
-    @apply rounded-[24px] bg-card p-5 ring-1 ring-border/60 sm:p-6;
+    @apply bg-card ring-border/60 rounded-[24px] p-5 ring-1 sm:p-6;
   }
 
   .tool-panel-header {
@@ -160,11 +160,11 @@ body {
   }
 
   .tool-section-title {
-    @apply font-medium text-sm;
+    @apply text-sm font-medium;
   }
 
   .tool-section-label {
-    @apply text-muted-foreground text-xs uppercase tracking-[0.18em];
+    @apply text-muted-foreground text-xs tracking-[0.18em] uppercase;
   }
 
   .tool-action-row {
@@ -176,18 +176,18 @@ body {
   }
 
   .tool-subpanel {
-    @apply rounded-2xl bg-muted/45 p-4;
+    @apply bg-muted/45 rounded-2xl p-4;
   }
 
   .tool-subpanel-inset {
-    @apply rounded-2xl bg-background/70 p-4 ring-1 ring-border/50;
+    @apply bg-background/70 ring-border/50 rounded-2xl p-4 ring-1;
   }
 
   .tool-feedback-danger {
-    @apply rounded-2xl bg-destructive/5 p-4 text-destructive text-sm leading-6 ring-1 ring-destructive/25;
+    @apply bg-destructive/5 text-destructive ring-destructive/25 rounded-2xl p-4 text-sm leading-6 ring-1;
   }
 
   .tool-feedback-empty {
-    @apply rounded-2xl border border-dashed border-border/60 bg-muted/25 p-5 text-muted-foreground text-sm leading-6;
+    @apply border-border/60 bg-muted/25 text-muted-foreground rounded-2xl border border-dashed p-5 text-sm leading-6;
   }
 }

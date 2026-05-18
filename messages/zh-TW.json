@@ -1,32 +1,12 @@
 {
   "home": {
-    "badge": "DF2 Helper Toolkit",
     "title": "開箱即用的解謎工具",
     "description": "整合 Dead Frontier 2 解謎工具、任務查詢、官方連結與玩家常用資源，讓日常查找更快完成。",
     "cta": "開始使用",
-    "toolsSection": {
-      "eyebrow": "主工具",
-      "title": "主要 DF2 工具",
-      "description": "直接選擇要用的工具，快速進入解碼、查樣式或解謎流程，不需要額外操作。",
-      "hint": "所有工具都會在本站內開啟。"
-    },
     "resources": {
       "eyebrow": "常用連結",
       "title": "常用的 Dead Frontier 2 外部資源",
       "description": "把官方管道與最常查的社群資料放在一起，任務、地圖與日常查詢都能更快找到。",
-      "hint": "所有連結都會在新分頁開啟。",
-      "groups": {
-        "official": {
-          "eyebrow": "官方",
-          "title": "官方管道",
-          "description": "公告、客服需求與即時社群互動，優先從這些官方入口開始最穩定。"
-        },
-        "unofficial": {
-          "eyebrow": "非官方",
-          "title": "社群整理資源",
-          "description": "這些由玩家整理維護的網站，最適合快速查任務、地圖與延伸資料。"
-        }
-      },
       "items": {
         "support": {
           "badge": "官方",
@@ -54,37 +34,6 @@
           "description": "收錄 Dead Frontier 2 物品、系統與歷史社群資料的綜合參考百科。"
         }
       }
-    },
-    "quickStart": {
-      "eyebrow": "新手入口",
-      "title": "新玩家常用快速入口",
-      "description": "如果你剛開始玩，這四個連結通常會是最常先打開的入口，查任務與找資料都比較快。",
-      "items": {
-        "missions": {
-          "badge": "每日任務",
-          "title": "先看目前的任務指南",
-          "description": "出發前先確認最新任務清單與條件，比較不容易漏掉需求。",
-          "cta": "打開任務指南"
-        },
-        "map": {
-          "badge": "城市地圖",
-          "title": "打開任務地圖",
-          "description": "用每日更新的地圖更快確認任務位置與移動方向。",
-          "cta": "打開任務地圖"
-        },
-        "discord": {
-          "badge": "社群交流",
-          "title": "加入官方 Discord",
-          "description": "看公告、提問，或直接向仍在遊玩的玩家尋求幫助。",
-          "cta": "加入 Discord"
-        },
-        "wiki": {
-          "badge": "查資料",
-          "title": "查閱 Wiki",
-          "description": "需要更完整的物品、系統或舊資料時，可以先從這裡開始查。",
-          "cta": "打開 Wiki"
-        }
-      }
     }
   },
   "breadcrumbs": {
@@ -102,7 +51,6 @@
     "unofficialGroupHeading": "社群連結"
   },
   "footer": {
-    "description": "提供 Dead Frontier 2 玩家快速使用的解謎工具、任務查詢與常用連結整理。",
     "navigationTitle": "站內導覽",
     "navigation": {
       "home": "首頁",
@@ -146,7 +94,7 @@
       "slidingPuzzle": {
         "label": "滑塊拼圖",
         "description": "切換圖片與尺寸，操作滑塊並查看當前解法。",
-        "badge": "拼圖"
+        "badge": "解謎"
       }
     },
     "binary": {
@@ -263,6 +211,7 @@
       "badge": "交叉切換",
       "title": "點燈遊戲",
       "description": "調整盤面、編輯燈況，並查看讓所有燈亮起的操作位置。",
+      "controlsTitle": "操作面板",
       "sizeTitle": "盤面尺寸",
       "actionsTitle": "操作",
       "solutionTitle": "解答",

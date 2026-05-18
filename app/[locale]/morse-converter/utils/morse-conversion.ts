@@ -1,6 +1,6 @@
-export type MorseMode = "morseToText" | "textToMorse";
+export type MorseMode = 'morseToText' | 'textToMorse';
 
-export type MorseConversionErrorCode = "unsupportedMorseSequence";
+export type MorseConversionErrorCode = 'unsupportedMorseSequence';
 
 export type MorseConversionResult = {
   primary: string;
@@ -9,42 +9,42 @@ export type MorseConversionResult = {
 };
 
 const MORSE_ENTRIES = {
-  A: ".-",
-  B: "-...",
-  C: "-.-.",
-  D: "-..",
-  E: ".",
-  F: "..-.",
-  G: "--.",
-  H: "....",
-  I: "..",
-  J: ".---",
-  K: "-.-",
-  L: ".-..",
-  M: "--",
-  N: "-.",
-  O: "---",
-  P: ".--.",
-  Q: "--.-",
-  R: ".-.",
-  S: "...",
-  T: "-",
-  U: "..-",
-  V: "...-",
-  W: ".--",
-  X: "-..-",
-  Y: "-.--",
-  Z: "--..",
-  0: "-----",
-  1: ".----",
-  2: "..---",
-  3: "...--",
-  4: "....-",
-  5: ".....",
-  6: "-....",
-  7: "--...",
-  8: "---..",
-  9: "----.",
+  A: '.-',
+  B: '-...',
+  C: '-.-.',
+  D: '-..',
+  E: '.',
+  F: '..-.',
+  G: '--.',
+  H: '....',
+  I: '..',
+  J: '.---',
+  K: '-.-',
+  L: '.-..',
+  M: '--',
+  N: '-.',
+  O: '---',
+  P: '.--.',
+  Q: '--.-',
+  R: '.-.',
+  S: '...',
+  T: '-',
+  U: '..-',
+  V: '...-',
+  W: '.--',
+  X: '-..-',
+  Y: '-.--',
+  Z: '--..',
+  0: '-----',
+  1: '.----',
+  2: '..---',
+  3: '...--',
+  4: '....-',
+  5: '.....',
+  6: '-....',
+  7: '--...',
+  8: '---..',
+  9: '----.',
 } as const;
 
 const textByMorse = Object.fromEntries(
@@ -58,34 +58,34 @@ export function convertMorseToText(input: string): MorseConversionResult {
     .filter(Boolean);
 
   if (!groups.length) {
-    return { primary: "", secondary: "" };
+    return { primary: '', secondary: '' };
   }
 
   const decoded = groups.map((group) => textByMorse[group]);
 
   if (decoded.some((value) => !value)) {
     return {
-      primary: "",
-      secondary: "",
-      errorCode: "unsupportedMorseSequence",
+      primary: '',
+      secondary: '',
+      errorCode: 'unsupportedMorseSequence',
     };
   }
 
   return {
-    primary: decoded.join(""),
-    secondary: decoded.join(" • "),
+    primary: decoded.join(''),
+    secondary: decoded.join(' • '),
   };
 }
 
 export function convertTextToMorse(input: string): MorseConversionResult {
   const characters = input
     .toUpperCase()
-    .replace(/[^A-Z0-9]/g, "")
-    .split("")
+    .replace(/[^A-Z0-9]/g, '')
+    .split('')
     .filter(Boolean);
 
   if (!characters.length) {
-    return { primary: "", secondary: "" };
+    return { primary: '', secondary: '' };
   }
 
   const groups = characters.map(
@@ -93,7 +93,7 @@ export function convertTextToMorse(input: string): MorseConversionResult {
   );
 
   return {
-    primary: groups.join(" "),
-    secondary: characters.join(" • "),
+    primary: groups.join(' '),
+    secondary: characters.join(' • '),
   };
 }

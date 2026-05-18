@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/button-group";
-import { cn } from "@/lib/utils";
+import { Button } from '@/components/ui/button';
+import { ButtonGroup } from '@/components/ui/button-group';
+import { cn } from '@/lib/utils';
 
 type ConversionModeOption<T extends string> = {
   value: T;
@@ -25,7 +25,7 @@ export function ConversionModeToggle<T extends string>({
   return (
     <ButtonGroup
       className={cn(
-        "rounded-lg border border-border/60 bg-background/75 p-0.5 shadow-none",
+        'border-border/60 bg-background/75 rounded-lg border p-0.5 shadow-none',
         className,
       )}
     >
@@ -37,10 +37,10 @@ export function ConversionModeToggle<T extends string>({
             type="button"
             key={option.value}
             size="sm"
-            variant={active ? "default" : "ghost"}
+            variant={active ? 'default' : 'ghost'}
             className={cn(
-              "rounded-md border-0 shadow-none",
-              !active && "text-muted-foreground hover:text-foreground",
+              'rounded-md border-0 shadow-none',
+              !active && 'text-muted-foreground hover:text-foreground',
             )}
             onClick={() => onValueChange(option.value)}
             aria-pressed={active}

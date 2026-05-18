@@ -7,12 +7,12 @@ export type ToolMeta = {
 };
 
 export const toolRoutes = [
-  { id: "binary", href: "/binary-converter" },
-  { id: "alphaNumeric", href: "/letter-number-converter" },
-  { id: "wordFinder", href: "/word-finder" },
-  { id: "morse", href: "/morse-converter" },
-  { id: "lightsOut", href: "/lights-out" },
-  { id: "slidingPuzzle", href: "/sliding-puzzle" },
+  { id: 'binary', href: '/binary-converter' },
+  { id: 'alphaNumeric', href: '/letter-number-converter' },
+  { id: 'wordFinder', href: '/word-finder' },
+  { id: 'morse', href: '/morse-converter' },
+  { id: 'lightsOut', href: '/lights-out' },
+  { id: 'slidingPuzzle', href: '/sliding-puzzle' },
 ] as const;
 
 export function getToolMeta(translate: (key: string) => string): ToolMeta[] {

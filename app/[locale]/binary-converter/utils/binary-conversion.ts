@@ -1,9 +1,9 @@
-export type BinaryMode = "binaryToDigits" | "digitsToBinary";
+export type BinaryMode = 'binaryToDigits' | 'digitsToBinary';
 
 export type BinaryConversionErrorCode =
-  | "invalidBinaryCharacters"
-  | "binaryOutOfRange"
-  | "invalidDigits";
+  | 'invalidBinaryCharacters'
+  | 'binaryOutOfRange'
+  | 'invalidDigits';
 
 export type BinaryConversionResult = {
   primary: string;
@@ -19,22 +19,20 @@ function splitBinaryGroups(input: string) {
 }
 
 function splitDigitGroups(input: string) {
-  const compact = input.replace(/\s+/g, "").trim();
+  const compact = input.replace(/\s+/g, '').trim();
 
   if (!compact) {
     return [];
   }
 
-  return compact.split("");
+  return compact.split('');
 }
 
-export function convertBinaryGroupsToDigits(
-  input: string,
-): BinaryConversionResult {
+export function convertBinaryGroupsToDigits(input: string): BinaryConversionResult {
   const groups = splitBinaryGroups(input);
 
   if (!groups.length) {
-    return { primary: "", secondary: "" };
+    return { primary: '', secondary: '' };
   }
 
   const digits = groups.map((group) => {
@@ -47,47 +45,45 @@ export function convertBinaryGroupsToDigits(
 
   if (digits.some((digit) => Number.isNaN(digit))) {
     return {
-      primary: "",
-      secondary: "",
-      errorCode: "invalidBinaryCharacters",
+      primary: '',
+      secondary: '',
+      errorCode: 'invalidBinaryCharacters',
     };
   }
 
   if (digits.some((digit) => digit < 0 || digit > 9)) {
     return {
-      primary: "",
-      secondary: "",
-      errorCode: "binaryOutOfRange",
+      primary: '',
+      secondary: '',
+      errorCode: 'binaryOutOfRange',
     };
   }
 
   return {
-    primary: digits.join(""),
-    secondary: digits.join(" • "),
+    primary: digits.join(''),
+    secondary: digits.join(' • '),
   };
 }
 
-export function convertDigitsToBinaryGroups(
-  input: string,
-): BinaryConversionResult {
+export function convertDigitsToBinaryGroups(input: string): BinaryConversionResult {
   const digits = splitDigitGroups(input);
 
   if (!digits.length) {
-    return { primary: "", secondary: "" };
+    return { primary: '', secondary: '' };
   }
 
   if (digits.some((digit) => !/^[0-9]$/.test(digit))) {
     return {
-      primary: "",
-      secondary: "",
-      errorCode: "invalidDigits",
+      primary: '',
+      secondary: '',
+      errorCode: 'invalidDigits',
     };
   }
 
   const binaryGroups = digits.map((digit) => Number(digit).toString(2));
 
   return {
-    primary: binaryGroups.join(" "),
-    secondary: digits.join(" • "),
+    primary: binaryGroups.join(' '),
+    secondary: digits.join(' • '),
   };
 }

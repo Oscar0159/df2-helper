@@ -1,32 +1,12 @@
 {
   "home": {
-    "badge": "DF2 Helper Toolkit",
     "title": "Ready-to-use puzzle tools",
     "description": "Use fast Dead Frontier 2 tools for puzzle clues, mission lookups, official links, and the everyday resources players open most.",
     "cta": "Open first tool",
-    "toolsSection": {
-      "eyebrow": "Core tools",
-      "title": "Main DF2 helpers",
-      "description": "Pick a tool and jump straight into decoding, pattern lookup, or puzzle solving without extra setup.",
-      "hint": "All tools open inside this site."
-    },
     "resources": {
       "eyebrow": "Useful links",
       "title": "Frequently used Dead Frontier 2 resources",
       "description": "Keep the official channels close and pin the best community references for missions, maps, and everyday lookups.",
-      "hint": "All links open in a new tab.",
-      "groups": {
-        "official": {
-          "eyebrow": "Official",
-          "title": "Official channels",
-          "description": "Use these first for announcements, support requests, and direct communication with the live community."
-        },
-        "unofficial": {
-          "eyebrow": "Unofficial",
-          "title": "Community references",
-          "description": "These player-run resources are the fastest way to check missions, maps, and long-form reference material."
-        }
-      },
       "items": {
         "support": {
           "badge": "Official",
@@ -54,37 +34,6 @@
           "description": "A broad reference wiki for Dead Frontier 2 items, systems, and archived community knowledge."
         }
       }
-    },
-    "quickStart": {
-      "eyebrow": "Start here",
-      "title": "New player quick access",
-      "description": "If you are just getting started, these are the four links you will most likely open first during regular play.",
-      "items": {
-        "missions": {
-          "badge": "Daily missions",
-          "title": "Check the current mission guide",
-          "description": "Review the latest mission list and requirements before you head out.",
-          "cta": "Open mission guide"
-        },
-        "map": {
-          "badge": "City map",
-          "title": "Open the mission map",
-          "description": "Find mission locations faster with a map that updates every day.",
-          "cta": "Open mission map"
-        },
-        "discord": {
-          "badge": "Community",
-          "title": "Join the official Discord",
-          "description": "Follow announcements, ask questions, and get help from active players.",
-          "cta": "Join Discord"
-        },
-        "wiki": {
-          "badge": "Reference",
-          "title": "Browse the wiki",
-          "description": "Look up items, systems, and older community notes when you need more detail.",
-          "cta": "Open wiki"
-        }
-      }
     }
   },
   "breadcrumbs": {
@@ -102,7 +51,6 @@
     "unofficialGroupHeading": "Community links"
   },
   "footer": {
-    "description": "A lightweight Dead Frontier 2 companion for puzzle solving, mission lookups, and the links players open most often.",
     "navigationTitle": "Navigate",
     "navigation": {
       "home": "Home",
@@ -263,6 +211,7 @@
       "badge": "cross toggle",
       "title": "Lights Out",
       "description": "Adjust the board, edit the light pattern, and show the presses needed to light every cell.",
+      "controlsTitle": "Control panel",
       "sizeTitle": "Board size",
       "actionsTitle": "Actions",
       "solutionTitle": "Solution",

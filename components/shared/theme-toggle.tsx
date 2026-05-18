@@ -1,10 +1,11 @@
-"use client";
+'use client';
 
-import { Moon, Sun } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
-import { flushSync } from "react-dom";
+import { Moon, Sun } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useTheme } from 'next-themes';
+import { flushSync } from 'react-dom';
+
+import { useEffect, useRef, useState } from 'react';
 
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
@@ -22,7 +23,7 @@ export default function ThemeToggle() {
     const btnRect = buttonRef.current?.getBoundingClientRect();
 
     if (!document.startViewTransition || !btnRect) {
-      setTheme(theme === "dark" ? "light" : "dark");
+      setTheme(theme === 'dark' ? 'light' : 'dark');
       return;
     }
 
@@ -42,7 +43,7 @@ export default function ThemeToggle() {
     await flushSync(() => {
       document
         .startViewTransition(() => {
-          setTheme(theme === "dark" ? "light" : "dark");
+          setTheme(theme === 'dark' ? 'light' : 'dark');
         })
         .ready.then(() => {
           document.documentElement.animate(
@@ -54,8 +55,8 @@ export default function ThemeToggle() {
             },
             {
               duration: 300,
-              easing: "ease-in",
-              pseudoElement: "::view-transition-new(root)",
+              easing: 'ease-in',
+              pseudoElement: '::view-transition-new(root)',
             },
           );
         });
@@ -69,18 +70,18 @@ export default function ThemeToggle() {
       initial={{ scale: 0.9 }}
       whileHover={{ scale: 1 }}
       whileTap={{ scale: 0.9 }}
-      transition={{ type: "tween", stiffness: 100 }}
-      style={{ cursor: "pointer" }}
+      transition={{ type: 'tween', stiffness: 100 }}
+      style={{ cursor: 'pointer' }}
       className="relative flex items-center justify-center rounded-full p-2"
     >
       <AnimatePresence initial={false}>
-        {theme === "dark" ? (
+        {theme === 'dark' ? (
           <motion.div
             className="absolute"
             initial={{ scale: 0, rotate: 360, opacity: 0 }}
             animate={{ scale: 1, rotate: 0, opacity: 1 }}
             exit={{ scale: 0, rotate: -360, opacity: 0 }}
-            transition={{ type: "tween", stiffness: 100, duration: 0.3 }}
+            transition={{ type: 'tween', stiffness: 100, duration: 0.3 }}
             key={theme}
           >
             <Moon />
@@ -91,7 +92,7 @@ export default function ThemeToggle() {
             initial={{ scale: 0, rotate: -360, opacity: 0 }}
             animate={{ scale: 1, rotate: 0, opacity: 1 }}
             exit={{ scale: 0, rotate: 360, opacity: 0 }}
-            transition={{ type: "tween", stiffness: 100, duration: 0.3 }}
+            transition={{ type: 'tween', stiffness: 100, duration: 0.3 }}
             key={theme}
           >
             <Sun />

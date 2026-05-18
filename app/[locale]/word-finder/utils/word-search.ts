@@ -1,4 +1,4 @@
-import { WORD_FINDER_BANK, type WordFinderCategory } from "../constants";
+import { WORD_FINDER_BANK, type WordFinderCategory } from '../constants';
 
 export type WordFinderMatchGroup = {
   category: WordFinderCategory;
@@ -12,11 +12,11 @@ export type WordFinderSearchResult = {
 };
 
 function normalizePattern(input: string) {
-  return input.toUpperCase().replace(/[^A-Z_?*]/g, "");
+  return input.toUpperCase().replace(/[^A-Z_?*]/g, '');
 }
 
 function normalizeLetters(input: string) {
-  return input.toUpperCase().replace(/[^A-Z]/g, "");
+  return input.toUpperCase().replace(/[^A-Z]/g, '');
 }
 
 function matchesPattern(word: string, pattern: string) {
@@ -28,8 +28,8 @@ function matchesPattern(word: string, pattern: string) {
     return false;
   }
 
-  return pattern.split("").every((character, index) => {
-    if (character === "_" || character === "?" || character === "*") {
+  return pattern.split('').every((character, index) => {
+    if (character === '_' || character === '?' || character === '*') {
       return true;
     }
 
@@ -38,7 +38,7 @@ function matchesPattern(word: string, pattern: string) {
 }
 
 function countCharacters(input: string) {
-  return input.split("").reduce<Record<string, number>>((counts, character) => {
+  return input.split('').reduce<Record<string, number>>((counts, character) => {
     counts[character] = (counts[character] ?? 0) + 1;
     return counts;
   }, {});
@@ -57,17 +57,15 @@ function matchesAnagram(word: string, letters: string) {
   );
 }
 
-function buildGroups(
-  matcher: (word: string) => boolean,
-): WordFinderMatchGroup[] {
-  return (
-    Object.entries(WORD_FINDER_BANK) as Array<[WordFinderCategory, string[]]>
-  ).map(([category, words]) => ({
-    category,
-    words: [...words]
-      .sort((left, right) => left.localeCompare(right))
-      .filter((word) => matcher(word)),
-  }));
+function buildGroups(matcher: (word: string) => boolean): WordFinderMatchGroup[] {
+  return (Object.entries(WORD_FINDER_BANK) as Array<[WordFinderCategory, string[]]>).map(
+    ([category, words]) => ({
+      category,
+      words: [...words]
+        .sort((left, right) => left.localeCompare(right))
+        .filter((word) => matcher(word)),
+    }),
+  );
 }
 
 function createSearchResult(
@@ -76,10 +74,7 @@ function createSearchResult(
 ): WordFinderSearchResult {
   return {
     normalizedInput,
-    totalMatches: groups.reduce(
-      (total, group) => total + group.words.length,
-      0,
-    ),
+    totalMatches: groups.reduce((total, group) => total + group.words.length, 0),
     groups,
   };
 }

@@ -1,22 +1,23 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { ThemeProvider } from "next-themes";
-import { AppShell } from "@/components/layout/app-shell";
-import { routing } from "@/i18n/routing";
-import { createAppMetadata } from "@/lib/seo";
+import type { Metadata } from 'next';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { ThemeProvider } from 'next-themes';
 
-import "@/styles/globals.css";
-import { notFound } from "next/navigation";
+import { Geist, Geist_Mono } from 'next/font/google';
+import { notFound } from 'next/navigation';
+
+import { AppShell } from '@/components/layout/app-shell';
+import { routing } from '@/i18n/routing';
+import { createAppMetadata } from '@/lib/seo';
+import '@/styles/globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export async function generateMetadata({
@@ -52,11 +53,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <NextIntlClientProvider locale={locale}>
             <AppShell>{children}</AppShell>
           </NextIntlClientProvider>

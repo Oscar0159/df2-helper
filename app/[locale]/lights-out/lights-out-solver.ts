@@ -46,9 +46,7 @@ function gf2elim(M: boolean[][]): boolean[][] {
 
     col[i] = false; // avoid xoring pivot row with itself
 
-    const flip: boolean[][] = col.map((colVal) =>
-      aijn.map((aijnVal) => colVal && aijnVal),
-    );
+    const flip: boolean[][] = col.map((colVal) => aijn.map((aijnVal) => colVal && aijnVal));
 
     for (let row = 0; row < M.length; row++) {
       for (let colIdx = j; colIdx < M[row].length; colIdx++) {
@@ -63,24 +61,13 @@ function gf2elim(M: boolean[][]): boolean[][] {
   return M;
 }
 
-export function createGrid(
-  rows: number,
-  cols: number,
-  value = false,
-): LightsOutGrid {
+export function createGrid(rows: number, cols: number, value = false): LightsOutGrid {
   return Array.from({ length: rows }, () => Array(cols).fill(value));
 }
 
-export function resizeGrid(
-  grid: LightsOutGrid,
-  rows: number,
-  cols: number,
-): LightsOutGrid {
+export function resizeGrid(grid: LightsOutGrid, rows: number, cols: number): LightsOutGrid {
   return Array.from({ length: rows }, (_, rowIndex) =>
-    Array.from(
-      { length: cols },
-      (_, colIndex) => grid[rowIndex]?.[colIndex] ?? false,
-    ),
+    Array.from({ length: cols }, (_, colIndex) => grid[rowIndex]?.[colIndex] ?? false),
   );
 }
 
@@ -112,14 +99,10 @@ export function toggleCrossCell(
 ): LightsOutGrid {
   return mapGrid(grid, (value, currentRow, currentCol) => {
     const isSameCell = currentRow === rowIndex && currentCol === colIndex;
-    const isVerticalNeighbor =
-      currentCol === colIndex && Math.abs(currentRow - rowIndex) === 1;
-    const isHorizontalNeighbor =
-      currentRow === rowIndex && Math.abs(currentCol - colIndex) === 1;
+    const isVerticalNeighbor = currentCol === colIndex && Math.abs(currentRow - rowIndex) === 1;
+    const isHorizontalNeighbor = currentRow === rowIndex && Math.abs(currentCol - colIndex) === 1;
 
-    return isSameCell || isVerticalNeighbor || isHorizontalNeighbor
-      ? !value
-      : value;
+    return isSameCell || isVerticalNeighbor || isHorizontalNeighbor ? !value : value;
   });
 }
 
@@ -181,8 +164,7 @@ export function solve(grid: LightsOutGrid): {
     solution[Math.floor(i / n)][i % n] = U[i][m * n];
     for (let j = pivot + 1; j < m * n; j++) {
       solution[Math.floor(i / n)][i % n] =
-        solution[Math.floor(i / n)][i % n] !==
-        (U[i][j] && solution[Math.floor(j / n)][j % n]);
+        solution[Math.floor(i / n)][i % n] !== (U[i][j] && solution[Math.floor(j / n)][j % n]);
     }
   }
 
