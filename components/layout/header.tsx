@@ -1,11 +1,14 @@
 'use client';
 
-import { Search } from 'lucide-react';
+import { ExternalLink, Search } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { useEffect, useMemo, useState } from 'react';
 
+import { AppLogoMark, AppLogoWordmark } from '@/components/shared/app-logo';
+import LanguageSwitcher from '@/components/shared/language-switcher';
 import ThemeToggle from '@/components/shared/theme-toggle';
+import { Button } from '@/components/ui/button';
 import {
   Command,
   CommandDialog,
@@ -14,15 +17,12 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from '@/components/ui/command';
 import { Kbd, KbdGroup } from '@/components/ui/kbd';
 import { Link, useRouter } from '@/i18n/navigation';
 import { getExternalResourceMeta } from '@/lib/external-resource-meta';
 import { getToolMeta } from '@/lib/tool-meta';
-
-import { AppLogoMark, AppLogoWordmark } from '../shared/app-logo';
-import LanguageSwitcher from '../shared/language-switcher';
-import { Button } from '../ui/button';
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -105,7 +105,7 @@ export function Header() {
           <CommandInput placeholder={t('searchPlaceholder')} />
           <CommandList>
             <CommandEmpty>{t('empty')}</CommandEmpty>
-            <CommandGroup heading={t('groupHeading')}>
+            <CommandGroup heading={t('toolGroupHeading')}>
               {tools.map((tool) => {
                 return (
                   <CommandItem
@@ -115,16 +115,12 @@ export function Header() {
                       router.push(tool.href);
                     }}
                   >
-                    <div className="flex flex-col gap-0.5">
-                      <span>{tool.label}</span>
-                      <span className="text-muted-foreground text-xs leading-5">
-                        {tool.description}
-                      </span>
-                    </div>
+                    <span>{tool.label}</span>
                   </CommandItem>
                 );
               })}
             </CommandGroup>
+            <CommandSeparator />
             <CommandGroup heading={t('officialGroupHeading')}>
               {officialResources.map((resource) => {
                 return (
@@ -135,16 +131,13 @@ export function Header() {
                       window.open(resource.href, '_blank', 'noreferrer');
                     }}
                   >
-                    <div className="flex flex-col gap-0.5">
-                      <span>{resource.label}</span>
-                      <span className="text-muted-foreground text-xs leading-5">
-                        {resource.description}
-                      </span>
-                    </div>
+                    <span>{resource.label}</span>
+                    <ExternalLink className="size-3.5" />
                   </CommandItem>
                 );
               })}
             </CommandGroup>
+            <CommandSeparator />
             <CommandGroup heading={t('unofficialGroupHeading')}>
               {unofficialResources.map((resource) => {
                 return (
@@ -155,12 +148,8 @@ export function Header() {
                       window.open(resource.href, '_blank', 'noreferrer');
                     }}
                   >
-                    <div className="flex flex-col gap-0.5">
-                      <span>{resource.label}</span>
-                      <span className="text-muted-foreground text-xs leading-5">
-                        {resource.description}
-                      </span>
-                    </div>
+                    <span>{resource.label}</span>
+                    <ExternalLink className="size-3.5" />
                   </CommandItem>
                 );
               })}

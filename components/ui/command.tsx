@@ -3,7 +3,7 @@
 import { Command as CommandPrimitive } from 'cmdk';
 import { CheckIcon, SearchIcon } from 'lucide-react';
 
-import type * as React from 'react';
+import * as React from 'react';
 
 import {
   Dialog,

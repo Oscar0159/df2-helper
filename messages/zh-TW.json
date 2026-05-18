@@ -46,7 +46,7 @@
     "dialogDescription": "快速找到需要的工具或常用外部資源",
     "searchPlaceholder": "搜尋工具與連結...",
     "empty": "找不到符合的工具或連結。",
-    "groupHeading": "工具",
+    "toolGroupHeading": "工具",
     "officialGroupHeading": "官方連結",
     "unofficialGroupHeading": "社群連結"
   },

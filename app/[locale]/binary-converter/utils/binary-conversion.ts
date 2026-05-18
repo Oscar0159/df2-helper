@@ -6,8 +6,7 @@ export type BinaryConversionErrorCode =
   | 'invalidDigits';
 
 export type BinaryConversionResult = {
-  primary: string;
-  secondary: string;
+  value: string;
   errorCode?: BinaryConversionErrorCode;
 };
 
@@ -32,7 +31,7 @@ export function convertBinaryGroupsToDigits(input: string): BinaryConversionResu
   const groups = splitBinaryGroups(input);
 
   if (!groups.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   const digits = groups.map((group) => {
@@ -45,23 +44,20 @@ export function convertBinaryGroupsToDigits(input: string): BinaryConversionResu
 
   if (digits.some((digit) => Number.isNaN(digit))) {
     return {
-      primary: '',
-      secondary: '',
+      value: '',
       errorCode: 'invalidBinaryCharacters',
     };
   }
 
   if (digits.some((digit) => digit < 0 || digit > 9)) {
     return {
-      primary: '',
-      secondary: '',
+      value: '',
       errorCode: 'binaryOutOfRange',
     };
   }
 
   return {
-    primary: digits.join(''),
-    secondary: digits.join(' • '),
+    value: digits.join(''),
   };
 }
 
@@ -69,13 +65,12 @@ export function convertDigitsToBinaryGroups(input: string): BinaryConversionResu
   const digits = splitDigitGroups(input);
 
   if (!digits.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   if (digits.some((digit) => !/^[0-9]$/.test(digit))) {
     return {
-      primary: '',
-      secondary: '',
+      value: '',
       errorCode: 'invalidDigits',
     };
   }
@@ -83,7 +78,6 @@ export function convertDigitsToBinaryGroups(input: string): BinaryConversionResu
   const binaryGroups = digits.map((digit) => Number(digit).toString(2));
 
   return {
-    primary: binaryGroups.join(' '),
-    secondary: digits.join(' • '),
+    value: binaryGroups.join(' '),
   };
 }

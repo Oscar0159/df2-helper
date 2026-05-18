@@ -39,12 +39,12 @@ export function AppBreadcrumbs() {
   return (
     <Breadcrumb className="mx-auto w-full max-w-6xl px-4 pt-3 sm:px-6 sm:pt-4 lg:px-8">
       <BreadcrumbList className="text-xs sm:text-sm">
-        <BreadcrumbItem className="hidden sm:inline-flex">
+        <BreadcrumbItem className="inline-flex">
           <BreadcrumbLink asChild>
             <Link href="/">{t('home')}</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator className="hidden sm:block" />
+        <BreadcrumbSeparator className="block" />
         <BreadcrumbItem>
           <BreadcrumbPage className="max-w-[70vw] truncate sm:max-w-none">
             {currentTool?.label ?? formatSegmentLabel(lastSegment ?? '')}

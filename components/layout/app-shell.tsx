@@ -14,7 +14,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         {/* TOOL SELECTOR */}
         {children}
       </main>
-
     </div>
   );
 }

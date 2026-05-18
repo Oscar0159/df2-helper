@@ -3,8 +3,7 @@ export type LetterNumberMode = 'numbersToLetters' | 'lettersToNumbers';
 export type LetterNumberErrorCode = 'numberOutOfRange';
 
 export type LetterNumberResult = {
-  primary: string;
-  secondary: string;
+  value: string;
   errorCode?: LetterNumberErrorCode;
 };
 
@@ -16,15 +15,14 @@ export function convertNumbersToLetters(input: string): LetterNumberResult {
   const values = input.match(/\d+/g) ?? [];
 
   if (!values.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   const parsed = values.map((value) => Number.parseInt(value, 10));
 
   if (parsed.some((value) => value < 1 || value > 26)) {
     return {
-      primary: '',
-      secondary: '',
+      value: '',
       errorCode: 'numberOutOfRange',
     };
   }
@@ -32,8 +30,7 @@ export function convertNumbersToLetters(input: string): LetterNumberResult {
   const letters = parsed.map((value) => toAlphabetLetter(value));
 
   return {
-    primary: letters.join(''),
-    secondary: letters.join(' • '),
+    value: letters.join(''),
   };
 }
 
@@ -45,13 +42,12 @@ export function convertLettersToNumbers(input: string): LetterNumberResult {
     .filter(Boolean);
 
   if (!letters.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   const numbers = letters.map((letter) => letter.charCodeAt(0) - 64);
 
   return {
-    primary: numbers.join(' '),
-    secondary: letters.join(' • '),
+    value: numbers.join(''),
   };
 }

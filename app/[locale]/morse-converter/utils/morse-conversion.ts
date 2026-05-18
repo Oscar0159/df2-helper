@@ -3,8 +3,7 @@ export type MorseMode = 'morseToText' | 'textToMorse';
 export type MorseConversionErrorCode = 'unsupportedMorseSequence';
 
 export type MorseConversionResult = {
-  primary: string;
-  secondary: string;
+  value: string;
   errorCode?: MorseConversionErrorCode;
 };
 
@@ -58,22 +57,20 @@ export function convertMorseToText(input: string): MorseConversionResult {
     .filter(Boolean);
 
   if (!groups.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   const decoded = groups.map((group) => textByMorse[group]);
 
   if (decoded.some((value) => !value)) {
     return {
-      primary: '',
-      secondary: '',
+      value: '',
       errorCode: 'unsupportedMorseSequence',
     };
   }
 
   return {
-    primary: decoded.join(''),
-    secondary: decoded.join(' • '),
+    value: decoded.join(''),
   };
 }
 
@@ -85,7 +82,7 @@ export function convertTextToMorse(input: string): MorseConversionResult {
     .filter(Boolean);
 
   if (!characters.length) {
-    return { primary: '', secondary: '' };
+    return { value: '' };
   }
 
   const groups = characters.map(
@@ -93,7 +90,6 @@ export function convertTextToMorse(input: string): MorseConversionResult {
   );
 
   return {
-    primary: groups.join(' '),
-    secondary: characters.join(' • '),
+    value: groups.join(' '),
   };
 }

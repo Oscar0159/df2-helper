@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import { ButtonGroup } from '@/components/ui/button-group';
-import { cn } from '@/lib/utils';
 
 type ConversionModeOption<T extends string> = {
   value: T;
@@ -23,25 +22,14 @@ export function ConversionModeToggle<T extends string>({
   className,
 }: ConversionModeToggleProps<T>) {
   return (
-    <ButtonGroup
-      className={cn(
-        'border-border/60 bg-background/75 rounded-lg border p-0.5 shadow-none',
-        className,
-      )}
-    >
+    <ButtonGroup>
       {options.map((option) => {
         const active = option.value === value;
 
         return (
           <Button
-            type="button"
             key={option.value}
-            size="sm"
-            variant={active ? 'default' : 'ghost'}
-            className={cn(
-              'rounded-md border-0 shadow-none',
-              !active && 'text-muted-foreground hover:text-foreground',
-            )}
+            variant={active ? 'default' : 'outline'}
             onClick={() => onValueChange(option.value)}
             aria-pressed={active}
           >

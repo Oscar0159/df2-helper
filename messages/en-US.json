@@ -46,7 +46,7 @@
     "dialogDescription": "Jump to a tool or a useful external resource",
     "searchPlaceholder": "Search tools and links...",
     "empty": "No tools or links found.",
-    "groupHeading": "Tools",
+    "toolGroupHeading": "Tools",
     "officialGroupHeading": "Official links",
     "unofficialGroupHeading": "Community links"
   },

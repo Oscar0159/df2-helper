@@ -1,3 +1,6 @@
+import { Badge } from '../ui/badge';
+import { Card, CardContent, CardHeader } from '../ui/card';
+
 type ConverterOutputProps = {
   primaryTitle: string;
   detailTitle: string;
@@ -33,22 +36,23 @@ export function ConverterOutput({
 
   return (
     <div className="space-y-4">
-      <div className="tool-subpanel">
-        <p className="tool-section-label">{primaryTitle}</p>
-        <p className="mt-2 text-3xl font-semibold tracking-[0.24em] break-all">{primary}</p>
-      </div>
+      <Card>
+        <CardHeader>
+          <p className="leading-none font-medium">{primaryTitle}</p>
+        </CardHeader>
+        <CardContent>
+          <p className="mt-2 text-3xl font-semibold tracking-[0.24em] break-all">{primary}</p>
+        </CardContent>
+      </Card>
 
       <div className="tool-subpanel-inset">
         <p className="tool-section-label">{detailTitle}</p>
         {secondaryItems.length ? (
           <div className="mt-3 flex flex-wrap gap-2">
             {secondaryItems.map((item) => (
-              <span
-                key={item.id}
-                className="border-border/60 bg-muted rounded-full border px-3 py-1 text-sm font-medium"
-              >
+              <Badge key={item.id} variant="outline">
                 {item.label}
-              </span>
+              </Badge>
             ))}
           </div>
         ) : (

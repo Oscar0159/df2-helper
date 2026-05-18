@@ -12,14 +12,14 @@ import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card';
 import { Link } from '@/i18n/navigation';
 import { getExternalResourceMeta } from '@/lib/external-resource-meta';
 import { createPageMetadata, defaultSiteDescription, isAppLocale } from '@/lib/seo';
 import { getToolMeta } from '@/lib/tool-meta';
 import type { ToolMeta } from '@/lib/tool-meta';
-import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 const resourceIcons = {
   support: ShieldCheck,
