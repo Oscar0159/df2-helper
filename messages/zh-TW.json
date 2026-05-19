@@ -98,21 +98,15 @@
       }
     },
     "binary": {
-      "badge": "多組解碼",
       "title": "二進制轉換",
-      "description": "把二進制分組轉成數字，或把數字轉回二進制分組。",
-      "conversionMode": "轉換方向",
+      "description": "快速在二進制分組與數字線索之間切換。",
       "modes": {
         "binaryToDigits": "二進制 -> 數字",
         "digitsToBinary": "數字 -> 二進制"
       },
       "inputTitle": "輸入內容",
-      "inputDescriptionBinaryToDigits": "輸入以空白分隔的二進制分組，例如 101 11 110。",
-      "inputDescriptionDigitsToBinary": "輸入一串數字，例如 5362。",
       "sampleButton": "帶入範例",
       "outputTitle": "轉換結果",
-      "primaryTitle": "主要結果",
-      "groupedViewTitle": "逐項拆解",
       "emptyState": "開始輸入後，結果會立即顯示在這裡。",
       "errors": {
         "invalidBinaryCharacters": "二進制分組只能包含 0 和 1。",
@@ -121,30 +115,23 @@
       }
     },
     "letterNumber": {
-      "badge": "字母與索引",
       "title": "字母數字轉換",
-      "description": "把數字索引轉成字母，或把 A 到 I 轉成對應數字。",
-      "conversionMode": "轉換方向",
+      "description": "在字母索引與數字提示之間快速互轉。",
       "modes": {
         "numbersToLetters": "數字 -> 字母",
         "lettersToNumbers": "字母 -> 數字"
       },
-      "inputTitle": "輸入",
-      "inputDescriptionNumbersToLetters": "輸入以空白分隔的 1 到 26，例如 20 8 5。",
-      "inputDescriptionLettersToNumbers": "輸入 A 到 I 的字母，大小寫皆可。",
+      "inputTitle": "輸入內容",
       "sampleButton": "帶入範例",
       "outputTitle": "轉換結果",
-      "primaryTitle": "主要結果",
-      "breakdownTitle": "逐項拆解",
       "emptyState": "開始輸入後，這裡會顯示對應結果。",
       "errors": {
         "numberOutOfRange": "數字必須介於 1 到 26。"
       }
     },
     "wordFinder": {
-      "badge": "英文單字庫",
       "title": "單字搜尋",
-      "description": "依照缺字樣式或給定的全部亂序字母，找出可能的單字。",
+      "description": "依照缺字樣式或亂序字母，找出可能的單字。",
       "categories": {
         "3": "3 個字母",
         "4": "4 個字母",
@@ -152,13 +139,13 @@
         "6": "6 個字母",
         "6+": "6 個以上字母"
       },
-      "modeTitle": "搜尋模式",
       "modes": {
         "pattern": "缺字查詢",
         "anagram": "亂序字母"
       },
-      "inputTitle": "搜尋條件",
-      "inputDescription": {
+      "inputTitle": "輸入內容",
+      "inputRuleTitle": "輸入規則",
+      "inputRuleDescription": {
         "pattern": "已知位置輸入字母，未知位置可用 _、? 或 * 代表單一字母。",
         "anagram": "輸入這個單字的全部字母，順序可任意排列。"
       },
@@ -168,23 +155,19 @@
       },
       "sampleButton": "帶入範例",
       "clearButton": "清空",
-      "normalizedInputTitle": "整理後輸入",
-      "normalizedInputEmptyPattern": "全部",
-      "normalizedInputEmptyAnagram": "尚未輸入",
       "rulesTitle": "搜尋規則",
       "rulesDescription": {
         "pattern": "空白與其他符號會被忽略。工具會依照字母位置與長度搜尋，並自動整理所有字數分類。",
         "anagram": "空白與非英文字母會被忽略。只有字母完全相同、長度一致的單字才會列入結果。"
       },
       "resultsTitle": "結果",
-      "resultsCount": "共找到 {count} 筆結果。",
+      "expandResults": "展開結果",
+      "collapseResults": "收合結果",
       "emptyCategory": "這個分類目前沒有符合結果。",
-      "idleAnagram": "輸入完整字母後，這裡會顯示符合結果。",
       "noResults": {
         "pattern": "目前單字庫中沒有符合這個樣式的單字。",
         "anagram": "目前單字庫中沒有能由這組字母組成的單字。"
-      },
-      "resultsSummary": "所有可能結果會依字數分類顯示。"
+      }
     },
     "morse": {
       "badge": "點與線",
@@ -195,9 +178,11 @@
         "morseToText": "摩斯 -> 文字",
         "textToMorse": "文字 -> 摩斯"
       },
-      "inputTitle": "輸入",
-      "inputDescriptionMorseToText": "輸入以空白分隔的摩斯碼分組。",
-      "inputDescriptionTextToMorse": "輸入英數字元，例如 1AB9。",
+      "inputTitle": "輸入內容",
+      "inputDescription": {
+        "morseToText": "輸入以空白分隔的摩斯碼分組。",
+        "textToMorse": "輸入英數字元，例如 1AB9。"
+      },
       "sampleButton": "帶入範例",
       "outputTitle": "轉換結果",
       "primaryTitle": "主要結果",

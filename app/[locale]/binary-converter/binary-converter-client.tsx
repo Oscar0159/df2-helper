@@ -66,7 +66,7 @@ export function BinaryConverterClient() {
     <div className="mx-auto w-full max-w-5xl space-y-6">
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
         <Card>
-          <CardHeader className="flex items-center gap-2">
+          <CardHeader className="flex flex-wrap items-center gap-2">
             <p className="mr-auto text-sm leading-none font-medium">{t('inputTitle')}</p>
             <ButtonGroup>
               {modeOptions.map((option) => {

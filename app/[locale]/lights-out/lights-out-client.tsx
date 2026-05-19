@@ -28,7 +28,10 @@ import {
   solve,
   toggleCrossCell,
   toggleSingleCell,
-} from './lights-out-solver';
+} from './utils/lights-out-solver';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Item, ItemContent } from '@/components/ui/item';
 
 const sizeOptions = [
   { rows: 2, cols: 3 },
@@ -99,121 +102,133 @@ export function LightsOutClient() {
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1.05fr)_minmax(300px,0.95fr)] xl:items-start">
       <div className="space-y-6 xl:col-start-1 xl:row-start-1">
-        <section className="tool-panel space-y-5">
-          <p className="tool-section-title">{t('controlsTitle')}</p>
+        <Card>
+          <CardHeader>
+            <p className="mr-auto text-sm leading-none font-medium">{t('controlsTitle')}</p>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="space-y-3">
+              <p className="text-muted-foreground text-xs">{t('sizeTitle')}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                {sizeOptions.map(({ rows, cols }) => {
+                  const isActive = grid.length === rows && grid[0].length === cols;
 
-          <div className="space-y-3">
-            <p className="tool-section-label">{t('sizeTitle')}</p>
-            <div className="tool-action-row">
-              {sizeOptions.map(({ rows, cols }) => {
-                const isActive = grid.length === rows && grid[0].length === cols;
-
-                return (
-                  <Button
-                    key={`${rows}x${cols}`}
-                    variant={isActive ? 'default' : 'outline'}
-                    onClick={() => setGridSize(rows, cols)}
-                  >
-                    {rows}x{cols}
-                  </Button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <p className="tool-section-label">{t('actionsTitle')}</p>
-            <div className="tool-action-row">
-              <ActionButton
-                icon={Eraser}
-                label={t('actions.clear')}
-                onClick={() => setGrid((current) => fillGrid(current, false))}
-              />
-              <ActionButton
-                icon={PaintBucket}
-                label={t('actions.fill')}
-                onClick={() => setGrid((current) => fillGrid(current, true))}
-              />
-              <ActionButton
-                icon={Shuffle}
-                label={t('actions.shuffle')}
-                onClick={() => setGrid((current) => createRandomGrid(current))}
-              />
-              <ActionButton
-                icon={PencilLine}
-                label={t('actions.edit')}
-                active={editing}
-                onClick={() => setEditing((current) => !current)}
-              />
-              <ActionButton
-                icon={showSolution ? Lightbulb : LightbulbOff}
-                label={t('actions.showSolution')}
-                active={showSolution}
-                activeVariant={hasSolution ? 'default' : 'destructive'}
-                onClick={() => setShowSolution((current) => !current)}
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="tool-panel space-y-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
-              {grid.length}x{grid[0].length}
-            </div>
-            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
-              {getModeLabel(editing, t)}
-            </div>
-          </div>
-
-          <div className="bg-muted/35 rounded-[20px] p-4 sm:p-5">
-            <div className="flex justify-center overflow-x-auto">
-              <div className="bg-background/80 ring-border/40 inline-flex rounded-[20px] px-4 py-5 ring-1 sm:px-5">
-                <div className="flex flex-col gap-3">
-                  {boardRows.map((row) => (
-                    <div key={row.id} className="flex gap-3">
-                      {row.cells.map(({ id, isLit, rowIndex, colIndex, step }) => {
-                        return (
-                          <button
-                            type="button"
-                            key={id}
-                            onClick={() => handleCellClick(rowIndex, colIndex)}
-                            className={cn(
-                              'focus-visible:ring-ring/50 relative flex items-center justify-center rounded-full border transition-colors duration-200 outline-none focus-visible:ring-3',
-                              cellSizeClass,
-                              isLit
-                                ? 'border-primary/30 bg-primary text-primary-foreground'
-                                : 'border-border bg-muted text-muted-foreground',
-                              !editing && 'hover:border-primary/45 hover:bg-primary/90',
-                              editing && 'hover:border-primary/60 hover:bg-accent',
-                            )}
-                            aria-label={t('cellAriaLabel', {
-                              row: rowIndex + 1,
-                              col: colIndex + 1,
-                              state: isLit ? t('lightState.on') : t('lightState.off'),
-                            })}
-                          >
-                            <span
-                              className={cn(
-                                'pointer-events-none absolute inset-[18%] rounded-full border',
-                                isLit ? 'border-primary-foreground/30' : 'border-foreground/10',
-                              )}
-                            />
-                            {showSolution && step ? (
-                              <span className="border-background bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-6 items-center justify-center rounded-full border text-[11px] font-semibold shadow-sm">
-                                {step.index}
-                              </span>
-                            ) : null}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
+                  return (
+                    <Button
+                      key={`${rows}x${cols}`}
+                      variant={isActive ? 'default' : 'outline'}
+                      onClick={() => setGridSize(rows, cols)}
+                    >
+                      {rows}x{cols}
+                    </Button>
+                  );
+                })}
               </div>
             </div>
-          </div>
-        </section>
+
+            <div className="space-y-3">
+              <p className="text-muted-foreground text-xs">{t('actionsTitle')}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  variant="outline"
+                  onClick={() => setGrid((current) => fillGrid(current, false))}
+                >
+                  <Eraser />
+                  {t('actions.clear')}
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setGrid((current) => fillGrid(current, true))}
+                >
+                  <PaintBucket />
+                  {t('actions.fill')}
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setGrid((current) => createRandomGrid(current))}
+                >
+                  <Shuffle />
+                  {t('actions.shuffle')}
+                </Button>
+                <Button
+                  variant={editing ? 'default' : 'outline'}
+                  onClick={() => setEditing((current) => !current)}
+                >
+                  <PencilLine />
+                  {t('actions.edit')}
+                </Button>
+                <Button
+                  variant={showSolution ? 'default' : 'outline'}
+                  onClick={() => setShowSolution((current) => !current)}
+                  disabled={!hasSolution}
+                >
+                  {showSolution ? <Lightbulb /> : <LightbulbOff />}
+                  {t('actions.showSolution')}
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-wrap items-center justify-between gap-3">
+            <Badge variant="secondary">
+              {grid.length}x{grid[0].length}
+            </Badge>
+            <Badge variant="secondary">{getModeLabel(editing, t)}</Badge>
+          </CardHeader>
+          <CardContent>
+            <Item variant="muted">
+              <ItemContent>
+                <div className="flex justify-center overflow-x-auto">
+                  <div className="bg-background/80 ring-border/40 inline-flex rounded-[20px] px-4 py-5 ring-1 sm:px-5">
+                    <div className="flex flex-col gap-3">
+                      {boardRows.map((row) => (
+                        <div key={row.id} className="flex gap-3">
+                          {row.cells.map(({ id, isLit, rowIndex, colIndex, step }) => {
+                            return (
+                              <button
+                                type="button"
+                                key={id}
+                                onClick={() => handleCellClick(rowIndex, colIndex)}
+                                className={cn(
+                                  'focus-visible:ring-ring/50 relative flex items-center justify-center rounded-full border transition-colors duration-200 outline-none focus-visible:ring-3',
+                                  cellSizeClass,
+                                  isLit
+                                    ? 'border-primary/30 bg-primary text-primary-foreground'
+                                    : 'border-border bg-muted text-muted-foreground',
+                                  !editing && 'hover:border-primary/45 hover:bg-primary/90',
+                                  editing && 'hover:border-primary/60 hover:bg-accent',
+                                )}
+                                aria-label={t('cellAriaLabel', {
+                                  row: rowIndex + 1,
+                                  col: colIndex + 1,
+                                  state: isLit ? t('lightState.on') : t('lightState.off'),
+                                })}
+                              >
+                                <span
+                                  className={cn(
+                                    'pointer-events-none absolute inset-[18%] rounded-full border',
+                                    isLit ? 'border-primary-foreground/30' : 'border-foreground/10',
+                                  )}
+                                />
+                                {showSolution && step ? (
+                                  <span className="border-background bg-primary text-primary-foreground absolute -top-1 -right-1 flex size-6 items-center justify-center rounded-full border text-[11px] font-semibold shadow-sm">
+                                    {step.index}
+                                  </span>
+                                ) : null}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </ItemContent>
+            </Item>
+          </CardContent>
+        </Card>
       </div>
 
       <section className="tool-panel space-y-4 xl:col-start-2 xl:row-start-1 xl:min-h-168">

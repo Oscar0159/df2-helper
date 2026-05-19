@@ -1,6 +1,6 @@
 'use client';
 
-import { Eraser, RefreshCcw } from 'lucide-react';
+import { ChevronDown, ChevronUp, Eraser, RefreshCcw } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 import { useMemo, useState } from 'react';
@@ -17,12 +17,16 @@ import {
   type WordFinderMode,
 } from './constants';
 import { searchWordsByLetters, searchWordsByPattern } from './utils/word-search';
+import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card';
+import { Item, ItemContent, ItemDescription, ItemGroup, ItemTitle } from '@/components/ui/item';
+import { Badge } from '@/components/ui/badge';
 
 export function WordFinderClient() {
   const t = useTranslations('tools.wordFinder');
   const [mode, setMode] = useState<WordFinderMode>('pattern');
   const [pattern, setPattern] = useState(WORD_FINDER_SAMPLE_PATTERN);
   const [letters, setLetters] = useState(WORD_FINDER_SAMPLE_LETTERS);
+  const [resultsExpanded, setResultsExpanded] = useState(false);
 
   const result = useMemo(
     () => (mode === 'pattern' ? searchWordsByPattern(pattern) : searchWordsByLetters(letters)),
@@ -44,14 +48,12 @@ export function WordFinderClient() {
 
   const currentValue = mode === 'pattern' ? pattern : letters;
   const setCurrentValue = mode === 'pattern' ? setPattern : setLetters;
-  const inputDescription =
-    mode === 'pattern' ? t('inputDescription.pattern') : t('inputDescription.anagram');
+  const inputRuleDescription =
+    mode === 'pattern' ? t('inputRuleDescription.pattern') : t('inputRuleDescription.anagram');
   const inputPlaceholder =
     mode === 'pattern' ? t('inputPlaceholder.pattern') : t('inputPlaceholder.anagram');
   const rulesDescription =
     mode === 'pattern' ? t('rulesDescription.pattern') : t('rulesDescription.anagram');
-  const normalizedEmpty =
-    mode === 'pattern' ? t('normalizedInputEmptyPattern') : t('normalizedInputEmptyAnagram');
   const emptyMessage =
     mode === 'anagram' && !result.normalizedInput
       ? t('idleAnagram')
@@ -71,108 +73,94 @@ export function WordFinderClient() {
   return (
     <div className="mx-auto w-full max-w-5xl space-y-6">
       <section className="grid gap-6 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <div className="tool-panel space-y-4">
-          <div className="tool-panel-header">
-            <div className="space-y-3">
-              <p className="tool-section-title">{t('modeTitle')}</p>
-              <ConversionModeToggle value={mode} options={modeOptions} onValueChange={setMode} />
-            </div>
+        <Card>
+          <CardHeader className="flex flex-wrap items-center gap-2">
+            <p className="mr-auto text-sm leading-none font-medium">{t('inputTitle')}</p>
+            <ConversionModeToggle value={mode} options={modeOptions} onValueChange={setMode} />
             <Button variant="outline" onClick={handleUseSample}>
               <RefreshCcw className="size-4" />
               {t('sampleButton')}
             </Button>
-          </div>
+          </CardHeader>
 
-          <div className="tool-subpanel">
-            <p className="tool-section-title">{t('inputTitle')}</p>
-            <p className="text-muted-foreground mt-2 text-sm leading-6">{inputDescription}</p>
-          </div>
+          <CardContent className="space-y-2">
+            <Item variant="muted">
+              <ItemContent>
+                <ItemTitle>{t('inputRuleTitle')}</ItemTitle>
+                <ItemDescription>{inputRuleDescription}</ItemDescription>
+              </ItemContent>
+            </Item>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Input
+                value={currentValue}
+                onChange={(event) => setCurrentValue(event.target.value)}
+                className="h-8 uppercase"
+                spellCheck={false}
+                placeholder={inputPlaceholder}
+              />
+              <Button variant="outline" onClick={() => setCurrentValue('')} type="button">
+                <Eraser className="size-4" />
+                {t('clearButton')}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Input
-              value={currentValue}
-              onChange={(event) => setCurrentValue(event.target.value)}
-              className="h-8 uppercase"
-              spellCheck={false}
-              placeholder={inputPlaceholder}
-            />
-            <Button variant="outline" onClick={() => setCurrentValue('')} type="button">
-              <Eraser className="size-4" />
-              {t('clearButton')}
+        <Card>
+          <CardHeader className="flex items-center gap-2">
+            <p className="mr-auto text-sm leading-none font-medium">{t('resultsTitle')}</p>
+            <Button variant="ghost" onClick={() => setResultsExpanded((prev) => !prev)}>
+              {resultsExpanded ? <ChevronUp /> : <ChevronDown />}
+              {resultsExpanded ? t('collapseResults') : t('expandResults')}
             </Button>
-          </div>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Item variant="muted">
+              <ItemContent>
+                <ItemTitle>{t('rulesTitle')}</ItemTitle>
+                <ItemDescription>{rulesDescription}</ItemDescription>
+              </ItemContent>
+            </Item>
 
-          <div className="tool-subpanel">
-            <p className="tool-section-title">{t('normalizedInputTitle')}</p>
-            <p className="mt-2 text-lg font-semibold tracking-[0.18em] uppercase">
-              {result.normalizedInput || normalizedEmpty}
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {WORD_FINDER_CATEGORIES.map((category) => {
-              const group = result.groups.find((entry) => entry.category === category);
-
-              return (
-                <div key={category} className="tool-subpanel-inset">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-medium">{categoryLabels[category]}</p>
-                    <span className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-xs">
-                      {group?.words.length ?? 0}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="tool-panel space-y-4">
-          <div className="tool-subpanel">
-            <p className="tool-section-label">{t('rulesTitle')}</p>
-            <p className="text-muted-foreground mt-3 text-sm leading-6">{rulesDescription}</p>
-          </div>
-
-          <div className="tool-subpanel-inset">
-            <p className="tool-section-label">{t('resultsTitle')}</p>
-            <p className="mt-3 leading-6 font-medium">
-              {t('resultsCount', { count: result.totalMatches })}
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {result.totalMatches ? (
-              result.groups.map((group) => (
-                <section key={group.category} className="tool-subpanel-inset text-sm">
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <p className="font-medium">{categoryLabels[group.category]}</p>
-                    <span className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-xs">
-                      {group.words.length}
-                    </span>
-                  </div>
-                  {group.words.length ? (
-                    <div className="flex flex-wrap gap-2">
-                      {group.words.map((word) => (
-                        <span
-                          key={`${group.category}-${word}`}
-                          className="border-border/60 bg-muted rounded-full border px-3 py-1 font-medium tracking-[0.14em]"
+            <ItemGroup>
+              {result.totalMatches ? (
+                result.groups.map((group) => (
+                  <Item key={group.category} variant="outline">
+                    <ItemContent>
+                      <ItemTitle>{categoryLabels[group.category]}</ItemTitle>
+                      <ItemDescription className="mt-2 flex flex-wrap gap-2">
+                        {group.words.length
+                          ? group.words.map((word) => (
+                              <Badge
+                                key={`${group.category}-${word}`}
+                                className="tracking-[0.14em]"
+                              >
+                                {word}
+                              </Badge>
+                            ))
+                          : t('emptyCategory')}
+                      </ItemDescription>
+                    </ItemContent>
+                    <ItemContent>
+                      <ItemDescription>
+                        <Badge
+                          variant="secondary"
+                          className="text-muted-foreground flex aspect-square items-center gap-1"
                         >
-                          {word}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-muted-foreground leading-6">{t('emptyCategory')}</p>
-                  )}
-                </section>
-              ))
-            ) : (
-              <div className="tool-subpanel-inset text-sm">
-                <p className="text-muted-foreground leading-6">{emptyMessage}</p>
-              </div>
-            )}
-          </div>
-        </div>
+                          {group.words.length}
+                        </Badge>
+                      </ItemDescription>
+                    </ItemContent>
+                  </Item>
+                ))
+              ) : (
+                <div className="tool-subpanel-inset text-sm">
+                  <p className="text-muted-foreground leading-6">{emptyMessage}</p>
+                </div>
+              )}
+            </ItemGroup>
+          </CardContent>
+        </Card>
       </section>
     </div>
   );

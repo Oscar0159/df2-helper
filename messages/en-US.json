@@ -98,21 +98,15 @@
       }
     },
     "binary": {
-      "badge": "multi-group decoder",
       "title": "Binary Converter",
-      "description": "Turn binary groups into digits, or convert digits back into binary groups.",
-      "conversionMode": "Direction",
+      "description": "Switch quickly between binary groups and numeric clues.",
       "modes": {
         "binaryToDigits": "Binary -> Digits",
         "digitsToBinary": "Digits -> Binary"
       },
       "inputTitle": "Input",
-      "inputDescriptionBinaryToDigits": "Enter binary groups separated by spaces, such as 101 11 110.",
-      "inputDescriptionDigitsToBinary": "Enter a string of digits such as 5362.",
       "sampleButton": "Use sample",
       "outputTitle": "Output",
-      "primaryTitle": "Primary result",
-      "groupedViewTitle": "Item breakdown",
       "emptyState": "Results will appear here as soon as you start typing.",
       "errors": {
         "invalidBinaryCharacters": "Binary groups can only contain 0 and 1.",
@@ -121,30 +115,23 @@
       }
     },
     "letterNumber": {
-      "badge": "letters and indexes",
       "title": "Letter Number Converter",
-      "description": "Convert number indexes into letters, or turn A-I clues back into digits.",
-      "conversionMode": "Direction",
+      "description": "Convert quickly between letter indexes and number clues.",
       "modes": {
         "numbersToLetters": "Numbers -> Letters",
         "lettersToNumbers": "Letters -> Numbers"
       },
       "inputTitle": "Input",
-      "inputDescriptionNumbersToLetters": "Use spaces between values from 1 to 26, such as 20 8 5.",
-      "inputDescriptionLettersToNumbers": "Enter letters from A to I. Lowercase works too.",
       "sampleButton": "Use sample",
       "outputTitle": "Output",
-      "primaryTitle": "Primary result",
-      "breakdownTitle": "Item breakdown",
       "emptyState": "Results will appear here as soon as you start typing.",
       "errors": {
         "numberOutOfRange": "Numbers must stay between 1 and 26."
       }
     },
     "wordFinder": {
-      "badge": "curated word bank",
       "title": "Word Finder",
-      "description": "Find possible words from clue patterns or a full set of scrambled letters.",
+      "description": "Find possible words from missing-letter patterns or scrambled letters.",
       "categories": {
         "3": "3 letters",
         "4": "4 letters",
@@ -152,13 +139,13 @@
         "6": "6 letters",
         "6+": "6+ letters"
       },
-      "modeTitle": "Search mode",
       "modes": {
         "pattern": "Missing letters",
         "anagram": "Scrambled letters"
       },
-      "inputTitle": "Search input",
-      "inputDescription": {
+      "inputTitle": "Input",
+      "inputRuleTitle": "Input rules",
+      "inputRuleDescription": {
         "pattern": "Use letters for known positions and _, ?, or * for single-letter blanks.",
         "anagram": "Enter every letter in the word once. The order can be scrambled."
       },
@@ -168,23 +155,19 @@
       },
       "sampleButton": "Use sample",
       "clearButton": "Clear",
-      "normalizedInputTitle": "Normalized input",
-      "normalizedInputEmptyPattern": "ALL",
-      "normalizedInputEmptyAnagram": "EMPTY",
       "rulesTitle": "Pattern rules",
       "rulesDescription": {
         "pattern": "Spaces and extra symbols are ignored. The tool matches both letter positions and word length, then groups every match for you.",
         "anagram": "Spaces and non-letters are ignored. A result only appears when it uses exactly the same letters with the same length."
       },
       "resultsTitle": "Results",
-      "resultsCount": "Found {count} matches.",
+      "expandResults": "Expand results",
+      "collapseResults": "Collapse results",
       "emptyCategory": "No matches in this category yet.",
-      "idleAnagram": "Matches will appear here after you enter the full letter set.",
       "noResults": {
         "pattern": "No words matched this pattern in the current word bank.",
         "anagram": "No words in the current word bank can be built from this letter set."
-      },
-      "resultsSummary": "Possible matches are grouped by word length."
+      }
     },
     "morse": {
       "badge": "dots and dashes",
@@ -196,8 +179,10 @@
         "textToMorse": "Text -> Morse"
       },
       "inputTitle": "Input",
-      "inputDescriptionMorseToText": "Enter any number of Morse groups separated by spaces.",
-      "inputDescriptionTextToMorse": "Enter any number of alphanumeric characters such as 1AB9.",
+      "inputDescription": {
+        "morseToText": "Enter any number of Morse groups separated by spaces.",
+        "textToMorse": "Enter any number of alphanumeric characters such as 1AB9."
+      },
       "sampleButton": "Use sample",
       "outputTitle": "Output",
       "primaryTitle": "Primary result",
