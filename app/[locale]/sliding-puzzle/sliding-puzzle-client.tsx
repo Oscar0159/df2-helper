@@ -13,9 +13,11 @@ import {
   useSensors,
 } from '@dnd-kit/core';
 import {
+  AlertCircle,
   Check,
   ChevronDown,
   ChevronUp,
+  ChevronUpCircle,
   Hash,
   Lightbulb,
   LightbulbOff,
@@ -63,6 +65,11 @@ import {
   slideTile,
   swapTiles,
 } from './utils/sliding-puzzle-solver';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@/components/ui/item';
+import { Alert, AlertTitle } from '@/components/ui/alert';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Badge } from '@/components/ui/badge';
 
 const sizeOptions = [
   { label: '3x2', rows: 3, cols: 2 },
@@ -82,7 +89,7 @@ const imageOptions = [
 
 const defaultSize = sizeOptions[1];
 const defaultImageId = imageOptions[0].id;
-const playbackSpeedOptions = [0.5, 1, 1.5, 2] as const;
+const playbackSpeedOptions = [0.5, 1.0, 1.5, 2.0] as const;
 type SizeOption = (typeof sizeOptions)[number];
 
 function formatImageLabel(id: string) {
@@ -121,10 +128,6 @@ function getBoardGridClass(size: SizeOption) {
   }
 
   return 'h-[min(72vw,26rem)] gap-2 sm:h-104 sm:gap-3';
-}
-
-function getTileRadiusClass(cols: number) {
-  return cols === 2 ? 'rounded-[16px]' : 'rounded-[18px]';
 }
 
 function getSuggestionBadgeClass(cols: number) {
@@ -325,317 +328,296 @@ export function SlidingPuzzleClient() {
 
   return (
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] xl:items-start">
-      <div className="order-1 space-y-6 xl:col-start-1 xl:row-start-1">
-        <section className="tool-panel space-y-4">
-          <p className="tool-section-title">{t('controlsTitle')}</p>
-
-          <div className="space-y-3">
-            <p className="tool-section-label">{t('sizeTitle')}</p>
-            <div className="tool-action-row">
-              {sizeOptions.map((option) => (
-                <Button
-                  key={option.label}
-                  variant={size.label === option.label ? 'default' : 'outline'}
-                  onClick={() => handleSizeChange(option)}
-                >
-                  {option.label}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <p className="tool-section-label">{t('actionsTitle')}</p>
-            <div className="tool-action-row">
-              <IconActionButton
-                icon={RefreshCcw}
-                label={t('actions.reset')}
-                onClick={() => resetBoard()}
-              />
-              <IconActionButton
-                icon={Shuffle}
-                label={t('actions.shuffle')}
-                onClick={() => shuffleBoard()}
-              />
-              <IconActionButton
-                icon={showSolution ? Lightbulb : LightbulbOff}
-                label={t('actions.showSolution')}
-                active={showSolution}
-                onClick={() => setShowSolution((current) => !current)}
-              />
-              <IconActionButton
-                icon={Hash}
-                label={t('actions.showNumbers')}
-                active={showNumbers}
-                onClick={() => setShowNumbers((current) => !current)}
-              />
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <p className="tool-section-label">{t('imageTitle')}</p>
-              <p className="text-muted-foreground text-sm">{formatImageLabel(currentImage.id)}</p>
-            </div>
-
-            <Drawer
-              direction={isDesktopImageDrawer ? 'right' : 'bottom'}
-              open={isImageDrawerOpen}
-              onOpenChange={setIsImageDrawerOpen}
-            >
-              <DrawerTrigger asChild>
-                <Button type="button" variant="outline" className="w-full justify-between">
-                  <span>{formatImageLabel(currentImage.id)}</span>
-                  <ChevronDown className="size-4" />
-                </Button>
-              </DrawerTrigger>
-              <DrawerContent className="xl:data-[vaul-drawer-direction=right]:w-[24rem] xl:data-[vaul-drawer-direction=right]:max-w-[24rem]">
-                <DrawerHeader>
-                  <DrawerTitle>{t('imageTitle')}</DrawerTitle>
-                  <DrawerDescription>{formatImageLabel(currentImage.id)}</DrawerDescription>
-                </DrawerHeader>
-                <div className="px-4 pb-6">
-                  <ImagePickerGrid
-                    imageId={imageId}
-                    onSelect={(nextImageId) => {
-                      setImageId(nextImageId);
-                      setIsImageDrawerOpen(false);
-                    }}
-                  />
-                </div>
-              </DrawerContent>
-            </Drawer>
-          </div>
-        </section>
-
-        <section className="tool-panel space-y-5">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
-              {size.label}
-            </div>
-            <div className="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium tracking-[0.18em] uppercase">
-              {boardStatusLabel}
-            </div>
-          </div>
-
-          <div className="tool-subpanel space-y-4">
-            <DndContext
-              sensors={sensors}
-              collisionDetection={closestCenter}
-              onDragStart={handleDragStart}
-              onDragEnd={handleDragEnd}
-            >
-              <div className="bg-muted/35 rounded-[20px] p-3 sm:p-4">
-                <div className="flex justify-center">
-                  <div
-                    className={cn('grid', boardGridClass)}
-                    style={{
-                      gridTemplateColumns: `repeat(${size.cols}, minmax(0, 1fr))`,
-                      aspectRatio: `${size.cols} / ${size.rows}`,
-                    }}
+      <div className="space-y-6 xl:col-start-1 xl:row-start-1">
+        <Card>
+          <CardHeader>
+            <p className="mr-auto text-sm leading-none font-medium">{t('controlsTitle')}</p>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="space-y-3">
+              <p className="text-muted-foreground text-xs">{t('sizeTitle')}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                {sizeOptions.map((option) => (
+                  <Button
+                    key={option.label}
+                    variant={size.label === option.label ? 'default' : 'outline'}
+                    onClick={() => handleSizeChange(option)}
                   >
-                    {cells.map((cell) => {
-                      return (
-                        <PuzzleCell
-                          key={cell.cellId}
-                          id={cell.cellId}
-                          imageSrc={currentImage.src}
-                          rows={size.rows}
-                          cols={size.cols}
-                          showNumbers={showNumbers}
-                          emptyLabel={t('emptySlot')}
-                          highlightBlank={false}
-                          suggestedIndex={undefined}
-                          suggestedTile={false}
-                          onTileClick={handleTileClick}
-                          {...cell}
-                        />
-                      );
-                    })}
-                  </div>
-                </div>
+                    {option.label}
+                  </Button>
+                ))}
               </div>
+            </div>
 
-              <DragOverlay>
-                {activeTile ? (
-                  <PuzzleTilePreview
-                    tile={activeTile.tile}
-                    imageSrc={currentImage.src}
-                    goalRow={activeTile.goalRow}
-                    goalCol={activeTile.goalCol}
-                    rows={size.rows}
-                    cols={size.cols}
-                    showNumbers={showNumbers}
-                    isOverlay
-                  />
-                ) : null}
-              </DragOverlay>
-            </DndContext>
-          </div>
-        </section>
+            <div className="space-y-3">
+              <p className="text-muted-foreground text-xs">{t('actionsTitle')}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <Button variant="outline" onClick={() => resetBoard()}>
+                  <RefreshCcw />
+                  {t('actions.reset')}
+                </Button>
+                <Button variant="outline" onClick={() => shuffleBoard()}>
+                  <Shuffle />
+                  {t('actions.shuffle')}
+                </Button>
+                <Button
+                  variant={showSolution ? 'default' : 'outline'}
+                  onClick={() => setShowSolution((current) => !current)}
+                >
+                  {showSolution ? <Lightbulb /> : <LightbulbOff />}
+                  {t('actions.showSolution')}
+                </Button>
+                <Button
+                  variant={showNumbers ? 'default' : 'outline'}
+                  onClick={() => setShowNumbers((current) => !current)}
+                >
+                  <Hash />
+                  {t('actions.showNumbers')}
+                </Button>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-muted-foreground text-xs">{t('imageTitle')}</p>
+
+              <Drawer
+                direction={isDesktopImageDrawer ? 'left' : 'bottom'}
+                open={isImageDrawerOpen}
+                onOpenChange={setIsImageDrawerOpen}
+              >
+                <DrawerTrigger asChild>
+                  <Button variant="outline" className="w-full justify-between">
+                    <span>{formatImageLabel(currentImage.id)}</span>
+                    <ChevronDown />
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>{t('imageTitle')}</DrawerTitle>
+                    <DrawerDescription>{t('imageDescription')}</DrawerDescription>
+                  </DrawerHeader>
+                  <div className="px-4 pb-6">
+                    <ImagePickerGrid
+                      imageId={imageId}
+                      onSelect={(nextImageId) => {
+                        setImageId(nextImageId);
+                        setIsImageDrawerOpen(false);
+                      }}
+                    />
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-wrap items-center justify-between gap-3">
+            <Badge variant="secondary">{size.label}</Badge>
+            <Badge variant="secondary">{boardStatusLabel}</Badge>
+          </CardHeader>
+          <CardContent>
+            <Item variant="muted">
+              <ItemContent>
+                <DndContext
+                  sensors={sensors}
+                  collisionDetection={closestCenter}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
+                >
+                  <div className="flex justify-center">
+                    <div
+                      className={cn('grid', boardGridClass)}
+                      style={{
+                        gridTemplateColumns: `repeat(${size.cols}, minmax(0, 1fr))`,
+                        aspectRatio: `${size.cols} / ${size.rows}`,
+                      }}
+                    >
+                      {cells.map((cell) => {
+                        return (
+                          <PuzzleCell
+                            key={cell.cellId}
+                            id={cell.cellId}
+                            imageSrc={currentImage.src}
+                            rows={size.rows}
+                            cols={size.cols}
+                            showNumbers={showNumbers}
+                            emptyLabel={t('emptySlot')}
+                            highlightBlank={false}
+                            suggestedIndex={undefined}
+                            suggestedTile={false}
+                            onTileClick={handleTileClick}
+                            {...cell}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <DragOverlay>
+                    {activeTile ? (
+                      <PuzzleTilePreview
+                        tile={activeTile.tile}
+                        imageSrc={currentImage.src}
+                        goalRow={activeTile.goalRow}
+                        goalCol={activeTile.goalCol}
+                        rows={size.rows}
+                        cols={size.cols}
+                        showNumbers={showNumbers}
+                        isOverlay
+                      />
+                    ) : null}
+                  </DragOverlay>
+                </DndContext>
+              </ItemContent>
+            </Item>
+          </CardContent>
+        </Card>
       </div>
 
-      <section className="tool-panel order-3 space-y-4 xl:col-start-2 xl:row-start-1 xl:min-h-184">
-        <div className="flex items-start justify-between gap-3">
-          <p className="tool-section-title">{t('solutionTitle')}</p>
-          <IconActionButton
-            icon={solutionExpanded ? ChevronUp : ChevronDown}
-            label={solutionExpanded ? t('actions.collapseSolution') : t('actions.expandSolution')}
-            variant="ghost"
-            size="sm"
-            onClick={() => setSolutionExpanded((current) => !current)}
-          />
-        </div>
-
-        {!solution.hasSolution ? (
-          <div className="tool-feedback-danger">{t('noSolution')}</div>
-        ) : !showSolution ? (
-          <div className="tool-feedback-empty">{t('solutionHidden')}</div>
-        ) : solved ? (
-          <div className="tool-feedback-empty">{t('alreadySolved')}</div>
-        ) : (
-          <div className="space-y-4">
-            <div className="tool-subpanel space-y-4">
-              <div className="space-y-2 sm:flex sm:items-center sm:justify-between sm:gap-3 sm:space-y-0">
-                <span className="tool-section-label">{t('playbackSpeedTitle')}</span>
-                <ButtonGroup className="border-border/60 bg-background/75 relative isolate flex w-full flex-wrap overflow-hidden rounded-2xl border p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.24)] backdrop-blur-sm sm:ml-auto sm:w-auto sm:rounded-full">
-                  {playbackSpeedOptions.map((speed) => (
-                    <Button
-                      key={speed}
-                      size="xs"
-                      variant={playbackSpeed === speed ? 'default' : 'ghost'}
-                      className={cn(
-                        'relative min-w-0 flex-1 rounded-xl border-0 bg-transparent px-2.5 shadow-none transition-colors duration-200 sm:min-w-10 sm:flex-none sm:rounded-full',
-                        playbackSpeed === speed
-                          ? 'text-foreground hover:text-foreground'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-transparent',
-                      )}
-                      onClick={() => setPlaybackSpeed(speed)}
-                      disabled={solved || !solution.hasSolution}
-                    >
-                      {playbackSpeed === speed ? (
-                        <motion.span
-                          layoutId="playback-speed-pill"
-                          className="border-border/70 bg-card absolute inset-0 rounded-xl border shadow-[0_1px_2px_rgba(24,24,27,0.06),0_6px_18px_rgba(24,24,27,0.08)] sm:rounded-full"
-                          transition={{
-                            type: 'spring',
-                            stiffness: 380,
-                            damping: 30,
-                          }}
-                        />
-                      ) : null}
-                      <motion.span
-                        className="relative z-10"
-                        whileTap={{ scale: 0.94 }}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 420,
-                          damping: 26,
-                        }}
+      <Card>
+        <CardHeader className="flex items-center gap-2">
+          <p className="mr-auto text-sm leading-none font-medium">{t('solutionTitle')}</p>
+          <Button variant="ghost" onClick={() => setSolutionExpanded((current) => !current)}>
+            {solutionExpanded ? <ChevronUpCircle /> : <ChevronDown />}
+            {solutionExpanded ? t('actions.collapseSolution') : t('actions.expandSolution')}
+          </Button>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {!solution.hasSolution ? (
+            <Alert variant="destructive" className="border-destructive/50 bg-destructive/10">
+              <AlertCircle />
+              <AlertTitle>{t('noSolution')}</AlertTitle>
+            </Alert>
+          ) : !showSolution ? (
+            <Item variant="muted">
+              <ItemContent>
+                <ItemDescription>{t('solutionHidden')}</ItemDescription>
+              </ItemContent>
+            </Item>
+          ) : solved ? (
+            <Item variant="muted">
+              <ItemContent>
+                <ItemDescription>{t('alreadySolved')}</ItemDescription>
+              </ItemContent>
+            </Item>
+          ) : (
+            <div className="space-y-4">
+              <Item variant="muted">
+                <ItemContent className="space-y-4">
+                  <div className="space-y-3">
+                    <p className="text-muted-foreground text-xs">{t('playbackSpeedTitle')}</p>
+                    <ButtonGroup>
+                      {playbackSpeedOptions.map((speed) => (
+                        <Button
+                          key={speed}
+                          variant={playbackSpeed === speed ? 'default' : 'outline'}
+                          onClick={() => setPlaybackSpeed(speed)}
+                          disabled={solved || !solution.hasSolution}
+                          className="px-4"
+                        >
+                          {speed.toFixed(1)}
+                        </Button>
+                      ))}
+                    </ButtonGroup>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-muted-foreground text-xs">{t('solutionTitle')}</p>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button
+                        variant="outline"
+                        onClick={applyNextStep}
+                        disabled={!solution.hasSolution || solved}
                       >
-                        {speed}x
-                      </motion.span>
-                    </Button>
+                        <SkipForward className="size-4" />
+                        {t('actions.applyNext')}
+                      </Button>
+                      <Button
+                        variant={isPlayingSolution ? 'default' : 'outline'}
+                        onClick={() => setIsPlayingSolution((current) => !current)}
+                        disabled={solved || !solution.hasSolution}
+                      >
+                        {isPlayingSolution ? (
+                          <Pause className="size-4" />
+                        ) : (
+                          <Play className="size-4" />
+                        )}
+                        {t('actions.playSolution')}
+                      </Button>
+                    </div>
+                  </div>
+                </ItemContent>
+              </Item>
+
+              <Item variant="muted">
+                <ItemContent>
+                  <ItemTitle>{t('solutionCount', { count: solution.steps.length })}</ItemTitle>
+                  <ItemDescription>{t('solutionHint')}</ItemDescription>
+                </ItemContent>
+              </Item>
+
+              {solutionExpanded ? (
+                <ScrollArea type="auto" className="h-80 max-h-80 pr-4">
+                  <div className="space-y-2">
+                    {solution.steps.map((step) => (
+                      <Item key={`${step.index}-${step.tile}`} variant="outline">
+                        <ItemMedia>
+                          <Badge className="aspect-square size-8 text-sm font-semibold">
+                            {step.index}
+                          </Badge>
+                        </ItemMedia>
+                        <ItemContent>
+                          <ItemTitle>
+                            {t('stepLabel', {
+                              tile: step.tile,
+                              direction: getDirectionLabel(step.direction, t),
+                            })}
+                          </ItemTitle>
+                        </ItemContent>
+                      </Item>
+                    ))}
+                  </div>
+                </ScrollArea>
+              ) : (
+                <div className="grid gap-2">
+                  {previewSteps.map((step) => (
+                    <Item key={`${step.index}-${step.tile}`} variant="outline">
+                      <ItemMedia>
+                        <Badge className="aspect-square size-8 text-sm font-semibold">
+                          {step.index}
+                        </Badge>
+                      </ItemMedia>
+                      <ItemContent>
+                        <ItemTitle>
+                          {t('stepLabel', {
+                            tile: step.tile,
+                            direction: getDirectionLabel(step.direction, t),
+                          })}
+                        </ItemTitle>
+                      </ItemContent>
+                    </Item>
                   ))}
-                </ButtonGroup>
-              </div>
 
-              <div className="space-y-2">
-                <span className="tool-section-label">{t('solutionTitle')}</span>
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                  <IconActionButton
-                    icon={SkipForward}
-                    label={t('actions.applyNext')}
-                    onClick={() => {
-                      setShowSolution(true);
-                      applyNextStep();
-                    }}
-                    disabled={!solution.hasSolution || solved}
-                  />
-                  <IconActionButton
-                    icon={isPlayingSolution ? Pause : Play}
-                    label={
-                      isPlayingSolution ? t('actions.pauseSolution') : t('actions.playSolution')
-                    }
-                    active={isPlayingSolution}
-                    onClick={() => {
-                      setShowSolution(true);
-                      setIsPlayingSolution((current) => !current);
-                    }}
-                    disabled={!solution.hasSolution || solved}
-                  />
+                  {solution.steps.length > previewSteps.length ? (
+                    <p className="text-muted-foreground px-1 text-sm">
+                      {t('solutionCollapsedHint', {
+                        count: solution.steps.length - previewSteps.length,
+                      })}
+                    </p>
+                  ) : null}
                 </div>
-              </div>
+              )}
             </div>
+          )}
 
-            <div className="tool-subpanel">
-              <p className="tool-section-label">
-                {t('solutionCount', { count: solution.steps.length })}
-              </p>
-              <p className="mt-2 text-sm leading-6">{t('solutionHint')}</p>
-            </div>
-
-            {solutionExpanded ? (
-              <div className="grid max-h-80 gap-2 overflow-auto pr-1 xl:max-h-160">
-                {solution.steps.map((step) => (
-                  <div
-                    key={`${step.index}-${step.tile}`}
-                    className={cn(
-                      'tool-subpanel-inset flex items-center gap-3',
-                      step.index === 1 && 'ring-primary/60 ring-2',
-                    )}
-                  >
-                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
-                      {step.index}
-                    </span>
-                    <span className="text-sm font-medium">
-                      {t('stepLabel', {
-                        tile: step.tile,
-                        direction: getDirectionLabel(step.direction, t),
-                      })}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid gap-2">
-                {previewSteps.map((step) => (
-                  <div
-                    key={`${step.index}-${step.tile}`}
-                    className={cn(
-                      'tool-subpanel-inset flex items-center gap-3',
-                      step.index === 1 && 'ring-primary/60 ring-2',
-                    )}
-                  >
-                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
-                      {step.index}
-                    </span>
-                    <span className="text-sm font-medium">
-                      {t('stepLabel', {
-                        tile: step.tile,
-                        direction: getDirectionLabel(step.direction, t),
-                      })}
-                    </span>
-                  </div>
-                ))}
-
-                {solution.steps.length > previewSteps.length ? (
-                  <p className="text-muted-foreground px-1 text-sm">
-                    {t('solutionCollapsedHint', {
-                      count: solution.steps.length - previewSteps.length,
-                    })}
-                  </p>
-                ) : null}
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className="tool-subpanel-inset text-sm leading-6">
-          <p className="font-medium">{t('rulesTitle')}</p>
-          <p className="text-muted-foreground mt-2">{t('rulesDescription')}</p>
-        </div>
-      </section>
+          <Item variant="outline">
+            <ItemContent>
+              <ItemTitle>{t('rulesTitle')}</ItemTitle>
+              <ItemDescription>{t('rulesDescription')}</ItemDescription>
+            </ItemContent>
+          </Item>
+        </CardContent>
+      </Card>
     </div>
   );
 }
@@ -711,40 +693,6 @@ function ImagePickerGrid({
   );
 }
 
-function IconActionButton({
-  icon: Icon,
-  label,
-  onClick,
-  active = false,
-  disabled = false,
-  variant,
-  size = 'default',
-}: {
-  icon: typeof RefreshCcw;
-  label: string;
-  onClick: () => void;
-  active?: boolean;
-  disabled?: boolean;
-  variant?: 'default' | 'outline' | 'ghost';
-  size?: 'default' | 'sm';
-}) {
-  const buttonVariant = variant ?? (active ? 'default' : 'outline');
-
-  return (
-    <Button
-      type="button"
-      variant={buttonVariant}
-      size={size}
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={label}
-    >
-      <Icon className="size-4" />
-      {label}
-    </Button>
-  );
-}
-
 function PuzzleCell({
   id,
   tile,
@@ -781,7 +729,6 @@ function PuzzleCell({
   const { isOver, setNodeRef } = useDroppable({
     id,
   });
-  const radiusClass = getTileRadiusClass(cols);
 
   return (
     <motion.div
@@ -789,8 +736,7 @@ function PuzzleCell({
       transition={{ type: 'spring', stiffness: 260, damping: 26 }}
       ref={setNodeRef}
       className={cn(
-        'relative overflow-hidden transition-all duration-200',
-        radiusClass,
+        'relative overflow-hidden rounded-lg transition-all duration-200',
         isBlank
           ? 'bg-background/75 ring-border/60 ring-dashed ring-1'
           : 'bg-background/35 ring-border/40 ring-1',
@@ -854,7 +800,6 @@ function DraggablePuzzleTile({
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id,
   });
-  const radiusClass = getTileRadiusClass(cols);
   const suggestionBadgeClass = getSuggestionBadgeClass(cols);
 
   return (
@@ -868,8 +813,7 @@ function DraggablePuzzleTile({
       whileTap={{ scale: 0.985 }}
       transition={{ type: 'spring', stiffness: 320, damping: 24 }}
       className={cn(
-        'bg-card focus-visible:ring-ring/50 relative size-full overflow-hidden text-left transition-all duration-200 outline-none focus-visible:ring-3',
-        radiusClass,
+        'bg-card focus-visible:ring-ring/50 relative size-full overflow-hidden rounded-lg text-left transition-all duration-200 outline-none focus-visible:ring-3',
         isMovable && 'ring-primary/60 cursor-pointer ring-2',
         isMovable && 'shadow-[0_10px_24px_rgba(24,24,27,0.08)]',
         !isMovable && 'ring-border/50 cursor-grab ring-1',
@@ -937,7 +881,6 @@ function PuzzleTilePreview({
   suggestedTile?: boolean;
   isOverlay?: boolean;
 }) {
-  const radiusClass = getTileRadiusClass(cols);
   const numberBadgeClass = getNumberBadgeClass(cols);
 
   return (
@@ -945,8 +888,7 @@ function PuzzleTilePreview({
       layout
       transition={{ type: 'spring', stiffness: 280, damping: 24 }}
       className={cn(
-        'bg-muted relative size-full overflow-hidden transition-all duration-200',
-        radiusClass,
+        'bg-muted relative size-full overflow-hidden rounded-lg transition-all duration-200',
         suggestedTile && 'shadow-[inset_0_0_0_2px_rgba(24,24,27,0.12)]',
         isOverlay && 'scale-[1.03] shadow-xl',
       )}

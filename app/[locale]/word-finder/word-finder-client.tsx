@@ -5,21 +5,21 @@ import { useTranslations } from 'next-intl';
 
 import { useMemo, useState } from 'react';
 
-import { ConversionModeToggle } from '@/components/shared/conversion-mode-toggle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 import {
-  WORD_FINDER_CATEGORIES,
   WORD_FINDER_SAMPLE_LETTERS,
   WORD_FINDER_SAMPLE_PATTERN,
   type WordFinderCategory,
   type WordFinderMode,
 } from './constants';
 import { searchWordsByLetters, searchWordsByPattern } from './utils/word-search';
-import { Card, CardAction, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Item, ItemContent, ItemDescription, ItemGroup, ItemTitle } from '@/components/ui/item';
 import { Badge } from '@/components/ui/badge';
+import { ButtonGroup } from '@/components/ui/button-group';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 export function WordFinderClient() {
   const t = useTranslations('tools.wordFinder');
@@ -60,6 +60,9 @@ export function WordFinderClient() {
       : mode === 'pattern'
         ? t('noResults.pattern')
         : t('noResults.anagram');
+  const visibleGroups = resultsExpanded
+    ? result.groups
+    : result.groups.filter((group) => group.words.length > 0);
 
   function handleUseSample() {
     if (mode === 'pattern') {
@@ -76,14 +79,24 @@ export function WordFinderClient() {
         <Card>
           <CardHeader className="flex flex-wrap items-center gap-2">
             <p className="mr-auto text-sm leading-none font-medium">{t('inputTitle')}</p>
-            <ConversionModeToggle value={mode} options={modeOptions} onValueChange={setMode} />
+            <ButtonGroup>
+              {modeOptions.map((option) => (
+                <Button
+                  key={option.value}
+                  variant={mode === option.value ? 'default' : 'outline'}
+                  onClick={() => setMode(option.value)}
+                >
+                  {option.label}
+                </Button>
+              ))}
+            </ButtonGroup>
             <Button variant="outline" onClick={handleUseSample}>
               <RefreshCcw className="size-4" />
               {t('sampleButton')}
             </Button>
           </CardHeader>
 
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-4">
             <Item variant="muted">
               <ItemContent>
                 <ItemTitle>{t('inputRuleTitle')}</ItemTitle>
@@ -122,43 +135,47 @@ export function WordFinderClient() {
               </ItemContent>
             </Item>
 
-            <ItemGroup>
-              {result.totalMatches ? (
-                result.groups.map((group) => (
-                  <Item key={group.category} variant="outline">
+            <ScrollArea className={resultsExpanded ? 'max-h-none' : 'h-80 pr-3'}>
+              <ItemGroup>
+                {result.totalMatches ? (
+                  visibleGroups.map((group) => (
+                    <Item key={group.category} variant="outline">
+                      <ItemContent>
+                        <ItemTitle>{categoryLabels[group.category]}</ItemTitle>
+                        <ItemDescription className="mt-2 flex flex-wrap gap-2">
+                          {group.words.length
+                            ? group.words.map((word) => (
+                                <Badge
+                                  key={`${group.category}-${word}`}
+                                  className="tracking-[0.14em]"
+                                >
+                                  {word}
+                                </Badge>
+                              ))
+                            : t('emptyCategory')}
+                        </ItemDescription>
+                      </ItemContent>
+                      <ItemContent>
+                        <ItemDescription>
+                          <Badge
+                            variant="secondary"
+                            className="text-muted-foreground flex aspect-square items-center gap-1"
+                          >
+                            {group.words.length}
+                          </Badge>
+                        </ItemDescription>
+                      </ItemContent>
+                    </Item>
+                  ))
+                ) : (
+                  <Item variant="outline">
                     <ItemContent>
-                      <ItemTitle>{categoryLabels[group.category]}</ItemTitle>
-                      <ItemDescription className="mt-2 flex flex-wrap gap-2">
-                        {group.words.length
-                          ? group.words.map((word) => (
-                              <Badge
-                                key={`${group.category}-${word}`}
-                                className="tracking-[0.14em]"
-                              >
-                                {word}
-                              </Badge>
-                            ))
-                          : t('emptyCategory')}
-                      </ItemDescription>
-                    </ItemContent>
-                    <ItemContent>
-                      <ItemDescription>
-                        <Badge
-                          variant="secondary"
-                          className="text-muted-foreground flex aspect-square items-center gap-1"
-                        >
-                          {group.words.length}
-                        </Badge>
-                      </ItemDescription>
+                      <ItemDescription>{emptyMessage}</ItemDescription>
                     </ItemContent>
                   </Item>
-                ))
-              ) : (
-                <div className="tool-subpanel-inset text-sm">
-                  <p className="text-muted-foreground leading-6">{emptyMessage}</p>
-                </div>
-              )}
-            </ItemGroup>
+                )}
+              </ItemGroup>
+            </ScrollArea>
           </CardContent>
         </Card>
       </section>

@@ -70,17 +70,14 @@ export function BinaryConverterClient() {
             <p className="mr-auto text-sm leading-none font-medium">{t('inputTitle')}</p>
             <ButtonGroup>
               {modeOptions.map((option) => {
-                const active = option.value === mode;
-
                 return (
                   <Button
                     key={option.value}
-                    variant={active ? 'default' : 'outline'}
+                    variant={option.value === mode ? 'default' : 'outline'}
                     onClick={() => {
                       setMode(option.value);
                       setInput(samples[option.value]);
                     }}
-                    aria-pressed={active}
                   >
                     {option.label}
                   </Button>

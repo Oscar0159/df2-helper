@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  AlertCircle,
   ChevronDown,
   ChevronUp,
   Eraser,
@@ -29,9 +30,11 @@ import {
   toggleCrossCell,
   toggleSingleCell,
 } from './utils/lights-out-solver';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Item, ItemContent } from '@/components/ui/item';
+import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@/components/ui/item';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Alert, AlertTitle } from '@/components/ui/alert';
 
 const sizeOptions = [
   { rows: 2, cols: 3 },
@@ -231,9 +234,9 @@ export function LightsOutClient() {
         </Card>
       </div>
 
-      <section className="tool-panel space-y-4 xl:col-start-2 xl:row-start-1 xl:min-h-168">
-        <div className="flex items-start justify-between gap-3">
-          <p className="tool-section-title">{t('solutionTitle')}</p>
+      <Card>
+        <CardHeader className="flex items-center gap-2">
+          <p className="mr-auto text-sm leading-none font-medium">{t('solutionTitle')}</p>
           <Button
             type="button"
             variant="ghost"
@@ -247,113 +250,91 @@ export function LightsOutClient() {
             )}
             {solutionExpanded ? t('actions.collapseSolution') : t('actions.expandSolution')}
           </Button>
-        </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {!hasSolution ? (
+            <Alert variant="destructive" className="border-destructive/50 bg-destructive/10">
+              <AlertCircle />
+              <AlertTitle>{t('noSolution')}</AlertTitle>
+            </Alert>
+          ) : showSolution && solutionSteps.length > 0 ? (
+            <div className="space-y-4">
+              <Item variant="muted">
+                <ItemContent>
+                  <ItemTitle>{t('solutionCount', { count: solutionSteps.length })}</ItemTitle>
+                  <ItemDescription>{t('solutionHint')}</ItemDescription>
+                </ItemContent>
+              </Item>
 
-        {!hasSolution ? (
-          <div className="tool-feedback-danger">{t('noSolution')}</div>
-        ) : showSolution && solutionSteps.length > 0 ? (
-          <div className="space-y-4">
-            <div className="tool-subpanel">
-              <p className="tool-section-label">
-                {t('solutionCount', { count: solutionSteps.length })}
-              </p>
-              <p className="mt-2 text-sm leading-6">{t('solutionHint')}</p>
+              {solutionExpanded ? (
+                <ScrollArea type="auto" className="h-80 max-h-80 pr-4">
+                  <div className="space-y-2">
+                    {solutionSteps.map((step) => (
+                      <Item key={`${step.row}-${step.col}`} variant="outline">
+                        <ItemMedia>
+                          <Badge className="aspect-square size-8 text-sm font-semibold">
+                            {step.index}
+                          </Badge>
+                        </ItemMedia>
+                        <ItemContent>
+                          <ItemTitle>
+                            {t('stepLabel', {
+                              row: step.row + 1,
+                              col: step.col + 1,
+                            })}
+                          </ItemTitle>
+                        </ItemContent>
+                      </Item>
+                    ))}
+                  </div>
+                </ScrollArea>
+              ) : (
+                <div className="grid gap-2">
+                  {previewSteps.map((step) => (
+                    <Item key={`${step.row}-${step.col}`} variant="outline">
+                      <ItemMedia>
+                        <Badge className="aspect-square size-8 text-sm font-semibold">
+                          {step.index}
+                        </Badge>
+                      </ItemMedia>
+                      <ItemContent>
+                        <ItemTitle>
+                          {t('stepLabel', {
+                            row: step.row + 1,
+                            col: step.col + 1,
+                          })}
+                        </ItemTitle>
+                      </ItemContent>
+                    </Item>
+                  ))}
+
+                  {solutionSteps.length > previewSteps.length ? (
+                    <p className="text-muted-foreground px-1 text-sm">
+                      {t('solutionCollapsedHint', {
+                        count: solutionSteps.length - previewSteps.length,
+                      })}
+                    </p>
+                  ) : null}
+                </div>
+              )}
             </div>
-
-            {solutionExpanded ? (
-              <div className="grid max-h-80 gap-2 overflow-auto pr-1 xl:max-h-144">
-                {solutionSteps.map((step) => (
-                  <div
-                    key={`${step.row}-${step.col}`}
-                    className={cn(
-                      'tool-subpanel-inset flex items-center gap-3',
-                      step.index === 1 && 'ring-primary/60 ring-2',
-                    )}
-                  >
-                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
-                      {step.index}
-                    </span>
-                    <span className="text-sm font-medium">
-                      {t('stepLabel', {
-                        row: step.row + 1,
-                        col: step.col + 1,
-                      })}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="grid gap-2">
-                {previewSteps.map((step) => (
-                  <div
-                    key={`${step.row}-${step.col}`}
-                    className={cn(
-                      'tool-subpanel-inset flex items-center gap-3',
-                      step.index === 1 && 'ring-primary/60 ring-2',
-                    )}
-                  >
-                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold">
-                      {step.index}
-                    </span>
-                    <span className="text-sm font-medium">
-                      {t('stepLabel', {
-                        row: step.row + 1,
-                        col: step.col + 1,
-                      })}
-                    </span>
-                  </div>
-                ))}
-
-                {solutionSteps.length > previewSteps.length ? (
-                  <p className="text-muted-foreground px-1 text-sm">
-                    {t('solutionCollapsedHint', {
-                      count: solutionSteps.length - previewSteps.length,
-                    })}
-                  </p>
-                ) : null}
-              </div>
-            )}
-          </div>
-        ) : (
-          <div className="tool-feedback-empty">
-            {showSolution ? t('alreadySolved') : t('solutionHidden')}
-          </div>
-        )}
-
-        <div className="tool-subpanel-inset text-sm leading-6">
-          <p className="font-medium">{t('rulesTitle')}</p>
-          <p className="text-muted-foreground mt-2">{t('rulesDescription')}</p>
-        </div>
-      </section>
+          ) : (
+            <Item variant="muted">
+              <ItemContent>
+                <ItemDescription>
+                  {showSolution ? t('alreadySolved') : t('solutionHidden')}
+                </ItemDescription>
+              </ItemContent>
+            </Item>
+          )}
+          <Item variant="outline">
+            <ItemContent>
+              <ItemTitle>{t('rulesTitle')}</ItemTitle>
+              <ItemDescription>{t('rulesDescription')}</ItemDescription>
+            </ItemContent>
+          </Item>
+        </CardContent>
+      </Card>
     </div>
-  );
-}
-
-function ActionButton({
-  icon: Icon,
-  label,
-  onClick,
-  active = false,
-  activeVariant = 'default',
-  className,
-}: {
-  icon: typeof Shuffle;
-  label: string;
-  onClick: () => void;
-  active?: boolean;
-  activeVariant?: 'default' | 'destructive';
-  className?: string;
-}) {
-  return (
-    <Button
-      type="button"
-      variant={active ? activeVariant : 'outline'}
-      onClick={onClick}
-      className={cn('justify-start', className)}
-      aria-label={label}
-    >
-      <Icon className="size-4" />
-      {label}
-    </Button>
   );
 }

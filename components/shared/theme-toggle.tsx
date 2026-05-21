@@ -11,7 +11,7 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -22,7 +22,7 @@ export default function ThemeToggle() {
   }
 
   const toggleTheme = async () => {
-    const rect = buttonRef.current?.getBoundingClientRect();
+    const rect = divRef.current?.getBoundingClientRect();
 
     const isDark = resolvedTheme === 'dark';
     const nextTheme = isDark ? 'light' : 'dark';
@@ -59,8 +59,8 @@ export default function ThemeToggle() {
   };
 
   return (
-    <motion.button
-      ref={buttonRef}
+    <motion.div
+      ref={divRef}
       onClick={toggleTheme}
       initial={{ opacity: 0.9 }}
       whileHover={{ opacity: 1 }}
@@ -79,7 +79,9 @@ export default function ThemeToggle() {
             transition={{ type: 'tween', stiffness: 100, duration: 0.3 }}
             key={resolvedTheme}
           >
-            <Moon />
+            <Button variant={null}>
+              <Moon />
+            </Button>
           </motion.div>
         ) : (
           <motion.div
@@ -90,10 +92,12 @@ export default function ThemeToggle() {
             transition={{ type: 'tween', stiffness: 100, duration: 0.3 }}
             key={resolvedTheme}
           >
-            <Sun />
+            <Button variant={null}>
+              <Sun />
+            </Button>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.button>
+    </motion.div>
   );
 }
