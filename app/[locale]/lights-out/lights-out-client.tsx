@@ -50,6 +50,10 @@ function getCellSizeClass(rows: number, cols: number) {
   if (largerSide >= 5) {
     return 'size-15 sm:size-18';
   }
+  
+  if (cols >= 4) {
+    return 'size-13 sm:size-16';
+  }
 
   if (largerSide === 4) {
     return 'size-15 sm:size-18';
