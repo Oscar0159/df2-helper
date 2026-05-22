@@ -39,6 +39,20 @@
   "breadcrumbs": {
     "home": "Home"
   },
+  "notFound": {
+    "badge": "404",
+    "title": "Page not found",
+    "description": "This locale route does not have matching content, or the requested resource was marked as not found.",
+    "globalDescription": "The URL does not match any route in this app. Start again from the detected locale, or switch to the other language.",
+    "primaryAction": "Go to home",
+    "secondaryAction": "Browse tools",
+    "metadataTitle": "404 | DF2 Helper",
+    "metadataDescription": "The page you are looking for does not exist.",
+    "switchLocale": {
+      "en-US": "Go to English home",
+      "zh-TW": "Go to Traditional Chinese home"
+    }
+  },
   "header": {
     "searchLabel": "Search",
     "searchSuffix": "tools and links...",

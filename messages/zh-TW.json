@@ -39,6 +39,20 @@
   "breadcrumbs": {
     "home": "首頁"
   },
+  "notFound": {
+    "badge": "404",
+    "title": "找不到這個頁面",
+    "description": "這個語系路由下沒有對應內容，或是你要求的資源已被標記為不存在。",
+    "globalDescription": "這個網址沒有對應到站內任何路由。你可以回到目前偵測到的語系首頁，或切換到另一種語言。",
+    "primaryAction": "返回首頁",
+    "secondaryAction": "查看工具列表",
+    "metadataTitle": "404 | DF2 Helper",
+    "metadataDescription": "你要找的頁面不存在。",
+    "switchLocale": {
+      "en-US": "前往英文首頁",
+      "zh-TW": "前往繁中首頁"
+    }
+  },
   "header": {
     "searchLabel": "搜尋",
     "searchSuffix": "工具與連結...",
