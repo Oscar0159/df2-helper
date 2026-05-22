@@ -52,7 +52,7 @@ function getCellSizeClass(rows: number, cols: number) {
   }
 
   if (largerSide === 4) {
-    return 'size-17 sm:size-22';
+    return 'size-15 sm:size-18';
   }
 
   return 'size-20 sm:size-24';
