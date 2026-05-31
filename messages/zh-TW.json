@@ -54,6 +54,7 @@
     }
   },
   "header": {
+    "previewLabel": "預覽",
     "searchLabel": "搜尋",
     "searchSuffix": "工具與連結...",
     "dialogTitle": "搜尋工具",
