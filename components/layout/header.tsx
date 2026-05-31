@@ -18,7 +18,7 @@ export function Header() {
   const resources = getExternalResourceMeta(resourceMeta);
   const officialResources = resources.filter((resource) => resource.category === 'official');
   const unofficialResources = resources.filter((resource) => resource.category === 'unofficial');
-  const isPreview = process.env.VERCEL_ENV !== 'production';
+  const isPreview = process.env.NODE_ENV !== 'production' || process.env.VERCEL_ENV === 'preview';
 
   return (
     <header className="bg-background sticky top-0 z-30 py-3">
