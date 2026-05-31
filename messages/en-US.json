@@ -54,6 +54,7 @@
     }
   },
   "header": {
+    "previewLabel": "Preview",
     "searchLabel": "Search",
     "searchSuffix": "tools and links...",
     "dialogTitle": "Search tools",

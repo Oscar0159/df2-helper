@@ -6,3 +6,7 @@ allowBuilds:
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+overrides:
+  postcss: '^8.5.10'
+  qs: '^6.15.2'
+  
