@@ -20,6 +20,7 @@ import {
   CommandSeparator,
 } from '@/components/ui/command';
 import { Kbd, KbdGroup } from '@/components/ui/kbd';
+import { Badge } from '@/components/ui/badge';
 import { Link, useRouter } from '@/i18n/navigation';
 import { getExternalResourceMeta } from '@/lib/external-resource-meta';
 import { getToolMeta } from '@/lib/tool-meta';
@@ -70,6 +71,11 @@ export function Header() {
           >
             <AppLogoMark variant="header" />
             <AppLogoWordmark variant="header" />
+            {process.env.VERCEL_ENV !== 'production' && (
+              <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400">
+                preview
+              </Badge>
+            )}
           </Link>
 
           <Button
