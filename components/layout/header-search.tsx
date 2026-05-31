@@ -123,7 +123,7 @@ export function HeaderSearch({
                     key={resource.id}
                     onSelect={() => {
                       setIsSearchOpen(false);
-                      window.open(resource.href, '_blank', 'noreferrer');
+                      window.open(resource.href, '_blank', 'noopener,noreferrer');
                     }}
                   >
                     <span>{resource.label}</span>
